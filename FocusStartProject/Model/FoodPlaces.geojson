@@ -1,0 +1,1392 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "9 W 53rd St, New York, NY 10019",
+        "descriptionText": "The Modern is a two Michelin-starred, contemporary American restaurant at the Museum of Modern Art, featuring three separate experiences.",
+        "imagefile": "https://static01.nyt.com/images/2013/03/27/dining/20130327-REST-slide-O11V/20130327-REST-slide-O11V-jumbo.jpg",
+        "discipline": "Ресторан",
+        "title": "The Modern",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9778891,
+          40.7615475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "1651 Broadway, New York, NY 10019",
+        "descriptionText": "Информация о McDonald's at 1651 Broadway!",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9815548,
+          40.7623976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "390 8th Ave, New York, NY 10001",
+        "descriptionText": "Информация о Taco Bell!",
+        "imagefile": "https://s03.s3c.es/imag/_v0/770x420/7/e/c/Taco-Bell.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "Taco Bell",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9953844,
+          40.7504454
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "151 W 34th St, New York, NY 1000",
+        "descriptionText": "Информация о Macys Herald Café!",
+        "imagefile": "https://s3-media0.fl.yelpcdn.com/bphoto/K3FhoDZJE8U6su_Xi9Gkrg/348s.jpg",
+        "discipline": "Кафе",
+        "title": "Macys Herald Café",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9879626,
+          40.7505382
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "66 Hicks St, Brooklyn, NY 11201",
+        "descriptionText": "Информация о Jack the Horse Tavern",
+        "imagefile": "https://i.pinimg.com/originals/43/5c/89/435c8902ca9ccda42238ca5cb63ada1d.jpg",
+        "discipline": "Ресторан",
+        "title": "Jack the Horse Tavern",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99595,
+          40.7000427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "938 8th Ave, New York, NY 10019",
+        "descriptionText": "Информация о Wendy's at 938 8th Ave",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/zh/thumb/6/66/Wendy%27s_logo_2012.svg/1200px-Wendy%27s_logo_2012.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Wendy's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.981883,
+          40.767600
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "14 E 47th St, New York, NY 10017",
+        "descriptionText": "Информация о McDonald's at 14 E 47th St",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.977271,
+          40.759622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "1499 3rd Ave, New York, NY 10028",
+        "descriptionText": "Информация о McDonald's at 1499 3rd Ave",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.954431,
+          40.780427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "2549 Broadway, New York, NY 10025",
+        "descriptionText": "Информация о McDonald's at 2549 Broadway",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.970233,
+          40.798878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "2726 Broadway, New York, NY 10025",
+        "descriptionText": "Информация о McDonald's at 2726 Broadway",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9811254,
+          40.782781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "2142 3rd Ave, New York, NY 10035",
+        "descriptionText": "Информация о McDonald's at 2142 3rd Ave",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.941394,
+          40.802647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "966 3rd Ave, New York, NY 10022",
+        "descriptionText": "Информация о McDonald's at 966 3rd Ave",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9961435,
+          40.7516603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "480 3rd Ave, New York, NY 10016",
+        "descriptionText": "Информация о McDonald's at 480 3rd Ave",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9880981,
+          40.741467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "686 6th Ave, New York, NY 10010",
+        "descriptionText": "Информация о McDonald's at 686 6th Ave",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.993602,
+          40.743637
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "2049 Broadway, New York, NY 10023",
+        "descriptionText": "Информация о McDonald's at 2049 Broadway",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.982592,
+          40.779383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "946 8th Ave, New York, NY 10019",
+        "descriptionText": "Информация о McDonald's at 946 8th Ave",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.984137,
+          40.769243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "946 8th Ave, New York, NY 10019",
+        "descriptionText": "Информация о McDonald's at 946 8th Ave",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.984137,
+          40.769243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "220 W 42nd St, New York, NY 10036",
+        "descriptionText": "Информация о McDonald's at 220 W 42nd St",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.987914,
+          40.760402
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "18 E 42nd St, New York, NY 10017",
+        "descriptionText": "Информация о McDonald's at 18 E 42nd St",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.980361,
+          40.755591
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "972 6th Ave, New York, NY 10018",
+        "descriptionText": "Информация о McDonald's at 972 6th Ave",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.986861,
+          40.752361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "335 8th Ave, New York, NY 10001",
+        "descriptionText": "Информация о McDonald's at 335 8th Ave",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.997177,
+          40.749086
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "809 6th Ave, New York, NY 10001",
+        "descriptionText": "Информация о McDonald's at 809 6th Ave",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990300,
+          40.748044
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "39 Union Square W, New York, NY 10003",
+        "descriptionText": "Информация о McDonald's at 39 Union Square W",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990300,
+          40.738739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "724 Broadway, New York, NY 10003",
+        "descriptionText": "Информация о McDonald's at 724 Broadway",
+        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
+        "discipline": "Фаст-фуд",
+        "title": "McDonald's",
+        "distance": 0,
+        "isSale":true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.993149,
+          40.730177
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "2121 3rd Ave, New York, NY 10029",
+        "descriptionText": "Информация о Wendy's at 2121 3rd Ave",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/zh/thumb/6/66/Wendy%27s_logo_2012.svg/1200px-Wendy%27s_logo_2012.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Wendy's",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.940684,
+          40.801394
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "714 3rd Ave, New York, NY 10017",
+        "descriptionText": "Информация о Wendy's at 714 3rd Ave",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/zh/thumb/6/66/Wendy%27s_logo_2012.svg/1200px-Wendy%27s_logo_2012.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Wendy's",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.974673,
+          40.754467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "335 5th Ave, New York, NY 10016",
+        "descriptionText": "Информация о Wendy's at 335 5th Ave",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/zh/thumb/6/66/Wendy%27s_logo_2012.svg/1200px-Wendy%27s_logo_2012.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Wendy's",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.984794,
+          40.750306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "20 E 14th St, New York, NY 10003",
+        "descriptionText": "Информация о Wendy's at 20 E 14th St",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/zh/thumb/6/66/Wendy%27s_logo_2012.svg/1200px-Wendy%27s_logo_2012.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Wendy's",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.992659,
+          40.735926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "650 Broadway, New York, NY 10012",
+        "descriptionText": "Информация о Wendy's at 650 Broadway",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/zh/thumb/6/66/Wendy%27s_logo_2012.svg/1200px-Wendy%27s_logo_2012.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Wendy's",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.995252,
+          40.729312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "4416 Queens Blvd, Queens, NY 11104",
+        "descriptionText": "Информация о Wendy's at 4416 Queens Blvd, Queens",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/zh/thumb/6/66/Wendy%27s_logo_2012.svg/1200px-Wendy%27s_logo_2012.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Wendy's",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.919089,
+          40.746372
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "85 Nassau St, New York, NY 10038",
+        "descriptionText": "Информация о Wendy's at 85 Nassau St",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/zh/thumb/6/66/Wendy%27s_logo_2012.svg/1200px-Wendy%27s_logo_2012.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Wendy's",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.008802,
+          40.713408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "4 South St Space 2, New York, NY 10004",
+        "descriptionText": "Информация о Wendy's at 4 South St Space 2",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/zh/thumb/6/66/Wendy%27s_logo_2012.svg/1200px-Wendy%27s_logo_2012.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Wendy's",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.012235,
+          40.704559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "327 W 42nd St, New York, NY 10036",
+        "descriptionText": "Информация о Burger King at 327 W 42nd St",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3a/Burger_King_Logo.svg/1200px-Burger_King_Logo.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Burger King",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9912621,
+          40.762083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "474 7th Ave, New York, NY 10018",
+        "descriptionText": "Информация о Burger King at 474 7th Ave",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3a/Burger_King_Logo.svg/1200px-Burger_King_Logo.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Burger King",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990964,
+          40.753553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "1313 Broadway, New York, NY 10001",
+        "descriptionText": "Информация о Burger King at 1313 Broadway",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3a/Burger_King_Logo.svg/1200px-Burger_King_Logo.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Burger King",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.988188,
+          40.750285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "106 Fulton St, New York, NY 10038",
+        "descriptionText": "Информация о Burger King at 106 Fulton St",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3a/Burger_King_Logo.svg/1200px-Burger_King_Logo.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Burger King",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.007293,
+          40.713853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "106 Liberty St, New York, NY 10006",
+        "descriptionText": "Информация о Burger King at 106 Liberty St",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3a/Burger_King_Logo.svg/1200px-Burger_King_Logo.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Burger King",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.013130,
+          40.712291
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "16 Beaver St, New York, NY 10004",
+        "descriptionText": "Информация о Burger King at 16 Beaver St",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3a/Burger_King_Logo.svg/1200px-Burger_King_Logo.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Burger King",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.013608,
+          40.705901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "30 Mall Dr W, Jersey City, NJ 07310",
+        "descriptionText": "Информация о Burger King at 30 Mall Dr W, Jersey City, NJ ",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3a/Burger_King_Logo.svg/1200px-Burger_King_Logo.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Burger King",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.039556,
+          40.729209
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "3310 21st St, Queens, NY 11106",
+        "descriptionText": "Информация о Burger King at 3310 21st St, Queens",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3a/Burger_King_Logo.svg/1200px-Burger_King_Logo.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Burger King",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.932870,
+          40.767804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "3310 Astoria Blvd, Queens, NY 11103",
+        "descriptionText": "Информация о Burger King at 3310 Astoria Blvd, Queens",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3a/Burger_King_Logo.svg/1200px-Burger_King_Logo.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Burger King",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.916707,
+          40.771017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "54 W 14th St, New York, NY 10011",
+        "descriptionText": "Информация о Dairy Queen Grill & Chill at 54 W 14th St",
+        "imagefile": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Dairy_Queen_logo.svg/1200px-Dairy_Queen_logo.svg.png",
+        "discipline": "Фаст-фуд",
+        "title": "Dairy Queen Grill & Chill",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.995993,
+          40.737762
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "391 8th Ave, New York, NY 10001",
+        "descriptionText": "Информация о Dunkin’ Donuts at 391 8th Ave",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.996442,
+          40.751508
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "90 West St, New York, NY 10006",
+        "descriptionText": "Информация о Dunkin’ Donuts at 90 West St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.014552,
+          40.711975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "130 Church St, New York, NY 10007",
+        "descriptionText": "Информация о Dunkin’ Donuts at 130 Church St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.008930,
+          40.714585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "139 Centre St Unit 109, New York, NY 10013",
+        "descriptionText": "Информация о Dunkin’ Donuts at 139 Centre St Unit 109",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.000593,
+          40.717993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "303 Canal St, New York, NY 10013",
+        "descriptionText": "Информация о Dunkin’ Donuts at 303 Canal St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.002095,
+          40.720790
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "175 Varick St, New York, NY 10014",
+        "descriptionText": "Информация о Dunkin’ Donuts at 175 Varick St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.005442,
+          40.728076
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "132 Nassau St, New York, NY 10038",
+        "descriptionText": "Информация о Dunkin’ Donuts at 132 Nassau St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.006386,
+          40.711845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "200 Broadway, New York, NY 10038",
+        "descriptionText": "Информация о Dunkin’ Donuts at 200 Broadway",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.009176,
+          40.711422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "122 Fulton St, New York, NY 10038",
+        "descriptionText": "Информация о Dunkin’ Donuts at 122 Fulton St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.007717,
+          40.710674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "80 John St, New York, NY 10038",
+        "descriptionText": "Информация о Dunkin’ Donuts at 80 John St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.006901,
+          40.708592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "19 Rector St, New York, NY 10006",
+        "descriptionText": "Информация о Dunkin’ Donuts at 19 Rector St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.013682,
+          40.708787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "90 Broad St, New York, NY 10004",
+        "descriptionText": "Информация о Dunkin’ Donuts at 90 Broad St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.012051,
+          40.704818
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "2 Cortlandt St, New York, NY 10007",
+        "descriptionText": "Информация о Dunkin’ Donuts at 2 Cortlandt St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.010217,
+          40.710674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "381 Canal St, New York, NY 10013",
+        "descriptionText": "Информация о Dunkin’ Donuts at 381 Canal St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.004889,
+          40.722570
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "351 Grand St, New York, NY 10002",
+        "descriptionText": "Информация о Dunkin’ Donuts at 351 Grand St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.989868,
+          40.717659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "140 Delancey St, New York, NY 10002",
+        "descriptionText": "Информация о Dunkin’ Donuts at 140 Delancey St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.986950,
+          40.719058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "542 E 14th St, New York, NY 10009",
+        "descriptionText": "Информация о Dunkin’ Donuts at 542 E 14th St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.978496,
+          40.730115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "67 Cooper Sq, New York, NY 10003",
+        "descriptionText": "Информация о Dunkin’ Donuts at 67 Cooper Sq",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.989742,
+          40.729512
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "52 E 8th St, New York, NY 10003",
+        "descriptionText": "Информация о Dunkin’ Donuts at 52 E 8th St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.993862,
+          40.731853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "101 E 16th St, New York, NY 10003",
+        "descriptionText": "Информация о Dunkin’ Donuts at 101 E 16th St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.989012,
+          40.736568
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "127 E 23rd St, New York, NY 10010",
+        "descriptionText": "Информация о Dunkin’ Donuts at 127 E 23rd St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.985107,
+          40.740828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "412 3rd Ave, New York, NY 10016",
+        "descriptionText": "Информация о Dunkin’ Donuts at 412 3rd Ave",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.981244,
+          40.743104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "101 W 23rd St, New York, NY 10011",
+        "descriptionText": "Информация о Dunkin’ Donuts at 101 W 23rd St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.993003,
+          40.744112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "455 Park Ave S, New York, NY 10016",
+        "descriptionText": "Информация о Dunkin’ Donuts at 455 Park Ave S",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.982650,
+          40.745599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "302 5th Ave, New York, NY 10001",
+        "descriptionText": "Информация о Dunkin’ Donuts at 302 5th Ave",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.986046,
+          40.747574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "818 6th Ave, New York, NY 10001",
+        "descriptionText": "Информация о Dunkin’ Donuts at 818 6th Ave",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990652,
+          40.747009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "1235 Broadway, New York, NY 10001",
+        "descriptionText": "Информация о Dunkin’ Donuts at 1235 Broadway",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.988635,
+          40.747821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "153 W 36th St, New York, NY 10018",
+        "descriptionText": "Информация о Dunkin’ Donuts at 153 W 36th St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.988635,
+          40.753088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "42 W 39th St #52, New York, NY 10018",
+        "descriptionText": "Информация о Dunkin’ Donuts at 42 W 39th St #52",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.984773,
+          40.753283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "25 W 43rd St, New York, NY 10036",
+        "descriptionText": "Информация о Dunkin’ Donuts at 25 W 43rd St",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.981898,
+          40.755916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "52 Vanderbilt Ave, New York, NY 10017",
+        "descriptionText": "Информация о Dunkin’ Donuts at 52 Vanderbilt Ave",
+        "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
+        "discipline": "Кофейня",
+        "title": "Dunkin’ Donuts",
+        "distance": 0,
+        "isSale":false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.977362,
+          40.754311
+        ]
+      }
+    }
+  ]
+}

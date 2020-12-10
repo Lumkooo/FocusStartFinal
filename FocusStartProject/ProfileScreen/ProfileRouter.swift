@@ -1,0 +1,35 @@
+//
+//  ProfileRouter.swift
+//  FocusStartProject
+//
+//  Created by Андрей Шамин on 12/8/20.
+//
+
+import UIKit
+
+protocol IProfileRouter {
+    func showRegisterVC(delegate: ProfileDelegate)
+    func showLoginVC(delegate: ProfileDelegate)
+    func showAlertWithMessage(_ message: String)
+}
+
+final class ProfileRouter {
+    weak var vc: UIViewController?
+}
+
+extension ProfileRouter: IProfileRouter {
+    func showRegisterVC(delegate: ProfileDelegate){
+        let registerVC = RegisterVCAssembly.createRegisterVC(delegate: delegate)
+        self.vc?.navigationController?.pushViewController(registerVC, animated: true)
+    }
+
+    func showLoginVC(delegate: ProfileDelegate) {
+        let loginVC = LoginVCAssembly.createLoginVC(delegate: delegate)
+        self.vc?.navigationController?.pushViewController(loginVC, animated: true)
+    }
+
+    func showAlertWithMessage(_ message: String) {
+        let alert = AlertAssembly.createSimpleAlert(withMessage: message)
+        self.vc?.navigationController?.present(alert, animated: true)
+    }
+}

@@ -1,0 +1,814 @@
+{
+  "foodArray": [
+    {
+              "placeName": "McDonald's",
+              "foodName":"Вишнёвый пирожок",
+              "category":"Десерт",
+              "foodPrice": 15,
+              "imageURL":"https://mcdonalds.ru/resize/-x1020/upload/iblock/81f/Pirozhok-s-vishney.png",
+              "newFoodPrice":15,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Egg McMuffin",
+              "category":"Завтрак",
+              "foodPrice": 99,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Egg-McMuffin.jpg?$Product_Desktop$",
+              "newFoodPrice":79,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Bacon, Egg & Cheese Biscuit",
+              "category":"Завтрак",
+              "foodPrice": 149,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Bacon-Egg-Cheese-Biscuit-Regular-Size-Biscuit.jpg?$Product_Desktop$",
+              "newFoodPrice":149,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Sausage McMuffin®",
+              "category":"Завтрак",
+              "foodPrice": 149,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-McMuffin.jpg?$Product_Desktop$",
+              "newFoodPrice":149,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Sausage McMuffin® with Egg",
+              "category":"Завтрак",
+              "foodPrice": 179,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-McMuffin-with-Egg.jpg?$Product_Desktop$",
+              "newFoodPrice":179,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Sausage Biscuit",
+              "category":"Завтрак",
+              "foodPrice": 149,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-Biscuit-Regular-Size-Biscuit.jpg?$Product_Desktop$",
+              "newFoodPrice":149,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Sausage Biscuit with Egg",
+              "category":"Завтрак",
+              "foodPrice": 199,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-Biscuit-with-Egg-Regular-Size-Biscuit.jpg?$Product_Desktop$",
+              "newFoodPrice":199,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Bacon, Egg & Cheese McGriddles®",
+              "category":"Завтрак",
+              "foodPrice": 179,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Bacon-Egg-Cheese-McGriddles.jpg?$Product_Desktop$",
+              "newFoodPrice":179,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Sausage, Egg & Cheese McGriddles®",
+              "category":"Завтрак",
+              "foodPrice": 179,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-Egg-Cheese-McGriddles.jpg?$Product_Desktop$",
+              "newFoodPrice":179,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Hotcakes",
+              "category":"Завтрак",
+              "foodPrice": 79,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Hotcakes.jpg?$Product_Desktop$",
+              "newFoodPrice":79,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Hotcakes and Sausage",
+              "category":"Завтрак",
+              "foodPrice": 99,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Hotcakes-and-Sausage.jpg?$Product_Desktop$",
+              "newFoodPrice":99,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Fruit 'N Yogurt Parfait",
+              "category":"Завтрак",
+              "foodPrice": 99,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Fruit-n-Yogurt-Parfait.jpg?$Product_Desktop$",
+              "newFoodPrice":99,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Sausage Burrito",
+              "category":"Завтрак",
+              "foodPrice": 79,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-Burrito.jpg?$Product_Desktop$",
+              "newFoodPrice":79,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Hash Browns",
+              "category":"Завтрак",
+              "foodPrice": 39,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-HASH-BROWNS.jpg?$Product_Desktop$",
+              "newFoodPrice":39,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Coca-Cola®-S",
+              "category":"Напиток",
+              "foodPrice": 49,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Coca-Cola-Classic-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":49,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Coca-Cola®-XS",
+              "category":"Напиток",
+              "foodPrice": 39,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Coca-Cola-Classic-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":39,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Coca-Cola®-M",
+              "category":"Напиток",
+              "foodPrice": 69,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Coca-Cola-Classic-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Coca-Cola®-L",
+              "category":"Напиток",
+              "foodPrice": 89,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Coca-Cola-Classic-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small Sprite®-XS",
+              "category":"Напиток",
+              "foodPrice": 39,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sprite-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":39,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small Sprite®-S",
+              "category":"Напиток",
+              "foodPrice": 49,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sprite-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":49,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small Sprite®-M",
+              "category":"Напиток",
+              "foodPrice": 69,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sprite-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small Sprite®-L",
+              "category":"Напиток",
+              "foodPrice": 89,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sprite-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Fanta® Orange-X",
+              "category":"Напиток",
+              "foodPrice": 49,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-fanta-orange.jpg?$Product_Desktop$",
+              "newFoodPrice":49,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Fanta® Orange-M",
+              "category":"Напиток",
+              "foodPrice": 69,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-fanta-orange.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Fanta® Orange-L",
+              "category":"Напиток",
+              "foodPrice": 89,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-fanta-orange.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Dr Pepper®-XS",
+              "category":"Напиток",
+              "foodPrice": 39,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Dr-Pepper-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":39,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Dr Pepper®-S",
+              "category":"Напиток",
+              "foodPrice": 49,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Dr-Pepper-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":49,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Dr Pepper®-M",
+              "category":"Напиток",
+              "foodPrice": 69,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Dr-Pepper-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Dr Pepper®-L",
+              "category":"Напиток",
+              "foodPrice": 89,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Dr-Pepper-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small MIX by Sprite™ Tropic Berry-XS",
+              "category":"Напиток",
+              "foodPrice": 49,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-mix-by-sprite-tropicberry.jpg?$Product_Desktop$",
+              "newFoodPrice":49,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small MIX by Sprite™ Tropic Berry-S",
+              "category":"Напиток",
+              "foodPrice": 59,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-mix-by-sprite-tropicberry.jpg?$Product_Desktop$",
+              "newFoodPrice":59,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small MIX by Sprite™ Tropic Berry-M",
+              "category":"Напиток",
+              "foodPrice": 79,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-mix-by-sprite-tropicberry.jpg?$Product_Desktop$",
+              "newFoodPrice":79,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small MIX by Sprite™ Tropic Berry-L",
+              "category":"Напиток",
+              "foodPrice": 99,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-mix-by-sprite-tropicberry.jpg?$Product_Desktop$",
+              "newFoodPrice":99,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Diet Coke®-XS",
+              "category":"Напиток",
+              "foodPrice": 39,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Diet-Coke-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":39,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Diet Coke®-S",
+              "category":"Напиток",
+              "foodPrice": 49,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Diet-Coke-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":49,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Diet Coke®-M",
+              "category":"Напиток",
+              "foodPrice": 69,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Diet-Coke-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Diet Coke®-L",
+              "category":"Напиток",
+              "foodPrice": 89,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Diet-Coke-Small.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Chocolate Shake-S",
+              "category":"Напиток",
+              "foodPrice": 69,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chocolate-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Chocolate Shake-M",
+              "category":"Напиток",
+              "foodPrice": 89,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chocolate-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Chocolate Shake-L",
+              "category":"Напиток",
+              "foodPrice": 109,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chocolate-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":109,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Vanilla Shake-S",
+              "category":"Напиток",
+              "foodPrice": 69,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Vanilla-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Vanilla Shake-M",
+              "category":"Напиток",
+              "foodPrice": 89,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Vanilla-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Vanilla Shake-L",
+              "category":"Напиток",
+              "foodPrice": 109,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Vanilla-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":109,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Strawberry Shake-S",
+              "category":"Напиток",
+              "foodPrice": 69,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Strawberry-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Strawberry Shake-M",
+              "category":"Напиток",
+              "foodPrice": 89,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Strawberry-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Strawberry Shake-L",
+              "category":"Напиток",
+              "foodPrice": 109,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Strawberry-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":109,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Hot Chocolate-S",
+              "category":"Напиток",
+              "foodPrice": 69,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McCafe-Hot-Chocolate-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Hot Chocolate-M",
+              "category":"Напиток",
+              "foodPrice": 89,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McCafe-Hot-Chocolate-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Hot Chocolate-L",
+              "category":"Напиток",
+              "foodPrice": 109,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McCafe-Hot-Chocolate-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":109,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Iced Tea-XS",
+              "category":"Напиток",
+              "foodPrice": 39,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Iced-Tea-Large.jpg?$Product_Desktop$",
+              "newFoodPrice":39,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Iced Tea-S",
+              "category":"Напиток",
+              "foodPrice": 49,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Iced-Tea-Large.jpg?$Product_Desktop$",
+              "newFoodPrice":49,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Iced Tea-M",
+              "category":"Напиток",
+              "foodPrice": 69,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Iced-Tea-Large.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Iced Tea-L",
+              "category":"Напиток",
+              "foodPrice": 89,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Iced-Tea-Large.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Sweet Tea-XS",
+              "category":"Напиток",
+              "foodPrice": 39,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Iced-Tea-Large.jpg?$Product_Desktop$",
+              "newFoodPrice":39,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Sweet Tea-S",
+              "category":"Напиток",
+              "foodPrice": 49,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Iced-Tea-Large.jpg?$Product_Desktop$",
+              "newFoodPrice":49,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Sweet Tea-M",
+              "category":"Напиток",
+              "foodPrice": 69,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Iced-Tea-Large.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Sweet Tea-L",
+              "category":"Напиток",
+              "foodPrice": 89,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Iced-Tea-Large.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Reduced Sugar Low Fat Chocolate Milk Jug",
+              "category":"Напиток",
+              "foodPrice": 59,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Fat-Free-Chocolate-Milk-Jug.png?$Product_Desktop$",
+              "newFoodPrice":59,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"1% Low Fat Milk Jug",
+              "category":"Напиток",
+              "foodPrice": 59,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-1-Low-Fat-Milk-Jug.png?$Product_Desktop$",
+              "newFoodPrice":59,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"DASANI® Water",
+              "category":"Напиток",
+              "foodPrice": 59,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Dasani-Water.jpg?$Product_Desktop$",
+              "newFoodPrice":59,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Minute Maid® Premium Orange Juice-S",
+              "category":"Напиток",
+              "foodPrice": 59,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Minute-Maid-Orange-Juice-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":59,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Minute Maid® Premium Orange Juice-M",
+              "category":"Напиток",
+              "foodPrice": 79,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Minute-Maid-Orange-Juice-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":79,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Minute Maid® Premium Orange Juice-L",
+              "category":"Напиток",
+              "foodPrice": 99,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Minute-Maid-Orange-Juice-Medium.jpg?$Product_Desktop$",
+              "newFoodPrice":99,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small Minute Maid® Fruit Punch Slushie-S",
+              "category":"Напиток",
+              "foodPrice": 59,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-fruit-punch-slushie.jpg?$Product_Desktop$",
+              "newFoodPrice":59,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small Minute Maid® Fruit Punch Slushie-M",
+              "category":"Напиток",
+              "foodPrice": 79,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-fruit-punch-slushie.jpg?$Product_Desktop$",
+              "newFoodPrice":79,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small Minute Maid® Fruit Punch Slushie-L",
+              "category":"Напиток",
+              "foodPrice": 99,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-fruit-punch-slushie.jpg?$Product_Desktop$",
+              "newFoodPrice":99,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Honest Kids® Appley Ever After® Organic Juice Drink",
+              "category":"Напиток",
+              "foodPrice": 49,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-appley-ever-after.jpg?$Product_Desktop$",
+              "newFoodPrice":49,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small Minute Maid® Blue Raspberry Slushie-S",
+              "category":"Напиток",
+              "foodPrice": 49,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-blue-raspberry-slushie.jpg?$Product_Desktop$",
+              "newFoodPrice":49,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small Minute Maid® Blue Raspberry Slushie-M",
+              "category":"Напиток",
+              "foodPrice": 79,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-blue-raspberry-slushie.jpg?$Product_Desktop$",
+              "newFoodPrice":79,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Small Minute Maid® Blue Raspberry Slushie-L",
+              "category":"Напиток",
+              "foodPrice": 99,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-blue-raspberry-slushie.jpg?$Product_Desktop$",
+              "newFoodPrice":99,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Minute Maid Pink Lemonade Slushie-S",
+              "category":"Напиток",
+              "foodPrice": 49,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-pink-lemonade-slushie.jpg?$Product_Desktop$",
+              "newFoodPrice":39,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Minute Maid Pink Lemonade Slushie-M",
+              "category":"Напиток",
+              "foodPrice": 79,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-pink-lemonade-slushie.jpg?$Product_Desktop$",
+              "newFoodPrice":69,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Minute Maid Pink Lemonade Slushie-L",
+              "category":"Напиток",
+              "foodPrice": 99,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-pink-lemonade-slushie.jpg?$Product_Desktop$",
+              "newFoodPrice":89,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Big Mac®",
+              "category":"Бургеры",
+              "foodPrice": 199,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Big-Mac.jpg?$Product_Desktop$",
+              "newFoodPrice":199,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Quarter Pounder®* with Cheese",
+              "category":"Бургеры",
+              "foodPrice": 219,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Quarter-Pounder-with-Cheese.jpg?$Product_Desktop$",
+              "newFoodPrice":219,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Double Quarter Pounder®* with Cheese",
+              "category":"Бургеры",
+              "foodPrice": 249,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Double-Quarter-Pounder-with-Cheese.jpg?$Product_Desktop$",
+              "newFoodPrice":249,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Quarter Pounder®* with Cheese Deluxe",
+              "category":"Бургеры",
+              "foodPrice": 249,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-qpc-deluxe-burger.jpg?$Product_Desktop$",
+              "newFoodPrice":249,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"McDouble®",
+              "category":"Бургеры",
+              "foodPrice": 179,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McDouble.jpg?$Product_Desktop$",
+              "newFoodPrice":179,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Double Cheeseburger",
+              "category":"Бургеры",
+              "foodPrice": 199,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Double-Cheeseburger.jpg?$Product_Desktop$",
+              "newFoodPrice":199,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Hamburger",
+              "category":"Бургеры",
+              "foodPrice": 139,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Hamburger.jpg?$Product_Desktop$",
+              "newFoodPrice":139,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Chicken McNuggets®-4 Pieces",
+              "category":"Бургеры",
+              "foodPrice": 79,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-4pc.jpg?$Product_Desktop$",
+              "newFoodPrice":79,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Chicken McNuggets®-6 Pieces",
+              "category":"Бургеры",
+              "foodPrice": 99,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-6pc.jpg?$Product_Desktop$",
+              "newFoodPrice":99,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Chicken McNuggets®-10 Pieces",
+              "category":"Бургеры",
+              "foodPrice": 139,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-10pc.jpg?$Product_Desktop$",
+              "newFoodPrice":139,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Chicken McNuggets®-20 Pieces",
+              "category":"Бургеры",
+              "foodPrice": 199,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-20pc.jpg?$Product_Desktop$",
+              "newFoodPrice":199,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Chicken McNuggets®-40 Pieces",
+              "category":"Бургеры",
+              "foodPrice": 269,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-40pc.jpg?$Product_Desktop$",
+              "newFoodPrice":269,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Artisan Grilled Chicken Sandwich",
+              "category":"Бургеры",
+              "foodPrice": 219,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Artisan-Grilled-Chicken-Sandwich.jpg?$Product_Desktop$",
+              "newFoodPrice":219,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Buttermilk Crispy Chicken Sandwich",
+              "category":"Бургеры",
+              "foodPrice": 179,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Premium-Buttermilk-Crispy-Chicken-Deluxe-Sandwich.jpg?$Product_Desktop$",
+              "newFoodPrice":179,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"McChicken®",
+              "category":"Бургеры",
+              "foodPrice": 139,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McChicken.jpg?$Product_Desktop$",
+              "newFoodPrice":139,
+              "address": ""
+    },
+    {
+              "placeName": "McDonald's",
+              "foodName":"Filet-O-Fish®",
+              "category":"Комбо",
+              "foodPrice": 119,
+              "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McChicken.jpg?$Product_Desktop$",
+              "newFoodPrice":119,
+              "address": ""
+    },
+    {
+              "placeName": "Jack the Horse Tavern",
+              "foodName":"Strawberry lemonade",
+              "category":"Напиток",
+              "foodPrice": 70,
+              "imageURL":"https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/4/3/2/FNM_050112-Copy-That-002_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382541476428.jpeg",
+              "newFoodPrice":70,
+              "address": ""
+    }
+  ]
+}

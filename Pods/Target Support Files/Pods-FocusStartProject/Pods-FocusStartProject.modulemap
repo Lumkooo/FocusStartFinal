@@ -1,0 +1,6 @@
+framework module Pods_FocusStartProject {
+  umbrella header "Pods-FocusStartProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
