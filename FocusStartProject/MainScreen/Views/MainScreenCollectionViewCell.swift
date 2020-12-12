@@ -25,14 +25,6 @@ class MainScreenCollectionViewCell: UICollectionViewCell {
         static let screenHeight:CGFloat = UIScreen.main.bounds.height
     }
 
-    // MARK: - Fonts
-
-    private enum Fonts {
-        static let titleLabelFont = UIFont.systemFont(
-            ofSize: Constants.titleFontConstant * Constants.screenHeight
-            ,weight: .light)
-    }
-
     // MARK: - Properties
 
     static var reuseIdentifier: String {
@@ -63,7 +55,7 @@ class MainScreenCollectionViewCell: UICollectionViewCell {
     private var titleLabel: UILabel={
         let myLabel = UILabel()
         myLabel.textAlignment = .natural
-        myLabel.font = Fonts.titleLabelFont
+        myLabel.font = AppFonts.mainScreenCollectionViewCellLabelFont
         myLabel.textColor = .black
         myLabel.numberOfLines = 2
         return myLabel

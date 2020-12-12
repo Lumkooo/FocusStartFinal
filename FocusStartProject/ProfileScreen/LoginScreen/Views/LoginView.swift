@@ -25,18 +25,12 @@ final class LoginView: UIView {
         static let showPasswordImage = UIImage(systemName: "eye.slash.fill")
     }
 
-    // MARK: - Fonts
-
-    private enum Fonts {
-        static let topLabelFont = UIFont.systemFont(ofSize: 20, weight: .light)
-    }
-
     // MARK: - Views
 
     private let topLabel: UILabel = {
         let myLabel = UILabel()
         myLabel.text = "Вход в учетную запись"
-        myLabel.font = Fonts.topLabelFont
+        myLabel.font = AppFonts.titleLabelFont
         myLabel.textAlignment = .center
         return myLabel
     }()

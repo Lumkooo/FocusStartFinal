@@ -16,14 +16,19 @@ protocol IBasketInteractor {
 
 protocol IBasketInteractorOuter: class {
     func basketArrayIsEmpty()
+    func userIsnotSignedIn()
     func passFoodArrayToView(foodArray: [Food])
     func goToOneFoodVC(withFood food: Food)
-    func goToPurchasingVC(foodArray: [Food])
+    func goToPurchasingVC(delegate: IBasketScreenDelegate)
+}
+
+protocol IBasketScreenDelegate {
+    func reloadViewAfterPurchasing()
 }
 
 final class BasketInteractor {
     private var basketArray: [Food] = []
-    private var firebaseManager = FirebaseManager()
+    private var firebaseAuthManager = FirebaseAuthManager()
     weak var presenter: IBasketInteractorOuter?
 }
 
@@ -53,8 +58,10 @@ extension BasketInteractor: IBasketInteractor {
     func orderButtonTapped() {
         if self.basketArray.isEmpty {
             self.presenter?.basketArrayIsEmpty()
+        } else if !self.firebaseAuthManager.isSignedIn {
+            self.presenter?.userIsnotSignedIn()
         } else {
-            self.presenter?.goToPurchasingVC(foodArray: self.basketArray)
+            self.presenter?.goToPurchasingVC(delegate: self)
         }
     }
 }
@@ -68,5 +75,12 @@ private extension BasketInteractor {
         } else {
             self.presenter?.passFoodArrayToView(foodArray: self.basketArray)
         }
+    }
+}
+
+extension BasketInteractor: IBasketScreenDelegate {
+    func reloadViewAfterPurchasing() {
+        self.basketArray = BasketManager.sharedInstance.getBasketArray()
+        self.presenter?.passFoodArrayToView(foodArray: self.basketArray)
     }
 }

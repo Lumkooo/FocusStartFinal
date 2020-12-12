@@ -12,7 +12,7 @@ protocol IProfileView: class {
     var loginTapped:(()-> Void)? { get set }
     var logoutTapped: (() -> Void)? { get set }
 
-    func setupViewForAuthorizedUser(userEmail: String)
+    func setupViewForAuthorizedUser(userEmail: String, previousOrders: [HistoryOrderEntity])
     func setupViewForUnauthorizedUser()
 }
 // TODO: - Animated View вынести в отдельный класс AnimatedView
@@ -35,12 +35,6 @@ final class ProfileView: UIView {
         static let animationTime: Double = 0.5
     }
 
-    // MARK: - Fonts
-
-    private enum Fonts {
-        static let topLabelFont = UIFont.systemFont(ofSize: 20, weight: .light)
-    }
-
     // MARK: - authorizedView
 
     private lazy var authorizedView: UIView = {
@@ -53,15 +47,24 @@ final class ProfileView: UIView {
         myLabel.textAlignment = .center
         myLabel.numberOfLines = 3
         myLabel.text = "Вы вошли как:"
-        myLabel.font = Fonts.topLabelFont
+        myLabel.font = AppFonts.titleLabelFont
         return myLabel
     }()
 
     private lazy var authorizedRecordsListTitle: UILabel = {
         let myLabel = UILabel()
-        myLabel.text = "Список заказов:"
-        myLabel.font = Fonts.topLabelFont
+        myLabel.font = AppFonts.titleLabelFont
+        myLabel.numberOfLines = 0
         return myLabel
+    }()
+
+    private lazy var previousOrdersTableView: UITableView = {
+        let myTableView = UITableView()
+        myTableView.register(ProfileViewTableViewCell.self,
+                             forCellReuseIdentifier: ProfileViewTableViewCell.reuseIdentifier)
+        myTableView.rowHeight = UITableView.automaticDimension
+        myTableView.estimatedRowHeight = 80
+        return myTableView
     }()
 
 
@@ -82,7 +85,7 @@ final class ProfileView: UIView {
     private lazy var unauthorizedTopLabel: UILabel = {
         let myLabel = UILabel()
         myLabel.numberOfLines = 0
-        myLabel.font = Fonts.topLabelFont
+        myLabel.font = AppFonts.titleLabelFont
         myLabel.textAlignment = .center
         myLabel.text = "Вы не вошли в свой аккаунт\nСоздайте аккаунт или войдите в уже существующий"
         return myLabel
@@ -120,7 +123,7 @@ final class ProfileView: UIView {
     private lazy var animatedViewTopLabel: UILabel = {
         let myLabel = UILabel()
         myLabel.text = "С помощью:"
-        myLabel.font = Fonts.topLabelFont
+        myLabel.font = AppFonts.titleLabelFont
         return myLabel
     }()
 
@@ -141,6 +144,8 @@ final class ProfileView: UIView {
     var registerTapped:(()-> Void)?
     var loginTapped:(()-> Void)?
     var logoutTapped: (() -> Void)?
+    private var tableViewDataSource = ProfileScreenTableViewDataSource()
+    private var tableViewDelegate: ProfileScreenTableViewDelegate?
 
     // MARK: - Init
 
@@ -162,6 +167,7 @@ private extension ProfileView {
         self.setupAuthorizedTopTitle()
         self.setupAuthorizedRecordsListTitle()
         self.setupLogoutButton()
+        self.setupPreviousOrdersTableView()
     }
 
     func setupAuthorizedView() {
@@ -221,6 +227,24 @@ private extension ProfileView {
 
     @objc private func logoutButtonTapped(gesture:UIGestureRecognizer) {
         self.logoutTapped?()
+    }
+
+    func setupPreviousOrdersTableView() {
+        self.tableViewDelegate = ProfileScreenTableViewDelegate(withDelegate: self)
+        self.previousOrdersTableView.delegate = self.tableViewDelegate
+        self.previousOrdersTableView.dataSource = self.tableViewDataSource
+        self.authorizedView.addSubview(self.previousOrdersTableView)
+        self.previousOrdersTableView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.previousOrdersTableView.bottomAnchor.constraint(equalTo: self.logoutButton.topAnchor,
+                                                      constant: -Constants.anchorConstant),
+            self.previousOrdersTableView.leadingAnchor.constraint(equalTo: self.authorizedView.leadingAnchor),
+            self.previousOrdersTableView.trailingAnchor.constraint(equalTo: self.authorizedView.trailingAnchor),
+            self.previousOrdersTableView.topAnchor.constraint(
+                equalTo: self.authorizedRecordsListTitle.bottomAnchor,
+                constant: Constants.anchorConstant)
+        ])
     }
 }
 
@@ -313,11 +337,17 @@ private extension ProfileView {
 // MARK: - IProfileView
 
 extension ProfileView: IProfileView {
-    func setupViewForAuthorizedUser(userEmail: String) {
+    func setupViewForAuthorizedUser(userEmail: String, previousOrders: [HistoryOrderEntity]) {
         self.subviews.forEach { $0.removeFromSuperview() }
         self.setupAthorizedScreen()
         self.authorizedTopTitle.text = "Вы вошли как:\n\(userEmail)"
-        // MARK: - Загрузка записей из БД
+        if previousOrders.count == 0 {
+            self.authorizedRecordsListTitle.text = "После совершения заказов вы сможете увидеть здесь историю своих покупок"
+        } else {
+            self.authorizedRecordsListTitle.text = "Список заказов:"
+        }
+        self.tableViewDataSource.previousOrders = previousOrders
+        self.previousOrdersTableView.reloadData()
     }
 
     func setupViewForUnauthorizedUser() {
@@ -420,5 +450,13 @@ private extension ProfileView {
             self.closeAnimatedViewButton.heightAnchor.constraint(equalToConstant: Constants.animationViewCloseButtonSize.height),
             self.closeAnimatedViewButton.widthAnchor.constraint(equalToConstant: Constants.animationViewCloseButtonSize.width)
         ])
+    }
+}
+
+
+extension ProfileView: IProfileScreenTableViewDelegate {
+    func selectedCell(indexPath: IndexPath) {
+        self.previousOrdersTableView.deselectRow(at: indexPath, animated: true)
+        print("selected at", indexPath.row)
     }
 }

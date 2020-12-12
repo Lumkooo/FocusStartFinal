@@ -25,18 +25,12 @@ final class RegisterView: UIView {
         static let showPasswordImage = UIImage(systemName: "eye.slash.fill")
     }
 
-    // MARK: - Fonts
-
-    private enum Fonts {
-        static let topLabelFont = UIFont.systemFont(ofSize: 20, weight: .light)
-    }
-
     // MARK: - Views
 
     private let topLabel: UILabel = {
         let myLabel = UILabel()
         myLabel.text = "Регистрация"
-        myLabel.font = Fonts.topLabelFont
+        myLabel.font = AppFonts.titleLabelFont
         myLabel.textAlignment = .center
         return myLabel
     }()
@@ -151,11 +145,6 @@ private extension RegisterView {
         self.doneButtonBottomAnchor = self.doneButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.halfAnchorConstant)
     }
 
-    func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
-    }
-
     func setupTopLabel() {
         self.addSubview(self.topLabel)
         self.topLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -213,6 +202,10 @@ private extension RegisterView {
         ])
     }
 
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+    }
 
     @objc func keyboardWillShow(notification: NSNotification) {
         if !self.isKeyboardShowing {

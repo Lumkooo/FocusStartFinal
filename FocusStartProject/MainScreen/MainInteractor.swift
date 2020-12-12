@@ -56,10 +56,12 @@ extension MainInteractor: IUserLocationManager {
     // то обновим экран с ближайшими к нему местами
     func returnUserLocation(location: CLLocationCoordinate2D) {
         self.getInitData(withUserLocation: location)
+        print("get places withUserLocation")
     }
     
     func locationIsnotEnabled() {
-        print("locationIsnotEnabled")
+        // На случай какой-то обработки запрета на использование местоположения
+        // Например, выбор города
     }
 }
 

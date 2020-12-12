@@ -26,6 +26,11 @@ final class PurchasingViewController: UIViewController {
         self.title = "Продолжение покупки"
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.presenter.viewWillAppear()
+    }
+
     // MARK: - Init
 
     init(presenter: IPurchasingPresenter) {

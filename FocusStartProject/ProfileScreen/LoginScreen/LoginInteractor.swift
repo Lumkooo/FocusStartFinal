@@ -18,7 +18,7 @@ protocol ILoginInteractorOuter: class {
 
 final class LoginInteractor {
     weak var presenter: ILoginInteractorOuter?
-    private var firebaseManager = FirebaseManager()
+    private var firebaseAuthManager = FirebaseAuthManager()
     private var delegate: ProfileDelegate
 
     init(delegate: ProfileDelegate) {
@@ -28,7 +28,7 @@ final class LoginInteractor {
 
 extension LoginInteractor: ILoginInteractor {
     func logIn(loginEntitie: LoginEntitie) {
-        firebaseManager.signIn(loginEntitie: loginEntitie) {
+        firebaseAuthManager.signIn(loginEntitie: loginEntitie) {
             self.presenter?.successfullyLogedIn()
             self.delegate.reloadView()
         } errorCompletion: { (error) in

@@ -88,8 +88,7 @@ final class MapView: UIView {
     }
 
     @objc func userLocationButtonTapped(gesture: UIGestureRecognizer) {
-        didTappedUserLocationButton?()
-        //        self.userLocationButton.setImage(Constants.userLocationButtonImageFilled, for: .normal)
+        self.didTappedUserLocationButton?()
     }
 }
 
@@ -109,7 +108,7 @@ extension MapView: IMapView {
 
     private func selectSegmentControl(sender: UISegmentedControl) {
         guard let segmentControlTitle = segmentControl.titleForSegment(at: sender.selectedSegmentIndex) else {
-            assertionFailure("Seomthing went wrong")
+            assertionFailure("Something went wrong")
             return
         }
         self.didSelectSegmentControl?(segmentControlTitle)

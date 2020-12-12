@@ -56,8 +56,8 @@ extension ProfilePresenter: IProfilePresenter {
 // MARK: - IProfileInteractorOuter
 
 extension ProfilePresenter: IProfileInteractorOuter {
-    func setupViewForAuthorizedUser(userEmail: String) {
-        self.ui?.setupViewForAuthorizedUser(userEmail: userEmail)
+    func setupViewForAuthorizedUser(userEmail: String, previousOrders: [HistoryOrderEntity]) {
+        self.ui?.setupViewForAuthorizedUser(userEmail: userEmail, previousOrders: previousOrders)
     }
 
     func setupViewForUnauthorizedUser() {

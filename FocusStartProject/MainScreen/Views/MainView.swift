@@ -22,18 +22,12 @@ final class MainView: UIView {
         static let collectionViewSectionInset: CGFloat = 16
     }
 
-    // MARK: - Fonts
-
-    private enum Fonts {
-        static let nearestPlacesLabelFont = UIFont.systemFont(ofSize: 24, weight: .semibold)
-    }
-
     // MARK: - Views
 
     private let nearestPlacesLabel: UILabel={
         let myLabel = UILabel()
         myLabel.text = "Ближайшие места:"
-        myLabel.font = Fonts.nearestPlacesLabelFont
+        myLabel.font = AppFonts.largeTitleLabelFont
         return myLabel
     }()
 

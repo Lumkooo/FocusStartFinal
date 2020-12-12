@@ -10,7 +10,7 @@ import UIKit
 protocol IBasketRouter {
     func showAlertWithMessage(_ message: String)
     func showFoodVC(withFood food: Food)
-    func showPurchasingVC(foodArray: [Food])
+    func showPurchasingVC(delegate: IBasketScreenDelegate)
 }
 
 final class BasketRouter {
@@ -31,8 +31,8 @@ extension BasketRouter: IBasketRouter {
         self.vc?.navigationController?.present(oneFoodVC, animated: false)
     }
 
-    func showPurchasingVC(foodArray: [Food]) {
-        let purchasingVC = PurchasingVCAssembly.createVC(foodArray: foodArray)
+    func showPurchasingVC(delegate: IBasketScreenDelegate) {
+        let purchasingVC = PurchasingVCAssembly.createVC(delegate: delegate)
         self.vc?.navigationController?.pushViewController(purchasingVC,
                                                           animated: true)
     }

@@ -18,7 +18,7 @@ protocol IRegisterInteractorOuter: class {
 
 final class RegisterInteractor {
     weak var presenter: IRegisterInteractorOuter?
-    private let firebaseManager = FirebaseManager()
+    private let firebaseAuthManager = FirebaseAuthManager()
     private var delegate: ProfileDelegate
 
     init(delegate: ProfileDelegate) {
@@ -28,7 +28,7 @@ final class RegisterInteractor {
 
 extension RegisterInteractor: IRegisterInteractor {
     func createUser(loginEntitie: LoginEntitie) {
-        firebaseManager.createUser(loginEntitie: loginEntitie) {
+        firebaseAuthManager.createUser(loginEntitie: loginEntitie) {
             self.presenter?.successfullyRegistered()
             self.delegate.reloadView()
         } errorCompletion: { (error) in

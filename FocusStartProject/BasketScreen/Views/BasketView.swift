@@ -25,18 +25,12 @@ final class BasketView: UIView {
         static let orderButtonHeight: CGFloat = 50
     }
 
-    // MARK: - Fonts
-
-    private enum Fonts {
-        static let labelsFont = UIFont.systemFont(ofSize: 20, weight: .light)
-    }
-
     // MARK: - Views
 
     private var topLabel: UILabel = {
         let myLabel = UILabel()
         myLabel.text = "Список добавленных товаров:"
-        myLabel.font = Fonts.labelsFont
+        myLabel.font = AppFonts.titleLabelFont
         myLabel.numberOfLines = 0
         return myLabel
     }()

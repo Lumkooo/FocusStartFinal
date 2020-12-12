@@ -32,12 +32,6 @@ final class OneFoodView: UIView {
         static let closeViewButtonSize: CGSize = CGSize(width: 30, height: 30)
     }
 
-    // MARK: - Fonts
-
-    private enum Fonts {
-        static let labelsFont = UIFont.systemFont(ofSize: 24, weight: .light)
-    }
-
     // MARK: - Views
 
     private let containerView: UIView = {
@@ -61,27 +55,27 @@ final class OneFoodView: UIView {
     private var titleLabel: UILabel = {
         let myLabel = UILabel()
         myLabel.textAlignment = .center
-        myLabel.font = Fonts.labelsFont
+        myLabel.font = AppFonts.titleLabelFont
         myLabel.numberOfLines = 2
         return myLabel
     }()
 
     private var staticPriceLabel: UILabel={
         let myLabel = UILabel()
-        myLabel.font = Fonts.labelsFont
+        myLabel.font = AppFonts.titleLabelFont
         myLabel.text = "Цена: "
         return myLabel
     }()
 
     private var priceLabel: UILabel={
         let myLabel = UILabel()
-        myLabel.font = Fonts.labelsFont
+        myLabel.font = AppFonts.titleLabelFont
         return myLabel
     }()
 
     private var newPriceLabel: UILabel={
         let myLabel = UILabel()
-        myLabel.font = Fonts.labelsFont
+        myLabel.font = AppFonts.titleLabelFont
         return myLabel
     }()
 

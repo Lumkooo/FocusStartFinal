@@ -31,14 +31,6 @@ final class OnePlaceView: UIView {
         static let buttonShadowOpacity: Float = 1
     }
 
-    // MARK: - Fonts
-
-    private enum Fonts {
-        static let titleLabelFont = UIFont.systemFont(ofSize: 26, weight: .semibold)
-        static let subtitlesFonts = UIFont.systemFont(ofSize: 22, weight: .semibold)
-        static let otherLabelsFont = UIFont.systemFont(ofSize: 20)
-    }
-
     // MARK: - Views
 
     private let scrollView: UIScrollView={
@@ -55,7 +47,7 @@ final class OnePlaceView: UIView {
     private let titleLabel: UILabel={
         let myLabel = UILabel()
         myLabel.numberOfLines = 0
-        myLabel.font = Fonts.titleLabelFont
+        myLabel.font = AppFonts.largeTitleLabelFont
         return myLabel
     }()
 
@@ -63,14 +55,14 @@ final class OnePlaceView: UIView {
         let myLabel = UILabel()
         myLabel.numberOfLines = 0
         myLabel.text = "Информация о заведении:"
-        myLabel.font = Fonts.subtitlesFonts
+        myLabel.font = AppFonts.titleLabelFont
         return myLabel
     }()
 
     private let descriptionLabel: UILabel={
         let myLabel = UILabel()
         myLabel.numberOfLines = 0
-        myLabel.font = Fonts.otherLabelsFont
+        myLabel.font = AppFonts.titleLabelFont
         return myLabel
     }()
 
@@ -86,7 +78,7 @@ final class OnePlaceView: UIView {
         let myLabel = UILabel()
         myLabel.numberOfLines = 0
         myLabel.text = "Расположение заведения:"
-        myLabel.font = Fonts.subtitlesFonts
+        myLabel.font = AppFonts.titleLabelFont
         return myLabel
     }()
 

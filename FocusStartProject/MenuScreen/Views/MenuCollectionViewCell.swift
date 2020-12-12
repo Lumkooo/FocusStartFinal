@@ -25,17 +25,6 @@ final class MenuCollectionViewCell: UICollectionViewCell {
         static let screenHeight:CGFloat = UIScreen.main.bounds.height
     }
 
-    // MARK: - Fonts
-
-    private enum Fonts {
-        static let titleLabelFont = UIFont.systemFont(
-            ofSize: Constants.titleFontConstant * Constants.screenHeight
-            ,weight: .light)
-        static let priceLabelFont = UIFont.systemFont(
-            ofSize: Constants.priceFontConstant * Constants.screenHeight
-            ,weight: .light)
-    }
-
     // MARK: - Properties
 
     static var reuseIdentifier: String {
@@ -60,27 +49,27 @@ final class MenuCollectionViewCell: UICollectionViewCell {
 
     private var titleLabel: UILabel={
         let myLabel = UILabel()
-        myLabel.font = Fonts.titleLabelFont
+        myLabel.font = AppFonts.menuScreenCollectionViewCellTitleLabelFont
         myLabel.numberOfLines = 3
         return myLabel
     }()
 
     private var staticPriceLabel: UILabel={
         let myLabel = UILabel()
-        myLabel.font = Fonts.priceLabelFont
+        myLabel.font = AppFonts.menuScreenCollectionViewCellPriceLabelFont
         myLabel.text = "Цена: "
         return myLabel
     }()
 
     private var priceLabel: UILabel={
         let myLabel = UILabel()
-        myLabel.font = Fonts.priceLabelFont
+        myLabel.font = AppFonts.menuScreenCollectionViewCellPriceLabelFont
         return myLabel
     }()
 
     private var newPriceLabel: UILabel={
         let myLabel = UILabel()
-        myLabel.font = Fonts.priceLabelFont
+        myLabel.font = AppFonts.menuScreenCollectionViewCellPriceLabelFont
         return myLabel
     }()
 

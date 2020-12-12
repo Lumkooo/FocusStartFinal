@@ -13,7 +13,7 @@ protocol IProfileInteractor {
 }
 
 protocol IProfileInteractorOuter: class {
-    func setupViewForAuthorizedUser(userEmail: String)
+    func setupViewForAuthorizedUser(userEmail: String, previousOrders: [HistoryOrderEntity])
     func setupViewForUnauthorizedUser()
     func alertOccured(stringError: String)
 }
@@ -22,7 +22,8 @@ final class ProfileInteractor {
 
     // MARK: - Properties
 
-    private var firebaseManager = FirebaseManager()
+    private var firebaseAuthManager = FirebaseAuthManager()
+    private var firebaseDatabaseManager = FirebaseDatabaseManager()
     weak var presenter: IProfileInteractorOuter?
 }
 
@@ -34,7 +35,7 @@ extension ProfileInteractor: IProfileInteractor {
     }
 
     func logout() {
-        firebaseManager.logout {
+        firebaseAuthManager.logout {
             self.setupView()
         } errorCompletion: { (error) in
             self.presenter?.alertOccured(stringError: error.localizedDescription)
@@ -44,10 +45,13 @@ extension ProfileInteractor: IProfileInteractor {
 
 private extension ProfileInteractor {
     func setupView() {
-        if firebaseManager.isSignedIn {
+        if firebaseAuthManager.isSignedIn {
             // Показываем view-профиль пользователя
             let userEmail = self.getUserEmail()
-            self.presenter?.setupViewForAuthorizedUser(userEmail: userEmail)
+            self.getPreviousOrders { previousOrders in
+                self.presenter?.setupViewForAuthorizedUser(userEmail: userEmail,
+                                                           previousOrders: previousOrders)
+            }
         } else {
             // Показываем view с кнопками регистрации/авторизации
             self.presenter?.setupViewForUnauthorizedUser()
@@ -55,7 +59,16 @@ private extension ProfileInteractor {
     }
 
     func getUserEmail() -> String {
-        return firebaseManager.userEmail
+        return firebaseAuthManager.userEmail
+    }
+
+    func getPreviousOrders(completion: @escaping (([HistoryOrderEntity]) -> Void)) {
+        self.firebaseDatabaseManager.getOrders { previousOrders in
+            completion(previousOrders)
+        } errorCompletion: {
+            self.presenter?.alertOccured(stringError: "Приносим извинения, не удалось получить список ваших предыдущих заказов")
+            completion([])
+        }
     }
 }
 

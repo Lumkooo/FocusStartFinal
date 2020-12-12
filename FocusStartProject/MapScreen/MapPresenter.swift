@@ -31,11 +31,11 @@ extension MapPresenter: IMapPresenter {
             self?.interactor.getPlacesForDiscpline(segmentTitle)
         }
 
-        self.ui?.didTappedAnnotation={ [weak self] place in
+        self.ui?.didTappedAnnotation = { [weak self] place in
             self?.router.goToOnePlace(place)
         }
 
-        self.ui?.didTappedUserLocationButton={ [weak self] in
+        self.ui?.didTappedUserLocationButton = { [weak self] in
             self?.interactor.getUserLocation()
         }
 

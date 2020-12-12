@@ -8,8 +8,8 @@
 import UIKit
 
 enum PurchasingVCAssembly {
-    static func createVC(foodArray: [Food]) -> UIViewController {
-        let interactor = PurchasingInteractor(foodArray: foodArray)
+    static func createVC(delegate: IBasketScreenDelegate) -> UIViewController {
+        let interactor = PurchasingInteractor(delegate: delegate)
         let router = PurchasingRouter()
         let presenter = PurchasingPresenter(interactor: interactor,
                                             router: router)

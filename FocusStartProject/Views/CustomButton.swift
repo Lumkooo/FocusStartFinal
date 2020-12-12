@@ -19,7 +19,7 @@ final class CustomButton: UIButton {
     // MARK: - Fonts
 
     private enum Fonts {
-        static let buttonsFont = UIFont.systemFont(ofSize: 20, weight: .regular)
+        static let buttonFont = UIFont.systemFont(ofSize: 20, weight: .regular)
     }
 
     // MARK: - Init
@@ -31,7 +31,7 @@ final class CustomButton: UIButton {
         self.layer.cornerRadius = Constants.buttonCornerRadius
         self.layer.shadowOpacity = Constants.buttonShadowOpacity
         self.layer.shadowRadius = Constants.buttonShadowRadius
-        self.titleLabel?.font = Fonts.buttonsFont
+        self.titleLabel?.font = Fonts.buttonFont
         self.layer.shadowColor = UIColor.black.cgColor
     }
 
