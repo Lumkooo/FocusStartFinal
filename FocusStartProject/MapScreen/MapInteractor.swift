@@ -66,7 +66,7 @@ extension MapInteractor: IUserLocationManager {
         print("locationIsnotEnabled")
     }
 
-    func returnUserLocation(location: CLLocationCoordinate2D) {
+    func locationIsEnabled(location: CLLocationCoordinate2D) {
         self.userLocation = location
         self.presenter?.setupUserLocation(withLocation: location)
     }

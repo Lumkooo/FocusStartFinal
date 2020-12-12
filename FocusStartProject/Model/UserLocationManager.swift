@@ -10,7 +10,7 @@ import MapKit
 
 
 protocol IUserLocationManager: class {
-    func returnUserLocation(location: CLLocationCoordinate2D)
+    func locationIsEnabled(location: CLLocationCoordinate2D)
     func locationIsnotEnabled()
 }
 
@@ -42,6 +42,6 @@ final class UserLocationManager {
 
 extension UserLocationManager: IMapLocationManagerDelegate {
     func setupUserLocation(withLocation location: CLLocationCoordinate2D) {
-        self.delegate.returnUserLocation(location: location)
+        self.delegate.locationIsEnabled(location: location)
     }
 }

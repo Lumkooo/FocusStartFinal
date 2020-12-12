@@ -11,8 +11,10 @@ protocol IProfileView: class {
     var registerTapped:(()-> Void)? { get set }
     var loginTapped:(()-> Void)? { get set }
     var logoutTapped: (() -> Void)? { get set }
+    var cellTapped: ((IndexPath) -> Void)? { get set }
 
     func setupViewForAuthorizedUser(userEmail: String, previousOrders: [HistoryOrderEntity])
+    func reloadTableViewWithData(previousOrders: [HistoryOrderEntity])
     func setupViewForUnauthorizedUser()
 }
 // TODO: - Animated View вынести в отдельный класс AnimatedView
@@ -34,6 +36,15 @@ final class ProfileView: UIView {
         static let animatedViewBackgroundViewAlpha: CGFloat = 0.25
         static let animationTime: Double = 0.5
     }
+
+    // MARK: - Views
+
+    private let activityIndicator: UIActivityIndicatorView = {
+        let myActivityIndicatorView = UIActivityIndicatorView()
+        myActivityIndicatorView.hidesWhenStopped = true
+        myActivityIndicatorView.startAnimating()
+        return myActivityIndicatorView
+    }()
 
     // MARK: - authorizedView
 
@@ -144,6 +155,7 @@ final class ProfileView: UIView {
     var registerTapped:(()-> Void)?
     var loginTapped:(()-> Void)?
     var logoutTapped: (() -> Void)?
+    var cellTapped: ((IndexPath) -> Void)?
     private var tableViewDataSource = ProfileScreenTableViewDataSource()
     private var tableViewDelegate: ProfileScreenTableViewDelegate?
 
@@ -152,10 +164,25 @@ final class ProfileView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .systemBackground
+        self.setupActivityIndicator()
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Настройка activityIndicator-а, отображаемого при загрузке экрана
+
+private extension ProfileView {
+    func setupActivityIndicator() {
+        self.addSubview(self.activityIndicator)
+        self.activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
     }
 }
 
@@ -245,6 +272,11 @@ private extension ProfileView {
                 equalTo: self.authorizedRecordsListTitle.bottomAnchor,
                 constant: Constants.anchorConstant)
         ])
+    }
+
+    func reloadTableViewWith(_ previousOrders: [HistoryOrderEntity]) {
+        self.tableViewDataSource.previousOrders = previousOrders
+        self.previousOrdersTableView.reloadData()
     }
 }
 
@@ -346,8 +378,11 @@ extension ProfileView: IProfileView {
         } else {
             self.authorizedRecordsListTitle.text = "Список заказов:"
         }
-        self.tableViewDataSource.previousOrders = previousOrders
-        self.previousOrdersTableView.reloadData()
+        self.reloadTableViewWith(previousOrders)
+    }
+
+    func reloadTableViewWithData(previousOrders: [HistoryOrderEntity]) {
+        self.reloadTableViewWith(previousOrders)
     }
 
     func setupViewForUnauthorizedUser() {
@@ -453,10 +488,11 @@ private extension ProfileView {
     }
 }
 
+// MARK: - IProfileScreenTableViewDelegate
 
 extension ProfileView: IProfileScreenTableViewDelegate {
     func selectedCell(indexPath: IndexPath) {
         self.previousOrdersTableView.deselectRow(at: indexPath, animated: true)
-        print("selected at", indexPath.row)
+        self.cellTapped?(indexPath)
     }
 }

@@ -33,6 +33,13 @@ final class OnePlaceView: UIView {
 
     // MARK: - Views
 
+    private let activityIndicator: UIActivityIndicatorView = {
+        let myActivityIndicatorView = UIActivityIndicatorView()
+        myActivityIndicatorView.hidesWhenStopped = true
+        myActivityIndicatorView.startAnimating()
+        return myActivityIndicatorView
+    }()
+
     private let scrollView: UIScrollView={
         let myScrollView = UIScrollView()
         return myScrollView
@@ -119,7 +126,7 @@ final class OnePlaceView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .systemBackground
-        self.setupElements()
+        self.setupActivityIndicator()
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -287,8 +294,24 @@ private extension OnePlaceView {
     }
 }
 
+// MARK: - Настройка activityIndicator-а, отображаемого при загрузке экрана
+
+private extension OnePlaceView {
+    func setupActivityIndicator() {
+        self.addSubview(self.activityIndicator)
+        self.activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
+    }
+}
+
 extension OnePlaceView: IOnePlaceView {
     func setupView(place: Place, placeImage: UIImage) {
+        self.activityIndicator.stopAnimating()
+        self.setupElements()
         guard let title = place.title,
               let description = place.descriptionText else {
             return
@@ -296,8 +319,7 @@ extension OnePlaceView: IOnePlaceView {
         self.titleLabel.text = title
         self.topImageView.image = placeImage
         self.descriptionLabel.text = description
-        setupMap(forPlace: place)
-
+        self.setupMap(forPlace: place)
     }
 }
 

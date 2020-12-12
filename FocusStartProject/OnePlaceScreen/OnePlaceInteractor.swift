@@ -47,13 +47,12 @@ extension OnePlaceInteractor: IOnePlaceInteractor {
 private extension OnePlaceInteractor {
     func getImageFor(place: Place) {
         guard let imageFile = place.imagefile,
-              let imageURL = URL(string: imageFile),
-              let placeName = place.title else {
+              let imageURL = URL(string: imageFile) else {
             assertionFailure("Something went wrong")
             return
         }
         ImageCache.loadImage(urlString: imageURL.absoluteString,
-                             nameOfPicture: "\(placeName)-logo") { (urlString, image) in
+                             nameOfPicture: "\(imageURL.absoluteString)-logo") { (urlString, image) in
             self.presenter?.setupViewWith(place: self.place,
                                           placeImage: image ?? UIImage())
         }

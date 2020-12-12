@@ -26,6 +26,7 @@ final class FirebaseDatabaseManager {
     private var databaseRef = Database.database().reference()
     private var timeManager = TimeManager()
 
+
     // MARK: - Методы
 
     func uploadOrders(foodArray: [Food],
@@ -84,6 +85,15 @@ final class FirebaseDatabaseManager {
             completion(previousOrders)
         })
     }
+
+    func getOrdersCount(completion: @escaping ((Int) -> Void)) {
+        let ref = databaseRef.child(self.userUID).child("orders")
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            let childrenCount = Int(snapshot.childrenCount)
+            completion(childrenCount)
+        })
+    }
+
 }
 
 

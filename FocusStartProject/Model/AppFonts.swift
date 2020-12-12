@@ -1,5 +1,5 @@
 //
-//  Fonts.swift
+//  AppFonts.swift
 //  FocusStartProject
 //
 //  Created by Андрей Шамин on 12/11/20.

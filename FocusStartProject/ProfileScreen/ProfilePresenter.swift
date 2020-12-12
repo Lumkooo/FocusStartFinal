@@ -33,6 +33,8 @@ extension ProfilePresenter: IProfilePresenter {
         self.ui = ui
 
         self.ui?.loginTapped = { [weak self] in
+            // Избавляюсь от опционала для того, чтобы передать self как
+            // ProfileDelegate, а не опционал
             guard let self = self else {
                 return
             }
@@ -40,6 +42,8 @@ extension ProfilePresenter: IProfilePresenter {
         }
 
         self.ui?.registerTapped = { [weak self] in
+            // Избавляюсь от опционала для того, чтобы передать self как
+            // ProfileDelegate, а не опционал
             guard let self = self else {
                 return
             }
@@ -49,6 +53,11 @@ extension ProfilePresenter: IProfilePresenter {
         self.ui?.logoutTapped = { [weak self] in
             self?.interactor.logout()
         }
+
+        self.ui?.cellTapped = { [weak self] indexPath in
+            self?.interactor.retrieveOrder(forIndexPath: indexPath)
+        }
+
         self.interactor.prepareView()
     }
 }
@@ -67,11 +76,20 @@ extension ProfilePresenter: IProfileInteractorOuter {
     func alertOccured(stringError: String) {
         self.router.showAlertWithMessage(stringError)
     }
+
+    func reloadTableViewWithData(previousOrders: [HistoryOrderEntity]) {
+        self.ui?.reloadTableViewWithData(previousOrders: previousOrders)
+    }
+
+    func passOrderToRouter(order: HistoryOrderEntity) {
+        self.router.showOneOrder(order: order)
+    }
 }
 
 // MARK: - ProfileDelegate
 
 extension ProfilePresenter: ProfileDelegate {
+    // "Перезагрузка" внешнего вида View после регистрации/авторизации
     func reloadView() {
         self.interactor.prepareView()
     }

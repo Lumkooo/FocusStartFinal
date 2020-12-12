@@ -26,7 +26,6 @@ final class MainInteractor {
     private var places: [Place] = []
     private var userLocation: CLLocationCoordinate2D?
     private var userLocationManager: UserLocationManager?
-
 }
 
 // MARK: - IMainInteractor
@@ -38,14 +37,14 @@ extension MainInteractor: IMainInteractor {
     }
 
     func loadInitData() {
-        self.getInitData()
+//        self.getInitData()
         self.setupLocationManager()
     }
 }
 
 private extension MainInteractor {
     func setupLocationManager() {
-        userLocationManager = UserLocationManager(delegate: self)
+        self.userLocationManager = UserLocationManager(delegate: self)
     }
 }
 
@@ -54,14 +53,14 @@ private extension MainInteractor {
 extension MainInteractor: IUserLocationManager {
     // На случай, если пользователь разрешил отслеживать его местоположение
     // то обновим экран с ближайшими к нему местами
-    func returnUserLocation(location: CLLocationCoordinate2D) {
+    func locationIsEnabled(location: CLLocationCoordinate2D) {
         self.getInitData(withUserLocation: location)
-        print("get places withUserLocation")
     }
     
     func locationIsnotEnabled() {
-        // На случай какой-то обработки запрета на использование местоположения
+        // На случай обработки запрета на использование местоположения
         // Например, выбор города
+        self.getInitData()
     }
 }
 

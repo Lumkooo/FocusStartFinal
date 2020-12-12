@@ -55,8 +55,14 @@
 		CE6315AF257F3B93003B08F8 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6315AE257F3B93003B08F8 /* FirebaseAuthManager.swift */; };
 		CE6315B7257F416F003B08F8 /* AlertAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6315B6257F416F003B08F8 /* AlertAssembly.swift */; };
 		CE6315BD257F5D57003B08F8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6315BC257F5D57003B08F8 /* CustomButton.swift */; };
-		CEB27B322583294500A193C1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B312583294500A193C1 /* Fonts.swift */; };
-		CEB27B372583295100A193C1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B362583295100A193C1 /* Constants.swift */; };
+		CEA3095925848281005B3115 /* OneOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3095825848281005B3115 /* OneOrderView.swift */; };
+		CEA309642584829B005B3115 /* OneOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA309632584829B005B3115 /* OneOrderViewController.swift */; };
+		CEA30969258482A6005B3115 /* OneOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA30968258482A6005B3115 /* OneOrderPresenter.swift */; };
+		CEA3096E258482AC005B3115 /* OneOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3096D258482AC005B3115 /* OneOrderInteractor.swift */; };
+		CEA30973258482B1005B3115 /* OneOrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA30972258482B1005B3115 /* OneOrderRouter.swift */; };
+		CEA3097B258483D9005B3115 /* OneOrderVCAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3097A258483D9005B3115 /* OneOrderVCAssembly.swift */; };
+		CEB27B322583294500A193C1 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B312583294500A193C1 /* AppFonts.swift */; };
+		CEB27B372583295100A193C1 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B362583295100A193C1 /* AppConstants.swift */; };
 		CEB27B4B2583376E00A193C1 /* PlaceOrderEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B4A2583376E00A193C1 /* PlaceOrderEntity.swift */; };
 		CEB27B532583387100A193C1 /* FirebaseDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B522583387100A193C1 /* FirebaseDatabaseManager.swift */; };
 		CEB27B6525833CF600A193C1 /* HistoryOrderEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B6425833CF600A193C1 /* HistoryOrderEntity.swift */; };
@@ -192,8 +198,14 @@
 		CE6315AE257F3B93003B08F8 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		CE6315B6257F416F003B08F8 /* AlertAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAssembly.swift; sourceTree = "<group>"; };
 		CE6315BC257F5D57003B08F8 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		CEB27B312583294500A193C1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		CEB27B362583295100A193C1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CEA3095825848281005B3115 /* OneOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderView.swift; sourceTree = "<group>"; };
+		CEA309632584829B005B3115 /* OneOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderViewController.swift; sourceTree = "<group>"; };
+		CEA30968258482A6005B3115 /* OneOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderPresenter.swift; sourceTree = "<group>"; };
+		CEA3096D258482AC005B3115 /* OneOrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderInteractor.swift; sourceTree = "<group>"; };
+		CEA30972258482B1005B3115 /* OneOrderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderRouter.swift; sourceTree = "<group>"; };
+		CEA3097A258483D9005B3115 /* OneOrderVCAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderVCAssembly.swift; sourceTree = "<group>"; };
+		CEB27B312583294500A193C1 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		CEB27B362583295100A193C1 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		CEB27B4A2583376E00A193C1 /* PlaceOrderEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOrderEntity.swift; sourceTree = "<group>"; };
 		CEB27B522583387100A193C1 /* FirebaseDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseManager.swift; sourceTree = "<group>"; };
 		CEB27B6425833CF600A193C1 /* HistoryOrderEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderEntity.swift; sourceTree = "<group>"; };
@@ -458,6 +470,26 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CEA3095625848103005B3115 /* OneOrderScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CEA309572584810D005B3115 /* Views */,
+				CEA309632584829B005B3115 /* OneOrderViewController.swift */,
+				CEA30968258482A6005B3115 /* OneOrderPresenter.swift */,
+				CEA3096D258482AC005B3115 /* OneOrderInteractor.swift */,
+				CEA30972258482B1005B3115 /* OneOrderRouter.swift */,
+			);
+			path = OneOrderScreen;
+			sourceTree = "<group>";
+		};
+		CEA309572584810D005B3115 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEA3095825848281005B3115 /* OneOrderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CEB27B572583387500A193C1 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +576,7 @@
 				CEC7B4C7258090C100479F28 /* PurchasingScreen */,
 				CE4E60AE25820EB60046B1CE /* FinalPurchasingScreen */,
 				CE631517257F301F003B08F8 /* ProfileScreen */,
+				CEA3095625848103005B3115 /* OneOrderScreen */,
 				CEE415F4257E0A470065B26C /* Assets.xcassets */,
 				CEE415F6257E0A470065B26C /* LaunchScreen.storyboard */,
 				CEE415F9257E0A470065B26C /* Info.plist */,
@@ -596,6 +629,7 @@
 				CE6315B6257F416F003B08F8 /* AlertAssembly.swift */,
 				CEC7B4E2258092F300479F28 /* PurchasingVCAssembly.swift */,
 				CE4E60D2258210A40046B1CE /* FinalPurchasingVCAssembly.swift */,
+				CEA3097A258483D9005B3115 /* OneOrderVCAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -613,8 +647,8 @@
 				CEE416B0257E0F7D0065B26C /* PriceLabelSetuper.swift */,
 				CEC7B4C225808CF300479F28 /* TimeManager.swift */,
 				CE4E609E2581E2BB0046B1CE /* GeodecoderManager.swift */,
-				CEB27B312583294500A193C1 /* Fonts.swift */,
-				CEB27B362583295100A193C1 /* Constants.swift */,
+				CEB27B312583294500A193C1 /* AppFonts.swift */,
+				CEB27B362583295100A193C1 /* AppConstants.swift */,
 				CEB27B7525834A7D00A193C1 /* Resources */,
 				CEB27B71258342B100A193C1 /* Swift's extensions */,
 				CEB27B572583387500A193C1 /* Firebase */,
@@ -985,8 +1019,10 @@
 				CE63150E257F2FFD003B08F8 /* BasketInteractor.swift in Sources */,
 				CEE416C5257E0FEA0065B26C /* MainScreenPlacesCollectionViewDataSource.swift in Sources */,
 				CE4E609F2581E2BB0046B1CE /* GeodecoderManager.swift in Sources */,
+				CEA30973258482B1005B3115 /* OneOrderRouter.swift in Sources */,
 				CEE41733257E12270065B26C /* OnePlaceInteractor.swift in Sources */,
 				CEE416CD257E0FFD0065B26C /* MainScreenPlacesCollectionViewDelegate.swift in Sources */,
+				CEA309642584829B005B3115 /* OneOrderViewController.swift in Sources */,
 				CEB27B4B2583376E00A193C1 /* PlaceOrderEntity.swift in Sources */,
 				CEE416E1257E10560065B26C /* TypeOfViewEnum.swift in Sources */,
 				CEE416D3257E101A0065B26C /* MapViewDelegate.swift in Sources */,
@@ -1027,10 +1063,13 @@
 				CE63154B257F30DF003B08F8 /* RegisterInteractor.swift in Sources */,
 				CEE41738257E12380065B26C /* OnePlaceRouter.swift in Sources */,
 				CE631563257F3147003B08F8 /* ProfilePresenter.swift in Sources */,
+				CEA3095925848281005B3115 /* OneOrderView.swift in Sources */,
 				CEE4167C257E0EA60065B26C /* OneFoodVCAssembly.swift in Sources */,
+				CEA30969258482A6005B3115 /* OneOrderPresenter.swift in Sources */,
 				CE6314D2257F2F08003B08F8 /* OneFoodInteractor.swift in Sources */,
 				CEE4169A257E0F200065B26C /* PlaceLoader.swift in Sources */,
 				CEE41663257E0E0D0065B26C /* TabBarControllerAssembly.swift in Sources */,
+				CEA3096E258482AC005B3115 /* OneOrderInteractor.swift in Sources */,
 				CEB27B81258359DC00A193C1 /* ProfileScreenTableViewDelegate.swift in Sources */,
 				CEE416E7257E10830065B26C /* Food.swift in Sources */,
 				CEE416F4257E10A90065B26C /* Place.swift in Sources */,
@@ -1038,7 +1077,7 @@
 				CE631504257F2FDF003B08F8 /* BasketViewController.swift in Sources */,
 				CEB27B7A2583563A00A193C1 /* ProfileViewTableViewCell.swift in Sources */,
 				CEE4165E257E0DFB0065B26C /* MainNavigationControllerAssembly.swift in Sources */,
-				CEB27B322583294500A193C1 /* Fonts.swift in Sources */,
+				CEB27B322583294500A193C1 /* AppFonts.swift in Sources */,
 				CE6314CA257F2EF2003B08F8 /* OneFoodPresenter.swift in Sources */,
 				CEE41659257E0DEF0065B26C /* MainVCAssembly.swift in Sources */,
 				CE6314E6257F2F7C003B08F8 /* MapViewController.swift in Sources */,
@@ -1061,7 +1100,7 @@
 				CEE41729257E12000065B26C /* OnePlaceViewController.swift in Sources */,
 				CEC7B4CF258090F300479F28 /* PurchasingViewController.swift in Sources */,
 				CE631541257F30C1003B08F8 /* RegisterViewController.swift in Sources */,
-				CEB27B372583295100A193C1 /* Constants.swift in Sources */,
+				CEB27B372583295100A193C1 /* AppConstants.swift in Sources */,
 				CE631528257F305C003B08F8 /* LoginPresenter.swift in Sources */,
 				CE6314EB257F2F8A003B08F8 /* MapPresenter.swift in Sources */,
 				CEE4171A257E11B10065B26C /* MainRouter.swift in Sources */,
@@ -1069,6 +1108,7 @@
 				CEE416F9257E10B80065B26C /* LoginEntitie.swift in Sources */,
 				CEE415EC257E0A450065B26C /* AppDelegate.swift in Sources */,
 				CE631509257F2FEC003B08F8 /* BasketPresenter.swift in Sources */,
+				CEA3097B258483D9005B3115 /* OneOrderVCAssembly.swift in Sources */,
 				CEE4172E257E12150065B26C /* OnePlacePresenter.swift in Sources */,
 				CEE4164C257E0DB70065B26C /* LoginVCAssembly.swift in Sources */,
 				CE6314C5257F2EE1003B08F8 /* OneFoodViewController.swift in Sources */,

@@ -96,10 +96,9 @@ final class MenuCollectionViewCell: UICollectionViewCell {
 
     private func updateUI(){
         self.activityIndicatorView.startAnimating()
-        if let stringURL = self.stringImageURL,
-           let placeName = self.placeName,
-           let foodName = self.foodName {
-            ImageCache.loadImage(urlString: stringURL,nameOfPicture: "\(placeName)-\(foodName)") { (urlString, image) in
+        if let stringURL = self.stringImageURL {
+            ImageCache.loadImage(urlString: stringURL,
+                                 nameOfPicture: "\(stringURL)") { (urlString, image) in
                 self.imageView.image = image
                 self.activityIndicatorView.stopAnimating()
             }

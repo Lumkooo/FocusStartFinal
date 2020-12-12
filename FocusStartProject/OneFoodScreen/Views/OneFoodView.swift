@@ -16,7 +16,7 @@ protocol IOneFoodView: class {
                            forVC oneFoodVCType: OneFoodInteractor.OneFoodFor)
 }
 
-// TODO: - Добавить информацию о товаре (калории/вес/и т.д.)
+// TODO: - Можно добавить информацию о товаре (калории/вес/и т.д.)
 
 final class OneFoodView: UIView {
 
@@ -33,6 +33,13 @@ final class OneFoodView: UIView {
     }
 
     // MARK: - Views
+
+    private let activityIndicator: UIActivityIndicatorView = {
+        let myActivityIndicatorView = UIActivityIndicatorView()
+        myActivityIndicatorView.hidesWhenStopped = true
+        myActivityIndicatorView.startAnimating()
+        return myActivityIndicatorView
+    }()
 
     private let containerView: UIView = {
         let myView = UIView()
@@ -96,7 +103,8 @@ final class OneFoodView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
-        self.setupElements()
+        self.setupContainerView()
+        self.setupActivityIndicator()
     }
 
     required init?(coder: NSCoder) {
@@ -143,6 +151,8 @@ extension OneFoodView: IOneFoodView {
     func setupViewWithFood(_ food: Food,
                            withImage image: UIImage,
                            forVC oneFoodVCType: OneFoodInteractor.OneFoodFor) {
+        self.activityIndicator.stopAnimating()
+        self.setupElements()
         guard let foodName = food.foodName else {
             assertionFailure("oops, something went wrong")
             return
@@ -172,7 +182,6 @@ extension OneFoodView: IOneFoodView {
 
 private extension OneFoodView {
     func setupElements() {
-        self.setupContainerView()
         self.setupImageView()
         self.setupCloseViewButton()
         self.setupTitleLabel()
@@ -282,7 +291,7 @@ private extension OneFoodView {
         ])
     }
 
-
+    // Закругление верхнего левого и верхнего правого углов
     func setupContainerViewCorners() {
         let path = UIBezierPath(roundedRect: bounds,
                                 byRoundingCorners: [.topLeft, .topRight],
@@ -295,3 +304,18 @@ private extension OneFoodView {
         self.containerView.layer.mask = mask
     }
 }
+
+// MARK: - Настройка activityIndicator-а, отображаемого при загрузке экрана
+
+private extension OneFoodView {
+    func setupActivityIndicator() {
+        self.containerView.addSubview(self.activityIndicator)
+        self.activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.activityIndicator.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor),
+            self.activityIndicator.centerYAnchor.constraint(equalTo: self.containerView.centerYAnchor)
+        ])
+    }
+}
+

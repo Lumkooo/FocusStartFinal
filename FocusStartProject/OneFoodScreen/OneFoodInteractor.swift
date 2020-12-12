@@ -66,11 +66,9 @@ extension OneFoodInteractor: IOneFoodInteractor {
 
 private extension OneFoodInteractor {
     func loadImage(forFood food: Food, completion: @escaping ((UIImage) -> Void)) {
-        if let url = food.imageURL,
-           let placeName = food.placeName,
-           let foodName = food.foodName {
+        if let url = food.imageURL {
             ImageCache.loadImage(urlString: url,
-                                 nameOfPicture: "\(placeName)-\(foodName)") { (urlString, image) in
+                                 nameOfPicture: "\(url)") { (urlString, image) in
                 completion(image ?? UIImage())
             }
         } else {

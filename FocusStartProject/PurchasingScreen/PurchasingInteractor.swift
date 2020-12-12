@@ -62,6 +62,10 @@ final class PurchasingInteractor {
 
 extension PurchasingInteractor: IPurchasingInteractor {
     func order(time: String?) {
+        if self.foodArray.isEmpty {
+            self.presenter?.errorOccured(errorDecription: "Для оформления заказа необходимо что-то добавить в корзину")
+            return
+        }
         if var time = time, time.count > 0 {
             checkTime(&time)
             self.chosenTime = time.applyPatternOnNumbers(pattern: "##:##", replacmentCharacter: "#")
@@ -89,6 +93,9 @@ extension PurchasingInteractor: IPurchasingInteractor {
             // completion
             BasketManager.sharedInstance.removeAllFood()
             self.delegate.reloadViewAfterPurchasing()
+            NotificationCenter.default.post(name: NSNotification.Name(
+                                                rawValue: AppConstants.NotificationNames.refreshProfileTableView),
+                                            object: nil)
         } errorCompletion: {
             // Ошибка
             self.presenter?.errorOccured(errorDecription: "Не удалось разместить заказ")
@@ -182,7 +189,7 @@ private extension PurchasingInteractor {
 // MARK: - IUserLocationManager
 
 extension PurchasingInteractor: IUserLocationManager {
-    func returnUserLocation(location: CLLocationCoordinate2D) {
+    func locationIsEnabled(location: CLLocationCoordinate2D) {
         // Если мы получили местоположение пользователя, то при загрузке UI
         // устанавливаем место доставки как к пользователю,а не самовывоз
         self.userLocation = location

@@ -12,7 +12,7 @@ final class FoodLoader {
     static func loadFoodFor(place: Place,
                             completion: @escaping ([Food]) -> Void,
                             errorCompletion: @escaping ((String) -> Void)) {
-        DispatchQueue.global(qos: .userInteractive).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             guard let fileName = Bundle.main.url(forResource: "Food", withExtension: "json"),
                   let data = try? Data(contentsOf: fileName) else{
                 assertionFailure("oops, something went wrong")

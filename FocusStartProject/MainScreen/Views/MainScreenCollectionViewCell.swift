@@ -92,10 +92,9 @@ class MainScreenCollectionViewCell: UICollectionViewCell {
 
     private func updateUI(){
         self.activityIndicatorView.startAnimating()
-        if let stringURL = self.stringImageURL,
-           let placeName = self.placeName {
+        if let stringURL = self.stringImageURL {
             ImageCache.loadImage(urlString: stringURL,
-                                 nameOfPicture: "\(placeName)-logo") { (urlString, image) in
+                                 nameOfPicture: "\(stringURL)-logo") { (urlString, image) in
                 self.imageView.image = image
                 self.activityIndicatorView.stopAnimating()
             }

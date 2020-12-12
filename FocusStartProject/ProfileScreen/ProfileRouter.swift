@@ -11,6 +11,7 @@ protocol IProfileRouter {
     func showRegisterVC(delegate: ProfileDelegate)
     func showLoginVC(delegate: ProfileDelegate)
     func showAlertWithMessage(_ message: String)
+    func showOneOrder(order: HistoryOrderEntity)
 }
 
 final class ProfileRouter {
@@ -31,5 +32,10 @@ extension ProfileRouter: IProfileRouter {
     func showAlertWithMessage(_ message: String) {
         let alert = AlertAssembly.createSimpleAlert(withMessage: message)
         self.vc?.navigationController?.present(alert, animated: true)
+    }
+
+    func showOneOrder(order: HistoryOrderEntity) {
+        let oneOrderVC = OneOrderVCAssembly.createVC(order: order)
+        self.vc?.navigationController?.present(oneOrderVC, animated: true)
     }
 }
