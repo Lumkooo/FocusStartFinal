@@ -17,4 +17,14 @@ enum AppConstants {
     enum Constraints {
         static let normalAnchorConstant: CGFloat = 16
     }
+
+    enum Sizes {
+        static let likeButtonSize: CGSize = CGSize(width: 35, height: 35)
+    }
+
+    enum Images {
+        static let like = UIImage(systemName: "heart")
+        static let likeFilled = UIImage(systemName: "heart.fill")
+    }
+
 }

@@ -10,6 +10,7 @@ import UIKit
 protocol IOnePlaceRouter {
     func showMenuViewController(forPlace place: Place)
     func showRouteAlert(forPlace place: Place)
+    func showAlertWithMessage(_ message: String)
 }
 
 final class OnePlaceRouter {
@@ -35,6 +36,11 @@ extension OnePlaceRouter: IOnePlaceRouter {
         }
         let cancel = UIAlertAction(title: "Отменить", style: .cancel, handler: nil)
         alert.addAction(cancel)
+        self.vc?.navigationController?.present(alert, animated: true)
+    }
+
+    func showAlertWithMessage(_ message: String) {
+        let alert = AlertAssembly.createSimpleAlert(withMessage: message)
         self.vc?.navigationController?.present(alert, animated: true)
     }
 }

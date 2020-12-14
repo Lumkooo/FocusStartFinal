@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IMainScreenPlacesDelegate: class {
-    func selectedCell(indexPath: IndexPath)
+    func selectedCell(collectionView: UICollectionView, indexPath: IndexPath)
 }
 
 final class MainScreenPlacesCollectionViewDelegate: NSObject {
@@ -30,12 +30,12 @@ final class MainScreenPlacesCollectionViewDelegate: NSObject {
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UICollectionViewDelegate
 
 extension MainScreenPlacesCollectionViewDelegate: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.selectedCell(indexPath: indexPath)
+        delegate?.selectedCell(collectionView: collectionView, indexPath: indexPath)
     }
 }
 
@@ -48,5 +48,4 @@ extension MainScreenPlacesCollectionViewDelegate: UICollectionViewDelegateFlowLa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         Constants.cellSpacing
     }
-
 }

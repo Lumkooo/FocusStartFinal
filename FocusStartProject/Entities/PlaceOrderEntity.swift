@@ -10,7 +10,6 @@ import Foundation
 struct PlaceOrderEntity {
     var time: String
     var foodName: String
-    var restaurant: String
     var price: Double
     var deliveryMethod: String
     var orderTime: String

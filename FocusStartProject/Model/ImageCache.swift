@@ -13,6 +13,7 @@ class ImageCache{
     static func storeImage(urlString:String,
                            image:UIImage,
                            nameOfPicture:String){
+        // Загружаем картинку в path и записываем в UserDefaults UserDefaults
         DispatchQueue.global(qos: .userInitiated).async {
             let path = NSTemporaryDirectory().appending(nameOfPicture)
             let url = URL(fileURLWithPath: path)
@@ -21,11 +22,15 @@ class ImageCache{
             try? data?.write(to: url)
             
             var dict = UserDefaults.standard.object(forKey: "ImageCache") as? [String:String]
-            if dict == nil{
+            if dict == nil {
                 dict = [String:String]()
             }
-            dict![urlString] = path
-            UserDefaults.standard.set(dict, forKey: "ImageCache")
+            guard var dictionary = dict else {
+                assertionFailure("ooops!")
+                return
+            }
+            dictionary[urlString] = path
+            UserDefaults.standard.set(dictionary, forKey: "ImageCache")
         }
     }
     
@@ -44,14 +49,25 @@ class ImageCache{
                 }
             }
             guard let url = URL(string: urlString) else {
+                DispatchQueue.main.async {
+                    completion(urlString, UIImage())
+                }
                 assertionFailure("oops, something went wrong")
                 return
             }
-            
-            // TODO: - на другой поток!!!
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                guard  error == nil else { return }
-                guard let data = data else { return }
+                guard  error == nil else {
+                    DispatchQueue.main.async {
+                        completion(urlString, UIImage())
+                    }
+                    return
+                }
+                guard let data = data else {
+                    DispatchQueue.main.async {
+                        completion(urlString, UIImage())
+                    }
+                    return
+                }
                 DispatchQueue.main.async {
                     if let image = UIImage(data: data) {
                         storeImage(urlString: urlString,

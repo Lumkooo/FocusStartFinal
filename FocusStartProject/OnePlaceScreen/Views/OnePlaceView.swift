@@ -9,10 +9,12 @@ import UIKit
 import MapKit
 
 protocol IOnePlaceView: class {
-    var didTouchMenuButton: (() -> Void)? { get set }
-    var didTouchAddress: (() -> Void)? { get set }
+    var menuButtonTapped: (() -> Void)? { get set }
+    var adressButtonTapped: (() -> Void)? { get set }
+    var likeButtonTapped: (() -> Void)? { get set }
 
     func setupView(place: Place, placeImage: UIImage)
+    func setupLikeButton(isLiked: Bool)
 }
 
 final class OnePlaceView: UIView {
@@ -51,18 +53,17 @@ final class OnePlaceView: UIView {
         return myImageView
     }()
 
+    private let likeButton: UIButton = {
+        let myButton = UIButton()
+        myButton.tintColor = .red
+        myButton.addTarget(self, action: #selector(likeButtonTapepd(gesture:)), for: .touchUpInside)
+        return myButton
+    }()
+
     private let titleLabel: UILabel={
         let myLabel = UILabel()
         myLabel.numberOfLines = 0
         myLabel.font = AppFonts.largeTitleLabelFont
-        return myLabel
-    }()
-
-    private let descriptionStaticLabel: UILabel={
-        let myLabel = UILabel()
-        myLabel.numberOfLines = 0
-        myLabel.text = "Информация о заведении:"
-        myLabel.font = AppFonts.titleLabelFont
         return myLabel
     }()
 
@@ -78,15 +79,6 @@ final class OnePlaceView: UIView {
         myButton.setTitle("Перейти к меню", for: .normal)
         myButton.addTarget(self, action: #selector(menuButtonTapped(gesute:)), for: .touchUpInside)
         return myButton
-    }()
-
-
-    private let placeLocationLabel: UILabel={
-        let myLabel = UILabel()
-        myLabel.numberOfLines = 0
-        myLabel.text = "Расположение заведения:"
-        myLabel.font = AppFonts.titleLabelFont
-        return myLabel
     }()
 
     private let placeLocationMapView: MKMapView={
@@ -115,11 +107,11 @@ final class OnePlaceView: UIView {
         return myButton
     }()
 
-
     // MARK: - Properties
 
-    var didTouchMenuButton: (() -> Void)?
-    var didTouchAddress: (() -> Void)?
+    var menuButtonTapped: (() -> Void)?
+    var adressButtonTapped: (() -> Void)?
+    var likeButtonTapped: (() -> Void)?
 
     // MARK: - Init
 
@@ -134,24 +126,29 @@ final class OnePlaceView: UIView {
     }
 
     @objc private func routeToPlaceButtonTapped(gesute: UIGestureRecognizer) {
-        didTouchAddress?()
+        self.adressButtonTapped?()
     }
 
     @objc private func menuButtonTapped(gesute: UIGestureRecognizer) {
-        didTouchMenuButton?()
+        self.menuButtonTapped?()
+    }
+
+    @objc private func likeButtonTapepd(gesture: UIGestureRecognizer) {
+        self.likeButtonTapped?()
     }
 }
 
-// MARK: - Установка constraint-ов для элементов
+// MARK: - UISetup
 
 private extension OnePlaceView {
     func setupElements() {
         self.setupScrollView()
         self.setupTopImageView()
+        self.setupLikeButton()
         self.setupTitleLabel()
-        self.setupDesctiption()
+        self.setupDesriptionLabel()
         self.setupMenuButton()
-        self.setupPlaceLocationElements()
+        self.setupLocationMapView()
         self.setupRouteToPlaceButton()
     }
 
@@ -181,6 +178,20 @@ private extension OnePlaceView {
         ])
     }
 
+    func setupLikeButton() {
+        self.scrollView.addSubview(self.likeButton)
+        self.likeButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.likeButton.topAnchor.constraint(equalTo: self.topImageView.bottomAnchor,
+                                                 constant: Constants.anchorConstant),
+            self.likeButton.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
+                                                 constant: -Constants.anchorConstant),
+            self.likeButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.likeButtonSize.height),
+            self.likeButton.widthAnchor.constraint(equalToConstant: AppConstants.Sizes.likeButtonSize.width)
+        ])
+    }
+
     func setupTitleLabel() {
         self.scrollView.addSubview(self.titleLabel)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -190,27 +201,8 @@ private extension OnePlaceView {
                                                  constant: Constants.anchorConstant),
             self.titleLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
                                                  constant: Constants.titleAnchorConstant),
-            self.titleLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
+            self.titleLabel.trailingAnchor.constraint(equalTo: self.likeButton.leadingAnchor,
                                                  constant: -Constants.anchorConstant),
-        ])
-    }
-
-    func setupDesctiption() {
-        self.setupDescriptionStaticLabel()
-        self.setupDesriptionLabel()
-    }
-
-    func setupDescriptionStaticLabel() {
-        self.scrollView.addSubview(self.descriptionStaticLabel)
-        self.descriptionStaticLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            self.descriptionStaticLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor,
-                                                             constant: Constants.anchorConstant),
-            self.descriptionStaticLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                                 constant: Constants.anchorConstant),
-            self.descriptionStaticLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                                  constant: -Constants.anchorConstant),
         ])
     }
 
@@ -219,7 +211,7 @@ private extension OnePlaceView {
         self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.descriptionLabel.topAnchor.constraint(equalTo: self.descriptionStaticLabel.bottomAnchor,
+            self.descriptionLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor,
                                                        constant: Constants.anchorConstant),
             self.descriptionLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
                                                            constant: Constants.anchorConstant),
@@ -243,36 +235,19 @@ private extension OnePlaceView {
         ])
     }
 
-    func setupPlaceLocationElements() {
-        self.setupPlaceLocationLabel()
-        self.setupLocationMapView()
-    }
-
-    func setupPlaceLocationLabel() {
-        self.scrollView.addSubview(self.placeLocationLabel)
-        self.placeLocationLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            self.placeLocationLabel.topAnchor.constraint(equalTo: self.menuButton.bottomAnchor,
-                                                       constant: Constants.anchorConstant),
-            self.placeLocationLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                           constant: Constants.anchorConstant),
-            self.placeLocationLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                            constant: -Constants.anchorConstant),
-        ])
-    }
-
     func setupLocationMapView() {
         self.scrollView.addSubview(self.placeLocationMapView)
         self.placeLocationMapView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.placeLocationMapView.topAnchor.constraint(equalTo: self.placeLocationLabel.bottomAnchor,
+            self.placeLocationMapView.topAnchor.constraint(equalTo: self.menuButton.bottomAnchor,
                                                        constant: Constants.anchorConstant),
             self.placeLocationMapView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
             self.placeLocationMapView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
             self.placeLocationMapView.heightAnchor.constraint(equalTo: self.topImageView.widthAnchor,
-                                                      multiplier: Constants.constraintsMultiplier)
+                                                      multiplier: Constants.constraintsMultiplier),
+            self.placeLocationMapView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor,
+                                                          constant: -Constants.anchorConstant)
         ])
     }
 
@@ -287,8 +262,6 @@ private extension OnePlaceView {
                                                              constant: Constants.anchorConstant),
             self.routeToPlaceButton.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
                                                               constant: -Constants.anchorConstant),
-            self.routeToPlaceButton.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor,
-                                                          constant: -Constants.anchorConstant),
             self.routeToPlaceButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
         ])
     }
@@ -318,16 +291,25 @@ extension OnePlaceView: IOnePlaceView {
         }
         self.titleLabel.text = title
         self.topImageView.image = placeImage
-        self.descriptionLabel.text = description
+        self.descriptionLabel.text = "Информация о заведении:\n\(description)"
         self.setupMap(forPlace: place)
+    }
+
+    func setupLikeButton(isLiked: Bool) {
+        if isLiked {
+            self.likeButton.setImage(AppConstants.Images.likeFilled, for: .normal)
+        } else {
+            self.likeButton.setImage(AppConstants.Images.like, for: .normal)
+        }
     }
 }
 
 
 private extension OnePlaceView {
     func setupMap(forPlace place: Place) {
-        self.placeLocationMapView.setRegion(MKCoordinateRegion(center: place.coordinate,
-                                                               span: Constants.placeLocationMapSpan),
+        let region = MKCoordinateRegion(center: place.coordinate,
+                                        span: Constants.placeLocationMapSpan)
+        self.placeLocationMapView.setRegion(region,
                                             animated: false)
         self.placeLocationMapView.addAnnotation(place)
     }

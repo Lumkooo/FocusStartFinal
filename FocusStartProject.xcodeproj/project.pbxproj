@@ -55,6 +55,7 @@
 		CE6315AF257F3B93003B08F8 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6315AE257F3B93003B08F8 /* FirebaseAuthManager.swift */; };
 		CE6315B7257F416F003B08F8 /* AlertAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6315B6257F416F003B08F8 /* AlertAssembly.swift */; };
 		CE6315BD257F5D57003B08F8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6315BC257F5D57003B08F8 /* CustomButton.swift */; };
+		CE9D04282586023D00857A21 /* FirebaseLikedPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D04272586023D00857A21 /* FirebaseLikedPlace.swift */; };
 		CEA3095925848281005B3115 /* OneOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3095825848281005B3115 /* OneOrderView.swift */; };
 		CEA309642584829B005B3115 /* OneOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA309632584829B005B3115 /* OneOrderViewController.swift */; };
 		CEA30969258482A6005B3115 /* OneOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA30968258482A6005B3115 /* OneOrderPresenter.swift */; };
@@ -198,6 +199,7 @@
 		CE6315AE257F3B93003B08F8 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		CE6315B6257F416F003B08F8 /* AlertAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAssembly.swift; sourceTree = "<group>"; };
 		CE6315BC257F5D57003B08F8 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		CE9D04272586023D00857A21 /* FirebaseLikedPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLikedPlace.swift; sourceTree = "<group>"; };
 		CEA3095825848281005B3115 /* OneOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderView.swift; sourceTree = "<group>"; };
 		CEA309632584829B005B3115 /* OneOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderViewController.swift; sourceTree = "<group>"; };
 		CEA30968258482A6005B3115 /* OneOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOrderPresenter.swift; sourceTree = "<group>"; };
@@ -706,6 +708,7 @@
 				CEE416F8257E10B80065B26C /* LoginEntitie.swift */,
 				CEB27B4A2583376E00A193C1 /* PlaceOrderEntity.swift */,
 				CEB27B6425833CF600A193C1 /* HistoryOrderEntity.swift */,
+				CE9D04272586023D00857A21 /* FirebaseLikedPlace.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1113,6 +1116,7 @@
 				CEE4164C257E0DB70065B26C /* LoginVCAssembly.swift in Sources */,
 				CE6314C5257F2EE1003B08F8 /* OneFoodViewController.swift in Sources */,
 				CE63156D257F3166003B08F8 /* ProfileRouter.swift in Sources */,
+				CE9D04282586023D00857A21 /* FirebaseLikedPlace.swift in Sources */,
 				CEE415EE257E0A450065B26C /* SceneDelegate.swift in Sources */,
 				CE63149A257F2E49003B08F8 /* MenuView.swift in Sources */,
 				CEE416AC257E0F6B0065B26C /* AvailableMaps.swift in Sources */,

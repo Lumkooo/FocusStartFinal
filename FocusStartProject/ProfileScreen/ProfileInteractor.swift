@@ -83,6 +83,7 @@ private extension ProfileInteractor {
     }
 
     func setupNotification() {
+        // Вызывается в PurchasingScreen-е для обновления tableView истории заказов после совершения покупки
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(refreshTableViewAfterNewOrders(_:)),
                                                name: NSNotification.Name(

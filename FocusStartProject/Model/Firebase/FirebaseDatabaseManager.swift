@@ -10,7 +10,6 @@ import Firebase
 
 final class FirebaseDatabaseManager {
 
-
     // MARK: - Properties
 
     private var userUID: String {
@@ -25,10 +24,104 @@ final class FirebaseDatabaseManager {
     }
     private var databaseRef = Database.database().reference()
     private var timeManager = TimeManager()
+}
 
+// MARK: - Методы для работы с избранными местами
 
-    // MARK: - Методы
+extension FirebaseDatabaseManager {
 
+    /// Метод добавляет текущую запись в список понравившихся, сохраняет ее в Firebase Database
+    func appendToLikedPlaces(place: Place,
+                             completion: @escaping () -> Void,
+                             errorCompletion: @escaping () -> Void) {
+        guard let title = place.title,
+              let locationName = place.locationName else {
+            errorCompletion()
+            return
+        }
+        let likedPlace = FirebaseLikedPlace(locationName: locationName,
+                                    title: title)
+        let likedPlacesRef = databaseRef.child(self.userUID).child("likedPlaces")
+        let newRefIndex = ("\(title), \(locationName)")
+        likedPlacesRef.child("\(newRefIndex)").setValue(["title" : likedPlace.title,
+                                                         "locationName" : likedPlace.locationName])
+        completion()
+    }
+
+    /// Метод удаляет текущую запись из списка понравившихся
+    func deleteLikedPlace(place: Place,
+                          completion: @escaping () -> Void,
+                          errorCompletion: @escaping () -> Void) {
+        guard let title = place.title,
+              let locationName = place.locationName else {
+            errorCompletion()
+            return
+        }
+        let likedPlacesRef = databaseRef.child(self.userUID).child("likedPlaces")
+        let likedPlaceRef = likedPlacesRef.child("\(title), \(locationName)")
+        likedPlaceRef.removeValue { (error, ref) in
+            if let _ = error {
+                errorCompletion()
+                return
+            }
+            completion()
+        }
+    }
+
+    /// Метод для получения информации о том добавлен ли это заведение в избранные
+    func isPlaceLiked(place: Place,
+                      completion: @escaping (Bool) -> Void,
+                      errorCompletion: @escaping () -> Void) {
+        DispatchQueue.global(qos: .userInteractive).async {
+            guard let title = place.title,
+                  let locationName = place.locationName else {
+                errorCompletion()
+                return
+            }
+            let likedPlacesRef = self.databaseRef.child(self.userUID).child("likedPlaces")
+            let likedPlaceRef = likedPlacesRef.child("\(title), \(locationName)")
+            likedPlaceRef.observe(.value, with: { (snapshot) in
+                if snapshot.childrenCount > 0 {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            })
+        }
+    }
+
+    func getLikedPlaces(completion: @escaping ([FirebaseLikedPlace]) -> Void,
+                        errorCompletion: @escaping () -> Void) {
+        let likedPlacesRef = self.databaseRef.child(self.userUID).child("likedPlaces")
+        var likedPlaces: [FirebaseLikedPlace] = []
+        likedPlacesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                for child in snapshot.children {
+
+                    guard let array = (child as? DataSnapshot)?.value as? Dictionary<String, Any> else {
+                        errorCompletion()
+                        assertionFailure("Can not load liked places")
+                        return
+                    }
+                    guard let locationName = array["locationName"] as? String,
+                          let title = array["title"] as? String else {
+                        assertionFailure("Something went wrong")
+                        return
+                    }
+                    let likedPlace = FirebaseLikedPlace(locationName: locationName,
+                                                title: title)
+                    likedPlaces.append(likedPlace)
+                }
+            }
+            completion(likedPlaces)
+        })
+    }
+}
+
+// MARK: - Методы для работы с заказами
+
+extension FirebaseDatabaseManager {
+    /// Метод для загрузки данных в FirebaseDatabase.
     func uploadOrders(foodArray: [Food],
                       orderTime: String,
                       deliveryMethod: String,
@@ -49,6 +142,7 @@ final class FirebaseDatabaseManager {
         completion()
     }
 
+    /// Метод для получения списка заказов из Firebase Database.
     func getOrders(completion: @escaping ([HistoryOrderEntity]) -> Void,
                    errorCompletion: @escaping () -> Void) {
         let ref = databaseRef.child(self.userUID).child("orders")
@@ -86,6 +180,7 @@ final class FirebaseDatabaseManager {
         })
     }
 
+    /// Метод в completion возвращает количество сделанных пользователем заказов
     func getOrdersCount(completion: @escaping ((Int) -> Void)) {
         let ref = databaseRef.child(self.userUID).child("orders")
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -94,12 +189,8 @@ final class FirebaseDatabaseManager {
         })
     }
 
-}
-
-
-private extension FirebaseDatabaseManager {
     /// Загружает запись в firebase database для того, чтобы заведения могли видеть заказ
-    func uploadOrderToRestaurant(foodArray: [Food],
+    private func uploadOrderToRestaurant(foodArray: [Food],
                                  orderTime: String,
                                  deliveryMethod: String,
                                  errorCompletion: (() -> Void)) {
@@ -114,23 +205,19 @@ private extension FirebaseDatabaseManager {
             let restaurant = "\(restaurantName), \(restaurantAddress)"
             let order = PlaceOrderEntity(time: timeManager.getCurrentTime(isForUser: false),
                                          foodName: foodName,
-                                         restaurant: restaurant,
                                          price: price,
                                          deliveryMethod: deliveryMethod, orderTime: orderTime)
             // Этот блок добавляет записи в Firebase/Orders/название_Ресторана для того, чтобы рестораны могли его видеть
             let restaurantRef = databaseRef.child("orders").child("\(restaurant)")
-            restaurantRef.observeSingleEvent(of: .value , with: { (snapshot) in
-                restaurantRef.child("\(order.time)").setValue(["food": order.foodName,
-                                                               "restaurant": order.restaurant,
-                                                               "price": order.price,
-                                                               "orderedFrom": order.deliveryMethod,
-                                                               "orderTime": order.orderTime])
-            })
+            restaurantRef.child("\(order.time)").setValue(["food": order.foodName,
+                                                           "price": order.price,
+                                                           "orderedFrom": order.deliveryMethod,
+                                                           "orderTime": order.orderTime])
         }
     }
 
     /// Загружает запись в firebase database для последующего просмотра историй заказов в профиле
-    func uploadOrderToHistory(foodArray: [Food],
+    private func uploadOrderToHistory(foodArray: [Food],
                               orderTime: String,
                               deliveryMethod: String,
                               errorCompletion: (() -> Void)) {
@@ -165,5 +252,4 @@ private extension FirebaseDatabaseManager {
             })
         }
     }
-
 }

@@ -8,7 +8,8 @@
 import UIKit
 
 protocol IMainRouter {
-    func showOnePlaceViewController(withPlace place: Place)
+    func showOnePlaceViewController(withPlace place: Place, delegate: ILikedPlacesDelegate)
+    func showAlertWithMessage(_ message: String)
 }
 
 final class MainRouter {
@@ -16,9 +17,14 @@ final class MainRouter {
 }
 
 extension MainRouter: IMainRouter {
-    func showOnePlaceViewController(withPlace place: Place) {
-        let onePlaceVC = OnePlaceVCAssembly.createOnePlaceVC(withPlace: place)
+    func showOnePlaceViewController(withPlace place: Place, delegate: ILikedPlacesDelegate) {
+        let onePlaceVC = OnePlaceVCAssembly.createOnePlaceVC(withPlace: place, delegate: delegate)
         self.vc?.navigationController?.pushViewController(onePlaceVC,
                                                           animated: true)
+    }
+
+    func showAlertWithMessage(_ message: String) {
+        let alert = AlertAssembly.createSimpleAlert(withMessage: message)
+        self.vc?.navigationController?.present(alert, animated: true)
     }
 }

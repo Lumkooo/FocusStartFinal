@@ -28,12 +28,16 @@ extension OnePlacePresenter: IOnePlacePresenter {
     func viewDidLoad(ui: IOnePlaceView) {
         self.ui = ui
 
-        self.ui?.didTouchAddress = { [weak self] in
+        self.ui?.adressButtonTapped = { [weak self] in
             self?.interactor.getRouteToPlace()
         }
 
-        self.ui?.didTouchMenuButton = { [weak self] in
+        self.ui?.menuButtonTapped = { [weak self] in
             self?.interactor.getMenuForPlace()
+        }
+
+        self.ui?.likeButtonTapped = { [weak self] in
+            self?.interactor.likeAction()
         }
 
         self.interactor.takeOnePlace()
@@ -53,5 +57,13 @@ extension OnePlacePresenter: IOnePlaceInteractorOuter {
 
     func menuForPlace(_ place: Place) {
         self.router.showMenuViewController(forPlace: place)
+    }
+
+    func setupLikeButton(isLiked: Bool) {
+        self.ui?.setupLikeButton(isLiked: isLiked)
+    }
+
+    func errorOccured(errorDecription: String) {
+        self.router.showAlertWithMessage(errorDecription)
     }
 }
