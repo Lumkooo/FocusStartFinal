@@ -90,6 +90,7 @@
 		CEC7B4E3258092F300479F28 /* PurchasingVCAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7B4E2258092F300479F28 /* PurchasingVCAssembly.swift */; };
 		CEC7B4E82580A18F00479F28 /* UserLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7B4E72580A18F00479F28 /* UserLocationManager.swift */; };
 		CEC9204825887EB200DF4B56 /* SearchingScreenSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9204725887EB100DF4B56 /* SearchingScreenSearchBarDelegate.swift */; };
+		CED7093E2589DD6B00870CA7 /* CustomDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7093D2589DD6B00870CA7 /* CustomDoneView.swift */; };
 		CEE415EC257E0A450065B26C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE415EB257E0A450065B26C /* AppDelegate.swift */; };
 		CEE415EE257E0A450065B26C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE415ED257E0A450065B26C /* SceneDelegate.swift */; };
 		CEE415F0257E0A450065B26C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE415EF257E0A450065B26C /* MainViewController.swift */; };
@@ -245,6 +246,7 @@
 		CEC7B4E2258092F300479F28 /* PurchasingVCAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasingVCAssembly.swift; sourceTree = "<group>"; };
 		CEC7B4E72580A18F00479F28 /* UserLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationManager.swift; sourceTree = "<group>"; };
 		CEC9204725887EB100DF4B56 /* SearchingScreenSearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingScreenSearchBarDelegate.swift; sourceTree = "<group>"; };
+		CED7093D2589DD6B00870CA7 /* CustomDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoneView.swift; sourceTree = "<group>"; };
 		CEE415E8257E0A450065B26C /* FocusStartProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusStartProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE415EB257E0A450065B26C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE415ED257E0A450065B26C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 			children = (
 				CE6315BC257F5D57003B08F8 /* CustomButton.swift */,
 				CEC7B4BD2580829100479F28 /* CustomCloseButton.swift */,
+				CED7093D2589DD6B00870CA7 /* CustomDoneView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1145,6 +1148,7 @@
 				CEE4167C257E0EA60065B26C /* OneFoodVCAssembly.swift in Sources */,
 				CEA30969258482A6005B3115 /* OneOrderPresenter.swift in Sources */,
 				CE6314D2257F2F08003B08F8 /* OneFoodInteractor.swift in Sources */,
+				CED7093E2589DD6B00870CA7 /* CustomDoneView.swift in Sources */,
 				CEE4169A257E0F200065B26C /* PlaceLoader.swift in Sources */,
 				CEE41663257E0E0D0065B26C /* TabBarControllerAssembly.swift in Sources */,
 				CEA3096E258482AC005B3115 /* OneOrderInteractor.swift in Sources */,

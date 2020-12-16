@@ -69,4 +69,8 @@ extension OnePlacePresenter: IOnePlaceInteractorOuter {
     func errorOccured(errorDecription: String) {
         self.router.showAlertWithMessage(errorDecription)
     }
+
+    func showDoneView(_ isLiked: Bool) {
+        self.ui?.showDoneView(isLiked)
+    }
 }

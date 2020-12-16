@@ -20,7 +20,7 @@ final class Place: NSObject, MKAnnotation{
     var distance: Double?
     let isSale: Bool?
     
-    var mapItem: MKMapItem?{
+    var mapItem: MKMapItem? {
         guard let location = locationName else{
             return nil
         }
@@ -38,7 +38,7 @@ final class Place: NSObject, MKAnnotation{
          imagefile: String,
          descriptionText: String,
          distance: Double,
-         isSale: Bool?){
+         isSale: Bool?) {
         self.title = title
         self.locationName = locationName
         self.discipline = discipline

@@ -25,7 +25,7 @@ final class OneOrderView: UIView {
     
     private lazy var timeLabel: UILabel = {
         let myLabel = UILabel()
-        myLabel.font = AppFonts.titleLabelFont
+        myLabel.font = AppFonts.subtitleLabelFont
         myLabel.textAlignment = .right
         return myLabel
     }()
@@ -38,34 +38,34 @@ final class OneOrderView: UIView {
     
     private lazy var foodNameLabel: UILabel = {
         let myLabel = UILabel()
-        myLabel.font = AppFonts.titleLabelFont
+        myLabel.font = AppFonts.bigTitleLabelFont
         myLabel.textAlignment = .center
         myLabel.numberOfLines = 0
         return myLabel
     }()
     
-    private lazy var staticPriceLabel: UILabel={
+    private lazy var staticPriceLabel: UILabel = {
         let myLabel = UILabel()
-        myLabel.font = AppFonts.titleLabelFont
+        myLabel.font = AppFonts.subtitleLabelFont
         myLabel.text = "Цена: "
         return myLabel
     }()
     
-    private lazy var priceLabel: UILabel={
+    private lazy var priceLabel: UILabel = {
         let myLabel = UILabel()
-        myLabel.font = AppFonts.titleLabelFont
+        myLabel.font = AppFonts.subtitleLabelFont
         return myLabel
     }()
     
-    private lazy var newPriceLabel: UILabel={
+    private lazy var newPriceLabel: UILabel = {
         let myLabel = UILabel()
-        myLabel.font = AppFonts.titleLabelFont
+        myLabel.font = AppFonts.subtitleLabelFont
         return myLabel
     }()
     
-    private lazy var fromPlaceLabel: UILabel={
+    private lazy var fromPlaceLabel: UILabel = {
         let myLabel = UILabel()
-        myLabel.font = AppFonts.titleLabelFont
+        myLabel.font = AppFonts.subtitleLabelFont
         myLabel.numberOfLines = 0
         return myLabel
     }()

@@ -24,6 +24,7 @@ final class MainView: UIView {
         let myLabel = UILabel()
         myLabel.text = "Ближайшие места:"
         myLabel.font = AppFonts.largeTitleLabelFont
+        myLabel.accessibilityIdentifier = "nearestPlacesLabel"
         return myLabel
     }()
     
@@ -32,6 +33,7 @@ final class MainView: UIView {
                                                                  collectionViewLayout: UICollectionViewFlowLayout.init())
         myCollectionView.register(MainScreenCollectionViewCell.self,
                                   forCellWithReuseIdentifier: MainScreenCollectionViewCell.reuseIdentifier)
+        myCollectionView.accessibilityIdentifier = "placesCollectionView"
         return myCollectionView
     }()
     

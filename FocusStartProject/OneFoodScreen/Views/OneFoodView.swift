@@ -86,6 +86,7 @@ final class OneFoodView: UIView {
         let myButton = CustomButton()
         myButton.setTitle("Добавить в корзину", for: .normal)
         myButton.addTarget(self, action: #selector(addFoodButtonTapped(gesture:)), for: .touchUpInside)
+        myButton.accessibilityIdentifier = "addFoodButton"
         return myButton
     }()
     

@@ -15,6 +15,7 @@ protocol IOnePlaceView: class {
     
     func setupView(place: Place, placeImage: UIImage)
     func setupLikeButton(isLiked: Bool)
+    func showDoneView(_ isLiked: Bool)
 }
 
 final class OnePlaceView: UIView {
@@ -72,6 +73,7 @@ final class OnePlaceView: UIView {
         let myButton = CustomButton()
         myButton.setTitle("Перейти к меню", for: .normal)
         myButton.addTarget(self, action: #selector(menuButtonTapped(gesute:)), for: .touchUpInside)
+        myButton.accessibilityIdentifier = "menuButton"
         return myButton
     }()
     
@@ -99,6 +101,11 @@ final class OnePlaceView: UIView {
         myButton.alpha = 0.65
         myButton.addTarget(self, action: #selector(routeToPlaceButtonTapped(gesute:)), for: .touchUpInside)
         return myButton
+    }()
+
+    private lazy var doneView: CustomDoneView = {
+        let myDoneView = CustomDoneView()
+        return myDoneView
     }()
     
     // MARK: - Properties
@@ -296,8 +303,10 @@ extension OnePlaceView: IOnePlaceView {
     
     func setupLikeButton(isLiked: Bool) {
         if isLiked {
+            // Показываем doneView с текстом о том, что запись добавлена в избранные
             self.likeButton.setImage(AppConstants.Images.likeFilled, for: .normal)
         } else {
+            // Показываем doneView с текстом о том, что запись удалена из избранных
             self.likeButton.setImage(AppConstants.Images.like, for: .normal)
         }
     }
@@ -313,6 +322,14 @@ extension OnePlaceView: IOnePlaceView {
             self.descriptionLabel.text = "Информация о заведении:\n\(description)"
         }
     }
+
+    func showDoneView(_ isLiked: Bool) {
+        if isLiked {
+            self.setupAddedDoneView()
+        } else {
+            self.setupRemovedDoneView()
+        }
+    }
 }
 
 // MARK: - Настройка аннотации и региона на карте
@@ -324,5 +341,36 @@ private extension OnePlaceView {
         self.placeLocationMapView.setRegion(region,
                                             animated: false)
         self.placeLocationMapView.addAnnotation(place)
+    }
+}
+
+// MARK: - Настройка показывания doneView
+
+private extension OnePlaceView {
+    func setupAddedDoneView() {
+        self.addDoneViewOnScreen(withText: "Заведение добавлено в список избранных")
+    }
+
+    func setupRemovedDoneView() {
+        self.addDoneViewOnScreen(withText: "Заведение удалено из списка избранных")
+    }
+
+    func addDoneViewOnScreen(withText text: String) {
+
+        self.likeButton.isUserInteractionEnabled = false
+        self.doneView.setLabelText(text: text)
+        self.addSubview(self.doneView)
+        self.doneView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.doneView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.doneView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.doneView.widthAnchor.constraint(equalToConstant: AppConstants.Sizes.doneViewSize.width),
+            self.doneView.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.doneViewSize.height)
+        ])
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.doneView.removeFromSuperview()
+            self.likeButton.isUserInteractionEnabled = true
+        }
     }
 }

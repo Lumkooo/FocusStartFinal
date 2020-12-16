@@ -23,6 +23,7 @@ final class MenuView: UIView {
         myCollectionView.register(MenuCollectionViewCell.self,
                                   forCellWithReuseIdentifier: MenuCollectionViewCell.reuseIdentifier)
         myCollectionView.backgroundColor = .systemBackground
+        myCollectionView.accessibilityIdentifier = "MenuViewCollectionView"
         return myCollectionView
     }()
     

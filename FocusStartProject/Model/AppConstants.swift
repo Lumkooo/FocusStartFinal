@@ -34,6 +34,7 @@ enum AppConstants {
         static let likeButtonSize: CGSize = CGSize(width: 35, height: 35)
         static let closeViewButtonSize: CGSize = CGSize(width: 30, height: 30)
         static let userLocationButtonSize: CGSize = CGSize(width: 32, height: 32)
+        static let doneViewSize: CGSize = CGSize(width: 240, height: 240)
         static let mainScreenCollectionViewHeight: CGFloat = UIScreen.main.bounds.height * 0.27 + 30
         static let cornerRadius: CGFloat = 15
         static let borderWidth: CGFloat = 5

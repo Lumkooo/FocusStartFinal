@@ -20,6 +20,7 @@ protocol IOnePlaceInteractorOuter: class {
     func errorOccured(errorDecription: String)
     func routeToPlace(_ place: Place)
     func menuForPlace(_ place: Place)
+    func showDoneView(_ isLiked: Bool)
 }
 
 final class OnePlaceInteractor {
@@ -95,6 +96,7 @@ private extension OnePlaceInteractor {
         firebaseDatabaseManager.appendToLikedPlaces(place: self.place) {
             self.isLiked = true
             self.delegate?.placeAddedToLiked(place: self.place)
+            self.presenter?.showDoneView(self.isLiked)
         } errorCompletion: {
             self.presenter?.errorOccured(errorDecription: "Не удалось добавить это заведение в избранные")
         }
@@ -104,6 +106,7 @@ private extension OnePlaceInteractor {
         firebaseDatabaseManager.deleteLikedPlace(place: self.place) {
             self.isLiked = false
             self.delegate?.placeRemovedFromLiked(place: self.place)
+            self.presenter?.showDoneView(self.isLiked)
         } errorCompletion: {
             self.presenter?.errorOccured(errorDecription: "Не удалось удалить это заведение из избранных")
         }
