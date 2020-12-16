@@ -41,6 +41,9 @@ extension ProfileInteractor: IProfileInteractor {
     func logout() {
         firebaseAuthManager.logout {
             self.setupView()
+            NotificationCenter.default.post(name: NSNotification.Name(
+                                                rawValue: AppConstants.NotificationNames.refreshLikedPlaces),
+                                            object: nil)
         } errorCompletion: { (error) in
             self.presenter?.alertOccured(stringError: error.localizedDescription)
         }

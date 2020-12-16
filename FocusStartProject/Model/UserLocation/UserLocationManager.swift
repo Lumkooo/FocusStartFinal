@@ -30,14 +30,17 @@ final class UserLocationManager {
         self.locationManager = CLLocationManager()
         self.mapViewLocationManagerDelegate = MapViewLocationManagerDelegate(withDelegate: self)
         self.locationManager.delegate = mapViewLocationManagerDelegate
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         self.locationManager.requestWhenInUseAuthorization()
+        // Обновляем местоположение пользователя, если он сдвинулся более, чем на 250 метров
+        self.locationManager.distanceFilter = 250
 
         if CLLocationManager.locationServicesEnabled(){
             self.locationManager.startUpdatingLocation()
         } else {
             self.delegate.locationIsnotEnabled()
         }
+
         if locationManager.authorizationStatus == .restricted ||
             locationManager.authorizationStatus == .denied ||
             locationManager.authorizationStatus == .notDetermined {

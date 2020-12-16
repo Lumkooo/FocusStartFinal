@@ -16,6 +16,7 @@ protocol IMapView: class {
     func setupSegmentControl(withDisciplines disciplines: [String])
     func setupAnnotations(forPlaces places:[Place])
     func setupUserLocation(withLocation location: CLLocationCoordinate2D)
+    func setupCityLocation()
 }
 
 protocol IMapViewDelegate: class {
@@ -120,12 +121,21 @@ extension MapView: IMapView {
         self.mapView.removeAnnotations(currentAnnotations)
         mapView.addAnnotations(places)
     }
-    
+
+    // Используется, если пользователь разрешил использовать его местоположение
     func setupUserLocation(withLocation location: CLLocationCoordinate2D) {
-        let span = Constants.mapSpan
-        let region = MKCoordinateRegion(center: location, span: span)
+        let region = MKCoordinateRegion(center: location, span: Constants.mapSpan)
+        print(location)
         self.mapView.setRegion(region, animated: true)
         self.userLocationButton.setImage(AppConstants.Images.userLocationButtonImageFilled, for: .normal)
+    }
+
+    // Используется, если пользователь не разрешил использовать его местоположение
+    // Просто показывается карта New-York-а
+    func setupCityLocation() {
+        let center = CLLocationCoordinate2D(latitude: 40.75, longitude: -73.98)
+        let region = MKCoordinateRegion(center: center, span: Constants.mapSpan)
+        self.mapView.setRegion(region, animated: true)
     }
 }
 

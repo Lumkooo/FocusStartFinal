@@ -44,13 +44,14 @@ final class PurchasingInteractor {
     weak var presenter: IPurchasingInteractorOuter?
     private var foodArray: [Food]
     private var userLocation: CLLocationCoordinate2D?
-    private var stringUserLocation: String?
     private var userLocationManager: UserLocationManager?
-    private var chosenDeliveryMethod: String?
-    private var chosenTime: String?
+    private var firebaseAuthManager = FirebaseAuthManager()
     private var delegate: IBasketScreenDelegate
     private var timePresentation: [String] = ["Как можно скорее", "Ко времени"]
-    
+    private var chosenTime: String?
+    private var chosenDeliveryMethod: String?
+    private var stringUserLocation: String?
+
     // MARK: - Init
     
     init(delegate: IBasketScreenDelegate) {
@@ -63,6 +64,10 @@ final class PurchasingInteractor {
 
 extension PurchasingInteractor: IPurchasingInteractor {
     func order(time: String?) {
+        if !self.firebaseAuthManager.isSignedIn {
+            self.presenter?.errorOccured(errorDecription: "Для оформления заказа необходимо авторизоваться")
+            return
+        }
         if self.foodArray.isEmpty {
             self.presenter?.errorOccured(errorDecription: "Для оформления заказа необходимо что-то добавить в корзину")
             return

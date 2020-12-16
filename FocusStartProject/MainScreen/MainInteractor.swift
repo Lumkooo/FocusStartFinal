@@ -9,7 +9,7 @@ import MapKit
 
 protocol IMainInteractor {
     func loadInitData()
-    func loadLikedRecords()
+    func loadLikedPlaces()
     func nearestPlacesCellTapped(atIndexPath indexPath: IndexPath)
     func likedPlacesCellTapped(atIndexPath indexPath: IndexPath)
     func prepareForSearchVC()
@@ -55,9 +55,10 @@ extension MainInteractor: IMainInteractor {
         // Если местоположение получено, то выведутся места отсортированные по близости к пользователю
         // если получить местоположение не удалось, то просто выведется список мест
         self.setupLocationManager()
+        self.setupNotifications()
     }
 
-    func loadLikedRecords() {
+    func loadLikedPlaces() {
         // Если пользователь авторизован, то пробуем достать из Firebase избранные заведения
         if self.firebaseAuthManager.isSignedIn {
             // Запуск activityIndicator-а
@@ -90,6 +91,11 @@ extension MainInteractor: IMainInteractor {
                 self.presenter?.setupLikedPlacesCollectionView(withLikedPlaces: self.likedPlaces)
                 self.presenter?.errorOccured(errorDescription: "Не удалось получить список избранных заведений")
             }
+        } else {
+            // Если пользователь не авторизован, то ничего не показываем,
+            // если что-то уже было в массиве, то убираем это
+            self.likedPlaces.removeAll()
+            self.presenter?.setupLikedPlacesCollectionView(withLikedPlaces: self.likedPlaces)
         }
     }
 
@@ -181,5 +187,26 @@ extension MainInteractor: ILikedPlacesDelegate {
         self.likedPlaces.removeAll { (removingPlace) -> Bool in
             removingPlace == place
         }
+    }
+}
+
+
+// MARK: - Настройка NotificationCenter
+
+private extension MainInteractor {
+    func setupNotifications() {
+        // Notification вызывается в LoginInteractor и в ProfileInteractor
+        // Обновляет список избранных мест после авторизации/выхода из аккаунта
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(refreshLikedPlacesAfterAuthActions(_:)),
+                                               name: NSNotification.Name(
+                                                rawValue: AppConstants.NotificationNames.refreshLikedPlaces),
+                                               object: nil)
+    }
+
+    /// Перезагрузить список избранных мест после авторизации/выхода из аккаунта
+    @objc func refreshLikedPlacesAfterAuthActions(_ notification:Notification) {
+        // TODO: - логика
+        self.loadLikedPlaces()
     }
 }

@@ -18,6 +18,7 @@ protocol IMapInteractorOuter: class {
     func returnPlacesDisciplines(_ disciplines: [String])
     func returnPlacesForDiscipline(places: [Place])
     func setupUserLocation(withLocation location: CLLocationCoordinate2D)
+    func setupCityLocation()
     func showAlert(withText text:String)
 }
 
@@ -72,7 +73,8 @@ private extension MapInteractor {
 extension MapInteractor: IUserLocationManager {
     func locationIsnotEnabled() {
         // Не удалось получить местоположение пользователя
-        print("locationIsnotEnabled")
+        // Просто покажем карту New-York-а
+        self.presenter?.setupCityLocation()
     }
     
     func locationIsEnabled(location: CLLocationCoordinate2D) {

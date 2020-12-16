@@ -65,4 +65,8 @@ extension MapPresenter: IMapInteractorOuter {
     func showAlert(withText text: String) {
         self.router.showAlertWithMessage(text)
     }
+
+    func setupCityLocation() {
+        self.ui?.setupCityLocation()
+    }
 }

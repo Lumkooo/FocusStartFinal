@@ -142,10 +142,10 @@ private extension OnePlaceView {
         self.setupTopImageView()
         self.setupLikeButton()
         self.setupTitleLabel()
-        self.setupDesriptionLabel()
-        self.setupMenuButton()
         self.setupLocationMapView()
         self.setupRouteToPlaceButton()
+        self.setupDescriptionLabel()
+        self.setupMenuButton()
     }
     
     func setupScrollView() {
@@ -201,49 +201,18 @@ private extension OnePlaceView {
                                                       constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
-    
-    func setupDesriptionLabel() {
-        self.scrollView.addSubview(self.descriptionLabel)
-        self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            self.descriptionLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor,
-                                                       constant: AppConstants.Constraints.normalAnchorConstant),
-            self.descriptionLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                           constant: AppConstants.Constraints.normalAnchorConstant),
-            self.descriptionLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                            constant: -AppConstants.Constraints.normalAnchorConstant),
-        ])
-    }
-    
-    func setupMenuButton() {
-        self.scrollView.addSubview(self.menuButton)
-        self.menuButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            self.menuButton.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor,
-                                                 constant: AppConstants.Constraints.normalAnchorConstant),
-            self.menuButton.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                     constant: AppConstants.Constraints.normalAnchorConstant),
-            self.menuButton.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                      constant: -AppConstants.Constraints.normalAnchorConstant),
-            self.menuButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
-        ])
-    }
-    
+
     func setupLocationMapView() {
         self.scrollView.addSubview(self.placeLocationMapView)
         self.placeLocationMapView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.placeLocationMapView.topAnchor.constraint(equalTo: self.menuButton.bottomAnchor,
+            self.placeLocationMapView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor,
                                                            constant: AppConstants.Constraints.normalAnchorConstant),
             self.placeLocationMapView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
             self.placeLocationMapView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
             self.placeLocationMapView.heightAnchor.constraint(equalTo: self.topImageView.widthAnchor,
-                                                              multiplier: Constants.constraintsMultiplier),
-            self.placeLocationMapView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor,
-                                                              constant: -AppConstants.Constraints.normalAnchorConstant)
+                                                              multiplier: Constants.constraintsMultiplier)
         ])
     }
     
@@ -259,6 +228,37 @@ private extension OnePlaceView {
             self.routeToPlaceButton.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
                                                               constant: -AppConstants.Constraints.normalAnchorConstant),
             self.routeToPlaceButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
+        ])
+    }
+
+    func setupDescriptionLabel() {
+        self.scrollView.addSubview(self.descriptionLabel)
+        self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.descriptionLabel.topAnchor.constraint(equalTo: self.placeLocationMapView.bottomAnchor,
+                                                       constant: AppConstants.Constraints.normalAnchorConstant),
+            self.descriptionLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
+                                                           constant: AppConstants.Constraints.normalAnchorConstant),
+            self.descriptionLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
+                                                            constant: -AppConstants.Constraints.normalAnchorConstant),
+        ])
+    }
+
+    func setupMenuButton() {
+        self.scrollView.addSubview(self.menuButton)
+        self.menuButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.menuButton.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor,
+                                                 constant: AppConstants.Constraints.normalAnchorConstant),
+            self.menuButton.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
+                                                     constant: AppConstants.Constraints.normalAnchorConstant),
+            self.menuButton.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
+                                                      constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.menuButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight),
+            self.menuButton.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor,
+                                                       constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
 }
@@ -304,7 +304,8 @@ extension OnePlaceView: IOnePlaceView {
     
     private func setupDescriptionLabelText(_ place: Place,
                                            _ description: String) {
-        if let distance = place.distance {
+        if let distance = place.distance,
+           distance > 0 {
             // Округлим до 1 знака после запятой
             let roundedDistance = Double(round(10*distance)/10)
             self.descriptionLabel.text = "Информация о заведении:\n\(description)\n\nЗаведение находится в \(roundedDistance) м. от вас"

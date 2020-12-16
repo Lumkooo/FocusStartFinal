@@ -14,7 +14,8 @@ enum AppConstants {
     // MARK: - NotificationNames
 
     enum NotificationNames {
-        static let refreshProfileTableView = "refreshTableViewAfterNewOrders"
+        static let refreshProfileTableView = "refreshTableViewAfterNewOrdersNotificationName"
+        static let refreshLikedPlaces = "refreshLikedPlacesNotificationName"
     }
 
     // MARK: - Constraints

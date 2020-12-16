@@ -35,7 +35,7 @@ extension MainPresenter: IMainPresenter {
             self?.interactor.likedPlacesCellTapped(atIndexPath: indexPath)
         }
         self.interactor.loadInitData()
-        self.interactor.loadLikedRecords()
+        self.interactor.loadLikedPlaces()
     }
     
     func searchButtonTapped() {
