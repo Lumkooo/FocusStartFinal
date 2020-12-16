@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Еда
 struct Food: Decodable {
     let placeName: String?
     let foodName: String?
@@ -15,7 +16,7 @@ struct Food: Decodable {
     let imageURL: String?
     let newFoodPrice: Double?
     var address: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case placeName
         case foodName
@@ -25,10 +26,9 @@ struct Food: Decodable {
         case newFoodPrice
         case address
     }
-
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-
         self.placeName = try? container.decode(String.self, forKey: .placeName)
         self.foodName = try? container.decode(String.self, forKey: .foodName)
         self.foodPrice = try? container.decode(Double.self, forKey: .foodPrice)

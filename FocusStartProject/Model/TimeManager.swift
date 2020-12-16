@@ -8,8 +8,8 @@
 import Foundation
 
 final class TimeManager {
-    /// isForUser == true значит, что возвращенное время будет использовано для списка истории заказов в профиле пользователя
-    /// isForUser == false значит, что время будет использовано для отправления заказа ресторанам
+    /// Возвращает текущее время
+    /// - parameter isForUser: true возвращает время вида hour : minutes day month. false возвращает время вида hour : minutes : seconds:nanoseconds day month
     func getCurrentTime(isForUser: Bool) -> String {
         var timeString = ""
         let hour = Calendar.current.component(.hour, from: Date())
@@ -18,33 +18,32 @@ final class TimeManager {
         let nanoseconds = Calendar.current.component(.nanosecond, from: Date())
         let day = Calendar.current.component(.day, from: Date())
         let month = monthIntToString(forMonth: Calendar.current.component(.month, from: Date()))
-        
         var minutes:String = ""
         var seconds:String = ""
-        
         seconds = makeMoreRealistic(digit: intSeconds)
         minutes = makeMoreRealistic(digit: intMinutes)
-        
         if isForUser {
             timeString = "\("\(hour):\(minutes) \(day) \(month)")"
         } else {
             timeString = "\("\(hour):\(minutes):\(seconds):\(nanoseconds) \(day) \(month)")"
         }
-        
         return timeString
     }
-    
+
+    /// Для более привычного обозначения минут
+    ///
+    /// Например, не как 14 часов 1 минута, а как
+    /// 14 часов 01 минута. 14:01 выглядит привычнее, чем 14:1
     private func makeMoreRealistic(digit: Int) -> String{
         if digit < 10 {
-            return "0\(digit)"      //Для обозначения минут не как, например 14 часов 1 минута, а как
-        } else {                              // 14 часов 01 минута. 14:01 выглядит привычнее, чем 14:1
+            return "0\(digit)"
+        } else {
             return "\(digit)"
         }
     }
-    
-    private func monthIntToString(forMonth month:Int) -> String{
-        // Можно было бы и exntension Int сделать, но почему бы и не так
-        // Используется для отслеживания даты заказа
+
+    /// Преобразование числа месяца в строку месяца
+    private func monthIntToString(forMonth month:Int) -> String {
         switch month {
         case 1:
             return "Января"

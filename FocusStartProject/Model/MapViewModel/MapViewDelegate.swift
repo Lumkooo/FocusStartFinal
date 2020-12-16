@@ -20,8 +20,12 @@ final class MapViewDelegate: NSObject {
     }
 }
 
+// MARK: - MKMapViewDelegate
+
 extension MapViewDelegate: MKMapViewDelegate {
-    func mapView(_ mapView:MKMapView, annotationView view:MKAnnotationView, calloutAccessoryControlTapped control:UIControl) {
+    func mapView(_ mapView:MKMapView,
+                 annotationView view:MKAnnotationView,
+                 calloutAccessoryControlTapped control:UIControl) {
 
         guard let place = view.annotation as? Place else{
             return
@@ -29,7 +33,8 @@ extension MapViewDelegate: MKMapViewDelegate {
         self.delegate.goToOnePlace(place)
     }
 
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    func mapView(_ mapView: MKMapView,
+                 regionDidChangeAnimated animated: Bool) {
         self.delegate.mapWasScrolled()
     }
 }

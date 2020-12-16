@@ -9,13 +9,13 @@ import Foundation
 import Firebase
 
 final class FirebaseDatabaseManager {
-
+    
     // MARK: - Properties
-
+    
     private var userUID: String {
         guard let userUID = Auth.auth().currentUser?.uid else {
             // Не должно быть ситуации, когда Auth.auth().currentUser?.uid был бы nil,
-            // потому что на PurchasingScreen можно пройти только авторизовавшись
+            // потому что на все экраны, где это используется можно пройти только авторизовавшись
             // однако на всякий случай:
             assertionFailure("Can't take userUID")
             return ""
@@ -29,7 +29,7 @@ final class FirebaseDatabaseManager {
 // MARK: - Методы для работы с избранными местами
 
 extension FirebaseDatabaseManager {
-
+    
     /// Метод добавляет текущую запись в список понравившихся, сохраняет ее в Firebase Database
     func appendToLikedPlaces(place: Place,
                              completion: @escaping () -> Void,
@@ -40,14 +40,14 @@ extension FirebaseDatabaseManager {
             return
         }
         let likedPlace = FirebaseLikedPlace(locationName: locationName,
-                                    title: title)
+                                            title: title)
         let likedPlacesRef = databaseRef.child(self.userUID).child("likedPlaces")
         let newRefIndex = ("\(title), \(locationName)")
         likedPlacesRef.child("\(newRefIndex)").setValue(["title" : likedPlace.title,
                                                          "locationName" : likedPlace.locationName])
         completion()
     }
-
+    
     /// Метод удаляет текущую запись из списка понравившихся
     func deleteLikedPlace(place: Place,
                           completion: @escaping () -> Void,
@@ -67,7 +67,7 @@ extension FirebaseDatabaseManager {
             completion()
         }
     }
-
+    
     /// Метод для получения информации о том добавлен ли это заведение в избранные
     func isPlaceLiked(place: Place,
                       completion: @escaping (Bool) -> Void,
@@ -89,7 +89,7 @@ extension FirebaseDatabaseManager {
             })
         }
     }
-
+    
     func getLikedPlaces(completion: @escaping ([FirebaseLikedPlace]) -> Void,
                         errorCompletion: @escaping () -> Void) {
         let likedPlacesRef = self.databaseRef.child(self.userUID).child("likedPlaces")
@@ -97,7 +97,7 @@ extension FirebaseDatabaseManager {
         likedPlacesRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 for child in snapshot.children {
-
+                    
                     guard let array = (child as? DataSnapshot)?.value as? Dictionary<String, Any> else {
                         errorCompletion()
                         assertionFailure("Can not load liked places")
@@ -109,7 +109,7 @@ extension FirebaseDatabaseManager {
                         return
                     }
                     let likedPlace = FirebaseLikedPlace(locationName: locationName,
-                                                title: title)
+                                                        title: title)
                     likedPlaces.append(likedPlace)
                 }
             }
@@ -141,7 +141,7 @@ extension FirebaseDatabaseManager {
         }
         completion()
     }
-
+    
     /// Метод для получения списка заказов из Firebase Database.
     func getOrders(completion: @escaping ([HistoryOrderEntity]) -> Void,
                    errorCompletion: @escaping () -> Void) {
@@ -179,7 +179,7 @@ extension FirebaseDatabaseManager {
             completion(previousOrders)
         })
     }
-
+    
     /// Метод в completion возвращает количество сделанных пользователем заказов
     func getOrdersCount(completion: @escaping ((Int) -> Void)) {
         let ref = databaseRef.child(self.userUID).child("orders")
@@ -188,12 +188,12 @@ extension FirebaseDatabaseManager {
             completion(childrenCount)
         })
     }
-
+    
     /// Загружает запись в firebase database для того, чтобы заведения могли видеть заказ
     private func uploadOrderToRestaurant(foodArray: [Food],
-                                 orderTime: String,
-                                 deliveryMethod: String,
-                                 errorCompletion: (() -> Void)) {
+                                         orderTime: String,
+                                         deliveryMethod: String,
+                                         errorCompletion: (() -> Void)) {
         for food in foodArray {
             guard let foodName = food.foodName,
                   let restaurantAddress = food.address,
@@ -215,12 +215,12 @@ extension FirebaseDatabaseManager {
                                                            "orderTime": order.orderTime])
         }
     }
-
+    
     /// Загружает запись в firebase database для последующего просмотра историй заказов в профиле
     private func uploadOrderToHistory(foodArray: [Food],
-                              orderTime: String,
-                              deliveryMethod: String,
-                              errorCompletion: (() -> Void)) {
+                                      orderTime: String,
+                                      deliveryMethod: String,
+                                      errorCompletion: (() -> Void)) {
         for (index, food) in foodArray.enumerated() {
             guard let foodName = food.foodName,
                   let restaurantAddress = food.address,
@@ -238,9 +238,9 @@ extension FirebaseDatabaseManager {
                                            newPrice: newPrice,
                                            price: price,
                                            imageURL: imageURL)
-
+            
             let userRef = databaseRef.child(self.userUID).child("orders")
-
+            
             userRef.observeSingleEvent(of: .value, with: { (snapshot) in
                 let newRefIndex = (Int(snapshot.childrenCount) + index)
                 userRef.child("\(newRefIndex)").setValue(["time" : order.time,

@@ -19,9 +19,8 @@ protocol IOneFoodInteractorOuter: class {
 }
 
 final class OneFoodInteractor {
-
     // MARK: - OneFoodFor
-    // Для переиспользования этого модуля в basket и menu VC
+    // Для переиспользования этого модуля для basket и menu VC
     // в menu нужна кнопка добавления в корзину,
     // в basket она не нужна
     enum OneFoodFor {
@@ -41,7 +40,8 @@ final class OneFoodInteractor {
 
     // MARK: - Init
 
-    init(food: Food, vcFor: OneFoodFor) {
+    init(food: Food,
+         vcFor: OneFoodFor) {
         self.food = food
         self.oneFoodVCType = vcFor
     }
@@ -65,14 +65,14 @@ extension OneFoodInteractor: IOneFoodInteractor {
 
 
 private extension OneFoodInteractor {
-    func loadImage(forFood food: Food, completion: @escaping ((UIImage) -> Void)) {
+    func loadImage(forFood food: Food,
+                   completion: @escaping ((UIImage) -> Void)) {
         if let url = food.imageURL {
             ImageCache.loadImage(urlString: url,
                                  nameOfPicture: "\(url)") { (urlString, image) in
                 completion(image ?? UIImage())
             }
         } else {
-            // TODO: - Поставить картинку неудачной загрузки
             completion(UIImage())
         }
     }

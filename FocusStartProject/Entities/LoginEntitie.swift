@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// Сущность для регистрации/авторизации
 struct LoginEntitie {
     let email: String
     let password: String

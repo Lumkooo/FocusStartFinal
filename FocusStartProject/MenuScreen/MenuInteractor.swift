@@ -19,14 +19,21 @@ protocol IMenuPresenterOuter: class {
 }
 
 final class MenuInteractor {
+
+    // MARK: - Properties
+
     private var place: Place
     private var foodArray: [Food] = []
     weak var presenter: IMenuPresenterOuter?
+
+    // MARK: - Init
 
     init(place: Place) {
         self.place = place
     }
 }
+
+// MARK: - IMenuInteractor
 
 extension MenuInteractor: IMenuInteractor {
     func loadFoodForPlace() {

@@ -8,13 +8,16 @@
 import UIKit
 
 enum MainVCAssembly {
-    static func createMainVC() -> UIViewController {
+    static func createVC() -> UIViewController {
         let mainInteractor = MainInteractor()
         let mainRouter = MainRouter()
-        let mainPresenter = MainPresenter(interactor: mainInteractor, router: mainRouter)
+        let mainPresenter = MainPresenter(interactor: mainInteractor,
+                                          router: mainRouter)
         let mainViewController = MainViewController(presenter: mainPresenter)
+
         mainRouter.vc = mainViewController
         mainInteractor.presenter = mainPresenter
+        
         return mainViewController
     }
 }

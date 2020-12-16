@@ -8,13 +8,6 @@
 import UIKit
 
 final class CustomButton: UIButton {
-    // MARK: - Constants
-
-    private enum Constants {
-        static let buttonCornerRadius: CGFloat = 15
-        static let buttonShadowRadius: CGFloat = 5
-        static let buttonShadowOpacity: Float = 1
-    }
 
     // MARK: - Fonts
 
@@ -28,9 +21,9 @@ final class CustomButton: UIButton {
         super.init(frame: frame)
         self.backgroundColor = .black
         self.setTitleColor(.white, for: .normal)
-        self.layer.cornerRadius = Constants.buttonCornerRadius
-        self.layer.shadowOpacity = Constants.buttonShadowOpacity
-        self.layer.shadowRadius = Constants.buttonShadowRadius
+        self.layer.cornerRadius = AppConstants.Sizes.cornerRadius
+        self.layer.shadowOpacity = AppConstants.Sizes.shadowOpacity
+        self.layer.shadowRadius = AppConstants.Sizes.shadowRadius
         self.titleLabel?.font = Fonts.buttonFont
         self.layer.shadowColor = UIColor.black.cgColor
     }

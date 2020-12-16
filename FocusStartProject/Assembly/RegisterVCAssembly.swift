@@ -8,10 +8,11 @@
 import UIKit
 
 enum RegisterVCAssembly {
-    static func createRegisterVC(delegate: ProfileDelegate) -> UIViewController {
+    static func createVC(delegate: ProfileDelegate) -> UIViewController {
         let registerInteractor = RegisterInteractor(delegate: delegate)
         let registerRouter = RegisterRouter()
-        let registerPresenter = RegisterPresenter(interactor: registerInteractor, router: registerRouter)
+        let registerPresenter = RegisterPresenter(interactor: registerInteractor,
+                                                  router: registerRouter)
         let registerViewController = RegisterViewController(presenter: registerPresenter)
 
         registerRouter.vc = registerViewController

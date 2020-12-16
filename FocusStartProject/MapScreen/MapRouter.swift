@@ -16,9 +16,11 @@ final class MapRouter {
     weak var vc: UIViewController?
 }
 
+// MARK: - IMapRouter
+
 extension MapRouter: IMapRouter {
     func goToOnePlace(_ place: Place) {
-        let onePlaceVC = OnePlaceVCAssembly.createOnePlaceVC(withPlace: place)
+        let onePlaceVC = OnePlaceVCAssembly.createVC(withPlace: place)
         self.vc?.navigationController?.pushViewController(onePlaceVC,
                                                           animated: true)
     }

@@ -17,14 +17,21 @@ protocol IRegisterInteractorOuter: class {
 }
 
 final class RegisterInteractor {
+    
+    // MARK: - Properties
+    
     weak var presenter: IRegisterInteractorOuter?
     private let firebaseAuthManager = FirebaseAuthManager()
     private var delegate: ProfileDelegate
-
+    
+    // MARK: - Init
+    
     init(delegate: ProfileDelegate) {
         self.delegate = delegate
     }
 }
+
+// MARK: - IRegisterInteractor
 
 extension RegisterInteractor: IRegisterInteractor {
     func createUser(loginEntitie: LoginEntitie) {

@@ -8,7 +8,15 @@
 import UIKit
 
 final class PriceLabelSetuper {
-    /// Completion дает строку (priceLabelText) цвета color для priceLabel-а и строку newPriceLabelText для newPriceLabelText
+    /// Используется для преобразования двух цен в необходимое отображение.
+    ///
+    /// Если foodPrice == newFoodPrice, то priceLabelText - текст цены товара черного цвета
+    ///
+    /// Если newFoodPrice  < foodPrice,то priceLabelText - перечеркнутый текст черного цвета, а
+    /// newPriceLabelText - красный текст с действующей ценой
+    /// - parameter foodPrice: Изначальная цена продукта
+    /// - parameter newFoodPrice: Скидочная цена продукта
+    /// - parameter completion: Возвращает строку priceLabelText цвета priceLabelColor для priceLabel-а и строку newPriceLabelText для newPriceLabelText
     static func makePriceLabels(foodPrice: Double, newFoodPrice: Double,
                                 completion: (_ priceLabelColor: UIColor,
                                              _ priceLabelText: String,

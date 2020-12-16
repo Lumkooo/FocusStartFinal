@@ -8,16 +8,9 @@
 import UIKit
 
 final class FinalPurchasingViewController: UIViewController {
-
-    // MARK: - Constants
-
-    private enum Constants {
-        static let anchorConstant: CGFloat = 24
-        static let orderButtonHeight: CGFloat = 50
-    }
-
+    
     // MARK: - Views
-
+    
     private let infoLabel: UILabel = {
         let myLabel = UILabel()
         myLabel.font = AppFonts.titleLabelFont
@@ -26,7 +19,7 @@ final class FinalPurchasingViewController: UIViewController {
         myLabel.textAlignment = .center
         return myLabel
     }()
-
+    
     private let orderButton: CustomButton = {
         let myButton = CustomButton()
         myButton.addTarget(self,
@@ -37,25 +30,25 @@ final class FinalPurchasingViewController: UIViewController {
     }()
     
     // MARK: - Жизненный цикл ViewController-а
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         self.setupElements()
     }
-
+    
     // MARK: - Init
-
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - Обработка нажатия на кнопку
-
+    
     @objc func orderButtonTapped(gesture: UIGestureRecognizer) {
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -68,32 +61,32 @@ private extension FinalPurchasingViewController {
         self.setupTopInfoLabel()
         self.setupOrderButton()
     }
-
+    
     func setupTopInfoLabel() {
         self.view.addSubview(self.infoLabel)
         self.infoLabel.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             self.infoLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor,
-                                                   constant: Constants.anchorConstant),
+                                                    constant: AppConstants.Constraints.normalAnchorConstant),
             self.infoLabel.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor,
-                                                   constant: -Constants.anchorConstant),
-            self.infoLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -Constants.anchorConstant)
+                                                     constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.infoLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
-
+    
     func setupOrderButton() {
         self.view.addSubview(self.orderButton)
         self.orderButton.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             self.orderButton.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor,
-                                                      constant: Constants.anchorConstant),
+                                                      constant: AppConstants.Constraints.normalAnchorConstant),
             self.orderButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor,
-                                                       constant: -Constants.anchorConstant),
+                                                       constant: -AppConstants.Constraints.normalAnchorConstant),
             self.orderButton.topAnchor.constraint(equalTo: self.infoLabel.bottomAnchor,
-                                                  constant: Constants.anchorConstant),
-            self.orderButton.heightAnchor.constraint(equalToConstant: Constants.orderButtonHeight)
+                                                  constant: AppConstants.Constraints.normalAnchorConstant),
+            self.orderButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
         ])
     }
 }

@@ -10,7 +10,6 @@ import UIKit
 enum FinalPurchasingVCAssembly {
     static func createVC() -> UIViewController {
         let viewController = FinalPurchasingViewController()
-
         return viewController
     }
 }

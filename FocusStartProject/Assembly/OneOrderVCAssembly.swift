@@ -12,7 +12,7 @@ enum OneOrderVCAssembly {
         let interactor = OneOrderInteractor(order: order)
         let router = OneOrderRouter()
         let presenter = OneOrderPresenter(interactor: interactor,
-                                            router: router)
+                                          router: router)
         let viewController = OneOrderViewContorller(presenter: presenter)
 
         interactor.presenter = presenter

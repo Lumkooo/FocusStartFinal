@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Сущность сохранения избранных записей в БД
+
 struct FirebaseLikedPlace {
     let locationName: String
     let title: String

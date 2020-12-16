@@ -8,32 +8,31 @@
 import UIKit
 
 final class LoginViewController: UIViewController {
-
+    
     // MARK: - Properties
-
-    var presenter: ILoginPresenter
-
+    
+    private var presenter: ILoginPresenter
+    
     // MARK: - Views
-
-    let loginView = LoginView()
-
+    
+    private let loginView = LoginView()
+    
     // MARK: - Жизненный цикл ViewController-а
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = loginView
         presenter.viewDidLoad(ui: self.loginView)
     }
-
+    
     // MARK: - Init
-
+    
     init(presenter: ILoginPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }

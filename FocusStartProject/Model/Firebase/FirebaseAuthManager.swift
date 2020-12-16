@@ -29,8 +29,8 @@ final class FirebaseAuthManager {
     }
 
     func createUser(loginEntitie: LoginEntitie,
-                  completion: @escaping (() -> Void),
-                  errorCompletion: @escaping ((Error) -> Void)) {
+                    completion: @escaping (() -> Void),
+                    errorCompletion: @escaping ((Error) -> Void)) {
         auth.createUser(withEmail: loginEntitie.email, password: loginEntitie.password) { (result, error) in
             if let error = error {
                 errorCompletion(error)

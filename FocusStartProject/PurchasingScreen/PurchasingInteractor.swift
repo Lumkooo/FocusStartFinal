@@ -29,18 +29,18 @@ protocol IPurchasingInteractorOuter: class {
 }
 
 final class PurchasingInteractor {
-
+    
     // MARK: - Constants
-
+    
     private enum Constants {
         static let errorDecription = "Мы не можем получить ваше местоположение\nПроверьте доступ приложения FocusStartProject к вашей геолокации в настройках"
         static let selfPickup = "Самовывоз"
         static let soonTime = "Как можно скорее"
         static let wrongTimeTextFieldAlertText = "Время введено неправильно!"
     }
-
+    
     // MARK: - Properties
-
+    
     weak var presenter: IPurchasingInteractorOuter?
     private var foodArray: [Food]
     private var userLocation: CLLocationCoordinate2D?
@@ -50,8 +50,9 @@ final class PurchasingInteractor {
     private var chosenTime: String?
     private var delegate: IBasketScreenDelegate
     private var timePresentation: [String] = ["Как можно скорее", "Ко времени"]
+    
     // MARK: - Init
-
+    
     init(delegate: IBasketScreenDelegate) {
         self.foodArray = BasketManager.sharedInstance.getBasketArray()
         self.delegate = delegate
@@ -86,38 +87,37 @@ extension PurchasingInteractor: IPurchasingInteractor {
             self.presenter?.errorOccured(errorDecription: "Необходимо выбрать способ получения заказа")
             return
         }
-
+        
+        // Загрузка списка покупок в Firebase Database
         FirebaseDatabaseManager().uploadOrders(foodArray: self.foodArray,
                                                orderTime: chosenTime,
-                                               deliveryMethod: chosenDeliveryMethod){
-            // completion
+                                               deliveryMethod: chosenDeliveryMethod) {
             BasketManager.sharedInstance.removeAllFood()
             self.delegate.reloadViewAfterPurchasing()
             NotificationCenter.default.post(name: NSNotification.Name(
                                                 rawValue: AppConstants.NotificationNames.refreshProfileTableView),
                                             object: nil)
         } errorCompletion: {
-            // Ошибка
             self.presenter?.errorOccured(errorDecription: "Не удалось разместить заказ")
         }
         self.presenter?.finishPurchasing()
     }
-
+    
     func loadInitData() {
         self.getUserLocation()
         self.presenter?.returnTimePresentation(timePresentation: self.timePresentation)
     }
-
+    
     func showPrice() {
         self.foodArray = BasketManager.sharedInstance.getBasketArray()
         let totalPrice = self.getTotalPrice()
         self.presenter?.setupTotalPrice(totalPrice: totalPrice)
     }
-
+    
     func selfPickupChosen() {
         self.selfPickupSetup()
     }
-
+    
     func toUserDeliveryChosen() {
         if let stringUserLocation = self.stringUserLocation {
             self.deliverySetup(stringLocation: stringUserLocation)
@@ -125,7 +125,7 @@ extension PurchasingInteractor: IPurchasingInteractor {
             self.presenter?.errorOccured(errorDecription: Constants.errorDecription)
         }
     }
-
+    
     func getTimePresentation(forSegmentControlTitle title: String) {
         if title == self.timePresentation[0] {
             // title == Как можно скорее, не надо показывать TextField
@@ -143,17 +143,17 @@ private extension PurchasingInteractor {
     func getUserLocation() {
         self.userLocationManager = UserLocationManager(delegate: self)
     }
-
+    
     func selfPickupSetup() {
         self.chosenDeliveryMethod = Constants.selfPickup
         self.presenter?.setupSelfPickupOnUI()
     }
-
+    
     func deliverySetup(stringLocation: String) {
         self.chosenDeliveryMethod = stringLocation
         self.presenter?.setupUserLocationOnUI()
     }
-
+    
     func getTotalPrice() -> String{
         var totalPrice: Double = 0
         for food in foodArray {
@@ -163,7 +163,7 @@ private extension PurchasingInteractor {
         }
         return String(totalPrice)
     }
-
+    
     func checkTime(_ time: inout String) {
         // Время было введено в TextField-е, назначаем его как выбраное время для дальнейшей работы,
         // если оно удовлетворяет правилам
@@ -197,13 +197,12 @@ extension PurchasingInteractor: IUserLocationManager {
             self.stringUserLocation = stringLocation
             self.deliverySetup(stringLocation: stringLocation)
         } errorCompletion: { (errorDescription) in
-            // По сути при инициализации не надо показывать ошибку
-            // если не удается получить местоположение пользователя
-//            self.presenter?.errorOccured(errorDecription: errorDescription)
+            // Если не удалось получить местоположение пользователя, то методом доставки
+            // выставляем самовывоз
             self.presenter?.setupSelfPickupOnUI()
         }
     }
-
+    
     func locationIsnotEnabled() {
         // в этом случае устанавливаем самовывоз
         self.selfPickupSetup()

@@ -7,22 +7,15 @@
 
 import UIKit
 
-protocol IProfileScreenTableViewDelegate: class {
-    func selectedCell(indexPath: IndexPath)
-}
-
 final class ProfileScreenTableViewDelegate: NSObject {
 
-    // MARK: - Constants
+    // MARK: - Properties
 
-    private enum Constants {
-        static let tableViewEstimatedHeight:CGFloat = 44
-    }
-    weak var delegate: IProfileScreenTableViewDelegate?
+    private weak var delegate: ICustomTableViewDelegate?
 
     // MARK: - Init
 
-    init(withDelegate delegate: IProfileScreenTableViewDelegate) {
+    init(withDelegate delegate: ICustomTableViewDelegate) {
         self.delegate = delegate
     }
 }
@@ -30,12 +23,8 @@ final class ProfileScreenTableViewDelegate: NSObject {
 // MARK: - UITableViewDelegate
 
 extension ProfileScreenTableViewDelegate: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         delegate?.selectedCell(indexPath: indexPath)
     }
-
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        Constants.tableViewEstimatedHeight
-//    }
 }

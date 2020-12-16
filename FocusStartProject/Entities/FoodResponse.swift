@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Сущность для получения списка еды из JSON
 struct  FoodResponse: Decodable {
     enum CodingKeys: String, CodingKey {
         case foodArray

@@ -19,9 +19,14 @@ protocol IOneOrderInteractorOuter: class {
 
 
 final class OneOrderInteractor {
+    
+    // MARK: - Properties
+    
     weak var presenter: IOneOrderInteractorOuter?
     private var order: HistoryOrderEntity
-
+    
+    // MARK: - Init
+    
     init(order: HistoryOrderEntity) {
         self.order = order
     }

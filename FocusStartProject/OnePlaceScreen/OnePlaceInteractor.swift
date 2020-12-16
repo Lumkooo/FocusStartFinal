@@ -23,6 +23,9 @@ protocol IOnePlaceInteractorOuter: class {
 }
 
 final class OnePlaceInteractor {
+    
+    // MARK: - Init
+    
     weak var presenter: IOnePlaceInteractorOuter?
     private var firebaseDatabaseManager = FirebaseDatabaseManager()
     private var firebaseAuthManager = FirebaseAuthManager()
@@ -33,8 +36,11 @@ final class OnePlaceInteractor {
             self.setupLikeButton()
         }
     }
-
-    init(place: Place, delegate: ILikedPlacesDelegate? = nil) {
+    
+    // MARK: - Properites
+    
+    init(place: Place,
+         delegate: ILikedPlacesDelegate? = nil) {
         self.place = place
         self.delegate = delegate
     }
@@ -46,11 +52,11 @@ extension OnePlaceInteractor: IOnePlaceInteractor {
     func getRouteToPlace() {
         self.presenter?.routeToPlace(self.place)
     }
-
+    
     func getMenuForPlace() {
         self.presenter?.menuForPlace(self.place)
     }
-
+    
     func takeOnePlace() {
         self.getImageFor(place: self.place)
         // Кнопку с возможностью добавления места в избранное показывать только, если
@@ -59,7 +65,7 @@ extension OnePlaceInteractor: IOnePlaceInteractor {
             self.getIsLiked()
         }
     }
-
+    
     func likeAction() {
         if self.isLiked {
             // заведение было isLiked => удаляем ее из likedPlaces
@@ -84,7 +90,7 @@ private extension OnePlaceInteractor {
                                           placeImage: image ?? UIImage())
         }
     }
-
+    
     func apendPlaceToLiked() {
         firebaseDatabaseManager.appendToLikedPlaces(place: self.place) {
             self.isLiked = true
@@ -93,7 +99,7 @@ private extension OnePlaceInteractor {
             self.presenter?.errorOccured(errorDecription: "Не удалось добавить это заведение в избранные")
         }
     }
-
+    
     func removePlaceFromLiked() {
         firebaseDatabaseManager.deleteLikedPlace(place: self.place) {
             self.isLiked = false
@@ -106,7 +112,7 @@ private extension OnePlaceInteractor {
     func setupLikeButton() {
         self.presenter?.setupLikeButton(isLiked: self.isLiked)
     }
-
+    
     func getIsLiked() {
         self.firebaseDatabaseManager.isPlaceLiked(place: self.place) { (isLiked) in
             self.isLiked = isLiked

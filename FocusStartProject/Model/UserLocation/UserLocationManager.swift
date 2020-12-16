@@ -22,6 +22,7 @@ final class UserLocationManager {
     private var mapViewLocationManagerDelegate: MapViewLocationManagerDelegate?
     private var userLocation: CLLocationCoordinate2D?
     private var delegate: IUserLocationManager
+    
     // MARK: - Init
 
     init(delegate: IUserLocationManager) {
@@ -37,8 +38,15 @@ final class UserLocationManager {
         } else {
             self.delegate.locationIsnotEnabled()
         }
+        if locationManager.authorizationStatus == .restricted ||
+            locationManager.authorizationStatus == .denied ||
+            locationManager.authorizationStatus == .notDetermined {
+            self.delegate.locationIsnotEnabled()
+        }
     }
 }
+
+// MARK: - IMapLocationManagerDelegate
 
 extension UserLocationManager: IMapLocationManagerDelegate {
     func setupUserLocation(withLocation location: CLLocationCoordinate2D) {

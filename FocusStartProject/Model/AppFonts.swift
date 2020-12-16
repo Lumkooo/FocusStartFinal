@@ -8,6 +8,7 @@
 import UIKit
 
 enum AppFonts {
+
     private enum Constants {
         static let mainScreenCollectionViewCellTitleFontConstant: CGFloat = 0.03
         static let menuScreenCollectionViewCellTitleFontConstant:CGFloat = 0.02

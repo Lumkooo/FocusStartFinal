@@ -22,9 +22,9 @@ protocol IProfileInteractorOuter: class {
 }
 
 final class ProfileInteractor {
-
+    
     // MARK: - Properties
-
+    
     private var firebaseAuthManager = FirebaseAuthManager()
     private var firebaseDatabaseManager = FirebaseDatabaseManager()
     private var previousOrders: [HistoryOrderEntity] = []
@@ -37,7 +37,7 @@ extension ProfileInteractor: IProfileInteractor {
     func prepareView() {
         self.setupView()
     }
-
+    
     func logout() {
         firebaseAuthManager.logout {
             self.setupView()
@@ -45,7 +45,7 @@ extension ProfileInteractor: IProfileInteractor {
             self.presenter?.alertOccured(stringError: error.localizedDescription)
         }
     }
-
+    
     func retrieveOrder(forIndexPath indexPath: IndexPath) {
         let order = self.previousOrders[indexPath.row]
         self.presenter?.passOrderToRouter(order: order)
@@ -68,11 +68,11 @@ private extension ProfileInteractor {
             self.presenter?.setupViewForUnauthorizedUser()
         }
     }
-
+    
     func getUserEmail() -> String {
         return firebaseAuthManager.userEmail
     }
-
+    
     func getPreviousOrders(completion: @escaping (([HistoryOrderEntity]) -> Void)) {
         self.firebaseDatabaseManager.getOrders { previousOrders in
             completion(previousOrders)
@@ -81,7 +81,7 @@ private extension ProfileInteractor {
             completion([])
         }
     }
-
+    
     func setupNotification() {
         // Вызывается в PurchasingScreen-е для обновления tableView истории заказов после совершения покупки
         NotificationCenter.default.addObserver(self,
@@ -90,8 +90,8 @@ private extension ProfileInteractor {
                                                 rawValue: AppConstants.NotificationNames.refreshProfileTableView),
                                                object: nil)
     }
-
-
+    
+    
     @objc func refreshTableViewAfterNewOrders(_ notification:Notification) {
         // Для обновления TableView с предыдущими записями раз в секунду обращаемся к БД, чтобы узнать
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in

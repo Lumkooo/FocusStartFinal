@@ -23,7 +23,7 @@ extension PurchasingRouter: IPurchasingRouter {
         let alert = AlertAssembly.createSimpleAlert(withMessage: errorDecription)
         self.vc?.navigationController?.present(alert, animated: true)
     }
-
+    
     func showFinishPuchasingVC () {
         let finalPurchasingVC = FinalPurchasingVCAssembly.createVC()
         self.vc?.navigationController?.pushViewController(finalPurchasingVC, animated: true)

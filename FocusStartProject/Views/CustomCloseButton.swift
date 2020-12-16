@@ -8,16 +8,16 @@
 import UIKit
 
 final class CustomCloseButton: UIButton {
-
+    
     // MARK: - Constants
-
+    
     private enum Constants {
         static let closeViewButtonCornerRadius: CGFloat = 7
         static let xmarkImage = UIImage(systemName: "xmark")
     }
-
+    
     // MARK: - Init
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .black
@@ -26,7 +26,7 @@ final class CustomCloseButton: UIButton {
         self.backgroundColor = .black
         self.layer.cornerRadius = Constants.closeViewButtonCornerRadius
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

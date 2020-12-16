@@ -27,6 +27,9 @@ protocol IBasketScreenDelegate {
 }
 
 final class BasketInteractor {
+
+    // MARK: - Properties
+
     private var basketArray: [Food] = []
     private var firebaseAuthManager = FirebaseAuthManager()
     weak var presenter: IBasketInteractorOuter?
@@ -38,8 +41,8 @@ extension BasketInteractor: IBasketInteractor {
     // Чтобы каждый раз не показывать Alert о том, что надо добавить
     // что-то в корзину (думаю это было бы достаточно навязчиво)
     // специально сделал getInitialData() и getData()
-    // Первый срабатывает при viewDidLoad метода ViewContorller-а
-    // Второй при viewWillAppear
+    // Первый срабатывает при viewDidLoad метода ViewContorller-а и показывает Alert, если корзина пустая
+    // Второй при viewWillAppear и не показывает Alert-ов
     func getInitialData() {
         if BasketManager.sharedInstance.isEmpty {
             self.presenter?.basketArrayIsEmpty()
@@ -66,6 +69,8 @@ extension BasketInteractor: IBasketInteractor {
     }
 }
 
+// MARK: - Передача данных к UI
+
 private extension BasketInteractor {
     func passFoodArray() {
         if !BasketManager.sharedInstance.isEmpty &&
@@ -77,6 +82,10 @@ private extension BasketInteractor {
         }
     }
 }
+
+// MARK: - IBasketScreenDelegate
+// Обновление списка товаров в корзине, если новый товар был добавлен в корзину
+// после загрузки BasketScreen-а
 
 extension BasketInteractor: IBasketScreenDelegate {
     func reloadViewAfterPurchasing() {

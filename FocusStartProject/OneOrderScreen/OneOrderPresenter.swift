@@ -12,11 +12,17 @@ protocol IOneOrderPresenter {
 }
 
 final class OneOrderPresenter {
+    
+    // MARK: - Properties
+    
     private weak var ui: IOneOrderView?
     private var interactor: IOneOrderInteractor
     private var router: IOneOrderRouter
-
-    init(interactor: IOneOrderInteractor, router: IOneOrderRouter) {
+    
+    // MARK: - Init
+    
+    init(interactor: IOneOrderInteractor,
+         router: IOneOrderRouter) {
         self.interactor = interactor
         self.router = router
     }
@@ -37,11 +43,11 @@ extension OneOrderPresenter: IOneOrderInteractorOuter {
     func setupUIFor(order: HistoryOrderEntity, foodImage: UIImage) {
         self.ui?.setupUIFor(order: order, foodImage: foodImage)
     }
-
+    
     func errorOccured(errorDescription: String) {
         self.router.showAlert(message: errorDescription)
     }
-
+    
     func setupUIFor(order: HistoryOrderEntity) {
         self.ui?.setupUIFor(order: order)
     }

@@ -12,14 +12,16 @@ protocol IMainInteractor {
     func loadLikedRecords()
     func nearestPlacesCellTapped(atIndexPath indexPath: IndexPath)
     func likedPlacesCellTapped(atIndexPath indexPath: IndexPath)
+    func prepareForSearchVC()
 }
 
 protocol IMainInteractorOuter: class {
     func setupPlacesCollectionView(withPlaces places: [Place])
+    func prepareForLikedPlaces()
     func setupLikedPlacesCollectionView(withLikedPlaces likedPlaces: [Place])
-    func hideLikedPlacesCollectionView()
     func showOnePlaceVC(withPlace place: Place, delegate: ILikedPlacesDelegate)
     func errorOccured(errorDescription: String)
+    func goToSearchVC(delegate: ILikedPlacesDelegate)
 }
 
 protocol ILikedPlacesDelegate {
@@ -30,8 +32,6 @@ protocol ILikedPlacesDelegate {
 protocol IMainLocationManagerDelegate: class {
     func setupUserLocation(withLocation location: CLLocationCoordinate2D)
 }
-
-// TODO: - Исправить likedCollectionView (неправильно показывает список избранных при 1-2 записях)
 
 final class MainInteractor {
     weak var presenter: IMainInteractorOuter?
@@ -51,12 +51,17 @@ final class MainInteractor {
 
 extension MainInteractor: IMainInteractor {
     func loadInitData() {
+        // Попытка получить местоположение пользователя
+        // Если местоположение получено, то выведутся места отсортированные по близости к пользователю
+        // если получить местоположение не удалось, то просто выведется список мест
         self.setupLocationManager()
     }
 
     func loadLikedRecords() {
         // Если пользователь авторизован, то пробуем достать из Firebase избранные заведения
         if self.firebaseAuthManager.isSignedIn {
+            // Запуск activityIndicator-а
+            self.presenter?.prepareForLikedPlaces()
             self.firebaseDatabaseManager.getLikedPlaces { (likedPlaces) in
                 // в self.likedPlaces отфильтруем и запишем те заведения,
                 // которые были добавлены в избранные
@@ -80,6 +85,9 @@ extension MainInteractor: IMainInteractor {
                     })
                 }
             } errorCompletion: {
+                // self.likedPlaces - пустой, отправялем во View пустой массив
+                // View тем самым уберет activityIndicator
+                self.presenter?.setupLikedPlacesCollectionView(withLikedPlaces: self.likedPlaces)
                 self.presenter?.errorOccured(errorDescription: "Не удалось получить список избранных заведений")
             }
         }
@@ -96,7 +104,13 @@ extension MainInteractor: IMainInteractor {
             self.presenter?.showOnePlaceVC(withPlace: likedPlace, delegate: self)
         }
     }
+
+    func prepareForSearchVC() {
+        self.presenter?.goToSearchVC(delegate: self)
+    }
 }
+
+// MARK: - Настройка userLocationManager
 
 private extension MainInteractor {
     func setupLocationManager() {
@@ -115,10 +129,13 @@ extension MainInteractor: IUserLocationManager {
     
     func locationIsnotEnabled() {
         // На случай обработки запрета на использование местоположения
-        // Например, выбор города
+        // в будущем, например, выбор города
+        // сейчас это не нужно, потому что даже один город полностью покрыть не удалось
         self.getInitData()
     }
 }
+
+// MARK: - Получение списка заведений
 
 private extension MainInteractor {
     func getInitData(withUserLocation location: CLLocationCoordinate2D? = nil) {
@@ -134,6 +151,7 @@ private extension MainInteractor {
                 self.places = places.sorted { (first, second) -> Bool in
                     first.distance ?? 0 < second.distance ?? 0
                 }
+                PlaceLoader.sharedInstance.setPlacesByLocation(places: self.places)
             } else {
                 self.places = places
             }
@@ -145,6 +163,8 @@ private extension MainInteractor {
             } else {
                 self.presenter?.setupPlacesCollectionView(withPlaces: Array(self.places[...20]))
             }
+        } errorCompletion: { errorDescription in
+            self.presenter?.errorOccured(errorDescription: errorDescription)
         }
     }
 }
@@ -155,25 +175,11 @@ private extension MainInteractor {
 extension MainInteractor: ILikedPlacesDelegate {
     func placeAddedToLiked(place: Place) {
         self.likedPlaces.append(place)
-        // Если пользователь разрешил использовать местоположение
-        // То отсортируем заведения по дистанции до пользователя
-        // Если не разрешил, то просто покажем заведения в порядке, как они хранятся в БД
-        guard let _ = self.userLocation else {
-            return
-        }
-        self.likedPlaces.sort{ (first, second) -> Bool in
-            first.distance ?? 0 < second.distance ?? 0
-        }
     }
 
     func placeRemovedFromLiked(place: Place) {
         self.likedPlaces.removeAll { (removingPlace) -> Bool in
             removingPlace == place
-        }
-        if self.likedPlaces.count > 0 {
-            self.presenter?.setupLikedPlacesCollectionView(withLikedPlaces: self.likedPlaces)
-        } else {
-            self.presenter?.hideLikedPlacesCollectionView()
         }
     }
 }

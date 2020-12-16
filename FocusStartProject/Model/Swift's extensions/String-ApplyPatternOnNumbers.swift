@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    /// Перевод чисел в формат времени XX-XX. А также и обратно
+    /// Перевод строки в формат времени XX-XX. Также можно использовать для обратного преобразования
     func applyPatternOnNumbers(pattern: String, replacmentCharacter: Character) -> String {
         var pureNumber = self.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
         for index in 0 ..< pattern.count {

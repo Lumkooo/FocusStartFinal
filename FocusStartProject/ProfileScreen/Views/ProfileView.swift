@@ -12,26 +12,23 @@ protocol IProfileView: class {
     var loginTapped:(()-> Void)? { get set }
     var logoutTapped: (() -> Void)? { get set }
     var cellTapped: ((IndexPath) -> Void)? { get set }
-
+    
     func setupViewForAuthorizedUser(userEmail: String, previousOrders: [HistoryOrderEntity])
     func reloadTableViewWithData(previousOrders: [HistoryOrderEntity])
     func setupViewForUnauthorizedUser()
 }
+
 // TODO: - Animated View вынести в отдельный класс AnimatedView
 // и после просто вызывать это View, все настройки вынести в отдельный класс
+
 final class ProfileView: UIView {
 
     // MARK: - Constants
 
     private enum Constants {
-        static let anchorConstant:CGFloat = 16
-        static let topLabelAnchorConstant:CGFloat = 48
-        static let buttonHeight: CGFloat = 50
-        static let emailImage = UIImage(named: "emailImage")
         static let animationViewAnimationConstant: CGFloat = 200
         static let animationViewHeight: CGFloat = 130
         static let animationViewEmailButtonSize: CGSize = CGSize(width: 75, height: 75)
-        static let animationViewCloseButtonSize: CGSize = CGSize(width: 40, height: 40)
         static let animatedButtonCornerRadius: CGFloat = 7
         static let animatedViewBackgroundViewAlpha: CGFloat = 0.25
         static let animationTime: Double = 0.5
@@ -74,7 +71,7 @@ final class ProfileView: UIView {
         myTableView.register(ProfileViewTableViewCell.self,
                              forCellReuseIdentifier: ProfileViewTableViewCell.reuseIdentifier)
         myTableView.rowHeight = UITableView.automaticDimension
-        myTableView.estimatedRowHeight = 80
+        myTableView.estimatedRowHeight = AppConstants.Sizes.estimatedTableViewHeight
         return myTableView
     }()
 
@@ -140,7 +137,7 @@ final class ProfileView: UIView {
 
     private lazy var animatedViewEmailButton: UIButton = {
         let myButton = UIButton()
-        myButton.setImage(Constants.emailImage, for: .normal)
+        myButton.setImage(AppConstants.Images.emailImage, for: .normal)
         return myButton
     }()
 
@@ -215,11 +212,11 @@ private extension ProfileView {
 
         NSLayoutConstraint.activate([
             self.authorizedTopTitle.topAnchor.constraint(equalTo: self.authorizedView.topAnchor,
-                                                      constant: Constants.anchorConstant),
+                                                         constant: AppConstants.Constraints.normalAnchorConstant),
             self.authorizedTopTitle.leadingAnchor.constraint(equalTo: self.authorizedView.leadingAnchor,
-                                                  constant: Constants.anchorConstant),
+                                                             constant: AppConstants.Constraints.normalAnchorConstant),
             self.authorizedTopTitle.trailingAnchor.constraint(equalTo: self.authorizedView.trailingAnchor,
-                                                  constant: -Constants.anchorConstant)
+                                                              constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
 
@@ -229,11 +226,11 @@ private extension ProfileView {
 
         NSLayoutConstraint.activate([
             self.authorizedRecordsListTitle.topAnchor.constraint(equalTo: self.authorizedTopTitle.bottomAnchor,
-                                                         constant: Constants.anchorConstant),
+                                                                 constant: AppConstants.Constraints.normalAnchorConstant),
             self.authorizedRecordsListTitle.leadingAnchor.constraint(equalTo: self.authorizedView.leadingAnchor,
-                                                             constant: Constants.anchorConstant),
+                                                                     constant: AppConstants.Constraints.normalAnchorConstant),
             self.authorizedRecordsListTitle.trailingAnchor.constraint(equalTo: self.authorizedView.trailingAnchor,
-                                                              constant: -Constants.anchorConstant)
+                                                                      constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
 
@@ -243,17 +240,13 @@ private extension ProfileView {
 
         NSLayoutConstraint.activate([
             self.logoutButton.bottomAnchor.constraint(equalTo: self.authorizedView.bottomAnchor,
-                                                      constant: -Constants.anchorConstant),
+                                                      constant: -AppConstants.Constraints.normalAnchorConstant),
             self.logoutButton.leadingAnchor.constraint(equalTo: self.authorizedView.leadingAnchor,
-                                                  constant: Constants.anchorConstant),
+                                                       constant: AppConstants.Constraints.normalAnchorConstant),
             self.logoutButton.trailingAnchor.constraint(equalTo: self.authorizedView.trailingAnchor,
-                                                  constant: -Constants.anchorConstant),
-            self.logoutButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
+                                                        constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.logoutButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
         ])
-    }
-
-    @objc private func logoutButtonTapped(gesture:UIGestureRecognizer) {
-        self.logoutTapped?()
     }
 
     func setupPreviousOrdersTableView() {
@@ -265,18 +258,26 @@ private extension ProfileView {
 
         NSLayoutConstraint.activate([
             self.previousOrdersTableView.bottomAnchor.constraint(equalTo: self.logoutButton.topAnchor,
-                                                      constant: -Constants.anchorConstant),
+                                                                 constant: -AppConstants.Constraints.normalAnchorConstant),
             self.previousOrdersTableView.leadingAnchor.constraint(equalTo: self.authorizedView.leadingAnchor),
             self.previousOrdersTableView.trailingAnchor.constraint(equalTo: self.authorizedView.trailingAnchor),
             self.previousOrdersTableView.topAnchor.constraint(
                 equalTo: self.authorizedRecordsListTitle.bottomAnchor,
-                constant: Constants.anchorConstant)
+                constant: AppConstants.Constraints.normalAnchorConstant)
         ])
     }
 
     func reloadTableViewWith(_ previousOrders: [HistoryOrderEntity]) {
         self.tableViewDataSource.previousOrders = previousOrders
         self.previousOrdersTableView.reloadData()
+    }
+}
+
+// MARK: - Обработка нажатий на кнопки authorizedView
+
+private extension ProfileView {
+    @objc private func logoutButtonTapped(gesture:UIGestureRecognizer) {
+        self.logoutTapped?()
     }
 }
 
@@ -308,12 +309,12 @@ private extension ProfileView {
 
         NSLayoutConstraint.activate([
             self.loginButton.topAnchor.constraint(equalTo: self.unauthorizedView.centerYAnchor,
-                                                  constant: Constants.anchorConstant),
+                                                  constant: AppConstants.Constraints.normalAnchorConstant),
             self.loginButton.leadingAnchor.constraint(equalTo: self.unauthorizedView.leadingAnchor,
-                                                  constant: Constants.anchorConstant),
+                                                      constant: AppConstants.Constraints.normalAnchorConstant),
             self.loginButton.trailingAnchor.constraint(equalTo: self.unauthorizedView.trailingAnchor,
-                                                  constant: -Constants.anchorConstant),
-            self.loginButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
+                                                       constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.loginButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
         ])
     }
 
@@ -323,12 +324,12 @@ private extension ProfileView {
 
         NSLayoutConstraint.activate([
             self.registerButton.bottomAnchor.constraint(equalTo: self.unauthorizedView.centerYAnchor,
-                                                  constant: -Constants.anchorConstant),
+                                                        constant: -AppConstants.Constraints.normalAnchorConstant),
             self.registerButton.leadingAnchor.constraint(equalTo: self.unauthorizedView.leadingAnchor,
-                                                  constant: Constants.anchorConstant),
+                                                         constant: AppConstants.Constraints.normalAnchorConstant),
             self.registerButton.trailingAnchor.constraint(equalTo: self.unauthorizedView.trailingAnchor,
-                                                  constant: -Constants.anchorConstant),
-            self.registerButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
+                                                          constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.registerButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
         ])
     }
 
@@ -338,33 +339,26 @@ private extension ProfileView {
 
         NSLayoutConstraint.activate([
             self.unauthorizedTopLabel.topAnchor.constraint(equalTo: self.unauthorizedView.topAnchor,
-                                                  constant: Constants.topLabelAnchorConstant),
+                                                           constant: AppConstants.Constraints.twiceNormalAnchorConstant),
             self.unauthorizedTopLabel.leadingAnchor.constraint(equalTo: self.unauthorizedView.leadingAnchor,
-                                                  constant: Constants.anchorConstant),
+                                                               constant: AppConstants.Constraints.normalAnchorConstant),
             self.unauthorizedTopLabel.trailingAnchor.constraint(equalTo: self.unauthorizedView.trailingAnchor,
-                                                  constant: -Constants.anchorConstant)
+                                                                constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
+}
 
+// MARK: - Обработка нажатий на кнопки unauthorizedView
+
+private extension ProfileView {
     @objc private func registerButtonTapped(gesture:UIGestureRecognizer) {
         self.showAnimatedRegisterView(withActionForButton: #selector(registerWithEmail(gesture:)))
-    }
-
-    @objc private func registerWithEmail(gesture:UIGestureRecognizer) {
-        self.closeAnimatedRegisterView()
-        self.registerTapped?()
     }
 
     @objc private func loginButtonTapped(gesture:UIGestureRecognizer) {
         self.showAnimatedRegisterView(withActionForButton: #selector(loginWithEmail(gesture:)))
     }
-
-    @objc private func loginWithEmail(gesture:UIGestureRecognizer) {
-        self.closeAnimatedRegisterView()
-        self.loginTapped?()
-    }
 }
-
 
 // MARK: - IProfileView
 
@@ -424,6 +418,7 @@ private extension ProfileView {
     func setupAnimatedViewBackgroundView() {
         self.addSubview(self.animatedViewBackgroundView)
         self.animatedViewBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
             self.animatedViewBackgroundView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             self.animatedViewBackgroundView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
@@ -456,7 +451,7 @@ private extension ProfileView {
         NSLayoutConstraint.activate([
             self.animatedViewTopLabel.centerXAnchor.constraint(equalTo: self.animatedView.centerXAnchor),
             self.animatedViewTopLabel.topAnchor.constraint(equalTo: self.animatedView.topAnchor,
-                                                           constant: Constants.anchorConstant)
+                                                           constant: AppConstants.Constraints.normalAnchorConstant)
         ])
     }
 
@@ -467,7 +462,7 @@ private extension ProfileView {
         NSLayoutConstraint.activate([
             self.animatedViewEmailButton.centerXAnchor.constraint(equalTo: self.animatedView.centerXAnchor),
             self.animatedViewEmailButton.bottomAnchor.constraint(equalTo: self.animatedView.bottomAnchor,
-                                                                 constant: -Constants.anchorConstant),
+                                                                 constant: -AppConstants.Constraints.normalAnchorConstant),
             self.animatedViewEmailButton.heightAnchor.constraint(equalToConstant: Constants.animationViewEmailButtonSize.height),
             self.animatedViewEmailButton.widthAnchor.constraint(equalToConstant: Constants.animationViewEmailButtonSize.width)
         ])
@@ -479,18 +474,35 @@ private extension ProfileView {
 
         NSLayoutConstraint.activate([
             self.closeAnimatedViewButton.trailingAnchor.constraint(equalTo: self.animatedView.trailingAnchor,
-                                                                   constant: -Constants.anchorConstant),
+                                                                   constant: -AppConstants.Constraints.normalAnchorConstant),
             self.closeAnimatedViewButton.topAnchor.constraint(equalTo: self.animatedView.topAnchor,
-                                                              constant: Constants.anchorConstant),
-            self.closeAnimatedViewButton.heightAnchor.constraint(equalToConstant: Constants.animationViewCloseButtonSize.height),
-            self.closeAnimatedViewButton.widthAnchor.constraint(equalToConstant: Constants.animationViewCloseButtonSize.width)
+                                                              constant: AppConstants.Constraints.normalAnchorConstant),
+            self.closeAnimatedViewButton.heightAnchor.constraint(
+                equalToConstant: AppConstants.Sizes.closeViewButtonSize.height),
+            self.closeAnimatedViewButton.widthAnchor.constraint(
+                equalToConstant: AppConstants.Sizes.closeViewButtonSize.width)
         ])
     }
 }
 
-// MARK: - IProfileScreenTableViewDelegate
+// MARK: - Обработка нажатий на кнопки animatedView
 
-extension ProfileView: IProfileScreenTableViewDelegate {
+private extension ProfileView {
+    @objc private func registerWithEmail(gesture:UIGestureRecognizer) {
+        self.closeAnimatedRegisterView()
+        self.registerTapped?()
+    }
+
+    @objc private func loginWithEmail(gesture:UIGestureRecognizer) {
+        self.closeAnimatedRegisterView()
+        self.loginTapped?()
+    }
+}
+
+
+// MARK: - IProfileScreenTableViewDelegate
+// обработка нажатий на ячейки previousOrdersTableView
+extension ProfileView: ICustomTableViewDelegate {
     func selectedCell(indexPath: IndexPath) {
         self.previousOrdersTableView.deselectRow(at: indexPath, animated: true)
         self.cellTapped?(indexPath)

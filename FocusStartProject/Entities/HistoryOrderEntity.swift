@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Сущность для заказа, который сохраняется в списке покупок
+
 struct HistoryOrderEntity {
     var time: String
     var food: String

@@ -14,17 +14,6 @@ protocol IRegisterView: class {
 
 final class RegisterView: UIView {
 
-    // MARK: - Constants
-
-    private enum Constants {
-        static let doneButtonCornerRadius: CGFloat = 15
-        static let anchorConstant:CGFloat = 16
-        static let halfAnchorConstant:CGFloat = 8
-        static let securePasswordAnchor:CGFloat = 4
-        static let hidePasswordImage = UIImage(systemName: "eye.fill")
-        static let showPasswordImage = UIImage(systemName: "eye.slash.fill")
-    }
-
     // MARK: - Views
 
     private let topLabel: UILabel = {
@@ -76,7 +65,7 @@ final class RegisterView: UIView {
 
     private let securePasswordButton: UIButton = {
         let button = UIButton()
-        button.setImage(Constants.showPasswordImage, for: .normal)
+        button.setImage(AppConstants.Images.showPasswordImage, for: .normal)
         button.tintColor = .black
         button.addTarget(self, action: #selector(securePasswordButtonTapped(gesture:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -114,9 +103,9 @@ final class RegisterView: UIView {
         self.passwordTextField.isSecureTextEntry = !self.passwordTextField.isSecureTextEntry
         self.repeatPasswordTextField.isSecureTextEntry = !self.repeatPasswordTextField.isSecureTextEntry
         if isSecure{
-            self.securePasswordButton.setImage(Constants.hidePasswordImage, for: .normal)
+            self.securePasswordButton.setImage(AppConstants.Images.hidePasswordImage, for: .normal)
         } else {
-            self.securePasswordButton.setImage(Constants.showPasswordImage, for: .normal)
+            self.securePasswordButton.setImage(AppConstants.Images.showPasswordImage, for: .normal)
         }
     }
 }
@@ -142,61 +131,89 @@ private extension RegisterView {
     }
 
     func setupDoneButtonAnchor() {
-        self.doneButtonBottomAnchor = self.doneButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.halfAnchorConstant)
+        self.doneButtonBottomAnchor = self.doneButton.bottomAnchor.constraint(
+            equalTo: self.safeAreaLayoutGuide.bottomAnchor,
+            constant: -AppConstants.Constraints.halfNormalAnchorConstaint)
     }
 
     func setupTopLabel() {
         self.addSubview(self.topLabel)
         self.topLabel.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            self.topLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.anchorConstant),
-            self.topLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: Constants.anchorConstant),
-            self.topLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.anchorConstant),
+            self.topLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,
+                                                   constant: AppConstants.Constraints.normalAnchorConstant),
+            self.topLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
+                                               constant: AppConstants.Constraints.normalAnchorConstant),
+            self.topLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor,
+                                                    constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
 
     func setupEmailTextField() {
         self.addSubview(self.emailTextField)
+        self.emailTextField.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.anchorConstant),
-            self.emailTextField.topAnchor.constraint(equalTo: self.topLabel.bottomAnchor, constant: Constants.anchorConstant),
-            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.anchorConstant),
+            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor,
+                                                         constant: AppConstants.Constraints.normalAnchorConstant),
+            self.emailTextField.topAnchor.constraint(equalTo: self.topLabel.bottomAnchor,
+                                                     constant: AppConstants.Constraints.normalAnchorConstant),
+            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor,
+                                                          constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
 
     func setupRepeatPasswordTextField() {
         self.addSubview(self.repeatPasswordTextField)
+        self.repeatPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            self.repeatPasswordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.anchorConstant),
-            self.repeatPasswordTextField.topAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor, constant: Constants.anchorConstant),
-            self.repeatPasswordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.anchorConstant),
+            self.repeatPasswordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor,
+                                                                  constant: AppConstants.Constraints.normalAnchorConstant),
+            self.repeatPasswordTextField.topAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor,
+                                                              constant: AppConstants.Constraints.normalAnchorConstant),
+            self.repeatPasswordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor,
+                                                                   constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
 
     func setupPasswordTextField() {
         self.addSubview(self.passwordTextField)
+        self.passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            self.passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.anchorConstant),
-            self.passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: Constants.anchorConstant),
-            self.passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.anchorConstant),
+            self.passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor,
+                                                            constant: AppConstants.Constraints.normalAnchorConstant),
+            self.passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor,
+                                                        constant: AppConstants.Constraints.normalAnchorConstant),
+            self.passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor,
+                                                             constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
         self.setupSecurePasswordButton()
     }
 
     func setupDoneButton() {
         self.addSubview(self.doneButton)
+        self.doneButton.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            self.doneButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.anchorConstant),
+            self.doneButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
+                                                     constant: AppConstants.Constraints.normalAnchorConstant),
             self.doneButtonBottomAnchor,
-            self.doneButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.anchorConstant),
-            self.doneButton.heightAnchor.constraint(equalToConstant: 50)
+            self.doneButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,
+                                                      constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.doneButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
         ])
     }
 
     func setupSecurePasswordButton() {
         self.addSubview(self.securePasswordButton)
+        self.securePasswordButton.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            self.securePasswordButton.trailingAnchor.constraint(equalTo: self.passwordTextField.trailingAnchor, constant: -Constants.securePasswordAnchor),
+            self.securePasswordButton.trailingAnchor.constraint(equalTo: self.passwordTextField.trailingAnchor,
+                                                                constant: -AppConstants.Constraints.quarterNormalAnchorConstaint),
             self.securePasswordButton.topAnchor.constraint(equalTo: self.passwordTextField.topAnchor),
             self.securePasswordButton.bottomAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor),
         ])
@@ -214,11 +231,9 @@ private extension RegisterView {
                 let keyboardHeight = keyboardRectangle.height
                 let anchorConstant = keyboardHeight - self.safeAreaInsets.bottom
                 self.doneButtonBottomAnchorWithKeyboard = self.doneButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -anchorConstant)
-
                 NSLayoutConstraint.deactivate([self.doneButtonBottomAnchor])
                 NSLayoutConstraint.activate([self.doneButtonBottomAnchorWithKeyboard])
-
-                UIView.animate(withDuration: 0.25) {
+                UIView.animate(withDuration: AppConstants.AnimationTime.keyboardAnimationDuration) {
                     self.layoutIfNeeded()
                 }
                 self.isKeyboardShowing = true
@@ -230,7 +245,7 @@ private extension RegisterView {
         if self.isKeyboardShowing {
             NSLayoutConstraint.deactivate([self.doneButtonBottomAnchorWithKeyboard])
             NSLayoutConstraint.activate([self.doneButtonBottomAnchor])
-            UIView.animate(withDuration: 0.25) {
+            UIView.animate(withDuration: AppConstants.AnimationTime.keyboardAnimationDuration) {
                 self.layoutIfNeeded()
             }
             self.isKeyboardShowing = false
@@ -249,19 +264,19 @@ private extension RegisterView {
 
     func checkFilledTextFields() {
         guard let email = self.emailTextField.text ,
-                        !email.isEmpty else {
+              !email.isEmpty else {
             // Так делать не надо =)
             self.textFieldsAlert?("Необходимо заполнить поле email")
             return
         }
         guard let password = self.passwordTextField.text ,
-                        !password.isEmpty else {
+              !password.isEmpty else {
             self.textFieldsAlert?("Необходимо заполнить поле с паролем")
             return
         }
 
         guard let repeatedPassword = self.repeatPasswordTextField.text ,
-                        !repeatedPassword.isEmpty else {
+              !repeatedPassword.isEmpty else {
             self.textFieldsAlert?("Необходимо заполнить второе поле с подтверждением пароля")
             return
         }
@@ -307,8 +322,7 @@ extension RegisterView: UITextFieldDelegate {
         self.checkFilledTextFields()
     }
 
-    // Костыль
-    // установка isSecureTextEntry = true textField-ов
+    // установка textField.isSecureTextEntry = true
     // Потому что если ставить isSecureTextEntry = true при инициализациии,
     // то почему-то срабатывает autoFill на textField-ах
     // и не дает что-либо делать с textField-ами

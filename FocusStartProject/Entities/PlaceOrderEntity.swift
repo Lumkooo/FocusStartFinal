@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Сущность для заказа, который отправляется ресторану
 struct PlaceOrderEntity {
     var time: String
     var foodName: String
