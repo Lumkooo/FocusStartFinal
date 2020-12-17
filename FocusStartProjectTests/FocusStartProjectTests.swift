@@ -70,12 +70,6 @@ class FocusStartProjectTests: XCTestCase {
         XCTAssertFalse(time.isEmpty, "Не удалось получить время")
     }
 
-    func testBinaryIntegerExtension() {
-        let number = 2020
-        let digit = number.digits[2]
-        XCTAssertEqual(digit, 2, "Числа не одинаковые")
-    }
-
     func testApplyPatternOnNumbers() {
         let digitsTime = "1130"
         let time = digitsTime.applyPatternOnNumbers(pattern: "##:##", replacmentCharacter: "#")

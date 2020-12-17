@@ -76,7 +76,6 @@
 		CEB27B4B2583376E00A193C1 /* PlaceOrderEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B4A2583376E00A193C1 /* PlaceOrderEntity.swift */; };
 		CEB27B532583387100A193C1 /* FirebaseDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B522583387100A193C1 /* FirebaseDatabaseManager.swift */; };
 		CEB27B6525833CF600A193C1 /* HistoryOrderEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B6425833CF600A193C1 /* HistoryOrderEntity.swift */; };
-		CEB27B6D2583429400A193C1 /* BinaryIntegerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B6C2583429400A193C1 /* BinaryIntegerExtension.swift */; };
 		CEB27B7A2583563A00A193C1 /* ProfileViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B792583563A00A193C1 /* ProfileViewTableViewCell.swift */; };
 		CEB27B81258359DC00A193C1 /* ProfileScreenTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B80258359DC00A193C1 /* ProfileScreenTableViewDelegate.swift */; };
 		CEB27B86258359E700A193C1 /* ProfileScreenTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB27B85258359E700A193C1 /* ProfileScreenTableViewDataSource.swift */; };
@@ -231,7 +230,6 @@
 		CEB27B4A2583376E00A193C1 /* PlaceOrderEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOrderEntity.swift; sourceTree = "<group>"; };
 		CEB27B522583387100A193C1 /* FirebaseDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseManager.swift; sourceTree = "<group>"; };
 		CEB27B6425833CF600A193C1 /* HistoryOrderEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOrderEntity.swift; sourceTree = "<group>"; };
-		CEB27B6C2583429400A193C1 /* BinaryIntegerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryIntegerExtension.swift; sourceTree = "<group>"; };
 		CEB27B792583563A00A193C1 /* ProfileViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewCell.swift; sourceTree = "<group>"; };
 		CEB27B80258359DC00A193C1 /* ProfileScreenTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenTableViewDelegate.swift; sourceTree = "<group>"; };
 		CEB27B85258359E700A193C1 /* ProfileScreenTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -565,7 +563,6 @@
 		CEB27B71258342B100A193C1 /* Swift's extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CEB27B6C2583429400A193C1 /* BinaryIntegerExtension.swift */,
 				CE4E60A62581FEF20046B1CE /* String-ApplyPatternOnNumbers.swift */,
 			);
 			path = "Swift's extensions";
@@ -1111,7 +1108,6 @@
 				CE6314BD257F2ECC003B08F8 /* OneFoodView.swift in Sources */,
 				CE631539257F30B2003B08F8 /* RegisterView.swift in Sources */,
 				CE1C148A25873DD50034AFF3 /* SearchingInteractor.swift in Sources */,
-				CEB27B6D2583429400A193C1 /* BinaryIntegerExtension.swift in Sources */,
 				CE1C148F25873DDA0034AFF3 /* SearchingRouter.swift in Sources */,
 				CE6314DE257F2F68003B08F8 /* MapView.swift in Sources */,
 				CEC7B4C325808CF300479F28 /* TimeManager.swift in Sources */,

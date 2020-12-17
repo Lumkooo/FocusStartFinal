@@ -73,7 +73,9 @@ extension PurchasingInteractor: IPurchasingInteractor {
             return
         }
         if var time = time, time.count > 0 {
-            checkTime(&time)
+            if checkTime(&time) == false {
+                return
+            }
             self.chosenTime = time.applyPatternOnNumbers(pattern: "##:##", replacmentCharacter: "#")
         } else {
             if let _ = chosenTime {
@@ -169,25 +171,29 @@ private extension PurchasingInteractor {
         return String(totalPrice)
     }
     
-    func checkTime(_ time: inout String) {
+    func checkTime(_ time: inout String) -> Bool {
         // Время было введено в TextField-е, назначаем его как выбраное время для дальнейшей работы,
         // если оно удовлетворяет правилам
         time.removeAll { $0 == ":" }
         if time.count < 4 {
             self.presenter?.errorOccured(errorDecription: "Время должно состоять из 4 цифр")
-            return
+            return false
         }
-        if let time = Int(time) {
-            if time > 2359 {
-                self.presenter?.errorOccured(errorDecription: "Время не может быть больше 23:59")
-                return
-            } else if time.digits [2] > 5 {
+        let stringMinutes = time.suffix(2)
+        let stringHours = time.prefix(2)
+        if let hours = Int(stringHours),
+           let minutes = Int(stringMinutes) {
+            if hours > 23 {
+                self.presenter?.errorOccured(errorDecription: "Количество часов и минут не должно превышать 23:59.\n(Если хотите заказать на полночь, то необходимо написать 00:00")
+                return false
+            } else if minutes > 59 {
                 // Проверка, если символ, обозначающий десятки минут, больше 5
                 // Время пишется как 9:00, а не 5:60, поэтому if > 5
-                self.presenter?.errorOccured(errorDecription: "В одном часе 60 минут, а не \(time.digits[2])\(time.digits [3])!")
-                return
+                self.presenter?.errorOccured(errorDecription: "В одном часе не может быть более 59 минут!")
+                return false
             }
         }
+        return true
     }
 }
 
