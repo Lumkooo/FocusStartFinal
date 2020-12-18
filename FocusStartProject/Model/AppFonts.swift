@@ -16,6 +16,7 @@ enum AppFonts {
     }
 
     static let largeTitleLabelFont = UIFont.systemFont(ofSize: 26, weight: .semibold)
+    static let launchingScreenTitleFont = UIFont(name: "BodoniSvtyTwoITCTT-Book", size: 45.0)
     static let bigTitleLabelFont = UIFont.systemFont(ofSize: 22, weight: .semibold)
     static let titleLabelFont = UIFont.systemFont(ofSize: 20, weight: .light)
     static let subtitleLabelFont = UIFont.systemFont(ofSize: 16, weight: .light)

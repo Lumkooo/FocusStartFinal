@@ -35,6 +35,7 @@ enum AppConstants {
         static let closeViewButtonSize: CGSize = CGSize(width: 30, height: 30)
         static let userLocationButtonSize: CGSize = CGSize(width: 32, height: 32)
         static let doneViewSize: CGSize = CGSize(width: 240, height: 240)
+        static let noConnectionImagesSize = CGSize(width: 100, height: 100)
         static let mainScreenCollectionViewHeight: CGFloat = UIScreen.main.bounds.height * 0.27 + 30
         static let cornerRadius: CGFloat = 15
         static let borderWidth: CGFloat = 5
@@ -66,6 +67,8 @@ enum AppConstants {
         static let hidePasswordImage = UIImage(systemName: "eye.fill")
         static let showPasswordImage = UIImage(systemName: "eye.slash.fill")
         static let emailImage = UIImage(named: "emailImage")
+        static let noConnection1 = UIImage(named: "noConnection1")
+        static let noConnection2 = UIImage(named: "noConnection2")
     }
 
     // MARK: - TableViewCellIdentifiers
@@ -78,6 +81,7 @@ enum AppConstants {
 
     enum AnimationTime {
         static let keyboardAnimationDuration: Double = 0.25
+        static let noConnectionAnimationDuration: Double = 0.5
     }
 
 }

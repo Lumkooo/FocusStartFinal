@@ -11,6 +11,7 @@ protocol IMainRouter {
     func showOnePlaceViewController(withPlace place: Place, delegate: ILikedPlacesDelegate)
     func showSearchVC(delegate: ILikedPlacesDelegate)
     func showAlertWithMessage(_ message: String)
+    func showNoConnectionVC(delegate: ILostedConnectionDelegate)
 }
 
 final class MainRouter {
@@ -37,5 +38,11 @@ extension MainRouter: IMainRouter {
         let searchingVC = SearchingVCAssembly.createVC(delegate: delegate)
         self.vc?.navigationController?.pushViewController(searchingVC,
                                                           animated: true)
+    }
+
+    func showNoConnectionVC(delegate: ILostedConnectionDelegate) {
+        let noConnectionVC = NoConnectionVCAssembly.createVC(delegate: delegate)
+        noConnectionVC.modalPresentationStyle = .overFullScreen
+        self.vc?.navigationController?.present(noConnectionVC, animated: true)
     }
 }

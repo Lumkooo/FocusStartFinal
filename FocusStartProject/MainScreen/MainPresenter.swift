@@ -35,7 +35,6 @@ extension MainPresenter: IMainPresenter {
             self?.interactor.likedPlacesCellTapped(atIndexPath: indexPath)
         }
         self.interactor.loadInitData()
-        self.interactor.loadLikedPlaces()
     }
     
     func searchButtonTapped() {
@@ -70,5 +69,9 @@ extension MainPresenter: IMainInteractorOuter {
     
     func goToSearchVC(delegate: ILikedPlacesDelegate) {
         self.router.showSearchVC(delegate: delegate)
+    }
+
+    func goToNoConnectionVC(delegate: ILostedConnectionDelegate) {
+        self.router.showNoConnectionVC(delegate: delegate)
     }
 }

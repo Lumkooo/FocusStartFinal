@@ -125,7 +125,6 @@ extension MapView: IMapView {
     // Используется, если пользователь разрешил использовать его местоположение
     func setupUserLocation(withLocation location: CLLocationCoordinate2D) {
         let region = MKCoordinateRegion(center: location, span: Constants.mapSpan)
-        print(location)
         self.mapView.setRegion(region, animated: true)
         self.userLocationButton.setImage(AppConstants.Images.userLocationButtonImageFilled, for: .normal)
     }

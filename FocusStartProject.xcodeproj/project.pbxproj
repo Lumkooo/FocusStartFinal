@@ -17,7 +17,7 @@
 		CE1C148F25873DDA0034AFF3 /* SearchingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C148E25873DDA0034AFF3 /* SearchingRouter.swift */; };
 		CE1C149425873F660034AFF3 /* SearchingVCAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C149325873F660034AFF3 /* SearchingVCAssembly.swift */; };
 		CE4E609F2581E2BB0046B1CE /* GeodecoderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E609E2581E2BB0046B1CE /* GeodecoderManager.swift */; };
-		CE4E60A72581FEF20046B1CE /* String-ApplyPatternOnNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E60A62581FEF20046B1CE /* String-ApplyPatternOnNumbers.swift */; };
+		CE4E60A72581FEF20046B1CE /* String-applyPatternOnNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E60A62581FEF20046B1CE /* String-applyPatternOnNumbers.swift */; };
 		CE4E60BF25820EEC0046B1CE /* FinalPurchasingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E60BE25820EEB0046B1CE /* FinalPurchasingViewController.swift */; };
 		CE4E60D3258210A40046B1CE /* FinalPurchasingVCAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E60D2258210A40046B1CE /* FinalPurchasingVCAssembly.swift */; };
 		CE63149A257F2E49003B08F8 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE631499257F2E49003B08F8 /* MenuView.swift */; };
@@ -89,6 +89,19 @@
 		CEC7B4E3258092F300479F28 /* PurchasingVCAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7B4E2258092F300479F28 /* PurchasingVCAssembly.swift */; };
 		CEC7B4E82580A18F00479F28 /* UserLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7B4E72580A18F00479F28 /* UserLocationManager.swift */; };
 		CEC9204825887EB200DF4B56 /* SearchingScreenSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9204725887EB100DF4B56 /* SearchingScreenSearchBarDelegate.swift */; };
+		CECCDF3A258C4F170035D409 /* LaunchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF39258C4F170035D409 /* LaunchingViewController.swift */; };
+		CECCDF3F258C4FAA0035D409 /* LaunchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF3E258C4FAA0035D409 /* LaunchingView.swift */; };
+		CECCDF48258C4FBD0035D409 /* LaunchingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF47258C4FBD0035D409 /* LaunchingPresenter.swift */; };
+		CECCDF4D258C4FC70035D409 /* LaunchingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF4C258C4FC70035D409 /* LaunchingRouter.swift */; };
+		CECCDF52258C51AB0035D409 /* LaunchingVCAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF51258C51AB0035D409 /* LaunchingVCAssembly.swift */; };
+		CECCDF57258C620E0035D409 /* String-subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF56258C620E0035D409 /* String-subscript.swift */; };
+		CECCDF62258C636F0035D409 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF61258C636F0035D409 /* Reachability.swift */; };
+		CECCDF6B258C64970035D409 /* NoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF6A258C64970035D409 /* NoConnectionViewController.swift */; };
+		CECCDF73258C64BD0035D409 /* NoConnectionVCAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF72258C64BD0035D409 /* NoConnectionVCAssembly.swift */; };
+		CECCDF78258C6ACB0035D409 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF77258C6ACA0035D409 /* NoConnectionView.swift */; };
+		CECCDF84258C6ADA0035D409 /* NoConnectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF83258C6ADA0035D409 /* NoConnectionPresenter.swift */; };
+		CECCDF89258C6AE30035D409 /* NoConnectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF88258C6AE30035D409 /* NoConnectionRouter.swift */; };
+		CECCDF8E258C77C10035D409 /* NoConnectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF8D258C77C10035D409 /* NoConnectionInteractor.swift */; };
 		CED7093E2589DD6B00870CA7 /* CustomDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7093D2589DD6B00870CA7 /* CustomDoneView.swift */; };
 		CEE415EC257E0A450065B26C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE415EB257E0A450065B26C /* AppDelegate.swift */; };
 		CEE415EE257E0A450065B26C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE415ED257E0A450065B26C /* SceneDelegate.swift */; };
@@ -172,7 +185,7 @@
 		CE1C148E25873DDA0034AFF3 /* SearchingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingRouter.swift; sourceTree = "<group>"; };
 		CE1C149325873F660034AFF3 /* SearchingVCAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingVCAssembly.swift; sourceTree = "<group>"; };
 		CE4E609E2581E2BB0046B1CE /* GeodecoderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeodecoderManager.swift; sourceTree = "<group>"; };
-		CE4E60A62581FEF20046B1CE /* String-ApplyPatternOnNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-ApplyPatternOnNumbers.swift"; sourceTree = "<group>"; };
+		CE4E60A62581FEF20046B1CE /* String-applyPatternOnNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-applyPatternOnNumbers.swift"; sourceTree = "<group>"; };
 		CE4E60BE25820EEB0046B1CE /* FinalPurchasingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalPurchasingViewController.swift; sourceTree = "<group>"; };
 		CE4E60D2258210A40046B1CE /* FinalPurchasingVCAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalPurchasingVCAssembly.swift; sourceTree = "<group>"; };
 		CE631499257F2E49003B08F8 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -244,6 +257,19 @@
 		CEC7B4E2258092F300479F28 /* PurchasingVCAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasingVCAssembly.swift; sourceTree = "<group>"; };
 		CEC7B4E72580A18F00479F28 /* UserLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationManager.swift; sourceTree = "<group>"; };
 		CEC9204725887EB100DF4B56 /* SearchingScreenSearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingScreenSearchBarDelegate.swift; sourceTree = "<group>"; };
+		CECCDF39258C4F170035D409 /* LaunchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingViewController.swift; sourceTree = "<group>"; };
+		CECCDF3E258C4FAA0035D409 /* LaunchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingView.swift; sourceTree = "<group>"; };
+		CECCDF47258C4FBD0035D409 /* LaunchingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingPresenter.swift; sourceTree = "<group>"; };
+		CECCDF4C258C4FC70035D409 /* LaunchingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingRouter.swift; sourceTree = "<group>"; };
+		CECCDF51258C51AB0035D409 /* LaunchingVCAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingVCAssembly.swift; sourceTree = "<group>"; };
+		CECCDF56258C620E0035D409 /* String-subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-subscript.swift"; sourceTree = "<group>"; };
+		CECCDF61258C636F0035D409 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		CECCDF6A258C64970035D409 /* NoConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionViewController.swift; sourceTree = "<group>"; };
+		CECCDF72258C64BD0035D409 /* NoConnectionVCAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionVCAssembly.swift; sourceTree = "<group>"; };
+		CECCDF77258C6ACA0035D409 /* NoConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
+		CECCDF83258C6ADA0035D409 /* NoConnectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionPresenter.swift; sourceTree = "<group>"; };
+		CECCDF88258C6AE30035D409 /* NoConnectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionRouter.swift; sourceTree = "<group>"; };
+		CECCDF8D258C77C10035D409 /* NoConnectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionInteractor.swift; sourceTree = "<group>"; };
 		CED7093D2589DD6B00870CA7 /* CustomDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoneView.swift; sourceTree = "<group>"; };
 		CEE415E8257E0A450065B26C /* FocusStartProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusStartProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE415EB257E0A450065B26C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -563,7 +589,8 @@
 		CEB27B71258342B100A193C1 /* Swift's extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CE4E60A62581FEF20046B1CE /* String-ApplyPatternOnNumbers.swift */,
+				CE4E60A62581FEF20046B1CE /* String-applyPatternOnNumbers.swift */,
+				CECCDF56258C620E0035D409 /* String-subscript.swift */,
 			);
 			path = "Swift's extensions";
 			sourceTree = "<group>";
@@ -604,6 +631,45 @@
 				CEC7B4E72580A18F00479F28 /* UserLocationManager.swift */,
 			);
 			path = UserLocation;
+			sourceTree = "<group>";
+		};
+		CECCDF38258C4EED0035D409 /* LaunchingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CECCDF43258C4FAF0035D409 /* Views */,
+				CECCDF39258C4F170035D409 /* LaunchingViewController.swift */,
+				CECCDF47258C4FBD0035D409 /* LaunchingPresenter.swift */,
+				CECCDF4C258C4FC70035D409 /* LaunchingRouter.swift */,
+			);
+			path = LaunchingScreen;
+			sourceTree = "<group>";
+		};
+		CECCDF43258C4FAF0035D409 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CECCDF3E258C4FAA0035D409 /* LaunchingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CECCDF69258C64870035D409 /* NoConnectionScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CECCDF7C258C6ACF0035D409 /* Views */,
+				CECCDF6A258C64970035D409 /* NoConnectionViewController.swift */,
+				CECCDF83258C6ADA0035D409 /* NoConnectionPresenter.swift */,
+				CECCDF8D258C77C10035D409 /* NoConnectionInteractor.swift */,
+				CECCDF88258C6AE30035D409 /* NoConnectionRouter.swift */,
+			);
+			path = NoConnectionScreen;
+			sourceTree = "<group>";
+		};
+		CECCDF7C258C6ACF0035D409 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CECCDF77258C6ACA0035D409 /* NoConnectionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CEE415DF257E0A450065B26C = {
@@ -647,6 +713,8 @@
 				CE631517257F301F003B08F8 /* ProfileScreen */,
 				CEA3095625848103005B3115 /* OneOrderScreen */,
 				CE1C147225873D990034AFF3 /* SearchingScreen */,
+				CECCDF38258C4EED0035D409 /* LaunchingScreen */,
+				CECCDF69258C64870035D409 /* NoConnectionScreen */,
 				CEE415F4257E0A470065B26C /* Assets.xcassets */,
 				CEE415F6257E0A470065B26C /* LaunchScreen.storyboard */,
 				CEE415F9257E0A470065B26C /* Info.plist */,
@@ -701,6 +769,8 @@
 				CE4E60D2258210A40046B1CE /* FinalPurchasingVCAssembly.swift */,
 				CEA3097A258483D9005B3115 /* OneOrderVCAssembly.swift */,
 				CE1C149325873F660034AFF3 /* SearchingVCAssembly.swift */,
+				CECCDF51258C51AB0035D409 /* LaunchingVCAssembly.swift */,
+				CECCDF72258C64BD0035D409 /* NoConnectionVCAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -716,6 +786,7 @@
 				CEE416B0257E0F7D0065B26C /* PriceLabelSetuper.swift */,
 				CEC7B4C225808CF300479F28 /* TimeManager.swift */,
 				CE4E609E2581E2BB0046B1CE /* GeodecoderManager.swift */,
+				CECCDF61258C636F0035D409 /* Reachability.swift */,
 				CEB27B312583294500A193C1 /* AppFonts.swift */,
 				CEB27B362583295100A193C1 /* AppConstants.swift */,
 				CEC9204C2588854900DF4B56 /* UserLocation */,
@@ -1103,6 +1174,7 @@
 				CEC7B4CA258090E900479F28 /* PurchasingView.swift in Sources */,
 				CE631556257F3127003B08F8 /* ProfileView.swift in Sources */,
 				CEC7B4E3258092F300479F28 /* PurchasingVCAssembly.swift in Sources */,
+				CECCDF6B258C64970035D409 /* NoConnectionViewController.swift in Sources */,
 				CE631532257F3084003B08F8 /* LoginRouter.swift in Sources */,
 				CEE41677257E0E640065B26C /* MenuVCAssemby.swift in Sources */,
 				CE6314BD257F2ECC003B08F8 /* OneFoodView.swift in Sources */,
@@ -1111,6 +1183,7 @@
 				CE1C148F25873DDA0034AFF3 /* SearchingRouter.swift in Sources */,
 				CE6314DE257F2F68003B08F8 /* MapView.swift in Sources */,
 				CEC7B4C325808CF300479F28 /* TimeManager.swift in Sources */,
+				CECCDF78258C6ACB0035D409 /* NoConnectionView.swift in Sources */,
 				CEE41710257E11960065B26C /* MainPresenter.swift in Sources */,
 				CE6314A2257F2E58003B08F8 /* MenuCollectionViewCell.swift in Sources */,
 				CEB27B6525833CF600A193C1 /* HistoryOrderEntity.swift in Sources */,
@@ -1125,15 +1198,18 @@
 				CEE41672257E0E550065B26C /* ProfileVCAssembly.swift in Sources */,
 				CEE41695257E0F120065B26C /* BasketManager.swift in Sources */,
 				CE6315BD257F5D57003B08F8 /* CustomButton.swift in Sources */,
+				CECCDF73258C64BD0035D409 /* NoConnectionVCAssembly.swift in Sources */,
 				CE6315AF257F3B93003B08F8 /* FirebaseAuthManager.swift in Sources */,
 				CEE41668257E0E330065B26C /* MapVCAssembly.swift in Sources */,
 				CE63152D257F3076003B08F8 /* LoginInteractor.swift in Sources */,
+				CECCDF57258C620E0035D409 /* String-subscript.swift in Sources */,
 				CEE416B1257E0F7D0065B26C /* PriceLabelSetuper.swift in Sources */,
 				CE6314B6257F2E9F003B08F8 /* MenuRouter.swift in Sources */,
 				CE6314D7257F2F16003B08F8 /* OneFoodRouter.swift in Sources */,
-				CE4E60A72581FEF20046B1CE /* String-ApplyPatternOnNumbers.swift in Sources */,
+				CE4E60A72581FEF20046B1CE /* String-applyPatternOnNumbers.swift in Sources */,
 				CEE416DB257E103D0065B26C /* PlacesArtowrkView.swift in Sources */,
 				CE6314B1257F2E91003B08F8 /* MenuInteractor.swift in Sources */,
+				CECCDF8E258C77C10035D409 /* NoConnectionInteractor.swift in Sources */,
 				CEC7B4E82580A18F00479F28 /* UserLocationManager.swift in Sources */,
 				CEB27B86258359E700A193C1 /* ProfileScreenTableViewDataSource.swift in Sources */,
 				CE63154B257F30DF003B08F8 /* RegisterInteractor.swift in Sources */,
@@ -1142,15 +1218,18 @@
 				CEA3095925848281005B3115 /* OneOrderView.swift in Sources */,
 				CEA61B5C25875C3000C336CE /* ICustomTableViewDelegate.swift in Sources */,
 				CEE4167C257E0EA60065B26C /* OneFoodVCAssembly.swift in Sources */,
+				CECCDF62258C636F0035D409 /* Reachability.swift in Sources */,
 				CEA30969258482A6005B3115 /* OneOrderPresenter.swift in Sources */,
 				CE6314D2257F2F08003B08F8 /* OneFoodInteractor.swift in Sources */,
 				CED7093E2589DD6B00870CA7 /* CustomDoneView.swift in Sources */,
 				CEE4169A257E0F200065B26C /* PlaceLoader.swift in Sources */,
 				CEE41663257E0E0D0065B26C /* TabBarControllerAssembly.swift in Sources */,
+				CECCDF3A258C4F170035D409 /* LaunchingViewController.swift in Sources */,
 				CEA3096E258482AC005B3115 /* OneOrderInteractor.swift in Sources */,
 				CEB27B81258359DC00A193C1 /* ProfileScreenTableViewDelegate.swift in Sources */,
 				CEE416E7257E10830065B26C /* Food.swift in Sources */,
 				CEE416F4257E10A90065B26C /* Place.swift in Sources */,
+				CECCDF48258C4FBD0035D409 /* LaunchingPresenter.swift in Sources */,
 				CE6315B7257F416F003B08F8 /* AlertAssembly.swift in Sources */,
 				CE631504257F2FDF003B08F8 /* BasketViewController.swift in Sources */,
 				CEB27B7A2583563A00A193C1 /* ProfileViewTableViewCell.swift in Sources */,
@@ -1159,7 +1238,9 @@
 				CE6314CA257F2EF2003B08F8 /* OneFoodPresenter.swift in Sources */,
 				CEE41659257E0DEF0065B26C /* MainVCAssembly.swift in Sources */,
 				CE6314E6257F2F7C003B08F8 /* MapViewController.swift in Sources */,
+				CECCDF89258C6AE30035D409 /* NoConnectionRouter.swift in Sources */,
 				CEC7B4D92580910700479F28 /* PurchasingInteractor.swift in Sources */,
+				CECCDF3F258C4FAA0035D409 /* LaunchingView.swift in Sources */,
 				CE1C148525873DCE0034AFF3 /* SearchingPresenter.swift in Sources */,
 				CEE416EF257E109B0065B26C /* FoodResponse.swift in Sources */,
 				CEE41715257E11A40065B26C /* MainInteractor.swift in Sources */,
@@ -1167,6 +1248,7 @@
 				CEB27B532583387100A193C1 /* FirebaseDatabaseManager.swift in Sources */,
 				CEE41681257E0EB80065B26C /* BasketVCAssembly.swift in Sources */,
 				CEE4166D257E0E470065B26C /* OnePlaceVCAssembly.swift in Sources */,
+				CECCDF84258C6ADA0035D409 /* NoConnectionPresenter.swift in Sources */,
 				CEE4169F257E0F440065B26C /* ImageCache.swift in Sources */,
 				CE6314AC257F2E7A003B08F8 /* MenuPresenter.swift in Sources */,
 				CE1C149425873F660034AFF3 /* SearchingVCAssembly.swift in Sources */,
@@ -1196,8 +1278,10 @@
 				CE63156D257F3166003B08F8 /* ProfileRouter.swift in Sources */,
 				CE9D04282586023D00857A21 /* FirebaseLikedPlace.swift in Sources */,
 				CEE415EE257E0A450065B26C /* SceneDelegate.swift in Sources */,
+				CECCDF4D258C4FC70035D409 /* LaunchingRouter.swift in Sources */,
 				CE63149A257F2E49003B08F8 /* MenuView.swift in Sources */,
 				CEE416AC257E0F6B0065B26C /* AvailableMaps.swift in Sources */,
+				CECCDF52258C51AB0035D409 /* LaunchingVCAssembly.swift in Sources */,
 				CEE41690257E0F040065B26C /* FoodLoader.swift in Sources */,
 				CEE416A4257E0F570065B26C /* MapViewLocationManagerDelegate.swift in Sources */,
 				CEE41654257E0DDF0065B26C /* RegisterVCAssembly.swift in Sources */,

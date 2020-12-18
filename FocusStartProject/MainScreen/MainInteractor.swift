@@ -9,7 +9,6 @@ import MapKit
 
 protocol IMainInteractor {
     func loadInitData()
-    func loadLikedPlaces()
     func nearestPlacesCellTapped(atIndexPath indexPath: IndexPath)
     func likedPlacesCellTapped(atIndexPath indexPath: IndexPath)
     func prepareForSearchVC()
@@ -22,6 +21,7 @@ protocol IMainInteractorOuter: class {
     func showOnePlaceVC(withPlace place: Place, delegate: ILikedPlacesDelegate)
     func errorOccured(errorDescription: String)
     func goToSearchVC(delegate: ILikedPlacesDelegate)
+    func goToNoConnectionVC(delegate: ILostedConnectionDelegate)
 }
 
 protocol ILikedPlacesDelegate {
@@ -31,6 +31,10 @@ protocol ILikedPlacesDelegate {
 
 protocol IMainLocationManagerDelegate: class {
     func setupUserLocation(withLocation location: CLLocationCoordinate2D)
+}
+
+protocol ILostedConnectionDelegate {
+    func reloadDataOnMainScreen()
 }
 
 final class MainInteractor {
@@ -50,52 +54,25 @@ final class MainInteractor {
 // MARK: - IMainInteractor
 
 extension MainInteractor: IMainInteractor {
-    func loadInitData() {
-        // Попытка получить местоположение пользователя
-        // Если местоположение получено, то выведутся места отсортированные по близости к пользователю
-        // если получить местоположение не удалось, то просто выведется список мест
-        self.setupLocationManager()
-        self.setupNotifications()
-    }
 
-    func loadLikedPlaces() {
-        // Если пользователь авторизован, то пробуем достать из Firebase избранные заведения
-        if self.firebaseAuthManager.isSignedIn {
-            // Запуск activityIndicator-а
-            self.presenter?.prepareForLikedPlaces()
-            self.firebaseDatabaseManager.getLikedPlaces { (likedPlaces) in
-                // в self.likedPlaces отфильтруем и запишем те заведения,
-                // которые были добавлены в избранные
-                self.likedPlaces = self.places.filter { place in
-                    guard let title = place.title,
-                          let locationName = place.locationName else {
-                        self.presenter?.errorOccured(errorDescription: "Не удалось получить список избранных заведений")
-                        assertionFailure("ooops, error with filter")
-                        return false
-                    }
-                    // Возвращаем true в случае, если заведение из place
-                    // содержала схожие title и locationName(позволяют точно идентифицировать заведение)
-                    // ,как и в записи из Firebase Database
-                    return likedPlaces.contains(where: { (likedPlace) -> Bool in
-                        if likedPlace.title == title &&
-                            likedPlace.locationName == locationName {
-                            return true
-                        } else {
-                            return false
-                        }
-                    })
-                }
-            } errorCompletion: {
-                // self.likedPlaces - пустой, отправялем во View пустой массив
-                // View тем самым уберет activityIndicator
-                self.presenter?.setupLikedPlacesCollectionView(withLikedPlaces: self.likedPlaces)
-                self.presenter?.errorOccured(errorDescription: "Не удалось получить список избранных заведений")
-            }
+    func loadInitData() {
+        if Reachability.isConnectedToNetwork() {
+            // Попытка получить местоположение пользователя
+            // Если местоположение получено, то выведутся места отсортированные по близости к пользователю
+            // если получить местоположение не удалось, то просто выведется список мест
+            self.setupLocationManager()
+            self.setupNotifications()
+            self.loadLikedPlaces()
         } else {
-            // Если пользователь не авторизован, то ничего не показываем,
-            // если что-то уже было в массиве, то убираем это
-            self.likedPlaces.removeAll()
-            self.presenter?.setupLikedPlacesCollectionView(withLikedPlaces: self.likedPlaces)
+            // Если нет подключения к интернету, то покажем экран, уведомляющий об этом
+            // Скорее всего это не правильное решение, но решил добавить хотя бы так
+            DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+                //  Проверим еще раз через пару секунд
+                if !Reachability.isConnectedToNetwork() {
+                    //  Если все еще нет сети, то покажем экран, уведомляющий об этом
+                    self.presenter?.goToNoConnectionVC(delegate: self)
+                }
+            }
         }
     }
 
@@ -175,6 +152,51 @@ private extension MainInteractor {
     }
 }
 
+// MARK: - Получение списка избранных заведений
+
+private extension MainInteractor {
+    func loadLikedPlaces() {
+        // Если пользователь авторизован, то пробуем достать из Firebase избранные заведения
+        if self.firebaseAuthManager.isSignedIn {
+            // Запуск activityIndicator-а
+            self.presenter?.prepareForLikedPlaces()
+            self.firebaseDatabaseManager.getLikedPlaces { (likedPlaces) in
+                // в self.likedPlaces отфильтруем и запишем те заведения,
+                // которые были добавлены в избранные
+                self.likedPlaces = self.places.filter { place in
+                    guard let title = place.title,
+                          let locationName = place.locationName else {
+                        self.presenter?.errorOccured(errorDescription: "Не удалось получить список избранных заведений")
+                        assertionFailure("ooops, error with filter")
+                        return false
+                    }
+                    // Возвращаем true в случае, если заведение из place
+                    // содержала схожие title и locationName(позволяют точно идентифицировать заведение)
+                    // ,как и в записи из Firebase Database
+                    return likedPlaces.contains(where: { (likedPlace) -> Bool in
+                        if likedPlace.title == title &&
+                            likedPlace.locationName == locationName {
+                            return true
+                        } else {
+                            return false
+                        }
+                    })
+                }
+            } errorCompletion: {
+                // self.likedPlaces - пустой, отправялем во View пустой массив
+                // View тем самым уберет activityIndicator
+                self.presenter?.setupLikedPlacesCollectionView(withLikedPlaces: self.likedPlaces)
+                self.presenter?.errorOccured(errorDescription: "Не удалось получить список избранных заведений")
+            }
+        } else {
+            // Если пользователь не авторизован, то ничего не показываем,
+            // если что-то уже было в массиве, то убираем это
+            self.likedPlaces.removeAll()
+            self.presenter?.setupLikedPlacesCollectionView(withLikedPlaces: self.likedPlaces)
+        }
+    }
+}
+
 // MARK: - ILikedPlacesDelegate
 // (добавление/удаление заведений в список избранных сразу после добавления на экране одного заведения)
 
@@ -206,7 +228,13 @@ private extension MainInteractor {
 
     /// Перезагрузить список избранных мест после авторизации/выхода из аккаунта
     @objc func refreshLikedPlacesAfterAuthActions(_ notification:Notification) {
-        // TODO: - логика
         self.loadLikedPlaces()
+    }
+}
+
+
+extension MainInteractor: ILostedConnectionDelegate {
+    func reloadDataOnMainScreen() {
+        self.loadInitData()
     }
 }
