@@ -23,6 +23,7 @@ final class BasketViewController: UIViewController {
         super.viewDidLoad()
         self.view = basketView
         self.presenter.viewDidLoad(ui: self.basketView)
+        self.title = "Корзина"
     }
     
     override func viewWillAppear(_ animated: Bool) {

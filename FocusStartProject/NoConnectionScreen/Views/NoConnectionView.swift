@@ -198,8 +198,9 @@ private extension NoConnectionView {
 
         NSLayoutConstraint.activate([
             self.reloadButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.reloadButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-                                                       constant: AppConstants.Constraints.normalAnchorConstant),
+            self.reloadButton.leadingAnchor.constraint(
+                equalTo: self.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
             self.reloadButton.trailingAnchor.constraint(
                 equalTo: self.trailingAnchor,
                 constant: -AppConstants.Constraints.normalAnchorConstant),
@@ -212,8 +213,9 @@ private extension NoConnectionView {
         self.reloadTitle.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.reloadTitle.topAnchor.constraint(equalTo: self.reloadButton.bottomAnchor,
-                                                  constant: AppConstants.Constraints.normalAnchorConstant),
+            self.reloadTitle.topAnchor.constraint(
+                equalTo: self.reloadButton.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
             self.reloadTitle.leadingAnchor.constraint(
                 equalTo: self.leadingAnchor,
                 constant: AppConstants.Constraints.normalAnchorConstant),

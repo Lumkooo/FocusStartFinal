@@ -29,10 +29,12 @@ final class MainView: UIView {
     }()
     
     private let placesCollectionView: UICollectionView = {
-        let myCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero,
-                                                                 collectionViewLayout: UICollectionViewFlowLayout.init())
-        myCollectionView.register(MainScreenCollectionViewCell.self,
-                                  forCellWithReuseIdentifier: MainScreenCollectionViewCell.reuseIdentifier)
+        let myCollectionView:UICollectionView = UICollectionView(
+            frame: CGRect.zero,
+            collectionViewLayout: UICollectionViewFlowLayout.init())
+        myCollectionView.register(
+            MainScreenCollectionViewCell.self,
+            forCellWithReuseIdentifier: MainScreenCollectionViewCell.reuseIdentifier)
         myCollectionView.accessibilityIdentifier = "placesCollectionView"
         return myCollectionView
     }()
@@ -45,10 +47,12 @@ final class MainView: UIView {
     }()
     
     private let likedPlacesCollectionView: UICollectionView = {
-        let myCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero,
-                                                                 collectionViewLayout: UICollectionViewFlowLayout.init())
-        myCollectionView.register(MainScreenCollectionViewCell.self,
-                                  forCellWithReuseIdentifier: MainScreenCollectionViewCell.reuseIdentifier)
+        let myCollectionView:UICollectionView = UICollectionView(
+            frame: CGRect.zero,
+            collectionViewLayout: UICollectionViewFlowLayout.init())
+        myCollectionView.register(
+            MainScreenCollectionViewCell.self,
+            forCellWithReuseIdentifier: MainScreenCollectionViewCell.reuseIdentifier)
         return myCollectionView
     }()
     
@@ -58,7 +62,15 @@ final class MainView: UIView {
         myActivityIndicatorView.startAnimating()
         return myActivityIndicatorView
     }()
-    
+
+    private lazy var emptyLikedPlacesLabel: UILabel = {
+        let myLabel = UILabel()
+        myLabel.text = "Здесь вы сможете увидеть места, добавленные в избранные."
+        myLabel.numberOfLines = 0
+        myLabel.font = AppFonts.largeTitleLabelFont
+        return myLabel
+    }()
+
     // MARK: - Properties
     
     private var collectionViewNearestPlacesDataSource = MainScreenPlacesCollectionViewDataSource()
@@ -94,10 +106,12 @@ private extension MainView {
         self.nearestPlacesLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.nearestPlacesLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
-                                                         constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.nearestPlacesLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                             constant: AppConstants.Constraints.normalAnchorConstant)
+            self.nearestPlacesLabel.topAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.topAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.nearestPlacesLabel.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant)
         ])
     }
     
@@ -117,9 +131,11 @@ private extension MainView {
         self.placesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.placesCollectionView.topAnchor.constraint(equalTo: self.nearestPlacesLabel.bottomAnchor,
-                                                           constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.placesCollectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            self.placesCollectionView.topAnchor.constraint(
+                equalTo: self.nearestPlacesLabel.bottomAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.placesCollectionView.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             self.placesCollectionView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
             self.placesCollectionView.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.mainScreenCollectionViewHeight)
         ])
@@ -134,9 +150,28 @@ private extension MainView {
         self.likedPlacesActivityIndicatorView.stopAnimating()
         self.likedPlacesCollectionView.removeFromSuperview()
         self.likedPlacesLabel.removeFromSuperview()
+        self.setupEmptyLikedPlacesLabel()
+    }
+
+    func setupEmptyLikedPlacesLabel() {
+        self.addSubview(self.emptyLikedPlacesLabel)
+        self.emptyLikedPlacesLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.emptyLikedPlacesLabel.topAnchor.constraint(
+                equalTo: self.placesCollectionView.bottomAnchor,
+                constant: AppConstants.Constraints.twiceNormalAnchorConstant),
+            self.emptyLikedPlacesLabel.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.emptyLikedPlacesLabel.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant)
+        ])
     }
     
     func setupLikedPlacesElements() {
+        self.emptyLikedPlacesLabel.removeFromSuperview()
         self.setupLikedPlacesLabel()
         self.setupLikedPlacesCollectionView()
     }
@@ -146,10 +181,12 @@ private extension MainView {
         self.likedPlacesLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.likedPlacesLabel.topAnchor.constraint(equalTo: self.placesCollectionView.bottomAnchor,
-                                                       constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.likedPlacesLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                           constant: AppConstants.Constraints.normalAnchorConstant)
+            self.likedPlacesLabel.topAnchor.constraint(
+                equalTo: self.placesCollectionView.bottomAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.likedPlacesLabel.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant)
         ])
     }
     
@@ -169,8 +206,9 @@ private extension MainView {
         self.likedPlacesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.likedPlacesCollectionView.topAnchor.constraint(equalTo: self.likedPlacesLabel.bottomAnchor,
-                                                                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.likedPlacesCollectionView.topAnchor.constraint(
+                equalTo: self.likedPlacesLabel.bottomAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
             self.likedPlacesCollectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             self.likedPlacesCollectionView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
             self.likedPlacesCollectionView.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.mainScreenCollectionViewHeight)

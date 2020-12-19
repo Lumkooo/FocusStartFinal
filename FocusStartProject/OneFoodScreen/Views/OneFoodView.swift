@@ -51,7 +51,9 @@ final class OneFoodView: UIView {
     
     private var closeViewButton: CustomCloseButton = {
         let myButton = CustomCloseButton()
-        myButton.addTarget(self, action: #selector(closeButtonTapped(gesture:)), for: .touchUpInside)
+        myButton.addTarget(self,
+                           action: #selector(closeButtonTapped(gesture:)),
+                           for: .touchUpInside)
         return myButton
     }()
     
@@ -85,7 +87,9 @@ final class OneFoodView: UIView {
     private lazy var addFoodButton: CustomButton = {
         let myButton = CustomButton()
         myButton.setTitle("Добавить в корзину", for: .normal)
-        myButton.addTarget(self, action: #selector(addFoodButtonTapped(gesture:)), for: .touchUpInside)
+        myButton.addTarget(self,
+                           action: #selector(addFoodButtonTapped(gesture:)),
+                           for: .touchUpInside)
         myButton.accessibilityIdentifier = "addFoodButton"
         return myButton
     }()
@@ -101,6 +105,8 @@ final class OneFoodView: UIView {
         super.init(frame: frame)
         self.backgroundColor = .clear
         self.setupContainerView()
+        self.setupImageView()
+        self.setupCloseViewButton()
         self.setupActivityIndicator()
     }
     
@@ -114,14 +120,15 @@ final class OneFoodView: UIView {
     }
     
     func animatedViewPresentation() {
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: AppConstants.AnimationTime.oneFoodContainerViewAnimationDuration) {
             self.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-            self.containerView.transform = CGAffineTransform(translationX: 0, y: -Constants.containerViewHeight)
+            self.containerView.transform = CGAffineTransform(translationX: 0,
+                                                             y: -Constants.containerViewHeight)
         }
     }
     
     private func animatedViewDismiss(completion: @escaping (() -> Void)) {
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: AppConstants.AnimationTime.oneFoodContainerViewAnimationDuration) {
             self.backgroundColor = UIColor.clear
             self.containerView.transform = CGAffineTransform(translationX: 0, y: 0)
         } completion: { (bool) in
@@ -182,8 +189,6 @@ extension OneFoodView: IOneFoodView {
 
 private extension OneFoodView {
     func setupElements() {
-        self.setupImageView()
-        self.setupCloseViewButton()
         self.setupTitleLabel()
         self.setupStaticPriceLabel()
         self.setupPriceLabel()
@@ -220,14 +225,16 @@ private extension OneFoodView {
         self.closeViewButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.closeViewButton.topAnchor.constraint(equalTo: self.imageView.topAnchor,
-                                                      constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.closeViewButton.trailingAnchor.constraint(equalTo: self.imageView.trailingAnchor,
-                                                           constant: -AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.closeViewButton.heightAnchor.constraint(equalToConstant:
-                                                            AppConstants.Sizes.closeViewButtonSize.height),
-            self.closeViewButton.widthAnchor.constraint(equalToConstant:
-                                                            AppConstants.Sizes.closeViewButtonSize.width)
+            self.closeViewButton.topAnchor.constraint(
+                equalTo: self.imageView.topAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.closeViewButton.trailingAnchor.constraint(
+                equalTo: self.imageView.trailingAnchor,
+                constant: -AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.closeViewButton.heightAnchor.constraint(
+                equalToConstant: AppConstants.Sizes.closeViewButtonSize.height),
+            self.closeViewButton.widthAnchor.constraint(
+                equalToConstant: AppConstants.Sizes.closeViewButtonSize.width)
         ])
     }
     
@@ -236,12 +243,15 @@ private extension OneFoodView {
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.titleLabel.topAnchor.constraint(equalTo: self.imageView.bottomAnchor,
-                                                 constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.titleLabel.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor,
-                                                     constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.titleLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor,
-                                                      constant: -AppConstants.Constraints.halfNormalAnchorConstaint)
+            self.titleLabel.topAnchor.constraint(
+                equalTo: self.imageView.bottomAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.titleLabel.leadingAnchor.constraint(
+                equalTo: self.containerView.leadingAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.titleLabel.trailingAnchor.constraint(
+                equalTo: self.containerView.trailingAnchor,
+                constant: -AppConstants.Constraints.halfNormalAnchorConstaint)
         ])
     }
     
@@ -250,10 +260,12 @@ private extension OneFoodView {
         self.staticPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.staticPriceLabel.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor,
-                                                           constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.staticPriceLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor,
-                                                       constant: AppConstants.Constraints.halfNormalAnchorConstaint)
+            self.staticPriceLabel.leadingAnchor.constraint(
+                equalTo: self.containerView.leadingAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.staticPriceLabel.topAnchor.constraint(
+                equalTo: self.titleLabel.bottomAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint)
         ])
     }
     
@@ -273,12 +285,15 @@ private extension OneFoodView {
         self.newPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.newPriceLabel.leadingAnchor.constraint(equalTo: self.priceLabel.trailingAnchor,
-                                                        constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.newPriceLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor,
-                                                    constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.newPriceLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor,
-                                                         constant: -AppConstants.Constraints.halfNormalAnchorConstaint)
+            self.newPriceLabel.leadingAnchor.constraint(
+                equalTo: self.priceLabel.trailingAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.newPriceLabel.topAnchor.constraint(
+                equalTo: self.titleLabel.bottomAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.newPriceLabel.trailingAnchor.constraint(
+                equalTo: self.containerView.trailingAnchor,
+                constant: -AppConstants.Constraints.halfNormalAnchorConstaint)
         ])
     }
     
@@ -287,13 +302,17 @@ private extension OneFoodView {
         self.addFoodButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.addFoodButton.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor,
-                                                        constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.addFoodButton.bottomAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.bottomAnchor,
-                                                       constant: -AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.addFoodButton.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor,
-                                                         constant: -AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.addFoodButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
+            self.addFoodButton.leadingAnchor.constraint(
+                equalTo: self.containerView.leadingAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.addFoodButton.bottomAnchor.constraint(
+                equalTo: self.containerView.safeAreaLayoutGuide.bottomAnchor,
+                constant: -AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.addFoodButton.trailingAnchor.constraint(
+                equalTo: self.containerView.trailingAnchor,
+                constant: -AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.addFoodButton.heightAnchor.constraint(
+                equalToConstant: AppConstants.Sizes.buttonsHeight)
         ])
     }
     

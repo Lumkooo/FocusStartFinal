@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class ImageCache{
-    static func storeImage(urlString:String,
-                           image:UIImage,
-                           nameOfPicture:String){
+    static func storeImage(urlString: String,
+                           image: UIImage,
+                           nameOfPicture: String){
         // Загружаем картинку в NSTemporaryDirectory,
         // записываем dictionary с URL изображения в UserDefaults для возможности
         // посмотреть сохранено ли уже это изображение в при последующей загрузки
@@ -36,8 +36,8 @@ class ImageCache{
         }
     }
     
-    static func loadImage(urlString:String,
-                          nameOfPicture:String,
+    static func loadImage(urlString: String,
+                          nameOfPicture: String,
                           completion: @escaping (String, UIImage?)->Void) {
         DispatchQueue.global(qos: .userInitiated).async {
             if let dict = UserDefaults.standard.object(forKey: "ImageCache") as? [String:String] {

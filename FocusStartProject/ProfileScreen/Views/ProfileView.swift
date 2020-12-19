@@ -8,8 +8,8 @@
 import UIKit
 
 protocol IProfileView: class {
-    var registerTapped:(()-> Void)? { get set }
-    var loginTapped:(()-> Void)? { get set }
+    var registerTapped: (()-> Void)? { get set }
+    var loginTapped: (()-> Void)? { get set }
     var logoutTapped: (() -> Void)? { get set }
     var cellTapped: ((IndexPath) -> Void)? { get set }
     
@@ -68,8 +68,9 @@ final class ProfileView: UIView {
 
     private lazy var previousOrdersTableView: UITableView = {
         let myTableView = UITableView()
-        myTableView.register(ProfileViewTableViewCell.self,
-                             forCellReuseIdentifier: ProfileViewTableViewCell.reuseIdentifier)
+        myTableView.register(
+            ProfileViewTableViewCell.self,
+            forCellReuseIdentifier: ProfileViewTableViewCell.reuseIdentifier)
         myTableView.rowHeight = UITableView.automaticDimension
         myTableView.estimatedRowHeight = AppConstants.Sizes.estimatedTableViewHeight
         return myTableView
@@ -79,7 +80,9 @@ final class ProfileView: UIView {
     private lazy var logoutButton: CustomButton = {
         let myButton = CustomButton()
         myButton.setTitle("Выйти из аккаунта", for: .normal)
-        myButton.addTarget(self, action: #selector(logoutButtonTapped(gesture:)), for: .touchUpInside)
+        myButton.addTarget(self,
+                           action: #selector(logoutButtonTapped(gesture:)),
+                           for: .touchUpInside)
         return myButton
     }()
 
@@ -102,14 +105,18 @@ final class ProfileView: UIView {
     private lazy var registerButton: CustomButton = {
         let myButton = CustomButton()
         myButton.setTitle("Зарегестрироваться", for: .normal)
-        myButton.addTarget(self, action: #selector(registerButtonTapped(gesture:)), for: .touchUpInside)
+        myButton.addTarget(self,
+                           action: #selector(registerButtonTapped(gesture:)),
+                           for: .touchUpInside)
         return myButton
     }()
 
     private lazy var loginButton: CustomButton = {
         let myButton = CustomButton()
         myButton.setTitle("Войти в профиль", for: .normal)
-        myButton.addTarget(self, action: #selector(loginButtonTapped(gesture:)), for: .touchUpInside)
+        myButton.addTarget(self,
+                           action: #selector(loginButtonTapped(gesture:)),
+                           for: .touchUpInside)
         return myButton
     }()
 
@@ -143,14 +150,16 @@ final class ProfileView: UIView {
 
     private lazy var closeAnimatedViewButton: CustomCloseButton = {
         let myButton = CustomCloseButton()
-        myButton.addTarget(self, action: #selector(closeAnimatedViewButtonTapped(gesture:)), for: .touchUpInside)
+        myButton.addTarget(self,
+                           action: #selector(closeAnimatedViewButtonTapped(gesture:)),
+                           for: .touchUpInside)
         return myButton
     }()
 
     // MARK: - Properties
 
-    var registerTapped:(()-> Void)?
-    var loginTapped:(()-> Void)?
+    var registerTapped: (()-> Void)?
+    var loginTapped: (()-> Void)?
     var logoutTapped: (() -> Void)?
     var cellTapped: ((IndexPath) -> Void)?
     private var tableViewDataSource = ProfileScreenTableViewDataSource()
@@ -211,12 +220,15 @@ private extension ProfileView {
         self.authorizedTopTitle.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.authorizedTopTitle.topAnchor.constraint(equalTo: self.authorizedView.topAnchor,
-                                                         constant: AppConstants.Constraints.normalAnchorConstant),
-            self.authorizedTopTitle.leadingAnchor.constraint(equalTo: self.authorizedView.leadingAnchor,
-                                                             constant: AppConstants.Constraints.normalAnchorConstant),
-            self.authorizedTopTitle.trailingAnchor.constraint(equalTo: self.authorizedView.trailingAnchor,
-                                                              constant: -AppConstants.Constraints.normalAnchorConstant)
+            self.authorizedTopTitle.topAnchor.constraint(
+                equalTo: self.authorizedView.topAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.authorizedTopTitle.leadingAnchor.constraint(
+                equalTo: self.authorizedView.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.authorizedTopTitle.trailingAnchor.constraint(
+                equalTo: self.authorizedView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
 
@@ -225,12 +237,15 @@ private extension ProfileView {
         self.authorizedRecordsListTitle.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.authorizedRecordsListTitle.topAnchor.constraint(equalTo: self.authorizedTopTitle.bottomAnchor,
-                                                                 constant: AppConstants.Constraints.normalAnchorConstant),
-            self.authorizedRecordsListTitle.leadingAnchor.constraint(equalTo: self.authorizedView.leadingAnchor,
-                                                                     constant: AppConstants.Constraints.normalAnchorConstant),
-            self.authorizedRecordsListTitle.trailingAnchor.constraint(equalTo: self.authorizedView.trailingAnchor,
-                                                                      constant: -AppConstants.Constraints.normalAnchorConstant)
+            self.authorizedRecordsListTitle.topAnchor.constraint(
+                equalTo: self.authorizedTopTitle.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.authorizedRecordsListTitle.leadingAnchor.constraint(
+                equalTo: self.authorizedView.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.authorizedRecordsListTitle.trailingAnchor.constraint(
+                equalTo: self.authorizedView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
 
@@ -239,12 +254,15 @@ private extension ProfileView {
         self.logoutButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.logoutButton.bottomAnchor.constraint(equalTo: self.authorizedView.bottomAnchor,
-                                                      constant: -AppConstants.Constraints.normalAnchorConstant),
-            self.logoutButton.leadingAnchor.constraint(equalTo: self.authorizedView.leadingAnchor,
-                                                       constant: AppConstants.Constraints.normalAnchorConstant),
-            self.logoutButton.trailingAnchor.constraint(equalTo: self.authorizedView.trailingAnchor,
-                                                        constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.logoutButton.bottomAnchor.constraint(
+                equalTo: self.authorizedView.bottomAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.logoutButton.leadingAnchor.constraint(
+                equalTo: self.authorizedView.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.logoutButton.trailingAnchor.constraint(
+                equalTo: self.authorizedView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.logoutButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
         ])
     }
@@ -257,8 +275,9 @@ private extension ProfileView {
         self.previousOrdersTableView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.previousOrdersTableView.bottomAnchor.constraint(equalTo: self.logoutButton.topAnchor,
-                                                                 constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.previousOrdersTableView.bottomAnchor.constraint(
+                equalTo: self.logoutButton.topAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.previousOrdersTableView.leadingAnchor.constraint(equalTo: self.authorizedView.leadingAnchor),
             self.previousOrdersTableView.trailingAnchor.constraint(equalTo: self.authorizedView.trailingAnchor),
             self.previousOrdersTableView.topAnchor.constraint(
@@ -276,7 +295,7 @@ private extension ProfileView {
 // MARK: - Обработка нажатий на кнопки authorizedView
 
 private extension ProfileView {
-    @objc private func logoutButtonTapped(gesture:UIGestureRecognizer) {
+    @objc private func logoutButtonTapped(gesture: UIGestureRecognizer) {
         self.logoutTapped?()
     }
 }
@@ -308,12 +327,15 @@ private extension ProfileView {
         self.loginButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.loginButton.topAnchor.constraint(equalTo: self.unauthorizedView.centerYAnchor,
-                                                  constant: AppConstants.Constraints.normalAnchorConstant),
-            self.loginButton.leadingAnchor.constraint(equalTo: self.unauthorizedView.leadingAnchor,
-                                                      constant: AppConstants.Constraints.normalAnchorConstant),
-            self.loginButton.trailingAnchor.constraint(equalTo: self.unauthorizedView.trailingAnchor,
-                                                       constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.loginButton.topAnchor.constraint(
+                equalTo: self.unauthorizedView.centerYAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.loginButton.leadingAnchor.constraint(
+                equalTo: self.unauthorizedView.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.loginButton.trailingAnchor.constraint(
+                equalTo: self.unauthorizedView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.loginButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
         ])
     }
@@ -323,12 +345,15 @@ private extension ProfileView {
         self.registerButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.registerButton.bottomAnchor.constraint(equalTo: self.unauthorizedView.centerYAnchor,
-                                                        constant: -AppConstants.Constraints.normalAnchorConstant),
-            self.registerButton.leadingAnchor.constraint(equalTo: self.unauthorizedView.leadingAnchor,
-                                                         constant: AppConstants.Constraints.normalAnchorConstant),
-            self.registerButton.trailingAnchor.constraint(equalTo: self.unauthorizedView.trailingAnchor,
-                                                          constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.registerButton.bottomAnchor.constraint(
+                equalTo: self.unauthorizedView.centerYAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.registerButton.leadingAnchor.constraint(
+                equalTo: self.unauthorizedView.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.registerButton.trailingAnchor.constraint(
+                equalTo: self.unauthorizedView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.registerButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
         ])
     }
@@ -338,12 +363,15 @@ private extension ProfileView {
         self.unauthorizedTopLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.unauthorizedTopLabel.topAnchor.constraint(equalTo: self.unauthorizedView.topAnchor,
-                                                           constant: AppConstants.Constraints.twiceNormalAnchorConstant),
-            self.unauthorizedTopLabel.leadingAnchor.constraint(equalTo: self.unauthorizedView.leadingAnchor,
-                                                               constant: AppConstants.Constraints.normalAnchorConstant),
-            self.unauthorizedTopLabel.trailingAnchor.constraint(equalTo: self.unauthorizedView.trailingAnchor,
-                                                                constant: -AppConstants.Constraints.normalAnchorConstant)
+            self.unauthorizedTopLabel.topAnchor.constraint(
+                equalTo: self.unauthorizedView.topAnchor,
+                constant: AppConstants.Constraints.twiceNormalAnchorConstant),
+            self.unauthorizedTopLabel.leadingAnchor.constraint(
+                equalTo: self.unauthorizedView.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.unauthorizedTopLabel.trailingAnchor.constraint(
+                equalTo: self.unauthorizedView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
 }
@@ -351,11 +379,11 @@ private extension ProfileView {
 // MARK: - Обработка нажатий на кнопки unauthorizedView
 
 private extension ProfileView {
-    @objc private func registerButtonTapped(gesture:UIGestureRecognizer) {
+    @objc private func registerButtonTapped(gesture: UIGestureRecognizer) {
         self.showAnimatedRegisterView(withActionForButton: #selector(registerWithEmail(gesture:)))
     }
 
-    @objc private func loginButtonTapped(gesture:UIGestureRecognizer) {
+    @objc private func loginButtonTapped(gesture: UIGestureRecognizer) {
         self.showAnimatedRegisterView(withActionForButton: #selector(loginWithEmail(gesture:)))
     }
 }
@@ -403,7 +431,7 @@ private extension ProfileView {
         }
     }
 
-    func showAnimatedRegisterView(withActionForButton action: Selector){
+    func showAnimatedRegisterView(withActionForButton action: Selector) {
         self.animatedViewEmailButton.removeTarget(self, action: nil, for: .touchUpInside)
         self.animatedViewEmailButton.addTarget(self, action: action, for: .touchUpInside)
         self.setupAnimatedViewBackgroundView()
@@ -420,9 +448,12 @@ private extension ProfileView {
         self.animatedViewBackgroundView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.animatedViewBackgroundView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            self.animatedViewBackgroundView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            self.animatedViewBackgroundView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            self.animatedViewBackgroundView.leadingAnchor.constraint(equalTo:
+                                                                        self.safeAreaLayoutGuide.leadingAnchor),
+            self.animatedViewBackgroundView.trailingAnchor.constraint(equalTo:
+                                                                        self.safeAreaLayoutGuide.trailingAnchor),
+            self.animatedViewBackgroundView.bottomAnchor.constraint(equalTo:
+                                                                        self.safeAreaLayoutGuide.bottomAnchor),
             self.animatedViewBackgroundView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor)
         ])
     }
@@ -450,8 +481,9 @@ private extension ProfileView {
 
         NSLayoutConstraint.activate([
             self.animatedViewTopLabel.centerXAnchor.constraint(equalTo: self.animatedView.centerXAnchor),
-            self.animatedViewTopLabel.topAnchor.constraint(equalTo: self.animatedView.topAnchor,
-                                                           constant: AppConstants.Constraints.normalAnchorConstant)
+            self.animatedViewTopLabel.topAnchor.constraint(
+                equalTo: self.animatedView.topAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant)
         ])
     }
 
@@ -461,8 +493,9 @@ private extension ProfileView {
 
         NSLayoutConstraint.activate([
             self.animatedViewEmailButton.centerXAnchor.constraint(equalTo: self.animatedView.centerXAnchor),
-            self.animatedViewEmailButton.bottomAnchor.constraint(equalTo: self.animatedView.bottomAnchor,
-                                                                 constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.animatedViewEmailButton.bottomAnchor.constraint(
+                equalTo: self.animatedView.bottomAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.animatedViewEmailButton.heightAnchor.constraint(equalToConstant: Constants.animationViewEmailButtonSize.height),
             self.animatedViewEmailButton.widthAnchor.constraint(equalToConstant: Constants.animationViewEmailButtonSize.width)
         ])
@@ -473,10 +506,12 @@ private extension ProfileView {
         self.closeAnimatedViewButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.closeAnimatedViewButton.trailingAnchor.constraint(equalTo: self.animatedView.trailingAnchor,
-                                                                   constant: -AppConstants.Constraints.normalAnchorConstant),
-            self.closeAnimatedViewButton.topAnchor.constraint(equalTo: self.animatedView.topAnchor,
-                                                              constant: AppConstants.Constraints.normalAnchorConstant),
+            self.closeAnimatedViewButton.trailingAnchor.constraint(
+                equalTo: self.animatedView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.closeAnimatedViewButton.topAnchor.constraint(
+                equalTo: self.animatedView.topAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
             self.closeAnimatedViewButton.heightAnchor.constraint(
                 equalToConstant: AppConstants.Sizes.closeViewButtonSize.height),
             self.closeAnimatedViewButton.widthAnchor.constraint(
@@ -488,12 +523,12 @@ private extension ProfileView {
 // MARK: - Обработка нажатий на кнопки animatedView
 
 private extension ProfileView {
-    @objc private func registerWithEmail(gesture:UIGestureRecognizer) {
+    @objc private func registerWithEmail(gesture: UIGestureRecognizer) {
         self.closeAnimatedRegisterView()
         self.registerTapped?()
     }
 
-    @objc private func loginWithEmail(gesture:UIGestureRecognizer) {
+    @objc private func loginWithEmail(gesture: UIGestureRecognizer) {
         self.closeAnimatedRegisterView()
         self.loginTapped?()
     }

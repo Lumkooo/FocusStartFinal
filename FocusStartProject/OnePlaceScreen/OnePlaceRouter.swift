@@ -29,7 +29,9 @@ extension OnePlaceRouter: IOnePlaceRouter {
         
         let availableMaps = AvailableMaps.getAvailableMaps(withLocation: place.coordinate)
         
-        let alert = UIAlertController(title: "Выберите", message: "Выберите приложение для построения маршрута", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Выберите",
+                                      message: "Выберите приложение для построения маршрута",
+                                      preferredStyle: .actionSheet)
         for app in availableMaps {
             let button = UIAlertAction(title: app.0, style: .default, handler: { _ in
                 UIApplication.shared.open(app.1, options: [:], completionHandler: nil)

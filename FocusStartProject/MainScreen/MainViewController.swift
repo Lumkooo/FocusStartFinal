@@ -23,6 +23,7 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         self.view = mainView
         presenter.viewDidLoad(ui: self.mainView)
+        self.title = "Главная"
     }
     
     // MARK: - Init

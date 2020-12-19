@@ -18,7 +18,7 @@ final class UserLocationManager {
 
     // MARK: - Properties
 
-    private var locationManager:CLLocationManager!
+    private var locationManager: CLLocationManager!
     private var mapViewLocationManagerDelegate: MapViewLocationManagerDelegate?
     private var userLocation: CLLocationCoordinate2D?
     private var delegate: IUserLocationManager

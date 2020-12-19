@@ -50,7 +50,8 @@ extension SearchingInteractor: ISearchingInteractor {
     
     func searchForPlace(withText text: String, category: String) {
         self.filteredPlaces = self.filterByCategory(category)
-        self.filteredPlaces = self.filterPlaces(text: text, sortingPlaces: self.filteredPlaces)
+        self.filteredPlaces = self.filterPlaces(text: text,
+                                                sortingPlaces: self.filteredPlaces)
         self.presenter?.returnFilteredPlaces(places: filteredPlaces)
     }
     

@@ -19,7 +19,7 @@ protocol IMapInteractorOuter: class {
     func returnPlacesForDiscipline(places: [Place])
     func setupUserLocation(withLocation location: CLLocationCoordinate2D)
     func setupCityLocation()
-    func showAlert(withText text:String)
+    func showAlert(withText text: String)
 }
 
 final class MapInteractor {

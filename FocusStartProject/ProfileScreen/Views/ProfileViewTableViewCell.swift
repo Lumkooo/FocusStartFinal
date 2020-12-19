@@ -64,14 +64,18 @@ private extension ProfileViewTableViewCell {
         self.contentView.addSubview(self.timeLabel)
         self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.timeLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,
-                                                     constant: -AppConstants.Constraints.normalAnchorConstant),
-            self.timeLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor,
-                                                   constant: -AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.timeLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor,
-                                                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.timeLabel.widthAnchor.constraint(equalTo: self.contentView.widthAnchor,
-                                                  multiplier: Constants.timeLabelMultiplier),
+            self.timeLabel.trailingAnchor.constraint(
+                equalTo: self.contentView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.timeLabel.bottomAnchor.constraint(
+                equalTo: self.contentView.bottomAnchor,
+                constant: -AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.timeLabel.topAnchor.constraint(
+                equalTo: self.contentView.topAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.timeLabel.widthAnchor.constraint(
+                equalTo: self.contentView.widthAnchor,
+                multiplier: Constants.timeLabelMultiplier),
         ])
     }
     
@@ -79,14 +83,18 @@ private extension ProfileViewTableViewCell {
         self.contentView.addSubview(self.foodNameLabel)
         self.foodNameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.foodNameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,
-                                                        constant: AppConstants.Constraints.normalAnchorConstant),
-            self.foodNameLabel.trailingAnchor.constraint(equalTo: self.timeLabel.leadingAnchor,
-                                                         constant: -AppConstants.Constraints.normalAnchorConstant),
-            self.foodNameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor,
-                                                    constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.foodNameLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor,
-                                                       constant: -AppConstants.Constraints.halfNormalAnchorConstaint)
+            self.foodNameLabel.leadingAnchor.constraint(
+                equalTo: self.contentView.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.foodNameLabel.trailingAnchor.constraint(
+                equalTo: self.timeLabel.leadingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.foodNameLabel.topAnchor.constraint(
+                equalTo: self.contentView.topAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.foodNameLabel.bottomAnchor.constraint(
+                equalTo: self.contentView.bottomAnchor,
+                constant: -AppConstants.Constraints.halfNormalAnchorConstaint)
         ])
     }
 }

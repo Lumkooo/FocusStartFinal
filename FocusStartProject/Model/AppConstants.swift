@@ -82,6 +82,7 @@ enum AppConstants {
     enum AnimationTime {
         static let keyboardAnimationDuration: Double = 0.25
         static let noConnectionAnimationDuration: Double = 0.5
+        static let oneFoodContainerViewAnimationDuration: Double = 0.3
     }
 
 }

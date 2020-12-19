@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 protocol IMapPresenter {
-    func viewDidLoad(ui:IMapView)
+    func viewDidLoad(ui: IMapView)
 }
 
 final class MapPresenter {
@@ -17,8 +17,8 @@ final class MapPresenter {
     // MARK: - Properties
 
     private weak var ui: IMapView?
-    private var router:IMapRouter
-    private var interactor:IMapInteractor
+    private var router: IMapRouter
+    private var interactor: IMapInteractor
 
     // MARK: - Properties
 

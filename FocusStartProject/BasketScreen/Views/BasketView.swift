@@ -27,10 +27,12 @@ final class BasketView: UIView {
     }()
     
     private lazy var collectionView: UICollectionView = {
-        let myCollectionView = UICollectionView(frame: CGRect.zero,
-                                                collectionViewLayout: UICollectionViewFlowLayout.init())
-        myCollectionView.register(MenuCollectionViewCell.self,
-                                  forCellWithReuseIdentifier: MenuCollectionViewCell.reuseIdentifier)
+        let myCollectionView = UICollectionView(
+            frame: CGRect.zero,
+            collectionViewLayout: UICollectionViewFlowLayout.init())
+        myCollectionView.register(
+            MenuCollectionViewCell.self,
+            forCellWithReuseIdentifier: MenuCollectionViewCell.reuseIdentifier)
         myCollectionView.backgroundColor = .systemBackground
         return myCollectionView
     }()
@@ -38,7 +40,9 @@ final class BasketView: UIView {
     private let orderButton: CustomButton={
         let myButton = CustomButton()
         myButton.setTitle("Перейти к оформлению", for: .normal)
-        myButton.addTarget(self, action: #selector(orderButtonTapped(gesute:)), for: .touchUpInside)
+        myButton.addTarget(self,
+                           action: #selector(orderButtonTapped(gesute:)),
+                           for: .touchUpInside)
         return myButton
     }()
     
@@ -107,12 +111,15 @@ private extension BasketView {
         self.orderButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.orderButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                      constant: AppConstants.Constraints.normalAnchorConstant),
-            self.orderButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                       constant: -AppConstants.Constraints.normalAnchorConstant),
-            self.orderButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
-                                                     constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.orderButton.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.orderButton.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.orderButton.bottomAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.bottomAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.orderButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
             
         ])
@@ -137,8 +144,9 @@ private extension BasketView {
                                                      constant: AppConstants.Constraints.normalAnchorConstant),
             self.collectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             self.collectionView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            self.collectionView.bottomAnchor.constraint(equalTo: self.orderButton.topAnchor,
-                                                        constant: -AppConstants.Constraints.normalAnchorConstant)
+            self.collectionView.bottomAnchor.constraint(
+                equalTo: self.orderButton.topAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
 }

@@ -228,12 +228,15 @@ private extension OnePlaceView {
         self.routeToPlaceButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.routeToPlaceButton.bottomAnchor.constraint(equalTo: self.placeLocationMapView.bottomAnchor,
-                                                            constant: -AppConstants.Constraints.normalAnchorConstant),
-            self.routeToPlaceButton.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                             constant: AppConstants.Constraints.normalAnchorConstant),
-            self.routeToPlaceButton.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                              constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.routeToPlaceButton.bottomAnchor.constraint(
+                equalTo: self.placeLocationMapView.bottomAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.routeToPlaceButton.leadingAnchor.constraint(
+                equalTo: self.scrollView.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.routeToPlaceButton.trailingAnchor.constraint(
+                equalTo: self.scrollView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.routeToPlaceButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
         ])
     }
@@ -243,12 +246,15 @@ private extension OnePlaceView {
         self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.descriptionLabel.topAnchor.constraint(equalTo: self.placeLocationMapView.bottomAnchor,
-                                                       constant: AppConstants.Constraints.normalAnchorConstant),
-            self.descriptionLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                           constant: AppConstants.Constraints.normalAnchorConstant),
-            self.descriptionLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                            constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.descriptionLabel.topAnchor.constraint(
+                equalTo: self.placeLocationMapView.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.descriptionLabel.leadingAnchor.constraint(
+                equalTo: self.scrollView.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.descriptionLabel.trailingAnchor.constraint(
+                equalTo: self.scrollView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
 
@@ -264,8 +270,9 @@ private extension OnePlaceView {
             self.menuButton.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
                                                       constant: -AppConstants.Constraints.normalAnchorConstant),
             self.menuButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight),
-            self.menuButton.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor,
-                                                       constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.menuButton.bottomAnchor.constraint(
+                equalTo: self.scrollView.bottomAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
 }

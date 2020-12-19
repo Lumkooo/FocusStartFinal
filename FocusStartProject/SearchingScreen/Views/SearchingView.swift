@@ -20,8 +20,9 @@ final class SearchingView: UIView {
 
     private let tableView: UITableView = {
         let myTableView = UITableView()
-        myTableView.register(UITableViewCell.self,
-                             forCellReuseIdentifier: AppConstants.TableViewCellIdentifiers.searchingTableViewCellID)
+        myTableView.register(
+            UITableViewCell.self,
+            forCellReuseIdentifier: AppConstants.TableViewCellIdentifiers.searchingTableViewCellID)
         myTableView.rowHeight = UITableView.automaticDimension
         myTableView.estimatedRowHeight = AppConstants.Sizes.estimatedTableViewHeight
         return myTableView

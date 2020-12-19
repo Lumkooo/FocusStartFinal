@@ -38,9 +38,10 @@ extension LoginInteractor: ILoginInteractor {
         firebaseAuthManager.signIn(loginEntitie: loginEntitie) {
             self.presenter?.successfullyLogedIn()
             self.delegate.reloadView()
-            NotificationCenter.default.post(name: NSNotification.Name(
-                                                rawValue: AppConstants.NotificationNames.refreshLikedPlaces),
-                                            object: nil)
+            NotificationCenter.default.post(
+                name: NSNotification.Name(
+                    rawValue: AppConstants.NotificationNames.refreshLikedPlaces),
+                object: nil)
         } errorCompletion: { (error) in
             self.presenter?.alertOccured(stringError: error.localizedDescription)
         }

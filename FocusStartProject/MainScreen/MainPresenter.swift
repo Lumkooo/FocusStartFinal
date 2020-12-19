@@ -8,7 +8,7 @@
 import Foundation
 
 protocol IMainPresenter {
-    func viewDidLoad(ui:IMainView)
+    func viewDidLoad(ui: IMainView)
     func searchButtonTapped()
 }
 

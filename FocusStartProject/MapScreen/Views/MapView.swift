@@ -14,7 +14,7 @@ protocol IMapView: class {
     var didTappedUserLocationButton: (() -> Void)? { get set }
     
     func setupSegmentControl(withDisciplines disciplines: [String])
-    func setupAnnotations(forPlaces places:[Place])
+    func setupAnnotations(forPlaces places: [Place])
     func setupUserLocation(withLocation location: CLLocationCoordinate2D)
     func setupCityLocation()
 }
@@ -37,7 +37,9 @@ final class MapView: UIView {
     
     private let segmentControl: UISegmentedControl = {
         let segmentControl = UISegmentedControl()
-        segmentControl.addTarget(self, action: #selector(segmentControlAction(sender:)), for: .valueChanged)
+        segmentControl.addTarget(self,
+                                 action: #selector(segmentControlAction(sender:)),
+                                 for: .valueChanged)
         return segmentControl
     }()
     
@@ -45,8 +47,9 @@ final class MapView: UIView {
         let mapView = MKMapView()
         mapView.setUserTrackingMode(.follow, animated: true)
         mapView.mapType = MKMapType.standard
-        mapView.register(PlacesArtowrkView.self,
-                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(
+            PlacesArtowrkView.self,
+            forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         return mapView
     }()
     
@@ -116,7 +119,7 @@ extension MapView: IMapView {
         self.didSelectSegmentControl?(segmentControlTitle)
     }
     
-    func setupAnnotations(forPlaces places:[Place]) {
+    func setupAnnotations(forPlaces places: [Place]) {
         let currentAnnotations = self.mapView.annotations
         self.mapView.removeAnnotations(currentAnnotations)
         mapView.addAnnotations(places)
@@ -180,10 +183,12 @@ private extension MapView {
         self.userLocationButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.userLocationButton.topAnchor.constraint(equalTo: self.mapView.topAnchor,
-                                                         constant: AppConstants.Constraints.normalAnchorConstant),
-            self.userLocationButton.trailingAnchor.constraint(equalTo: self.mapView.trailingAnchor,
-                                                              constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.userLocationButton.topAnchor.constraint(
+                equalTo: self.mapView.topAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.userLocationButton.trailingAnchor.constraint(
+                equalTo: self.mapView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.userLocationButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.userLocationButtonSize.height),
             self.userLocationButton.widthAnchor.constraint(equalToConstant: AppConstants.Sizes.userLocationButtonSize.width)
         ])

@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Для доступа к элементам String-а следующимо образом  someString[i].
+//Используется в анимированном загрзочном экране
 extension StringProtocol {
     subscript(offset: Int) -> Character {
         self[index(startIndex, offsetBy: offset)]

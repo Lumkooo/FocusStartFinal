@@ -9,7 +9,7 @@ import UIKit
 
 protocol IRegisterView: class {
     var textFieldsAlert: ((String) -> Void)? { get set }
-    var doneTapped:((LoginEntitie)-> Void)? { get set }
+    var doneTapped: ((LoginEntitie)-> Void)? { get set }
 }
 
 final class RegisterView: UIView {
@@ -58,7 +58,9 @@ final class RegisterView: UIView {
     private let doneButton: CustomButton = {
         let button = CustomButton()
         button.setTitle("Готово", for: .normal)
-        button.addTarget(self, action: #selector(doneButtonTapped(gesture:)), for: .touchUpInside)
+        button.addTarget(self,
+                         action: #selector(doneButtonTapped(gesture:)),
+                         for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -67,7 +69,9 @@ final class RegisterView: UIView {
         let button = UIButton()
         button.setImage(AppConstants.Images.showPasswordImage, for: .normal)
         button.tintColor = .black
-        button.addTarget(self, action: #selector(securePasswordButtonTapped(gesture:)), for: .touchUpInside)
+        button.addTarget(self,
+                         action: #selector(securePasswordButtonTapped(gesture:)),
+                         for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -76,9 +80,9 @@ final class RegisterView: UIView {
     // MARK: - Properties
 
     private var isKeyboardShowing = false
-    private var doneButtonBottomAnchor:NSLayoutConstraint!
-    private var doneButtonBottomAnchorWithKeyboard:NSLayoutConstraint!
-    var doneTapped:((LoginEntitie)-> Void)?
+    private var doneButtonBottomAnchor: NSLayoutConstraint!
+    private var doneButtonBottomAnchorWithKeyboard: NSLayoutConstraint!
+    var doneTapped: ((LoginEntitie)-> Void)?
     var textFieldsAlert: ((String) -> Void)?
 
     // MARK: - Init
@@ -94,11 +98,11 @@ final class RegisterView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc private func doneButtonTapped(gesture:UIGestureRecognizer) {
+    @objc private func doneButtonTapped(gesture: UIGestureRecognizer) {
         self.checkFilledTextFields()
     }
 
-    @objc private func securePasswordButtonTapped(gesture:UIGestureRecognizer) {
+    @objc private func securePasswordButtonTapped(gesture: UIGestureRecognizer) {
         let isSecure = self.passwordTextField.isSecureTextEntry
         self.passwordTextField.isSecureTextEntry = !self.passwordTextField.isSecureTextEntry
         self.repeatPasswordTextField.isSecureTextEntry = !self.repeatPasswordTextField.isSecureTextEntry
@@ -155,12 +159,15 @@ private extension RegisterView {
         self.emailTextField.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-                                                         constant: AppConstants.Constraints.normalAnchorConstant),
-            self.emailTextField.topAnchor.constraint(equalTo: self.topLabel.bottomAnchor,
-                                                     constant: AppConstants.Constraints.normalAnchorConstant),
-            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor,
-                                                          constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.emailTextField.leadingAnchor.constraint(
+                equalTo: self.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.emailTextField.topAnchor.constraint(
+                equalTo: self.topLabel.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.emailTextField.trailingAnchor.constraint(
+                equalTo: self.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
 
@@ -169,12 +176,15 @@ private extension RegisterView {
         self.repeatPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.repeatPasswordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-                                                                  constant: AppConstants.Constraints.normalAnchorConstant),
-            self.repeatPasswordTextField.topAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor,
-                                                              constant: AppConstants.Constraints.normalAnchorConstant),
-            self.repeatPasswordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor,
-                                                                   constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.repeatPasswordTextField.leadingAnchor.constraint(
+                equalTo: self.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.repeatPasswordTextField.topAnchor.constraint(
+                equalTo: self.passwordTextField.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.repeatPasswordTextField.trailingAnchor.constraint(
+                equalTo: self.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
 
@@ -183,12 +193,15 @@ private extension RegisterView {
         self.passwordTextField.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-                                                            constant: AppConstants.Constraints.normalAnchorConstant),
-            self.passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor,
-                                                        constant: AppConstants.Constraints.normalAnchorConstant),
-            self.passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor,
-                                                             constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.passwordTextField.leadingAnchor.constraint(
+                equalTo: self.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.passwordTextField.topAnchor.constraint(
+                equalTo: self.emailTextField.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.passwordTextField.trailingAnchor.constraint(
+                equalTo: self.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
         self.setupSecurePasswordButton()
     }
@@ -212,16 +225,25 @@ private extension RegisterView {
         self.securePasswordButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.securePasswordButton.trailingAnchor.constraint(equalTo: self.passwordTextField.trailingAnchor,
-                                                                constant: -AppConstants.Constraints.quarterNormalAnchorConstaint),
+            self.securePasswordButton.trailingAnchor.constraint(
+                equalTo: self.passwordTextField.trailingAnchor,
+                constant: -AppConstants.Constraints.quarterNormalAnchorConstaint),
             self.securePasswordButton.topAnchor.constraint(equalTo: self.passwordTextField.topAnchor),
             self.securePasswordButton.bottomAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor),
         ])
     }
 
     func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name:UIResponder.keyboardWillShowNotification,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name:UIResponder.keyboardWillHideNotification,
+            object: nil)
     }
 
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -326,7 +348,9 @@ extension RegisterView: UITextFieldDelegate {
     // Потому что если ставить isSecureTextEntry = true при инициализациии,
     // то почему-то срабатывает autoFill на textField-ах
     // и не дает что-либо делать с textField-ами
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
         if (textField == self.passwordTextField && !self.passwordTextField.isSecureTextEntry) ||
             (textField == self.repeatPasswordTextField && !self.repeatPasswordTextField.isSecureTextEntry){
             self.passwordTextField.isSecureTextEntry = true

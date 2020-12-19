@@ -69,7 +69,9 @@ final class PurchasingView: UIView {
     
     private let segmentControl: UISegmentedControl = {
         let segmentControl = UISegmentedControl()
-        segmentControl.addTarget(self, action: #selector(segmentControlAction(sender:)), for: .valueChanged)
+        segmentControl.addTarget(self,
+                                 action: #selector(segmentControlAction(sender:)),
+                                 for: .valueChanged)
         return segmentControl
     }()
     
@@ -231,10 +233,12 @@ private extension PurchasingView {
         self.orderTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.orderTimeLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                         constant: AppConstants.Constraints.normalAnchorConstant),
-            self.orderTimeLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                          constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.orderTimeLabel.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.orderTimeLabel.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.orderTimeLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
                                                      constant: AppConstants.Constraints.normalAnchorConstant)
         ])
@@ -259,10 +263,12 @@ private extension PurchasingView {
         NSLayoutConstraint.activate([
             self.timeTextField.topAnchor.constraint(equalTo: self.segmentControl.bottomAnchor,
                                                     constant: AppConstants.Constraints.normalAnchorConstant),
-            self.timeTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                        constant: AppConstants.Constraints.normalAnchorConstant),
-            self.timeTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                         constant: -AppConstants.Constraints.normalAnchorConstant)
+            self.timeTextField.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.timeTextField.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
     
@@ -271,12 +277,15 @@ private extension PurchasingView {
         self.addresOfOrderLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.addresOfOrderLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                             constant: AppConstants.Constraints.normalAnchorConstant),
-            self.addresOfOrderLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                              constant: -AppConstants.Constraints.normalAnchorConstant),
-            self.addresOfOrderLabel.topAnchor.constraint(equalTo: self.timeTextField.bottomAnchor,
-                                                         constant: AppConstants.Constraints.normalAnchorConstant)
+            self.addresOfOrderLabel.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.addresOfOrderLabel.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.addresOfOrderLabel.topAnchor.constraint(
+                equalTo: self.timeTextField.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant)
         ])
     }
     
@@ -287,8 +296,9 @@ private extension PurchasingView {
         NSLayoutConstraint.activate([
             self.toUserButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                        constant: AppConstants.Constraints.normalAnchorConstant),
-            self.toUserButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                        constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.toUserButton.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.toUserButton.topAnchor.constraint(equalTo: self.addresOfOrderLabel.bottomAnchor,
                                                    constant: AppConstants.Constraints.normalAnchorConstant),
             self.toUserButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
@@ -301,10 +311,12 @@ private extension PurchasingView {
         self.selfPickupButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.selfPickupButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                           constant: AppConstants.Constraints.normalAnchorConstant),
-            self.selfPickupButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                            constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.selfPickupButton.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.selfPickupButton.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.selfPickupButton.topAnchor.constraint(equalTo: self.toUserButton.bottomAnchor,
                                                        constant: AppConstants.Constraints.normalAnchorConstant),
             self.selfPickupButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
@@ -318,8 +330,9 @@ private extension PurchasingView {
         NSLayoutConstraint.activate([
             self.orderButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                       constant: AppConstants.Constraints.normalAnchorConstant),
-            self.orderButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                       constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.orderButton.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
             self.orderButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
                                                      constant: -AppConstants.Constraints.normalAnchorConstant),
             self.orderButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
@@ -331,12 +344,15 @@ private extension PurchasingView {
         self.totalPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.totalPriceLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                          constant: AppConstants.Constraints.normalAnchorConstant),
-            self.totalPriceLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                           constant: -AppConstants.Constraints.normalAnchorConstant),
-            self.totalPriceLabel.bottomAnchor.constraint(equalTo: self.orderButton.topAnchor,
-                                                         constant: -AppConstants.Constraints.normalAnchorConstant)
+            self.totalPriceLabel.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.totalPriceLabel.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.totalPriceLabel.bottomAnchor.constraint(
+                equalTo: self.orderButton.topAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
 }
@@ -349,7 +365,9 @@ extension PurchasingView: UITextFieldDelegate{
         self.timeTextField.text = text.applyPatternOnNumbers(pattern: "##:##", replacmentCharacter: "#")
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
         let charsLimit = 5
         let startingLength = textField.text?.count ?? 0
         let lengthToAdd = string.count

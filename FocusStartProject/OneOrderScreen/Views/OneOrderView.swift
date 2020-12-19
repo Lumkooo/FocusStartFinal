@@ -13,7 +13,13 @@ protocol IOneOrderView: class {
 }
 
 final class OneOrderView: UIView {
-    
+
+    // MARK: - Constants
+
+    private enum Constants {
+        static let imageViewHeight: CGFloat = 0.4
+    }
+
     // MARK: - Views
     
     private let activityIndicator: UIActivityIndicatorView = {
@@ -103,7 +109,8 @@ extension OneOrderView: IOneOrderView {
         self.timeLabel.text = "Заказ от \(order.time)"
         self.foodNameLabel.text = order.food
         self.fromPlaceLabel.text = "Заказано в:\n\(order.from)"
-        PriceLabelSetuper.makePriceLabels(foodPrice: order.price, newFoodPrice: order.newPrice) { (color, priceLabelText, newPriceLabelText) in
+        PriceLabelSetuper.makePriceLabels(foodPrice: order.price,
+                                          newFoodPrice: order.newPrice) { (color, priceLabelText, newPriceLabelText) in
             self.priceLabel.textColor = color
             self.priceLabel.text = priceLabelText
             self.newPriceLabel.attributedText = newPriceLabelText
@@ -153,13 +160,17 @@ private extension OneOrderView {
         self.foodImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.foodImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                        constant: AppConstants.Constraints.normalAnchorConstant),
-            self.foodImageView.topAnchor.constraint(equalTo: self.timeLabel.bottomAnchor,
-                                                    constant: AppConstants.Constraints.normalAnchorConstant),
-            self.foodImageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                         constant: -AppConstants.Constraints.normalAnchorConstant),
-            self.foodImageView.heightAnchor.constraint(equalToConstant: AppConstants.screenHeight * 0.4)
+            self.foodImageView.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.foodImageView.topAnchor.constraint(
+                equalTo: self.timeLabel.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.foodImageView.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.foodImageView.heightAnchor.constraint(
+                equalToConstant: AppConstants.screenHeight * Constants.imageViewHeight)
         ])
     }
     
@@ -169,12 +180,15 @@ private extension OneOrderView {
         self.foodNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.foodNameLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                        constant: AppConstants.Constraints.normalAnchorConstant),
-            self.foodNameLabel.topAnchor.constraint(equalTo: self.foodImageView.bottomAnchor,
-                                                    constant: AppConstants.Constraints.normalAnchorConstant),
-            self.foodNameLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                         constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.foodNameLabel.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.foodNameLabel.topAnchor.constraint(
+                equalTo: self.foodImageView.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.foodNameLabel.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
     
@@ -183,10 +197,12 @@ private extension OneOrderView {
         self.staticPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.staticPriceLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                           constant: AppConstants.Constraints.normalAnchorConstant),
-            self.staticPriceLabel.topAnchor.constraint(equalTo: self.foodNameLabel.bottomAnchor,
-                                                       constant: AppConstants.Constraints.normalAnchorConstant)
+            self.staticPriceLabel.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.staticPriceLabel.topAnchor.constraint(
+                equalTo: self.foodNameLabel.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant)
         ])
     }
     
@@ -205,12 +221,15 @@ private extension OneOrderView {
         self.addSubview(self.newPriceLabel)
         self.newPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.newPriceLabel.leadingAnchor.constraint(equalTo: self.priceLabel.trailingAnchor,
-                                                        constant: AppConstants.Constraints.normalAnchorConstant),
-            self.newPriceLabel.topAnchor.constraint(equalTo: self.foodNameLabel.bottomAnchor,
-                                                    constant: AppConstants.Constraints.normalAnchorConstant),
-            self.newPriceLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                         constant: -AppConstants.Constraints.normalAnchorConstant)
+            self.newPriceLabel.leadingAnchor.constraint(
+                equalTo: self.priceLabel.trailingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.newPriceLabel.topAnchor.constraint(
+                equalTo: self.foodNameLabel.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.newPriceLabel.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
     
@@ -218,12 +237,15 @@ private extension OneOrderView {
         self.addSubview(self.fromPlaceLabel)
         self.fromPlaceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.fromPlaceLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                         constant: AppConstants.Constraints.normalAnchorConstant),
-            self.fromPlaceLabel.topAnchor.constraint(equalTo: self.staticPriceLabel.bottomAnchor,
-                                                     constant: AppConstants.Constraints.normalAnchorConstant),
-            self.fromPlaceLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                          constant: -AppConstants.Constraints.normalAnchorConstant)
+            self.fromPlaceLabel.leadingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.fromPlaceLabel.topAnchor.constraint(
+                equalTo: self.staticPriceLabel.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.fromPlaceLabel.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant)
         ])
     }
 }

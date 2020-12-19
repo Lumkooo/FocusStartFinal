@@ -8,7 +8,7 @@
 import Foundation
 
 protocol IProfilePresenter {
-    func viewDidLoad(ui:IProfileView)
+    func viewDidLoad(ui: IProfileView)
 }
 
 protocol ProfileDelegate {
@@ -35,7 +35,7 @@ final class ProfilePresenter {
 // MARK: - IProfilePresenter
 
 extension ProfilePresenter: IProfilePresenter {
-    func viewDidLoad(ui:IProfileView) {
+    func viewDidLoad(ui: IProfileView) {
         self.ui = ui
         self.ui?.loginTapped = { [weak self] in
             // Избавляюсь от опционала для того, чтобы передать self как

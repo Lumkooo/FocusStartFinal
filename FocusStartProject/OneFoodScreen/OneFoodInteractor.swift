@@ -14,7 +14,9 @@ protocol IOneFoodInteractor {
 }
 
 protocol IOneFoodInteractorOuter: class {
-    func setupWithFood(_ food: Food, withImage image: UIImage, forVC oneFoodVCType: OneFoodInteractor.OneFoodFor)
+    func setupWithFood(_ food: Food,
+                       withImage image: UIImage,
+                       forVC oneFoodVCType: OneFoodInteractor.OneFoodFor)
     func dismissView()
 }
 
@@ -35,7 +37,7 @@ final class OneFoodInteractor {
     // MARK: - Properies
 
     private var food: Food
-    private var oneFoodVCType:OneFoodFor
+    private var oneFoodVCType: OneFoodFor
     weak var presenter: IOneFoodInteractorOuter?
 
     // MARK: - Init

@@ -124,10 +124,12 @@ private extension MainInteractor {
     func getInitData(withUserLocation location: CLLocationCoordinate2D? = nil) {
         PlaceLoader.sharedInstance.loadInitialData { (places) in
             if let location = location {
-                let userLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+                let userLocation = CLLocation(latitude: location.latitude,
+                                              longitude: location.longitude)
                 self.userLocation = location
                 for index in 0...places.count-1{
-                    let destination = CLLocation(latitude: places[index].coordinate.latitude, longitude: places[index].coordinate.longitude)
+                    let destination = CLLocation(latitude: places[index].coordinate.latitude,
+                                                 longitude: places[index].coordinate.longitude)
                     let distanceTo = userLocation.distance(from: destination)
                     places[index].distance = Double(distanceTo)
                 }
@@ -219,15 +221,16 @@ private extension MainInteractor {
     func setupNotifications() {
         // Notification вызывается в LoginInteractor и в ProfileInteractor
         // Обновляет список избранных мест после авторизации/выхода из аккаунта
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(refreshLikedPlacesAfterAuthActions(_:)),
-                                               name: NSNotification.Name(
-                                                rawValue: AppConstants.NotificationNames.refreshLikedPlaces),
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshLikedPlacesAfterAuthActions(_:)),
+            name: NSNotification.Name(
+                rawValue: AppConstants.NotificationNames.refreshLikedPlaces),
+            object: nil)
     }
 
     /// Перезагрузить список избранных мест после авторизации/выхода из аккаунта
-    @objc func refreshLikedPlacesAfterAuthActions(_ notification:Notification) {
+    @objc func refreshLikedPlacesAfterAuthActions(_ notification: Notification) {
         self.loadLikedPlaces()
     }
 }

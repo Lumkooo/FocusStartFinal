@@ -23,6 +23,7 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.view = profileView
         presenter.viewDidLoad(ui: self.profileView)
+        self.title = "Профиль"
     }
     
     // MARK: - Init

@@ -94,7 +94,7 @@ final class MenuCollectionViewCell: UICollectionViewCell {
                 self.activityIndicatorView.stopAnimating()
             }
         } else {
-            // TODO: - Поставить сюда картинку неудачной загрузки картинки
+            // MARK: - В таких местах можно ставить картинку неудачной загрузки картинки
             assertionFailure("Something went wrong")
         }
     }
@@ -122,7 +122,9 @@ final class MenuCollectionViewCell: UICollectionViewCell {
         // и новая цена красным цветом
         if let foodPrice = food.foodPrice,
            let newFoodPrice = food.newFoodPrice {
-            PriceLabelSetuper.makePriceLabels(foodPrice: foodPrice, newFoodPrice: newFoodPrice) { (color, priceLabelText, newPriceLabelText) in
+            PriceLabelSetuper.makePriceLabels(foodPrice: foodPrice,
+                                              newFoodPrice: newFoodPrice)
+            { (color, priceLabelText, newPriceLabelText) in
                 self.priceLabel.textColor = color
                 self.priceLabel.text = priceLabelText
                 self.newPriceLabel.attributedText = newPriceLabelText
@@ -151,8 +153,9 @@ private extension MenuCollectionViewCell {
             self.imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             self.imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             self.imageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            self.imageView.heightAnchor.constraint(equalToConstant:
-                                                    self.contentView.frame.height * Constants.imageViewHeightMulitplier)
+            self.imageView.heightAnchor.constraint(
+                equalToConstant:
+                    self.contentView.frame.height * Constants.imageViewHeightMulitplier)
         ])
     }
 
@@ -160,10 +163,12 @@ private extension MenuCollectionViewCell {
         self.contentView.addSubview(self.staticPriceLabel)
         self.staticPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.staticPriceLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,
-                                                           constant: AppConstants.Constraints.quarterNormalAnchorConstaint),
-            self.staticPriceLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor,
-                                                          constant: -AppConstants.Constraints.quarterNormalAnchorConstaint)
+            self.staticPriceLabel.leadingAnchor.constraint(
+                equalTo: self.contentView.leadingAnchor,
+                constant: AppConstants.Constraints.quarterNormalAnchorConstaint),
+            self.staticPriceLabel.bottomAnchor.constraint(
+                equalTo: self.contentView.bottomAnchor,
+                constant: -AppConstants.Constraints.quarterNormalAnchorConstaint)
         ])
     }
 
@@ -172,8 +177,9 @@ private extension MenuCollectionViewCell {
         self.priceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.priceLabel.leadingAnchor.constraint(equalTo: self.staticPriceLabel.trailingAnchor),
-            self.priceLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor,
-                                                    constant: -AppConstants.Constraints.quarterNormalAnchorConstaint)
+            self.priceLabel.bottomAnchor.constraint(
+                equalTo: self.contentView.bottomAnchor,
+                constant: -AppConstants.Constraints.quarterNormalAnchorConstaint)
         ])
     }
 
@@ -181,12 +187,15 @@ private extension MenuCollectionViewCell {
         self.contentView.addSubview(self.newPriceLabel)
         self.newPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.newPriceLabel.leadingAnchor.constraint(equalTo: self.priceLabel.trailingAnchor,
-                                                        constant: AppConstants.Constraints.halfNormalAnchorConstaint),
-            self.newPriceLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,
-                                                         constant: -AppConstants.Constraints.quarterNormalAnchorConstaint),
-            self.newPriceLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor,
-                                                       constant: -AppConstants.Constraints.quarterNormalAnchorConstaint)
+            self.newPriceLabel.leadingAnchor.constraint(
+                equalTo: self.priceLabel.trailingAnchor,
+                constant: AppConstants.Constraints.halfNormalAnchorConstaint),
+            self.newPriceLabel.trailingAnchor.constraint(
+                equalTo: self.contentView.trailingAnchor,
+                constant: -AppConstants.Constraints.quarterNormalAnchorConstaint),
+            self.newPriceLabel.bottomAnchor.constraint(
+                equalTo: self.contentView.bottomAnchor,
+                constant: -AppConstants.Constraints.quarterNormalAnchorConstaint)
         ])
     }
 
@@ -194,12 +203,15 @@ private extension MenuCollectionViewCell {
         self.contentView.addSubview(self.titleLabel)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,
-                                                     constant: AppConstants.Constraints.quarterNormalAnchorConstaint),
-            self.titleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,
-                                                      constant: -AppConstants.Constraints.quarterNormalAnchorConstaint),
-            self.titleLabel.bottomAnchor.constraint(equalTo: self.priceLabel.topAnchor,
-                                                    constant: -AppConstants.Constraints.quarterNormalAnchorConstaint),
+            self.titleLabel.leadingAnchor.constraint(
+                equalTo: self.contentView.leadingAnchor,
+                constant: AppConstants.Constraints.quarterNormalAnchorConstaint),
+            self.titleLabel.trailingAnchor.constraint(
+                equalTo: self.contentView.trailingAnchor,
+                constant: -AppConstants.Constraints.quarterNormalAnchorConstaint),
+            self.titleLabel.bottomAnchor.constraint(
+                equalTo: self.priceLabel.topAnchor,
+                constant: -AppConstants.Constraints.quarterNormalAnchorConstaint),
         ])
     }
 

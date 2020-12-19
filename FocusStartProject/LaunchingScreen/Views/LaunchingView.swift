@@ -126,8 +126,7 @@ private extension LaunchingView {
             roundedView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             roundedView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             roundedView.heightAnchor.constraint(equalToConstant: Constants.roundedViewSize.height),
-            roundedView.widthAnchor.constraint(equalToConstant: Constants.roundedViewSize.width),
-
+            roundedView.widthAnchor.constraint(equalToConstant: Constants.roundedViewSize.width)
         ])
         UIView.animate(withDuration: Constants.timeUntillMainLabelIsDisappearing) {
             self.mainLabel.alpha = 0

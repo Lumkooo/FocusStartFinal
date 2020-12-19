@@ -18,8 +18,8 @@ final class TimeManager {
         let nanoseconds = Calendar.current.component(.nanosecond, from: Date())
         let day = Calendar.current.component(.day, from: Date())
         let month = monthIntToString(forMonth: Calendar.current.component(.month, from: Date()))
-        var minutes:String = ""
-        var seconds:String = ""
+        var minutes: String = ""
+        var seconds: String = ""
         seconds = makeMoreRealistic(digit: intSeconds)
         minutes = makeMoreRealistic(digit: intMinutes)
         if isForUser {
@@ -43,7 +43,7 @@ final class TimeManager {
     }
 
     /// Преобразование числа месяца в строку месяца
-    private func monthIntToString(forMonth month:Int) -> String {
+    private func monthIntToString(forMonth month: Int) -> String {
         switch month {
         case 1:
             return "Января"

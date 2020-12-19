@@ -11,8 +11,8 @@ enum AppFonts {
 
     private enum Constants {
         static let mainScreenCollectionViewCellTitleFontConstant: CGFloat = 0.03
-        static let menuScreenCollectionViewCellTitleFontConstant:CGFloat = 0.02
-        static let menuScreenCollectionViewCellPriceFont:CGFloat = 0.018
+        static let menuScreenCollectionViewCellTitleFontConstant: CGFloat = 0.02
+        static let menuScreenCollectionViewCellPriceFont: CGFloat = 0.018
     }
 
     static let largeTitleLabelFont = UIFont.systemFont(ofSize: 26, weight: .semibold)

@@ -41,9 +41,10 @@ extension ProfileInteractor: IProfileInteractor {
     func logout() {
         firebaseAuthManager.logout {
             self.setupView()
-            NotificationCenter.default.post(name: NSNotification.Name(
-                                                rawValue: AppConstants.NotificationNames.refreshLikedPlaces),
-                                            object: nil)
+            NotificationCenter.default.post(
+                name: NSNotification.Name(
+                    rawValue: AppConstants.NotificationNames.refreshLikedPlaces),
+                object: nil)
         } errorCompletion: { (error) in
             self.presenter?.alertOccured(stringError: error.localizedDescription)
         }
@@ -87,15 +88,16 @@ private extension ProfileInteractor {
     
     func setupNotification() {
         // Вызывается в PurchasingScreen-е для обновления tableView истории заказов после совершения покупки
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(refreshTableViewAfterNewOrders(_:)),
-                                               name: NSNotification.Name(
-                                                rawValue: AppConstants.NotificationNames.refreshProfileTableView),
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshTableViewAfterNewOrders(_:)),
+            name: NSNotification.Name(
+                rawValue: AppConstants.NotificationNames.refreshProfileTableView),
+            object: nil)
     }
     
     
-    @objc func refreshTableViewAfterNewOrders(_ notification:Notification) {
+    @objc func refreshTableViewAfterNewOrders(_ notification: Notification) {
         // Для обновления TableView с предыдущими записями раз в секунду обращаемся к БД, чтобы узнать
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             // Берем количество записей в БД

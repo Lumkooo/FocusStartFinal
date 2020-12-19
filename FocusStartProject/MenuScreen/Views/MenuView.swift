@@ -18,10 +18,12 @@ final class MenuView: UIView {
     // MARK: - Views
     
     private lazy var collectionView: UICollectionView = {
-        let myCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero,
-                                                                 collectionViewLayout: UICollectionViewFlowLayout.init())
-        myCollectionView.register(MenuCollectionViewCell.self,
-                                  forCellWithReuseIdentifier: MenuCollectionViewCell.reuseIdentifier)
+        let myCollectionView: UICollectionView = UICollectionView(
+            frame: CGRect.zero,
+            collectionViewLayout: UICollectionViewFlowLayout.init())
+        myCollectionView.register(
+            MenuCollectionViewCell.self,
+            forCellWithReuseIdentifier: MenuCollectionViewCell.reuseIdentifier)
         myCollectionView.backgroundColor = .systemBackground
         myCollectionView.accessibilityIdentifier = "MenuViewCollectionView"
         return myCollectionView

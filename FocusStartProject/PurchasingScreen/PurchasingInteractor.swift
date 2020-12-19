@@ -101,9 +101,10 @@ extension PurchasingInteractor: IPurchasingInteractor {
                                                deliveryMethod: chosenDeliveryMethod) {
             BasketManager.sharedInstance.removeAllFood()
             self.delegate.reloadViewAfterPurchasing()
-            NotificationCenter.default.post(name: NSNotification.Name(
-                                                rawValue: AppConstants.NotificationNames.refreshProfileTableView),
-                                            object: nil)
+            NotificationCenter.default.post(
+                name: NSNotification.Name(
+                    rawValue: AppConstants.NotificationNames.refreshProfileTableView),
+                object: nil)
         } errorCompletion: {
             self.presenter?.errorOccured(errorDecription: "Не удалось разместить заказ")
         }

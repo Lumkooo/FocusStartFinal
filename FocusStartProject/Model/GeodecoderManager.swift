@@ -14,7 +14,7 @@ final class GeodecoderManager {
                               completion: @escaping ((String) -> Void),
                               errorCompletion: @escaping ((String) -> Void)) {
         let decoder: CLGeocoder = CLGeocoder()
-        let loc: CLLocation = CLLocation(latitude:location.latitude,
+        let loc: CLLocation = CLLocation(latitude: location.latitude,
                                          longitude: location.longitude)
         decoder.reverseGeocodeLocation(loc) { (placemarks, error) in
             if let error = error {

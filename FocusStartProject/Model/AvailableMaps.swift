@@ -29,7 +29,7 @@ final class AvailableMaps {
                 availableMaps.append(wazeItem)
             }
         }
-        if let yandexItemURL = URL(string:yandexURL) {
+        if let yandexItemURL = URL(string: yandexURL) {
             let yandexItem = ("Яндекс", yandexItemURL)
             if UIApplication.shared.canOpenURL(yandexItem.1) {
                 availableMaps.append(yandexItem)

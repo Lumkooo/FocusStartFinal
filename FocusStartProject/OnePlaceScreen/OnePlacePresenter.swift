@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IOnePlacePresenter {
-    func viewDidLoad(ui:IOnePlaceView)
+    func viewDidLoad(ui: IOnePlaceView)
 }
 
 final class OnePlacePresenter {
@@ -16,8 +16,8 @@ final class OnePlacePresenter {
     // MARK: - Properites
 
     private weak var ui: IOnePlaceView?
-    private var router:IOnePlaceRouter
-    private var interactor:IOnePlaceInteractor
+    private var router: IOnePlaceRouter
+    private var interactor: IOnePlaceInteractor
 
     // MARK: - Init
 

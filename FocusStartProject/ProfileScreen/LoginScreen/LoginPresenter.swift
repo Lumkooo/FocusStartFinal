@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ILoginPresenter {
-    func viewDidLoad(ui:ILoginView)
+    func viewDidLoad(ui: ILoginView)
 }
 
 final class LoginPresenter {

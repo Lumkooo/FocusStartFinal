@@ -24,7 +24,7 @@ final class Place: NSObject, MKAnnotation{
         guard let location = locationName else{
             return nil
         }
-        let addressDict = [CNPostalAddressStreetKey: location]
+        let addressDict = [CNPostalAddressStreetKey:location]
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = title
@@ -33,7 +33,7 @@ final class Place: NSObject, MKAnnotation{
     
     init(title: String?,
          locationName: String?,
-         discipline:String?,
+         discipline: String?,
          coordinate: CLLocationCoordinate2D,
          imagefile: String,
          descriptionText: String,
