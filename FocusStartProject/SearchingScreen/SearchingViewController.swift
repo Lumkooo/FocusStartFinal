@@ -25,6 +25,9 @@ final class SearchingViewController: UIViewController {
         // фаст-фуд выбрал опираясь на то, что на Яндекс.Еда чаще всего заказывают
         // продукты, относящиеся к фаст-фуду
         mySearchController.searchBar.scopeButtonTitles = ["Все", "Фаст-фуд", "Кофейня"]
+        mySearchController.searchBar.setScopeBarButtonTitleTextAttributes(
+            [NSAttributedString.Key.font : AppFonts.scopeButtonTitleFont],
+            for: .normal)
         mySearchController.searchBar.showsScopeBar = true
         return mySearchController
     }()

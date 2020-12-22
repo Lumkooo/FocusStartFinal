@@ -20,6 +20,7 @@ enum AppFonts {
     static let bigTitleLabelFont = UIFont.systemFont(ofSize: 22, weight: .semibold)
     static let titleLabelFont = UIFont.systemFont(ofSize: 20, weight: .light)
     static let subtitleLabelFont = UIFont.systemFont(ofSize: 16, weight: .light)
+    static let scopeButtonTitleFont = UIFont.systemFont(ofSize: 12, weight: .light)
     static let mainScreenCollectionViewCellLabelFont = UIFont.systemFont(
         ofSize: Constants.mainScreenCollectionViewCellTitleFontConstant * AppConstants.screenHeight
         ,weight: .light)
