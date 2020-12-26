@@ -12,20 +12,25 @@ protocol IOnePlaceView: class {
     var menuButtonTapped: (() -> Void)? { get set }
     var adressButtonTapped: (() -> Void)? { get set }
     var likeButtonTapped: (() -> Void)? { get set }
+    var rateButtonTapped: (() -> Void)? { get set }
     
     func setupView(place: Place, placeImage: UIImage)
     func setupLikeButton(isLiked: Bool)
     func showDoneView(_ isLiked: Bool)
 }
 
+// MARK: - Да, кнопка оценить заведение находится в странном месте, но я просто не знаю куда ее еще девать...
+// Снизу будет не очень, так что пусть останется здесь
+
 final class OnePlaceView: UIView {
     
     // MARK: - Constants
-    
+
     private enum Constants {
         // Устанавливаем высоту картинки и карты в зависимости от их ширины
         static let constraintsMultiplier: CGFloat = 0.65
         static let placeLocationMapSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        static let viewsAlphaComponent: CGFloat = 0.75
     }
     
     // MARK: - Views
@@ -99,7 +104,9 @@ final class OnePlaceView: UIView {
         myButton.layer.shadowRadius = AppConstants.Sizes.shadowRadius
         myButton.layer.shadowColor = UIColor.black.cgColor
         myButton.alpha = 0.65
-        myButton.addTarget(self, action: #selector(routeToPlaceButtonTapped(gesute:)), for: .touchUpInside)
+        myButton.addTarget(self,
+                           action: #selector(routeToPlaceButtonTapped(gesute:)),
+                           for: .touchUpInside)
         return myButton
     }()
 
@@ -107,12 +114,33 @@ final class OnePlaceView: UIView {
         let myDoneView = CustomDoneView()
         return myDoneView
     }()
+
+    private let ratingLabel: UILabel = {
+        let myLabel = UILabel()
+        myLabel.font = AppFonts.titleLabelFont
+        myLabel.textColor = .white
+        myLabel.backgroundColor = UIColor.black.withAlphaComponent(Constants.viewsAlphaComponent)
+        myLabel.textAlignment = .right
+        myLabel.numberOfLines = 2
+        myLabel.text = "Рейтинг заведения:\n4.33"
+        return myLabel
+    }()
+
+    private lazy var rateButton: CustomButton = {
+        let myCustomButton = CustomButton()
+        myCustomButton.setTitle("Оценить заведение", for: .normal)
+        myCustomButton.addTarget(self,
+                           action: #selector(rateButtonTapped(gesture:)),
+                           for: .touchUpInside)
+        return myCustomButton
+    }()
     
     // MARK: - Properties
     
     var menuButtonTapped: (() -> Void)?
     var adressButtonTapped: (() -> Void)?
     var likeButtonTapped: (() -> Void)?
+    var rateButtonTapped: (() -> Void)?
     
     // MARK: - Init
     
@@ -139,6 +167,10 @@ final class OnePlaceView: UIView {
     @objc private func likeButtonTapepd(gesture: UIGestureRecognizer) {
         self.likeButtonTapped?()
     }
+
+    @objc private func rateButtonTapped(gesture: UIGestureRecognizer) {
+        self.rateButtonTapped?()
+    }
 }
 
 // MARK: - UISetup
@@ -153,6 +185,8 @@ private extension OnePlaceView {
         self.setupRouteToPlaceButton()
         self.setupDescriptionLabel()
         self.setupMenuButton()
+        self.setupRatingLabel()
+        self.setupRatingButton()
     }
     
     func setupScrollView() {
@@ -275,6 +309,36 @@ private extension OnePlaceView {
                 constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
+
+    func setupRatingLabel() {
+        self.scrollView.addSubview(self.ratingLabel)
+        self.ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.ratingLabel.topAnchor.constraint(
+                equalTo: self.topImageView.topAnchor,
+                constant: AppConstants.Constraints.quarterNormalAnchorConstaint),
+            self.ratingLabel.trailingAnchor.constraint(
+                equalTo: self.topImageView.trailingAnchor,
+                constant: -AppConstants.Constraints.quarterNormalAnchorConstaint)
+        ])
+    }
+
+    func setupRatingButton() {
+        self.scrollView.addSubview(self.rateButton)
+        self.rateButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.rateButton.topAnchor.constraint(
+                equalTo: self.ratingLabel.bottomAnchor,
+                constant: AppConstants.Constraints.quarterNormalAnchorConstaint),
+            self.rateButton.trailingAnchor.constraint(
+                equalTo: self.topImageView.trailingAnchor,
+                constant: -AppConstants.Constraints.quarterNormalAnchorConstaint),
+            self.rateButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+
 }
 
 // MARK: - Настройка activityIndicator-а, отображаемого при загрузке экрана

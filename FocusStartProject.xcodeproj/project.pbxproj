@@ -102,6 +102,12 @@
 		CECCDF84258C6ADA0035D409 /* NoConnectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF83258C6ADA0035D409 /* NoConnectionPresenter.swift */; };
 		CECCDF89258C6AE30035D409 /* NoConnectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF88258C6AE30035D409 /* NoConnectionRouter.swift */; };
 		CECCDF8E258C77C10035D409 /* NoConnectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCDF8D258C77C10035D409 /* NoConnectionInteractor.swift */; };
+		CED10EFF2596F3DE0087ACD2 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED10EFE2596F3DE0087ACD2 /* RateView.swift */; };
+		CED10F0B2596F3EA0087ACD2 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED10F0A2596F3EA0087ACD2 /* RateViewController.swift */; };
+		CED10F102596F3F20087ACD2 /* RatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED10F0F2596F3F20087ACD2 /* RatePresenter.swift */; };
+		CED10F152596F3FB0087ACD2 /* RateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED10F142596F3FB0087ACD2 /* RateInteractor.swift */; };
+		CED10F1A2596F4030087ACD2 /* RateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED10F192596F4030087ACD2 /* RateRouter.swift */; };
+		CED10F1F2596F6130087ACD2 /* RateVCAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED10F1E2596F6130087ACD2 /* RateVCAssembly.swift */; };
 		CED7093E2589DD6B00870CA7 /* CustomDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7093D2589DD6B00870CA7 /* CustomDoneView.swift */; };
 		CEE415EC257E0A450065B26C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE415EB257E0A450065B26C /* AppDelegate.swift */; };
 		CEE415EE257E0A450065B26C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE415ED257E0A450065B26C /* SceneDelegate.swift */; };
@@ -270,6 +276,12 @@
 		CECCDF83258C6ADA0035D409 /* NoConnectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionPresenter.swift; sourceTree = "<group>"; };
 		CECCDF88258C6AE30035D409 /* NoConnectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionRouter.swift; sourceTree = "<group>"; };
 		CECCDF8D258C77C10035D409 /* NoConnectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionInteractor.swift; sourceTree = "<group>"; };
+		CED10EFE2596F3DE0087ACD2 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
+		CED10F0A2596F3EA0087ACD2 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
+		CED10F0F2596F3F20087ACD2 /* RatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatePresenter.swift; sourceTree = "<group>"; };
+		CED10F142596F3FB0087ACD2 /* RateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateInteractor.swift; sourceTree = "<group>"; };
+		CED10F192596F4030087ACD2 /* RateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateRouter.swift; sourceTree = "<group>"; };
+		CED10F1E2596F6130087ACD2 /* RateVCAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateVCAssembly.swift; sourceTree = "<group>"; };
 		CED7093D2589DD6B00870CA7 /* CustomDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDoneView.swift; sourceTree = "<group>"; };
 		CEE415E8257E0A450065B26C /* FocusStartProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusStartProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE415EB257E0A450065B26C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -672,6 +684,26 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CED10EFD2596F3CD0087ACD2 /* RateScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CED10F032596F3E00087ACD2 /* Views */,
+				CED10F0A2596F3EA0087ACD2 /* RateViewController.swift */,
+				CED10F0F2596F3F20087ACD2 /* RatePresenter.swift */,
+				CED10F142596F3FB0087ACD2 /* RateInteractor.swift */,
+				CED10F192596F4030087ACD2 /* RateRouter.swift */,
+			);
+			path = RateScreen;
+			sourceTree = "<group>";
+		};
+		CED10F032596F3E00087ACD2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CED10EFE2596F3DE0087ACD2 /* RateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CEE415DF257E0A450065B26C = {
 			isa = PBXGroup;
 			children = (
@@ -715,6 +747,7 @@
 				CE1C147225873D990034AFF3 /* SearchingScreen */,
 				CECCDF38258C4EED0035D409 /* LaunchingScreen */,
 				CECCDF69258C64870035D409 /* NoConnectionScreen */,
+				CED10EFD2596F3CD0087ACD2 /* RateScreen */,
 				CEE415F4257E0A470065B26C /* Assets.xcassets */,
 				CEE415F6257E0A470065B26C /* LaunchScreen.storyboard */,
 				CEE415F9257E0A470065B26C /* Info.plist */,
@@ -771,6 +804,7 @@
 				CE1C149325873F660034AFF3 /* SearchingVCAssembly.swift */,
 				CECCDF51258C51AB0035D409 /* LaunchingVCAssembly.swift */,
 				CECCDF72258C64BD0035D409 /* NoConnectionVCAssembly.swift */,
+				CED10F1E2596F6130087ACD2 /* RateVCAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -1202,6 +1236,7 @@
 				CE6315AF257F3B93003B08F8 /* FirebaseAuthManager.swift in Sources */,
 				CEE41668257E0E330065B26C /* MapVCAssembly.swift in Sources */,
 				CE63152D257F3076003B08F8 /* LoginInteractor.swift in Sources */,
+				CED10EFF2596F3DE0087ACD2 /* RateView.swift in Sources */,
 				CECCDF57258C620E0035D409 /* String-subscript.swift in Sources */,
 				CEE416B1257E0F7D0065B26C /* PriceLabelSetuper.swift in Sources */,
 				CE6314B6257F2E9F003B08F8 /* MenuRouter.swift in Sources */,
@@ -1222,8 +1257,10 @@
 				CEA30969258482A6005B3115 /* OneOrderPresenter.swift in Sources */,
 				CE6314D2257F2F08003B08F8 /* OneFoodInteractor.swift in Sources */,
 				CED7093E2589DD6B00870CA7 /* CustomDoneView.swift in Sources */,
+				CED10F0B2596F3EA0087ACD2 /* RateViewController.swift in Sources */,
 				CEE4169A257E0F200065B26C /* PlaceLoader.swift in Sources */,
 				CEE41663257E0E0D0065B26C /* TabBarControllerAssembly.swift in Sources */,
+				CED10F102596F3F20087ACD2 /* RatePresenter.swift in Sources */,
 				CECCDF3A258C4F170035D409 /* LaunchingViewController.swift in Sources */,
 				CEA3096E258482AC005B3115 /* OneOrderInteractor.swift in Sources */,
 				CEB27B81258359DC00A193C1 /* ProfileScreenTableViewDelegate.swift in Sources */,
@@ -1247,6 +1284,7 @@
 				CE6314F0257F2F9B003B08F8 /* MapInteractor.swift in Sources */,
 				CEB27B532583387100A193C1 /* FirebaseDatabaseManager.swift in Sources */,
 				CEE41681257E0EB80065B26C /* BasketVCAssembly.swift in Sources */,
+				CED10F1F2596F6130087ACD2 /* RateVCAssembly.swift in Sources */,
 				CEE4166D257E0E470065B26C /* OnePlaceVCAssembly.swift in Sources */,
 				CECCDF84258C6ADA0035D409 /* NoConnectionPresenter.swift in Sources */,
 				CEE4169F257E0F440065B26C /* ImageCache.swift in Sources */,
@@ -1279,10 +1317,12 @@
 				CE9D04282586023D00857A21 /* FirebaseLikedPlace.swift in Sources */,
 				CEE415EE257E0A450065B26C /* SceneDelegate.swift in Sources */,
 				CECCDF4D258C4FC70035D409 /* LaunchingRouter.swift in Sources */,
+				CED10F1A2596F4030087ACD2 /* RateRouter.swift in Sources */,
 				CE63149A257F2E49003B08F8 /* MenuView.swift in Sources */,
 				CEE416AC257E0F6B0065B26C /* AvailableMaps.swift in Sources */,
 				CECCDF52258C51AB0035D409 /* LaunchingVCAssembly.swift in Sources */,
 				CEE41690257E0F040065B26C /* FoodLoader.swift in Sources */,
+				CED10F152596F3FB0087ACD2 /* RateInteractor.swift in Sources */,
 				CEE416A4257E0F570065B26C /* MapViewLocationManagerDelegate.swift in Sources */,
 				CEE41654257E0DDF0065B26C /* RegisterVCAssembly.swift in Sources */,
 				CE63151B257F303D003B08F8 /* LoginView.swift in Sources */,

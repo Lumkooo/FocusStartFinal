@@ -12,6 +12,7 @@ protocol IOnePlaceInteractor {
     func getRouteToPlace()
     func getMenuForPlace()
     func likeAction()
+    func rateAction()
 }
 
 protocol IOnePlaceInteractorOuter: class {
@@ -21,6 +22,7 @@ protocol IOnePlaceInteractorOuter: class {
     func routeToPlace(_ place: Place)
     func menuForPlace(_ place: Place)
     func showDoneView(_ isLiked: Bool)
+    func showRateVC(forPlace place: Place)
 }
 
 final class OnePlaceInteractor {
@@ -75,6 +77,14 @@ extension OnePlaceInteractor: IOnePlaceInteractor {
             // заведение не было isLiked => добавляем ее в likedPlaces
             self.apendPlaceToLiked()
         }
+    }
+
+    /// Проверяет поставил ли пользователь оценку заведению или нет.
+    /// Если поставил, то показывается alert, если не ставил, то переходит к экрану с возможностью оценить заведение
+    func rateAction() {
+        // if ...
+        self.presenter?.showRateVC(forPlace: self.place)
+        // else
     }
 }
 

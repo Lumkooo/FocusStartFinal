@@ -42,6 +42,9 @@ extension OnePlacePresenter: IOnePlacePresenter {
         self.ui?.likeButtonTapped = { [weak self] in
             self?.interactor.likeAction()
         }
+        self.ui?.rateButtonTapped = { [weak self] in
+            self?.interactor.rateAction()
+        }
         self.interactor.takeOnePlace()
     }
 }
@@ -72,5 +75,9 @@ extension OnePlacePresenter: IOnePlaceInteractorOuter {
 
     func showDoneView(_ isLiked: Bool) {
         self.ui?.showDoneView(isLiked)
+    }
+
+    func showRateVC(forPlace place: Place) {
+        self.router.showRateVC(forPlace: place)
     }
 }
