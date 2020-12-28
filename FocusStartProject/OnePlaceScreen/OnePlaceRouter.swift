@@ -11,7 +11,7 @@ protocol IOnePlaceRouter {
     func showMenuViewController(forPlace place: Place)
     func showRouteAlert(forPlace place: Place)
     func showAlertWithMessage(_ message: String)
-    func showRateVC(forPlace place: Place)
+    func showRateVC(forPlace place: Place, ratePlaceDelegate: IRatePlaceDelegate)
 }
 
 final class OnePlaceRouter {
@@ -49,8 +49,8 @@ extension OnePlaceRouter: IOnePlaceRouter {
         self.vc?.navigationController?.present(alert, animated: true)
     }
 
-    func showRateVC(forPlace place: Place) {
-        let rateVC = RateVCAssembly.createVC(forPlace: place)
+    func showRateVC(forPlace place: Place, ratePlaceDelegate: IRatePlaceDelegate) {
+        let rateVC = RateVCAssembly.createVC(forPlace: place, ratePlaceDelegate: ratePlaceDelegate)
         self.vc?.navigationController?.present(rateVC, animated: true)
     }
 }

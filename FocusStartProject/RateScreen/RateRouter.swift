@@ -8,7 +8,8 @@
 import UIKit
 
 protocol IRateRouter {
-
+    func showAlert(message: String)
+    func dismissVC()
 }
 
 final class RateRouter {
@@ -18,5 +19,12 @@ final class RateRouter {
 // MARK: IRateRouter
 
 extension RateRouter: IRateRouter {
+    func showAlert(message: String) {
+        let alert = AlertAssembly.createSimpleAlert(withMessage: message)
+        self.vc?.navigationController?.present(alert, animated: true)
+    }
 
+    func dismissVC() {
+        self.vc?.dismiss(animated: true)
+    }
 }

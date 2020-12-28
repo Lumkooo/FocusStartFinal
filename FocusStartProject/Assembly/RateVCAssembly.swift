@@ -8,9 +8,9 @@
 import UIKit
 
 enum RateVCAssembly {
-    static func createVC(forPlace place: Place) -> UIViewController{
+    static func createVC(forPlace place: Place, ratePlaceDelegate: IRatePlaceDelegate) -> UIViewController{
         let router = RateRouter()
-        let interactor = RateInteractor(place: place)
+        let interactor = RateInteractor(place: place, ratePlaceDelegate: ratePlaceDelegate)
         let presenter = RatePresenter(interactor: interactor, router: router)
         let viewController =  RateViewController(presenter: presenter)
 

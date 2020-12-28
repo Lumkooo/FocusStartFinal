@@ -77,7 +77,11 @@ extension OnePlacePresenter: IOnePlaceInteractorOuter {
         self.ui?.showDoneView(isLiked)
     }
 
-    func showRateVC(forPlace place: Place) {
-        self.router.showRateVC(forPlace: place)
+    func showRateVC(forPlace place: Place, ratePlaceDelegate: IRatePlaceDelegate) {
+        self.router.showRateVC(forPlace: place, ratePlaceDelegate: ratePlaceDelegate)
+    }
+
+    func setupRatingViews(ratingEntity: RatingEntity) {
+        self.ui?.setupRatingViews(ratingEntity: ratingEntity)
     }
 }

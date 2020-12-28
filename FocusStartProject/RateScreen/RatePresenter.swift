@@ -27,7 +27,24 @@ final class RatePresenter {
 extension RatePresenter: IRatePresenter {
     func viewDidLoad(ui: IRateView) {
         self.ui = ui
-
+        self.ui?.firstButtonTapped = { [weak self] in
+            self?.interactor.oneStarTapped()
+        }
+        self.ui?.secondButtonTapped = { [weak self] in
+            self?.interactor.secondStarTapped()
+        }
+        self.ui?.thirdButtonTapped = { [weak self] in
+            self?.interactor.thirdStarTapped()
+        }
+        self.ui?.fourthButtonTapped = { [weak self] in
+            self?.interactor.fourthStarTapped()
+        }
+        self.ui?.fifthButtonTapped = { [weak self] in
+            self?.interactor.fifthStarTapped()
+        }
+        self.ui?.doneButtonTapped = { [weak self] in
+            self?.interactor.ratePlace()
+        }
         self.interactor.loadInitData()
     }
 }
@@ -35,5 +52,16 @@ extension RatePresenter: IRatePresenter {
 // MARK: - IRateInteractorOuter
 
 extension RatePresenter: IRateInteractorOuter {
+    func setupRating(ratingCount: Int, currentRating: Double) {
+        self.ui?.setupRatingLabel(ratingCount: ratingCount,
+                                  currentRating: currentRating)
+    }
 
+    func errorOccured(errorDescription: String) {
+        self.router.showAlert(message: errorDescription)
+    }
+
+    func placeRated() {
+        self.router.dismissVC()
+    }
 }

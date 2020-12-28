@@ -10,12 +10,14 @@
 		27D03DC522967604CE81EB6B /* Pods_FocusStartProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581DA64506E7796A47A2AF36 /* Pods_FocusStartProjectTests.framework */; };
 		4BCB5EF8719F333D4A4BF7AA /* Pods_FocusStartProject_FocusStartProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB029EC64B0327A6C8986C22 /* Pods_FocusStartProject_FocusStartProjectUITests.framework */; };
 		9300BA407CE9967F28509847 /* Pods_FocusStartProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0288137FD772514FA030874F /* Pods_FocusStartProject.framework */; };
+		CE0F92C025984EF0004C4863 /* RatePlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F92BF25984EF0004C4863 /* RatePlacesManager.swift */; };
 		CE1C147425873DB70034AFF3 /* SearchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C147325873DB70034AFF3 /* SearchingView.swift */; };
 		CE1C148025873DC80034AFF3 /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C147F25873DC80034AFF3 /* SearchingViewController.swift */; };
 		CE1C148525873DCE0034AFF3 /* SearchingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C148425873DCE0034AFF3 /* SearchingPresenter.swift */; };
 		CE1C148A25873DD50034AFF3 /* SearchingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C148925873DD50034AFF3 /* SearchingInteractor.swift */; };
 		CE1C148F25873DDA0034AFF3 /* SearchingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C148E25873DDA0034AFF3 /* SearchingRouter.swift */; };
 		CE1C149425873F660034AFF3 /* SearchingVCAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1C149325873F660034AFF3 /* SearchingVCAssembly.swift */; };
+		CE2B93DB2599A0AE000A0F8A /* RatingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B93DA2599A0AE000A0F8A /* RatingEntity.swift */; };
 		CE4E609F2581E2BB0046B1CE /* GeodecoderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E609E2581E2BB0046B1CE /* GeodecoderManager.swift */; };
 		CE4E60A72581FEF20046B1CE /* String-applyPatternOnNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E60A62581FEF20046B1CE /* String-applyPatternOnNumbers.swift */; };
 		CE4E60BF25820EEC0046B1CE /* FinalPurchasingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E60BE25820EEB0046B1CE /* FinalPurchasingViewController.swift */; };
@@ -184,12 +186,14 @@
 		5F3A2E8858F24E1609C644B8 /* Pods-FocusStartProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusStartProject.release.xcconfig"; path = "Target Support Files/Pods-FocusStartProject/Pods-FocusStartProject.release.xcconfig"; sourceTree = "<group>"; };
 		BBA99695E631D8D89C640107 /* Pods-FocusStartProject-FocusStartProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusStartProject-FocusStartProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-FocusStartProject-FocusStartProjectUITests/Pods-FocusStartProject-FocusStartProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C2BFD9CAD4BDAADD14403F28 /* Pods-FocusStartProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FocusStartProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-FocusStartProjectTests/Pods-FocusStartProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0F92BF25984EF0004C4863 /* RatePlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatePlacesManager.swift; sourceTree = "<group>"; };
 		CE1C147325873DB70034AFF3 /* SearchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingView.swift; sourceTree = "<group>"; };
 		CE1C147F25873DC80034AFF3 /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
 		CE1C148425873DCE0034AFF3 /* SearchingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingPresenter.swift; sourceTree = "<group>"; };
 		CE1C148925873DD50034AFF3 /* SearchingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingInteractor.swift; sourceTree = "<group>"; };
 		CE1C148E25873DDA0034AFF3 /* SearchingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingRouter.swift; sourceTree = "<group>"; };
 		CE1C149325873F660034AFF3 /* SearchingVCAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingVCAssembly.swift; sourceTree = "<group>"; };
+		CE2B93DA2599A0AE000A0F8A /* RatingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingEntity.swift; sourceTree = "<group>"; };
 		CE4E609E2581E2BB0046B1CE /* GeodecoderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeodecoderManager.swift; sourceTree = "<group>"; };
 		CE4E60A62581FEF20046B1CE /* String-applyPatternOnNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-applyPatternOnNumbers.swift"; sourceTree = "<group>"; };
 		CE4E60BE25820EEB0046B1CE /* FinalPurchasingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalPurchasingViewController.swift; sourceTree = "<group>"; };
@@ -594,6 +598,7 @@
 			children = (
 				CE6315AE257F3B93003B08F8 /* FirebaseAuthManager.swift */,
 				CEB27B522583387100A193C1 /* FirebaseDatabaseManager.swift */,
+				CE0F92BF25984EF0004C4863 /* RatePlacesManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -884,6 +889,7 @@
 				CEB27B4A2583376E00A193C1 /* PlaceOrderEntity.swift */,
 				CEB27B6425833CF600A193C1 /* HistoryOrderEntity.swift */,
 				CE9D04272586023D00857A21 /* FirebaseLikedPlace.swift */,
+				CE2B93DA2599A0AE000A0F8A /* RatingEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1243,6 +1249,7 @@
 				CE6314D7257F2F16003B08F8 /* OneFoodRouter.swift in Sources */,
 				CE4E60A72581FEF20046B1CE /* String-applyPatternOnNumbers.swift in Sources */,
 				CEE416DB257E103D0065B26C /* PlacesArtowrkView.swift in Sources */,
+				CE0F92C025984EF0004C4863 /* RatePlacesManager.swift in Sources */,
 				CE6314B1257F2E91003B08F8 /* MenuInteractor.swift in Sources */,
 				CECCDF8E258C77C10035D409 /* NoConnectionInteractor.swift in Sources */,
 				CEC7B4E82580A18F00479F28 /* UserLocationManager.swift in Sources */,
@@ -1251,6 +1258,7 @@
 				CEE41738257E12380065B26C /* OnePlaceRouter.swift in Sources */,
 				CE631563257F3147003B08F8 /* ProfilePresenter.swift in Sources */,
 				CEA3095925848281005B3115 /* OneOrderView.swift in Sources */,
+				CE2B93DB2599A0AE000A0F8A /* RatingEntity.swift in Sources */,
 				CEA61B5C25875C3000C336CE /* ICustomTableViewDelegate.swift in Sources */,
 				CEE4167C257E0EA60065B26C /* OneFoodVCAssembly.swift in Sources */,
 				CECCDF62258C636F0035D409 /* Reachability.swift in Sources */,

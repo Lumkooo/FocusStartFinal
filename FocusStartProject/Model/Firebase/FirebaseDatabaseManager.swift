@@ -97,7 +97,6 @@ extension FirebaseDatabaseManager {
         likedPlacesRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 for child in snapshot.children {
-                    
                     guard let array = (child as? DataSnapshot)?.value as? Dictionary<String, Any> else {
                         errorCompletion()
                         assertionFailure("Can not load liked places")

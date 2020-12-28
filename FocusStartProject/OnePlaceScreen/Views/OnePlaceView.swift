@@ -17,6 +17,7 @@ protocol IOnePlaceView: class {
     func setupView(place: Place, placeImage: UIImage)
     func setupLikeButton(isLiked: Bool)
     func showDoneView(_ isLiked: Bool)
+    func setupRatingViews(ratingEntity: RatingEntity)
 }
 
 // MARK: - Да, кнопка оценить заведение находится в странном месте, но я просто не знаю куда ее еще девать...
@@ -121,8 +122,7 @@ final class OnePlaceView: UIView {
         myLabel.textColor = .white
         myLabel.backgroundColor = UIColor.black.withAlphaComponent(Constants.viewsAlphaComponent)
         myLabel.textAlignment = .right
-        myLabel.numberOfLines = 2
-        myLabel.text = "Рейтинг заведения:\n4.33"
+        myLabel.numberOfLines = 0
         return myLabel
     }()
 
@@ -316,10 +316,10 @@ private extension OnePlaceView {
 
         NSLayoutConstraint.activate([
             self.ratingLabel.topAnchor.constraint(
-                equalTo: self.topImageView.topAnchor,
+                equalTo: self.scrollView.topAnchor,
                 constant: AppConstants.Constraints.quarterNormalAnchorConstaint),
             self.ratingLabel.trailingAnchor.constraint(
-                equalTo: self.topImageView.trailingAnchor,
+                equalTo: self.scrollView.trailingAnchor,
                 constant: -AppConstants.Constraints.quarterNormalAnchorConstaint)
         ])
     }
@@ -338,7 +338,6 @@ private extension OnePlaceView {
             self.rateButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-
 }
 
 // MARK: - Настройка activityIndicator-а, отображаемого при загрузке экрана
@@ -399,6 +398,15 @@ extension OnePlaceView: IOnePlaceView {
             self.setupAddedDoneView()
         } else {
             self.setupRemovedDoneView()
+        }
+    }
+
+    func setupRatingViews(ratingEntity: RatingEntity) {
+        if ratingEntity.ratingCount > 0 {
+            self.ratingLabel.isHidden = false
+            self.ratingLabel.text = "Рейтинг заведения: \(ratingEntity.currentRating).\nРейтинг на основе \(ratingEntity.ratingCount) оценок."
+        } else {
+            self.ratingLabel.isHidden = true
         }
     }
 }

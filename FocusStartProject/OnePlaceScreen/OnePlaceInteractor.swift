@@ -22,7 +22,12 @@ protocol IOnePlaceInteractorOuter: class {
     func routeToPlace(_ place: Place)
     func menuForPlace(_ place: Place)
     func showDoneView(_ isLiked: Bool)
-    func showRateVC(forPlace place: Place)
+    func showRateVC(forPlace place: Place, ratePlaceDelegate: IRatePlaceDelegate)
+    func setupRatingViews(ratingEntity: RatingEntity)
+}
+
+protocol IRatePlaceDelegate: class {
+    func reloadRate(ratingEntity: RatingEntity)
 }
 
 final class OnePlaceInteractor {
@@ -32,6 +37,7 @@ final class OnePlaceInteractor {
     weak var presenter: IOnePlaceInteractorOuter?
     private var firebaseDatabaseManager = FirebaseDatabaseManager()
     private var firebaseAuthManager = FirebaseAuthManager()
+    private var ratePlaceManager: RatePlaceManager
     private var place: Place
     private var delegate: ILikedPlacesDelegate?
     private var isLiked: Bool = false {
@@ -46,6 +52,7 @@ final class OnePlaceInteractor {
          delegate: ILikedPlacesDelegate? = nil) {
         self.place = place
         self.delegate = delegate
+        self.ratePlaceManager = RatePlaceManager(place: place)
     }
 }
 
@@ -66,6 +73,7 @@ extension OnePlaceInteractor: IOnePlaceInteractor {
         // пользователь авторизован
         if firebaseAuthManager.isSignedIn {
             self.getIsLiked()
+            self.getRatingOfPlace()
         }
     }
     
@@ -82,9 +90,13 @@ extension OnePlaceInteractor: IOnePlaceInteractor {
     /// Проверяет поставил ли пользователь оценку заведению или нет.
     /// Если поставил, то показывается alert, если не ставил, то переходит к экрану с возможностью оценить заведение
     func rateAction() {
-        // if ...
-        self.presenter?.showRateVC(forPlace: self.place)
-        // else
+        self.ratePlaceManager.isRated { (isRated) in
+            if isRated {
+                self.presenter?.errorOccured(errorDecription: "Вы уже ставили оценку этому заведению")
+            } else {
+                self.presenter?.showRateVC(forPlace: self.place, ratePlaceDelegate: self)
+            }
+        }
     }
 }
 
@@ -132,5 +144,19 @@ private extension OnePlaceInteractor {
         } errorCompletion: {
             self.presenter?.errorOccured(errorDecription: "Не удалось получить информацию о том добавлено ли это заведение в избранные")
         }
+    }
+
+    func getRatingOfPlace() {
+        self.ratePlaceManager.getRating { (rating) in
+            self.presenter?.setupRatingViews(ratingEntity: rating)
+        }
+    }
+}
+
+
+extension OnePlaceInteractor: IRatePlaceDelegate {
+    // Перезагрузка рейтинга после выставления оценки
+    func reloadRate(ratingEntity: RatingEntity) {
+        self.presenter?.setupRatingViews(ratingEntity: ratingEntity)
     }
 }
