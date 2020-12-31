@@ -86,14 +86,20 @@ class MainScreenCollectionViewCell: UICollectionViewCell {
         if let stringURL = self.stringImageURL {
             ImageCache.loadImage(urlString: stringURL,
                                  nameOfPicture: "\(stringURL)-logo") { (urlString, image) in
-                self.imageView.image = image
-                self.activityIndicatorView.stopAnimating()
+                if urlString == self.stringImageURL {
+                    self.imageView.image = image
+                    self.activityIndicatorView.stopAnimating()
+                }
             }
+        } else {
+            // MARK: - В таких местах можно ставить картинку неудачной загрузки картинки
+            self.imageView.image = UIImage()
         }
     }
     
     override func prepareForReuse() {
         self.imageView.image = UIImage()
+        self.stringImageURL = nil
         self.updateUI()
     }
     

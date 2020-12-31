@@ -88,20 +88,24 @@ final class MenuCollectionViewCell: UICollectionViewCell {
     private func updateUI(){
         self.activityIndicatorView.startAnimating()
         if let stringURL = self.stringImageURL {
-            ImageCache.loadImage(urlString: stringURL,
-                                 nameOfPicture: stringURL,
-                                 completion: { (urlString, image) in
-                self.imageView.image = image
-                self.activityIndicatorView.stopAnimating()
-            })
+            ImageCache.loadImage(
+                urlString: stringURL,
+                nameOfPicture: stringURL,
+                completion: { (urlString, image) in
+                    if urlString == self.stringImageURL {
+                        self.imageView.image = image
+                        self.activityIndicatorView.stopAnimating()
+                    }
+                })
         } else {
             // MARK: - В таких местах можно ставить картинку неудачной загрузки картинки
-            assertionFailure("Something went wrong")
+            self.imageView.image = UIImage()
         }
     }
 
     override func prepareForReuse() {
         self.imageView.image = UIImage()
+        self.stringImageURL = nil
         self.updateUI()
     }
 
