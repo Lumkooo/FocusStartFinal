@@ -67,7 +67,7 @@ final class MenuCollectionViewCell: UICollectionViewCell {
     private var stringImageURL: String?{
         didSet{
             imageView.image = nil
-            updateUI()
+            self.updateUI()
         }
     }
 
@@ -89,10 +89,11 @@ final class MenuCollectionViewCell: UICollectionViewCell {
         self.activityIndicatorView.startAnimating()
         if let stringURL = self.stringImageURL {
             ImageCache.loadImage(urlString: stringURL,
-                                 nameOfPicture: "\(stringURL)") { (urlString, image) in
+                                 nameOfPicture: stringURL,
+                                 completion: { (urlString, image) in
                 self.imageView.image = image
                 self.activityIndicatorView.stopAnimating()
-            }
+            })
         } else {
             // MARK: - В таких местах можно ставить картинку неудачной загрузки картинки
             assertionFailure("Something went wrong")

@@ -11,7 +11,7 @@ import UIKit
 class ImageCache{
     static func storeImage(urlString: String,
                            image: UIImage,
-                           nameOfPicture: String){
+                           nameOfPicture: String) {
         // Загружаем картинку в NSTemporaryDirectory,
         // записываем dictionary с URL изображения в UserDefaults для возможности
         // посмотреть сохранено ли уже это изображение в при последующей загрузки
@@ -58,6 +58,7 @@ class ImageCache{
                 assertionFailure("oops, something went wrong")
                 return
             }
+
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 guard  error == nil else {
                     DispatchQueue.main.async {

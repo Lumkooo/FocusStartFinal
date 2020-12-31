@@ -134,7 +134,7 @@ final class OnePlaceView: UIView {
                            for: .touchUpInside)
         return myCustomButton
     }()
-    
+
     // MARK: - Properties
     
     var menuButtonTapped: (() -> Void)?
@@ -188,7 +188,7 @@ private extension OnePlaceView {
         self.setupRatingLabel()
         self.setupRatingButton()
     }
-    
+
     func setupScrollView() {
         self.addSubview(self.scrollView)
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false

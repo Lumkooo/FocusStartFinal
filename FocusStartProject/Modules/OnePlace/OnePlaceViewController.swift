@@ -25,7 +25,7 @@ final class OnePlaceViewController: UIViewController {
         presenter.viewDidLoad(ui: self.onePlaceView)
         self.title = "Одно заведение"
     }
-    
+
     // MARK: - Init
     
     init(presenter: IOnePlacePresenter) {
