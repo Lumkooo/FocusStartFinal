@@ -245,10 +245,10 @@ extension MainView: IMainView {
         // хотя переход осуществлялся на нужное заведение)
         self.collectionViewLikedPlacesDataSource.placesArray = []
         self.likedPlacesCollectionView.reloadData()
-        if likedPlaces.count > 0 {
-            self.setupLikedPlacesElements()
-        } else {
+        if likedPlaces.isEmpty {
             self.hideLikedPlacesElements()
+        } else {
+            self.setupLikedPlacesElements()
         }
         self.collectionViewLikedPlacesDataSource.placesArray = likedPlaces
         self.likedPlacesCollectionView.reloadData()

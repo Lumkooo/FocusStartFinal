@@ -131,12 +131,14 @@ extension FirebaseDatabaseManager {
                                      deliveryMethod: deliveryMethod) {
             // Ошибка!
             errorCompletion()
+            return
         }
         self.uploadOrderToHistory(foodArray: foodArray,
                                   orderTime: orderTime,
                                   deliveryMethod: deliveryMethod) {
             // Ошибка!
             errorCompletion()
+            return
         }
         completion()
     }

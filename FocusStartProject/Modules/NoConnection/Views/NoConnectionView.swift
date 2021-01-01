@@ -272,16 +272,16 @@ private extension NoConnectionView {
     func animate(completion: @escaping (() -> Void)) {
         NSLayoutConstraint.deactivate(self.firstPlaceConstraint)
         NSLayoutConstraint.activate(self.secondPlaceConstraint)
-        UIView.animate(withDuration: AppConstants.AnimationTime.noConnectionAnimationDuration) {
-            self.layoutIfNeeded()
+        UIView.animate(withDuration: AppConstants.AnimationTime.noConnectionAnimationDuration) { [weak self] in
+            self?.layoutIfNeeded()
         }
 
         DispatchQueue.main.asyncAfter(
             deadline: .now() + AppConstants.AnimationTime.noConnectionAnimationDuration) {
             NSLayoutConstraint.deactivate(self.secondPlaceConstraint)
             NSLayoutConstraint.activate(self.thirdPlaceConstraint)
-            UIView.animate(withDuration: AppConstants.AnimationTime.noConnectionAnimationDuration) {
-                self.layoutIfNeeded()
+            UIView.animate(withDuration: AppConstants.AnimationTime.noConnectionAnimationDuration) { [weak self] in
+                self?.layoutIfNeeded()
             }
         }
 
@@ -289,8 +289,8 @@ private extension NoConnectionView {
             deadline: .now() + 2 * AppConstants.AnimationTime.noConnectionAnimationDuration) {
             NSLayoutConstraint.deactivate(self.thirdPlaceConstraint)
             NSLayoutConstraint.activate(self.fourthPlaceConstraint)
-            UIView.animate(withDuration: AppConstants.AnimationTime.noConnectionAnimationDuration) {
-                self.layoutIfNeeded()
+            UIView.animate(withDuration: AppConstants.AnimationTime.noConnectionAnimationDuration) { [weak self] in
+                self?.layoutIfNeeded()
             }
         }
 
@@ -298,8 +298,8 @@ private extension NoConnectionView {
             deadline: .now() + 3 * AppConstants.AnimationTime.noConnectionAnimationDuration) {
             NSLayoutConstraint.deactivate(self.fourthPlaceConstraint)
             NSLayoutConstraint.activate(self.firstPlaceConstraint)
-            UIView.animate(withDuration: AppConstants.AnimationTime.noConnectionAnimationDuration) {
-                self.layoutIfNeeded()
+            UIView.animate(withDuration: AppConstants.AnimationTime.noConnectionAnimationDuration) { [weak self] in
+                self?.layoutIfNeeded()
             } completion: { (bool) in
                 completion()
             }

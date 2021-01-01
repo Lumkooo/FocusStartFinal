@@ -162,13 +162,14 @@ private extension MainInteractor {
         if self.firebaseAuthManager.isSignedIn {
             // Запуск activityIndicator-а
             self.presenter?.prepareForLikedPlaces()
-            self.firebaseDatabaseManager.getLikedPlaces { (likedPlaces) in
+            self.firebaseDatabaseManager.getLikedPlaces { [weak self] (likedPlaces) in
                 // в self.likedPlaces отфильтруем и запишем те заведения,
                 // которые были добавлены в избранные
-                self.likedPlaces = self.places.filter { place in
+                guard let placesArray = self?.places else { return }
+                self?.likedPlaces = placesArray.filter { place in
                     guard let title = place.title,
                           let locationName = place.locationName else {
-                        self.presenter?.errorOccured(errorDescription: "Не удалось получить список избранных заведений")
+                        self?.presenter?.errorOccured(errorDescription: "Не удалось получить список избранных заведений")
                         assertionFailure("ooops, error with filter")
                         return false
                     }
