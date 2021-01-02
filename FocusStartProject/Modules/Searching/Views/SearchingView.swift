@@ -16,6 +16,14 @@ protocol ISearchingView: class {
 
 final class SearchingView: UIView {
 
+    // MARK: - Constants
+
+    private enum Constants {
+        static let animationDuration = 1.5
+        static let delayConstant = 0.05
+        static let usingSpringWithDamping: CGFloat = 0.8
+    }
+
     // MARK: - Views
 
     private let tableView: UITableView = {
@@ -38,8 +46,8 @@ final class SearchingView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setupElements()
         self.backgroundColor = .systemBackground
+        self.setupElements()
     }
 
     required init?(coder: NSCoder) {
@@ -52,7 +60,7 @@ final class SearchingView: UIView {
 extension SearchingView: ISearchingView {
     func setupTableView(withPlace places: [Place]) {
         self.tableViewDataSource.places = places
-        self.tableView.reloadData()
+        self.animateTable()
     }
 }
 
@@ -76,6 +84,32 @@ private extension SearchingView {
             self.tableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             self.tableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
         ])
+    }
+
+    func animateTable() {
+        self.tableView.reloadData()
+
+        let cells = self.tableView.visibleCells
+        let tableHeight = self.tableView.bounds.size.height
+
+        // move all cells to the bottom of the screen
+        for cell in cells {
+            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
+        }
+
+        // move all cells from bottom to the right place
+        var index = 0
+        for cell in cells {
+            UIView.animate(withDuration: Constants.animationDuration,
+                           delay: Constants.delayConstant * Double(index),
+                           usingSpringWithDamping: Constants.usingSpringWithDamping,
+                           initialSpringVelocity: 0,
+                           options: [],
+                           animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0)
+            }, completion: nil)
+            index += 1
+        }
     }
 }
 
