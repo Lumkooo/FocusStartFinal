@@ -53,31 +53,38 @@ class ImageCache{
             }
             guard let url = URL(string: urlString) else {
                 DispatchQueue.main.async {
-                    completion(urlString, UIImage())
+                    completion(urlString, AppConstants.Images.errorImage)
                 }
                 assertionFailure("oops, something went wrong")
                 return
             }
 
+
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 guard  error == nil else {
                     DispatchQueue.main.async {
-                        completion(urlString, UIImage())
+                        completion(urlString, AppConstants.Images.errorImage)
                     }
                     return
                 }
                 guard let data = data else {
                     DispatchQueue.main.async {
-                        completion(urlString, UIImage())
+                        completion(urlString, AppConstants.Images.errorImage)
                     }
                     return
                 }
+
                 if let image = UIImage(data: data) {
                     storeImage(urlString: urlString,
                                image: image,
                                nameOfPicture: nameOfPicture)
                     DispatchQueue.main.async {
                         completion(urlString, image)
+                    }
+                } else {
+                    // Не удалось получить картинку, возвращаем пустое изображение
+                    DispatchQueue.main.async {
+                        completion(urlString, AppConstants.Images.errorImage)
                     }
                 }
             }

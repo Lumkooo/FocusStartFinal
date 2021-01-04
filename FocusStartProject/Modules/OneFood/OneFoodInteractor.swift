@@ -72,10 +72,10 @@ private extension OneFoodInteractor {
         if let url = food.imageURL {
             ImageCache.loadImage(urlString: url,
                                  nameOfPicture: "\(url)") { (urlString, image) in
-                completion(image ?? UIImage())
+                completion(image ?? AppConstants.Images.errorImage!)
             }
         } else {
-            completion(UIImage())
+            completion(AppConstants.Images.errorImage!)
         }
     }
 }

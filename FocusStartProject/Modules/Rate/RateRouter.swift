@@ -22,6 +22,7 @@ extension RateRouter: IRateRouter {
     func showAlert(message: String) {
         let alert = AlertAssembly.createSimpleAlert(withMessage: message)
         self.vc?.navigationController?.present(alert, animated: true)
+
     }
 
     func dismissVC() {

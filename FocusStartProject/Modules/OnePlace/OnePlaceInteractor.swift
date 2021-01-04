@@ -110,7 +110,7 @@ private extension OnePlaceInteractor {
         ImageCache.loadImage(urlString: imageURL.absoluteString,
                              nameOfPicture: "\(imageURL.absoluteString)-logo") { (urlString, image) in
             self.presenter?.setupViewWith(place: self.place,
-                                          placeImage: image ?? UIImage())
+                                          placeImage: image ?? AppConstants.Images.errorImage!)
         }
     }
     

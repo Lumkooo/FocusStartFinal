@@ -71,6 +71,7 @@ enum AppConstants {
         static let noConnection2 = UIImage(named: "noConnection2")
         static let starImage = UIImage(named: "star")
         static let starFilledImage = UIImage(named: "star.fill")
+        static let errorImage = UIImage(named: "errorImage")
     }
 
     // MARK: - TableViewCellIdentifiers

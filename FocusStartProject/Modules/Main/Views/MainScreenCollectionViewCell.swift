@@ -92,8 +92,7 @@ class MainScreenCollectionViewCell: UICollectionViewCell {
                 }
             }
         } else {
-            // MARK: - В таких местах можно ставить картинку неудачной загрузки картинки
-            self.imageView.image = UIImage()
+            self.imageView.image = AppConstants.Images.errorImage
         }
     }
     
