@@ -18,16 +18,21 @@ protocol IMapInteractorOuter: class {
     func returnPlacesDisciplines(_ disciplines: [String])
     func returnPlacesForDiscipline(places: [Place])
     func setupUserLocation(withLocation location: CLLocationCoordinate2D)
-    func showAlert(withText text:String)
+    func setupCityLocation()
+    func showAlert(withText text: String)
 }
 
 final class MapInteractor {
+    
+    // MARK: - Properties
+    
     weak var presenter: IMapInteractorOuter?
     private var places: [Place] = []
     private var userLocation: CLLocationCoordinate2D?
     private var userLocationManager: UserLocationManager?
-
 }
+
+// MARK: - IMapInteractor
 
 extension MapInteractor: IMapInteractor {
     func loadInitData() {
@@ -35,15 +40,17 @@ extension MapInteractor: IMapInteractor {
             self.places = places
             let disciplines = PlaceLoader.sharedInstance.getDisciplines()
             self.presenter?.returnPlacesDisciplines(disciplines)
+        } errorCompletion: { errorDescription in
+            self.presenter?.showAlert(withText: errorDescription)
         }
         self.setupLocationManager()
     }
-
+    
     func getPlacesForDiscpline(_ discpline: String) {
         let placesForDiscipline = PlaceLoader.sharedInstance.getPlacesForDiscpline(discpline)
         self.presenter?.returnPlacesForDiscipline(places: placesForDiscipline)
     }
-
+    
     func getUserLocation() {
         if let userLocation = self.userLocation  {
             self.presenter?.setupUserLocation(withLocation: userLocation)
@@ -52,6 +59,8 @@ extension MapInteractor: IMapInteractor {
         }
     }
 }
+
+// MARK: - установка userLocationManager
 
 private extension MapInteractor {
     func setupLocationManager() {
@@ -63,10 +72,12 @@ private extension MapInteractor {
 
 extension MapInteractor: IUserLocationManager {
     func locationIsnotEnabled() {
-        print("locationIsnotEnabled")
+        // Не удалось получить местоположение пользователя
+        // Просто покажем карту New-York-а
+        self.presenter?.setupCityLocation()
     }
-
-    func returnUserLocation(location: CLLocationCoordinate2D) {
+    
+    func locationIsEnabled(location: CLLocationCoordinate2D) {
         self.userLocation = location
         self.presenter?.setupUserLocation(withLocation: location)
     }

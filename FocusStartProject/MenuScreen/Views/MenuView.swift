@@ -9,46 +9,40 @@ import UIKit
 
 protocol IMenuView: class {
     var cellTapped: ((IndexPath) -> Void)? { get set }
-
+    
     func setupCollectionView(withFoodArray foodArray: [Food])
 }
 
 final class MenuView: UIView {
-
-    // MARK: - Constants
-
-    private enum Constants {
-        static let anchorConstant:CGFloat = 16
-        static let collectionViewHeight:CGFloat = UIScreen.main.bounds.height/4 + 30
-        static let collectionViewSectionInset: CGFloat = 16
-        static let collectionViewSectionTopInset: CGFloat = 32
-    }
-
+    
     // MARK: - Views
-
+    
     private lazy var collectionView: UICollectionView = {
-        let myCollectionView:UICollectionView = UICollectionView(frame: CGRect.zero,
-                                                                 collectionViewLayout: UICollectionViewFlowLayout.init())
-        myCollectionView.register(MenuCollectionViewCell.self,
-                                  forCellWithReuseIdentifier: MenuCollectionViewCell.reuseIdentifier)
+        let myCollectionView: UICollectionView = UICollectionView(
+            frame: CGRect.zero,
+            collectionViewLayout: UICollectionViewFlowLayout.init())
+        myCollectionView.register(
+            MenuCollectionViewCell.self,
+            forCellWithReuseIdentifier: MenuCollectionViewCell.reuseIdentifier)
         myCollectionView.backgroundColor = .systemBackground
+        myCollectionView.accessibilityIdentifier = "MenuViewCollectionView"
         return myCollectionView
     }()
-
+    
     // MARK: - Properties
-
+    
     private var collectionViewDataSource = MenuScreenCollectionViewDataSource()
     private var collectionViewDelegate: MenuScreenCollectionViewDelegate?
     var cellTapped: ((IndexPath) -> Void)?
-
+    
     // MARK: - Init
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .systemBackground
         self.setupElements()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -69,21 +63,21 @@ private extension MenuView {
     func setupElements() {
         self.setupPlacesCollectionView()
     }
-
+    
     func setupPlacesCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: Constants.collectionViewSectionTopInset,
-                                           left: Constants.collectionViewSectionInset,
-                                           bottom: Constants.collectionViewSectionInset,
-                                           right: Constants.collectionViewSectionInset)
+        layout.sectionInset = UIEdgeInsets(top: AppConstants.Constraints.twiceNormalAnchorConstant,
+                                           left: AppConstants.Constraints.normalAnchorConstant,
+                                           bottom: AppConstants.Constraints.normalAnchorConstant,
+                                           right: AppConstants.Constraints.normalAnchorConstant)
         self.collectionView.setCollectionViewLayout(layout, animated: true)
         self.collectionViewDelegate = MenuScreenCollectionViewDelegate(withDelegate: self)
         self.collectionView.delegate = self.collectionViewDelegate
         self.collectionView.dataSource = self.collectionViewDataSource
         self.addSubview(self.collectionView)
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             self.collectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             self.collectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),

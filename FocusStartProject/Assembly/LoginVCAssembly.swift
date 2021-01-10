@@ -8,10 +8,11 @@
 import UIKit
 
 enum LoginVCAssembly {
-    static func createLoginVC(delegate: ProfileDelegate) -> UIViewController {
+    static func createVC(delegate: ProfileDelegate) -> UIViewController {
         let loginInteractor = LoginInteractor(delegate: delegate)
         let loginRouter = LoginRouter()
-        let loginPresenter = LoginPresenter(interactor: loginInteractor, router: loginRouter)
+        let loginPresenter = LoginPresenter(interactor: loginInteractor,
+                                            router: loginRouter)
         let loginViewController = LoginViewController(presenter: loginPresenter)
 
         loginRouter.vc = loginViewController

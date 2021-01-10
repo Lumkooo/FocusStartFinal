@@ -1,0 +1,924 @@
+{
+    "foodArray": [
+        {
+            "placeName": "McDonald's",
+            "foodName":"Big Mac®",
+            "foodPrice": 199,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Big-Mac.jpg?$Product_Desktop$",
+            "newFoodPrice":199,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Quarter Pounder®* with Cheese",
+            "foodPrice": 219,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Quarter-Pounder-with-Cheese.jpg?$Product_Desktop$",
+            "newFoodPrice":219,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Double Quarter Pounder®* with Cheese",
+            "foodPrice": 249,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Double-Quarter-Pounder-with-Cheese.jpg?$Product_Desktop$",
+            "newFoodPrice":249,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Quarter Pounder®* with Cheese Deluxe",
+            "foodPrice": 249,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-qpc-deluxe-burger.jpg?$Product_Desktop$",
+            "newFoodPrice":249,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"McDouble®",
+            "foodPrice": 179,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McDouble.jpg?$Product_Desktop$",
+            "newFoodPrice":179,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Double Cheeseburger",
+            "foodPrice": 199,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Double-Cheeseburger.jpg?$Product_Desktop$",
+            "newFoodPrice":199,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Hamburger",
+            "foodPrice": 139,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Hamburger.jpg?$Product_Desktop$",
+            "newFoodPrice":139,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Chicken McNuggets®-4 Pieces",
+            "foodPrice": 79,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-4pc.jpg?$Product_Desktop$",
+            "newFoodPrice":79,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Chicken McNuggets®-6 Pieces",
+            "foodPrice": 99,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-6pc.jpg?$Product_Desktop$",
+            "newFoodPrice":99,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Chicken McNuggets®-10 Pieces",
+            "foodPrice": 139,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-10pc.jpg?$Product_Desktop$",
+            "newFoodPrice":139,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Chicken McNuggets®-20 Pieces",
+            "foodPrice": 199,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-20pc.jpg?$Product_Desktop$",
+            "newFoodPrice":199,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Chicken McNuggets®-40 Pieces",
+            "foodPrice": 269,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-40pc.jpg?$Product_Desktop$",
+            "newFoodPrice":269,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Artisan Grilled Chicken Sandwich",
+            "foodPrice": 219,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Artisan-Grilled-Chicken-Sandwich.jpg?$Product_Desktop$",
+            "newFoodPrice":219,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Buttermilk Crispy Chicken Sandwich",
+            "foodPrice": 179,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Premium-Buttermilk-Crispy-Chicken-Deluxe-Sandwich.jpg?$Product_Desktop$",
+            "newFoodPrice":179,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"McChicken®",
+            "foodPrice": 139,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McChicken.jpg?$Product_Desktop$",
+            "newFoodPrice":139,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Filet-O-Fish®",
+            "foodPrice": 119,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McChicken.jpg?$Product_Desktop$",
+            "newFoodPrice":119,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Coca-Cola®",
+            "foodPrice": 49,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Coca-Cola-Classic-Small.jpg?$Product_Desktop$",
+            "newFoodPrice":49,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Sprite®",
+            "foodPrice": 49,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sprite-Small.jpg?$Product_Desktop$",
+            "newFoodPrice":49,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Fanta® Orange",
+            "foodPrice": 49,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-fanta-orange.jpg?$Product_Desktop$",
+            "newFoodPrice":49,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Dr Pepper®",
+            "foodPrice": 49,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Dr-Pepper-Small.jpg?$Product_Desktop$",
+            "newFoodPrice":49,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"MIX by Sprite™ Tropic Berry",
+            "foodPrice": 49,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-mix-by-sprite-tropicberry.jpg?$Product_Desktop$",
+            "newFoodPrice":49,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Diet Coke®",
+            "foodPrice": 49,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Diet-Coke-Small.jpg?$Product_Desktop$",
+            "newFoodPrice":49,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Chocolate Shake",
+            "foodPrice": 69,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chocolate-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+            "newFoodPrice":69,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Vanilla Shake",
+            "foodPrice": 69,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Vanilla-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+            "newFoodPrice":69,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Strawberry Shake",
+            "foodPrice": 69,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Strawberry-McCafe-Shake-Medium.jpg?$Product_Desktop$",
+            "newFoodPrice":69,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Hot Chocolate",
+            "foodPrice": 69,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McCafe-Hot-Chocolate-Medium.jpg?$Product_Desktop$",
+            "newFoodPrice":69,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Iced Tea",
+            "foodPrice": 69,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Iced-Tea-Large.jpg?$Product_Desktop$",
+            "newFoodPrice":69,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Sweet Tea",
+            "foodPrice": 49,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Iced-Tea-Large.jpg?$Product_Desktop$",
+            "newFoodPrice":49,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Reduced Sugar Low Fat Chocolate Milk Jug",
+            "foodPrice": 59,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Fat-Free-Chocolate-Milk-Jug.png?$Product_Desktop$",
+            "newFoodPrice":59,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"1% Low Fat Milk Jug",
+            "foodPrice": 59,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-1-Low-Fat-Milk-Jug.png?$Product_Desktop$",
+            "newFoodPrice":59,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"DASANI® Water",
+            "foodPrice": 59,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Dasani-Water.jpg?$Product_Desktop$",
+            "newFoodPrice":59,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Minute Maid® Premium Orange Juice",
+            "foodPrice": 59,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Minute-Maid-Orange-Juice-Medium.jpg?$Product_Desktop$",
+            "newFoodPrice":59,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Minute Maid® Fruit Punch Slushie",
+            "foodPrice": 59,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-fruit-punch-slushie.jpg?$Product_Desktop$",
+            "newFoodPrice":59,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Honest Kids® Appley Ever After® Organic Juice Drink",
+            "foodPrice": 49,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-appley-ever-after.jpg?$Product_Desktop$",
+            "newFoodPrice":49,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Minute Maid® Blue Raspberry Slushie",
+            "foodPrice": 49,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-blue-raspberry-slushie.jpg?$Product_Desktop$",
+            "newFoodPrice":49,
+            "address": ""
+        },
+        {
+            "placeName": "McDonald's",
+            "foodName":"Minute Maid Pink Lemonade Slushie",
+            "foodPrice": 49,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-minute-maid-pink-lemonade-slushie.jpg?$Product_Desktop$",
+            "newFoodPrice":39,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Чай Ягодный конфитюр",
+            "foodPrice": 230,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/cb1/CHai_YAgodnyi_konfityur_1.png",
+            "newFoodPrice":230,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Мятный шоколад",
+            "foodPrice": 269,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/263/Goryachii_-shokolad-_Fresh-vai_bs_1.png",
+            "newFoodPrice":269,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Капучино Баттер Кокос",
+            "foodPrice": 290,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/647/Kapuchino-_Batter-kokos_1.png",
+            "newFoodPrice":290,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Латте Новогодний",
+            "foodPrice": 260,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/1ec/Latte-_Novogodnii_1.png",
+            "newFoodPrice":260,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Раф Палящий Апельсин",
+            "foodPrice": 260,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/aea/Zimnie-napitki.jpg",
+            "newFoodPrice":260,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Свирл",
+            "foodPrice": 240,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/6ab/6abf049338453fdf09c357f857c8190b.png",
+            "newFoodPrice":240,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Горячий шоколад",
+            "foodPrice": 230,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/be8/be8f3558ca2462cce5563c45840e9b19.png",
+            "newFoodPrice":230,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Данкачино",
+            "foodPrice": 260,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/bdd/bdd2fbb420ff59799c6f37a6ba82f7ed.png",
+            "newFoodPrice":260,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Чай листовой",
+            "foodPrice": 170,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/624/624219fed328a52fa06977c686a082e1.png",
+            "newFoodPrice":170,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Капучино",
+            "foodPrice": 230,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/463/4639af5ea2a7adbc281799ca252589ae.png",
+            "newFoodPrice":230,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Раф",
+            "foodPrice": 240,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/2c4/2c44d0a7bf1ee2320457654aab88e335.png",
+            "newFoodPrice":240,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Латте Маккиато",
+            "foodPrice": 260,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/13b/13b47435226b9c79de3161af767d5ced.png",
+            "newFoodPrice":260,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Латте",
+            "foodPrice": 230,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/f35/f352de645372c1d93498c83345b8785b.png",
+            "newFoodPrice":230,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Эспрессо",
+            "foodPrice": 150,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/72e/72ee02329a13ef49d9163131039a5b87.png",
+            "newFoodPrice":150,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Американо",
+            "foodPrice": 170,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/bf5/bf5b982c94fb66dcef5db90f7c1339c8.png",
+            "newFoodPrice":170,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Dunkin ориджинал",
+            "foodPrice": 150,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/db7/db77c3ce1f2153e045a83725a30ba6d0.png",
+            "newFoodPrice":150,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Энерджи Латте",
+            "foodPrice": 220,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/ddb/ddbe7cf453c57d4fb458d73aa32c6f0d.png",
+            "newFoodPrice":200,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Айс кофе американо",
+            "foodPrice": 190,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/215/21548b420ff5d8b79ffde652e5c3123f.png",
+            "newFoodPrice":190,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Лемонад",
+            "foodPrice": 190,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/c3e/c3e043d3104bc5f4f360d77160adb688.png",
+            "newFoodPrice":190,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Милкшейк",
+            "foodPrice": 260,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/bd3/bd3a8e3bb515da9e2541a6a6509c7ca4.png",
+            "newFoodPrice":230,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Айс Ти",
+            "foodPrice": 260,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/53b/53b1d8cadee305d677c447ca0ae0ec00.png",
+            "newFoodPrice":260,
+            "address": ""
+        },
+        {
+            "placeName": "Dunkin’ Donuts",
+            "foodName":"Айс Энерджи Латте карамель",
+            "foodPrice": 190,
+            "imageURL":"https://dunkindonutsmoscow.ru/upload/iblock/684/Latte1.png",
+            "newFoodPrice":180,
+            "address": ""
+        },
+        {
+            "placeName": "The Modern",
+            "foodName":"Блюдо 1",
+            "foodPrice": 350,
+            "imageURL":"https://www.freeiconspng.com/uploads/restaurant-food-dish-png-10.png",
+            "newFoodPrice":350,
+            "address": ""
+        },
+        {
+            "placeName": "The Modern",
+            "foodName":"Блюдо 2",
+            "foodPrice": 380,
+            "imageURL":"https://img.pngio.com/food-png-transparent-foodpng-images-pluspng-restaurant-food-png-428_230.png",
+            "newFoodPrice":380,
+            "address": ""
+        },
+        {
+            "placeName": "The Modern",
+            "foodName":"Блюдо 3",
+            "foodPrice": 415,
+            "imageURL":"https://bigbyscafe.com/wp-content/uploads/2015/09/foodtrip-platter.png",
+            "newFoodPrice":389,
+            "address": ""
+        },
+        {
+            "placeName": "The Modern",
+            "foodName":"Блюдо 4",
+            "foodPrice": 415,
+            "imageURL":"https://cdn.shopify.com/s/files/1/0250/8353/products/trans-Simply_Salmon_Red_Sockeye_Salmon_and_Atlantic_cooked_fillet_grande_0ebb7c5b-e0f9-46cf-b240-0c45d4c09bd6_grande.png?v=1499352480",
+            "newFoodPrice":415,
+            "address": ""
+        },
+        {
+            "placeName": "The Modern",
+            "foodName":"Блюдо 5",
+            "foodPrice": 479,
+            "imageURL":"https://pngimg.com/uploads/steak/steak_PNG29.png",
+            "newFoodPrice":479,
+            "address": ""
+        },
+        {
+            "placeName": "The Modern",
+            "foodName":"Блюдо 6",
+            "foodPrice": 379,
+            "imageURL":"https://www.cfacdn.com/img/order/menu/Online/Salads%26wraps/cobbSalad_nug_pdp.png",
+            "newFoodPrice":379,
+            "address": ""
+        },
+        {
+            "placeName": "The Modern",
+            "foodName":"Блюдо 7",
+            "foodPrice": 219,
+            "imageURL":"https://lh3.googleusercontent.com/proxy/Jsytrkqnj9ficOSkebvfUAFvkO-zVApz58fSKCMBzC2lPmMpTUGU4DYE6sbZVnaYWECgb6ifkB7_kSQ2Am8lGE9SSIqTFTlZ-Qm2c5dcvSDlC7x7cgLD5ksJh5rnZEqVN48aTg",
+            "newFoodPrice":219,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"Quarter Pounder®* with Cheese",
+            "foodPrice": 219,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Quarter-Pounder-with-Cheese.jpg?$Product_Desktop$",
+            "newFoodPrice":219,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"Double Quarter Pounder®* with Cheese",
+            "foodPrice": 249,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Double-Quarter-Pounder-with-Cheese.jpg?$Product_Desktop$",
+            "newFoodPrice":249,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"Quarter Pounder®* with Cheese Deluxe",
+            "foodPrice": 249,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-qpc-deluxe-burger.jpg?$Product_Desktop$",
+            "newFoodPrice":249,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"BurgerKing Double®",
+            "foodPrice": 179,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McDouble.jpg?$Product_Desktop$",
+            "newFoodPrice":179,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"BurgerKing Double Cheeseburger",
+            "foodPrice": 199,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Double-Cheeseburger.jpg?$Product_Desktop$",
+            "newFoodPrice":199,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"BurgerKing Hamburger",
+            "foodPrice": 139,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Hamburger.jpg?$Product_Desktop$",
+            "newFoodPrice":139,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"Chicken McNuggets®-4 Pieces",
+            "foodPrice": 79,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-4pc.jpg?$Product_Desktop$",
+            "newFoodPrice":79,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"Chicken McNuggets®-6 Pieces",
+            "foodPrice": 99,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-6pc.jpg?$Product_Desktop$",
+            "newFoodPrice":99,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"Chicken McNuggets®-10 Pieces",
+            "foodPrice": 139,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-10pc.jpg?$Product_Desktop$",
+            "newFoodPrice":139,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"Chicken McNuggets®-20 Pieces",
+            "foodPrice": 199,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-20pc.jpg?$Product_Desktop$",
+            "newFoodPrice":199,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"Chicken McNuggets®-40 Pieces",
+            "foodPrice": 269,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-40pc.jpg?$Product_Desktop$",
+            "newFoodPrice":269,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"Artisan Grilled Chicken Sandwich",
+            "foodPrice": 219,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Artisan-Grilled-Chicken-Sandwich.jpg?$Product_Desktop$",
+            "newFoodPrice":219,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"Buttermilk Crispy Chicken Sandwich",
+            "foodPrice": 179,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Premium-Buttermilk-Crispy-Chicken-Deluxe-Sandwich.jpg?$Product_Desktop$",
+            "newFoodPrice":179,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"BurgerKing Chicken®",
+            "foodPrice": 139,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McChicken.jpg?$Product_Desktop$",
+            "newFoodPrice":139,
+            "address": ""
+        },
+        {
+            "placeName": "Burger King",
+            "foodName":"BurgerKing Filet-O-Fish®",
+            "foodPrice": 119,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-McChicken.jpg?$Product_Desktop$",
+            "newFoodPrice":119,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Egg Wendy's Muffin",
+            "foodPrice": 99,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Egg-McMuffin.jpg?$Product_Desktop$",
+            "newFoodPrice":79,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Wendy's Bacon, Egg & Cheese Biscuit",
+            "foodPrice": 149,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Bacon-Egg-Cheese-Biscuit-Regular-Size-Biscuit.jpg?$Product_Desktop$",
+            "newFoodPrice":149,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Sausage Wendy's Muffin",
+            "foodPrice": 149,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-McMuffin.jpg?$Product_Desktop$",
+            "newFoodPrice":149,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Sausage Wendy's Muffin® with Egg",
+            "foodPrice": 179,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-McMuffin-with-Egg.jpg?$Product_Desktop$",
+            "newFoodPrice":179,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Sausage Biscuit",
+            "foodPrice": 149,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-Biscuit-Regular-Size-Biscuit.jpg?$Product_Desktop$",
+            "newFoodPrice":149,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Sausage Biscuit with Egg",
+            "foodPrice": 199,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-Biscuit-with-Egg-Regular-Size-Biscuit.jpg?$Product_Desktop$",
+            "newFoodPrice":199,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Bacon, Egg & Cheese Wendy's Griddles",
+            "foodPrice": 179,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Bacon-Egg-Cheese-McGriddles.jpg?$Product_Desktop$",
+            "newFoodPrice":179,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Sausage, Egg & Cheese Wendy's Griddles",
+            "foodPrice": 179,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-Egg-Cheese-McGriddles.jpg?$Product_Desktop$",
+            "newFoodPrice":179,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Wendy's Hotcakes",
+            "foodPrice": 79,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Hotcakes.jpg?$Product_Desktop$",
+            "newFoodPrice":79,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Wendy's Hotcakes and Sausage",
+            "foodPrice": 99,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Hotcakes-and-Sausage.jpg?$Product_Desktop$",
+            "newFoodPrice":99,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Wendy's Fruit 'N Yogurt Parfait",
+            "foodPrice": 99,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Fruit-n-Yogurt-Parfait.jpg?$Product_Desktop$",
+            "newFoodPrice":99,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Wendy's Sausage Burrito",
+            "foodPrice": 79,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-Burrito.jpg?$Product_Desktop$",
+            "newFoodPrice":79,
+            "address": ""
+        },
+        {
+            "placeName": "Wendy's",
+            "foodName":"Wendy's Hash Browns",
+            "foodPrice": 39,
+            "imageURL":"https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-HASH-BROWNS.jpg?$Product_Desktop$",
+            "newFoodPrice":39,
+            "address": ""
+        },
+        {
+            "placeName": "Macys Herald Café",
+            "foodName":"Блюдо 1",
+            "foodPrice": 270,
+            "imageURL":"https://www.freeiconspng.com/uploads/restaurant-food-dish-png-10.png",
+            "newFoodPrice":270,
+            "address": ""
+        },
+        {
+            "placeName": "Macys Herald Café",
+            "foodName":"Блюдо 2",
+            "foodPrice": 299,
+            "imageURL":"https://img.pngio.com/food-png-transparent-foodpng-images-pluspng-restaurant-food-png-428_230.png",
+            "newFoodPrice":279,
+            "address": ""
+        },
+        {
+            "placeName": "Macys Herald Café",
+            "foodName":"Блюдо 3",
+            "foodPrice": 289,
+            "imageURL":"https://bigbyscafe.com/wp-content/uploads/2015/09/foodtrip-platter.png",
+            "newFoodPrice":289,
+            "address": ""
+        },
+        {
+            "placeName": "Macys Herald Café",
+            "foodName":"Блюдо 4",
+            "foodPrice": 250,
+            "imageURL":"https://cdn.shopify.com/s/files/1/0250/8353/products/trans-Simply_Salmon_Red_Sockeye_Salmon_and_Atlantic_cooked_fillet_grande_0ebb7c5b-e0f9-46cf-b240-0c45d4c09bd6_grande.png?v=1499352480",
+            "newFoodPrice":250,
+            "address": ""
+        },
+        {
+            "placeName": "Macys Herald Café",
+            "foodName":"Блюдо 5",
+            "foodPrice": 309,
+            "imageURL":"https://pngimg.com/uploads/steak/steak_PNG29.png",
+            "newFoodPrice":309,
+            "address": ""
+        },
+        {
+            "placeName": "Macys Herald Café",
+            "foodName":"Блюдо 6",
+            "foodPrice": 319,
+            "imageURL":"https://www.cfacdn.com/img/order/menu/Online/Salads%26wraps/cobbSalad_nug_pdp.png",
+            "newFoodPrice":319,
+            "address": ""
+        },
+        {
+            "placeName": "Macys Herald Café",
+            "foodName":"Блюдо 7",
+            "foodPrice": 189,
+            "imageURL":"https://lh3.googleusercontent.com/proxy/Jsytrkqnj9ficOSkebvfUAFvkO-zVApz58fSKCMBzC2lPmMpTUGU4DYE6sbZVnaYWECgb6ifkB7_kSQ2Am8lGE9SSIqTFTlZ-Qm2c5dcvSDlC7x7cgLD5ksJh5rnZEqVN48aTg",
+            "newFoodPrice": 189,
+            "address": ""
+        },
+        {
+            "placeName": "Taco Bell",
+            "foodName":"Taco 1",
+            "foodPrice": 219,
+            "imageURL":"https://lh3.googleusercontent.com/proxy/Q70x4_KXBRY8-AHWJvtBCtdfXEsQ6zWqw3topIjF9A5m_bzXA5xgLnCQ3GE7yZhPMlYBRizBaUwRosMZheJs0GtsJZVS5o4G6y-Ztk47dBiwmPyHqQ",
+            "newFoodPrice": 219,
+            "address": ""
+        },
+        {
+            "placeName": "Taco Bell",
+            "foodName":"Taco 2",
+            "foodPrice": 339,
+            "imageURL":"https://lh3.googleusercontent.com/proxy/Eixue3HFRYTNn1QJatxuwPlbYYHwc0h9oN2NWD98dZgKr_TSsBmOmLHMpzl7V5W5XeEpzYaQam43-00C38RYxvTt8Ok2hi4aBdambYy31qHJMzVxOEmOjvdpuTZnehLRf0k",
+            "newFoodPrice": 339,
+            "address": ""
+        },
+        {
+            "placeName": "Taco Bell",
+            "foodName":"Taco 3",
+            "foodPrice": 209,
+            "imageURL":"https://assets.stickpng.com/images/58727f98f3a71010b5e8ef04.png",
+            "newFoodPrice": 209,
+            "address": ""
+        },
+        {
+            "placeName": "Taco Bell",
+            "foodName":"Taco 4",
+            "foodPrice": 289,
+            "imageURL":"https://lh3.googleusercontent.com/proxy/Q70x4_KXBRY8-AHWJvtBCtdfXEsQ6zWqw3topIjF9A5m_bzXA5xgLnCQ3GE7yZhPMlYBRizBaUwRosMZheJs0GtsJZVS5o4G6y-Ztk47dBiwmPyHqQ",
+            "newFoodPrice": 289,
+            "address": ""
+        },
+        {
+            "placeName": "Taco Bell",
+            "foodName":"Taco 5",
+            "foodPrice": 359,
+            "imageURL":"https://pngimage.net/wp-content/uploads/2018/06/tacos-png-6.png",
+            "newFoodPrice": 359,
+            "address": ""
+        },
+        {
+            "placeName": "Dairy Queen Grill & Chill",
+            "foodName":"Burger",
+            "foodPrice": 359,
+            "imageURL":"https://www.dairyqueen.com/Global/Food/Burger_Original-Cheeseburger.jpg?width=&height=810",
+            "newFoodPrice": 359,
+            "address": ""
+        },
+        {
+            "placeName": "Dairy Queen Grill & Chill",
+            "foodName":"Double with cheese butger",
+            "foodPrice": 359,
+            "imageURL":"https://www.dairyqueen.com/Global/Food/Burger_Original-Double_1-Cheese-Slice_470x500.jpg?width=&height=810",
+            "newFoodPrice": 359,
+            "address": ""
+        },
+        {
+            "placeName": "Dairy Queen Grill & Chill",
+            "foodName":"Hamburger",
+            "foodPrice": 289,
+            "imageURL":"https://www.dairyqueen.com/Global/Food/Burger_Original-Hamburger.jpg?width=&height=810",
+            "newFoodPrice": 289,
+            "address": ""
+        },
+        {
+            "placeName": "Dairy Queen Grill & Chill",
+            "foodName":"Chill Cheese Dog",
+            "foodPrice": 239,
+            "imageURL":"https://www.dairyqueen.com/Global/Food/Hot-Dogs_Chili-Cheese_470x500.jpg?width=&height=810",
+            "newFoodPrice": 239,
+            "address": ""
+        },
+        {
+            "placeName": "Dairy Queen Grill & Chill",
+            "foodName":"Honey BBQ Saused & Tossed",
+            "foodPrice": 439,
+            "imageURL":"https://www.dairyqueen.com/Global/0120/Product_Chicken-Strips_Honey-BBQ_4-PC_470x500_2019.jpg?width=&height=810",
+            "newFoodPrice": 439,
+            "address": ""
+        },
+        {
+            "placeName": "Dairy Queen Grill & Chill",
+            "foodName":"Royal Rocky Road Trip Blizzard Treat",
+            "foodPrice": 189,
+            "imageURL":"https://www.dairyqueen.com/Global/0420/New%20Products/Product_Blizzard_Royal_Rocky-Road_470x500_2019.jpg?width=&height=810",
+            "newFoodPrice": 189,
+            "address": ""
+        },
+        {
+            "placeName": "Jack the Horse Tavern",
+            "foodName":"Паста Карбонара",
+            "foodPrice": 219,
+            "imageURL":"https://www.seekpng.com/png/full/290-2901928_italian-pasta-png-download-spaghetti-alla-carbonara-png.png",
+            "newFoodPrice":219,
+            "address": ""
+        },
+        {
+            "placeName": "Jack the Horse Tavern",
+            "foodName":"Паста Болоньезе",
+            "foodPrice": 239,
+            "imageURL":"https://www.pngkey.com/png/full/23-230892_spaghetti-bolognese-png.png",
+            "newFoodPrice":239,
+            "address": ""
+        },
+        {
+            "placeName": "Jack the Horse Tavern",
+            "foodName":"Паста с морепродуктами",
+            "foodPrice": 299,
+            "imageURL":"https://assets.stickpng.com/images/589c825364b351149f22a826.png",
+            "newFoodPrice":299,
+            "address": ""
+        },
+        {
+            "placeName": "Jack the Horse Tavern",
+            "foodName":"Strawberry lemonade",
+            "foodPrice": 70,
+            "imageURL":"https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/4/3/2/FNM_050112-Copy-That-002_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382541476428.jpeg",
+            "newFoodPrice":70,
+            "address": ""
+        }
+    ]
+}

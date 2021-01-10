@@ -17,6 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBar = TabBarControllerAssembly.createTabBarController()
         self.window?.rootViewController = tabBar
         self.window?.makeKeyAndVisible()
+
+        // MARK: - Добавляем View для анимационной загрузки
+        let animatedLaunchingVC = LaunchingVCAssembly.createVC()
+        animatedLaunchingVC.modalPresentationStyle = .overFullScreen
+        self.window?.rootViewController?.present(animatedLaunchingVC, animated: false)
     }
 }
 

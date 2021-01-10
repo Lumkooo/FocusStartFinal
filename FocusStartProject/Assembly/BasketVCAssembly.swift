@@ -11,7 +11,8 @@ enum BasketVCAssembly {
     static func createVC() -> UIViewController {
         let router = BasketRouter()
         let interactor = BasketInteractor()
-        let presenter = BasketPresenter(interactor: interactor, router: router)
+        let presenter = BasketPresenter(interactor: interactor,
+                                        router: router)
         let viewController = BasketViewController(presenter: presenter)
 
         router.vc = viewController

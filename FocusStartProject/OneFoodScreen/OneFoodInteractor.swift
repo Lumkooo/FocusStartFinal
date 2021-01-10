@@ -14,14 +14,15 @@ protocol IOneFoodInteractor {
 }
 
 protocol IOneFoodInteractorOuter: class {
-    func setupWithFood(_ food: Food, withImage image: UIImage, forVC oneFoodVCType: OneFoodInteractor.OneFoodFor)
+    func setupWithFood(_ food: Food,
+                       withImage image: UIImage,
+                       forVC oneFoodVCType: OneFoodInteractor.OneFoodFor)
     func dismissView()
 }
 
 final class OneFoodInteractor {
-
     // MARK: - OneFoodFor
-    // Для переиспользования этого модуля в basket и menu VC
+    // Для переиспользования этого модуля для basket и menu VC
     // в menu нужна кнопка добавления в корзину,
     // в basket она не нужна
     enum OneFoodFor {
@@ -36,12 +37,13 @@ final class OneFoodInteractor {
     // MARK: - Properies
 
     private var food: Food
-    private var oneFoodVCType:OneFoodFor
+    private var oneFoodVCType: OneFoodFor
     weak var presenter: IOneFoodInteractorOuter?
 
     // MARK: - Init
 
-    init(food: Food, vcFor: OneFoodFor) {
+    init(food: Food,
+         vcFor: OneFoodFor) {
         self.food = food
         self.oneFoodVCType = vcFor
     }
@@ -65,16 +67,14 @@ extension OneFoodInteractor: IOneFoodInteractor {
 
 
 private extension OneFoodInteractor {
-    func loadImage(forFood food: Food, completion: @escaping ((UIImage) -> Void)) {
-        if let url = food.imageURL,
-           let placeName = food.placeName,
-           let foodName = food.foodName {
+    func loadImage(forFood food: Food,
+                   completion: @escaping ((UIImage) -> Void)) {
+        if let url = food.imageURL {
             ImageCache.loadImage(urlString: url,
-                                 nameOfPicture: "\(placeName)-\(foodName)") { (urlString, image) in
+                                 nameOfPicture: "\(url)") { (urlString, image) in
                 completion(image ?? UIImage())
             }
         } else {
-            // TODO: - Поставить картинку неудачной загрузки
             completion(UIImage())
         }
     }

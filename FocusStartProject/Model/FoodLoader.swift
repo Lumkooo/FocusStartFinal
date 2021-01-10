@@ -8,14 +8,14 @@
 import Foundation
 
 final class FoodLoader {
-
+    /// Загрузка меню для места, completion выводит список еды, errorCompletion выводит ошибку с описанием ошибки
     static func loadFoodFor(place: Place,
                             completion: @escaping ([Food]) -> Void,
                             errorCompletion: @escaping ((String) -> Void)) {
-        DispatchQueue.global(qos: .userInteractive).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             guard let fileName = Bundle.main.url(forResource: "Food", withExtension: "json"),
-                  let data = try? Data(contentsOf: fileName) else{
-                assertionFailure("oops, something went wrong")
+                  let data = try? Data(contentsOf: fileName) else {
+                errorCompletion("Не удалось получить список еды для заведения")
                 return
             }
             if let parsedResult = try? JSONDecoder().decode(FoodResponse.self, from: data) {
@@ -25,7 +25,9 @@ final class FoodLoader {
                     completion(foodArrayForPlace)
                 }
             } else {
-                errorCompletion("Произошла непредвиденная ошибка")
+                DispatchQueue.main.async {
+                    errorCompletion("Произошла непредвиденная ошибка")
+                }
             }
         }
     }

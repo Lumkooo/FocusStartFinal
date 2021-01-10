@@ -16,6 +16,8 @@ final class LoginRouter {
     weak var vc: UIViewController?
 }
 
+// MARK: - ILoginRouter
+
 extension LoginRouter: ILoginRouter {
     func showAlertWithMessage(_ message: String) {
         let alert = AlertAssembly.createSimpleAlert(withMessage: message)

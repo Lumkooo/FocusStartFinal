@@ -11,17 +11,16 @@ final class MenuViewController: UIViewController {
 
     // MARK: - Properties
 
-    var presenter: IMenuPresenter
+    private var presenter: IMenuPresenter
 
     // MARK: - Views
 
-    let menuView = MenuView()
+    private let menuView = MenuView()
 
     // MARK: - Жизненный цикл ViewController-а
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.view = menuView
         presenter.viewDidLoad(ui: self.menuView)
         self.title = "Меню"

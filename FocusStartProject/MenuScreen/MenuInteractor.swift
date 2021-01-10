@@ -19,14 +19,21 @@ protocol IMenuPresenterOuter: class {
 }
 
 final class MenuInteractor {
+
+    // MARK: - Properties
+
     private var place: Place
     private var foodArray: [Food] = []
     weak var presenter: IMenuPresenterOuter?
+
+    // MARK: - Init
 
     init(place: Place) {
         self.place = place
     }
 }
+
+// MARK: - IMenuInteractor
 
 extension MenuInteractor: IMenuInteractor {
     func loadFoodForPlace() {
@@ -36,13 +43,14 @@ extension MenuInteractor: IMenuInteractor {
         } errorCompletion: { (stringError) in
             self.presenter?.alertOccured(stringError: stringError)
         }
-
     }
 
     func cellTapped(indexPath: IndexPath) {
         // Если пользователь выбирает ячейку, то параметру
         // address экземпляра food присваиваем
         // значение параметра locationName экзмепляра place
+        // для того, чтобы в истории покупок в профиле пользователя
+        // можно было видеть где был куплен товар
         self.foodArray[indexPath.row].address = self.place.locationName
         self.presenter?.goToOneFoodVC(withFood: self.foodArray[indexPath.row])
     }

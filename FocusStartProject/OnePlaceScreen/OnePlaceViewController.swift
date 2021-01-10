@@ -8,31 +8,31 @@
 import UIKit
 
 final class OnePlaceViewController: UIViewController {
-
+    
     // MARK: - Properties
-
-    var presenter: IOnePlacePresenter
-
+    
+    private var presenter: IOnePlacePresenter
+    
     // MARK: - Views
-
-    let onePlaceView = OnePlaceView()
-
+    
+    private let onePlaceView = OnePlaceView()
+    
     // MARK: - Жизненный цикл ViewController-а
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = onePlaceView
         presenter.viewDidLoad(ui: self.onePlaceView)
         self.title = "Одно заведение"
     }
-
+    
     // MARK: - Init
-
+    
     init(presenter: IOnePlacePresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -9,39 +9,45 @@ import Foundation
 import MapKit
 
 protocol IMapPresenter {
-    func viewDidLoad(ui:IMapView)
+    func viewDidLoad(ui: IMapView)
 }
 
 final class MapPresenter {
-    private weak var ui: IMapView?
-    private var router:IMapRouter
-    private var interactor:IMapInteractor
 
-    init(interactor: IMapInteractor, router: IMapRouter) {
+    // MARK: - Properties
+
+    private weak var ui: IMapView?
+    private var router: IMapRouter
+    private var interactor: IMapInteractor
+
+    // MARK: - Properties
+
+    init(interactor: IMapInteractor,
+         router: IMapRouter) {
         self.interactor = interactor
         self.router = router
     }
 }
 
+// MARK: - IMapPresenter
+
 extension MapPresenter: IMapPresenter {
     func viewDidLoad(ui: IMapView) {
         self.ui = ui
-
         self.ui?.didSelectSegmentControl = { [weak self] segmentTitle in
             self?.interactor.getPlacesForDiscpline(segmentTitle)
         }
-
-        self.ui?.didTappedAnnotation={ [weak self] place in
+        self.ui?.didTappedAnnotation = { [weak self] place in
             self?.router.goToOnePlace(place)
         }
-
-        self.ui?.didTappedUserLocationButton={ [weak self] in
+        self.ui?.didTappedUserLocationButton = { [weak self] in
             self?.interactor.getUserLocation()
         }
-
         self.interactor.loadInitData()
     }
 }
+
+// MARK: - IMapInteractorOuter
 
 extension MapPresenter: IMapInteractorOuter {
     func setupUserLocation(withLocation location: CLLocationCoordinate2D) {
@@ -51,12 +57,16 @@ extension MapPresenter: IMapInteractorOuter {
     func returnPlacesDisciplines(_ disciplines: [String]) {
         self.ui?.setupSegmentControl(withDisciplines: disciplines)
     }
-
+    
     func returnPlacesForDiscipline(places: [Place]) {
         self.ui?.setupAnnotations(forPlaces: places)
     }
 
     func showAlert(withText text: String) {
         self.router.showAlertWithMessage(text)
+    }
+
+    func setupCityLocation() {
+        self.ui?.setupCityLocation()
     }
 }

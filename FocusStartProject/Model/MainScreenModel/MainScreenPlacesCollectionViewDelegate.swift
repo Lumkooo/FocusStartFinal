@@ -8,20 +8,14 @@
 import UIKit
 
 protocol IMainScreenPlacesDelegate: class {
-    func selectedCell(indexPath: IndexPath)
+    func selectedCell(collectionView: UICollectionView, indexPath: IndexPath)
 }
 
 final class MainScreenPlacesCollectionViewDelegate: NSObject {
 
-    // MARK: - Constants
+    // MARK: - Properties
 
-    private enum Constants {
-        static let collectionViewCellHeight: CGFloat = UIScreen.main.bounds.height * 0.28
-        static let collectionViewCellWidth: CGFloat = UIScreen.main.bounds.width - 50
-        static let cellSpacing: CGFloat = 24
-    }
-
-    weak var delegate: IMainScreenPlacesDelegate?
+    private weak var delegate: IMainScreenPlacesDelegate?
 
     // MARK: - Init
 
@@ -30,23 +24,30 @@ final class MainScreenPlacesCollectionViewDelegate: NSObject {
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UICollectionViewDelegate
 
 extension MainScreenPlacesCollectionViewDelegate: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.selectedCell(indexPath: indexPath)
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        delegate?.selectedCell(collectionView: collectionView, indexPath: indexPath)
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+
 extension MainScreenPlacesCollectionViewDelegate: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: Constants.collectionViewCellWidth,
-                      height: Constants.collectionViewCellHeight)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(
+            width: AppConstants.CollectionViewSize.mainScreenCollectionViewCellSize.width,
+            height: AppConstants.CollectionViewSize.mainScreenCollectionViewCellSize.height)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        Constants.cellSpacing
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        AppConstants.Constraints.collectionViewCellSpacing
     }
-
 }

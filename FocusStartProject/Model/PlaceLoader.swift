@@ -11,22 +11,25 @@ final class PlaceLoader {
 
     private var places: [Place] = []
     static let sharedInstance = PlaceLoader()
+    private let errorDescription = "Не удалось получить список заведений"
 
-    func loadInitialData(completion: (([Place]) -> Void)) {
+    func loadInitialData(completion: (([Place]) -> Void),
+                         errorCompletion: ((String) -> Void)) {
         if self.places.isEmpty {
             guard let fileName = Bundle.main.url(forResource: "FoodPlaces", withExtension: "geojson"),
                   let artworkData = try? Data(contentsOf: fileName) else{
+                errorCompletion(self.errorDescription)
                 return
             }
-            do{
+            do {
                 let features = try MKGeoJSONDecoder()
                     .decode(artworkData)
                     .compactMap{$0 as? MKGeoJSONFeature}
                 let place = features.compactMap(Place.init)
                 self.places.append(contentsOf: place)
                 completion(self.places)
-            }catch{
-                print("Unexpected error: \(error)")
+            } catch {
+                errorCompletion(self.errorDescription)
             }
         } else {
             completion(self.places)
@@ -53,5 +56,10 @@ final class PlaceLoader {
             }
         }
         return placesForDiscipline
+    }
+
+    /// Сохраняет отсортированные по близости к пользователю заведения
+    func setPlacesByLocation(places: [Place]) {
+        self.places = places
     }
 }

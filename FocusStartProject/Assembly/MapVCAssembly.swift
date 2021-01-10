@@ -8,13 +8,16 @@
 import UIKit
 
 enum MapVCAssembly {
-    static func createMapVC() -> UIViewController {
+    static func createVC() -> UIViewController {
         let mapInteractor = MapInteractor()
         let mapRouter = MapRouter()
-        let mapPresenter = MapPresenter(interactor: mapInteractor, router: mapRouter)
+        let mapPresenter = MapPresenter(interactor: mapInteractor,
+                                        router: mapRouter)
         let mapViewController = MapViewController(presenter: mapPresenter)
+
         mapInteractor.presenter = mapPresenter
         mapRouter.vc = mapViewController
+        
         return mapViewController
     }
 }

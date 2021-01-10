@@ -8,7 +8,7 @@
 import MapKit
 
 class PlacesArtowrkView: MKMarkerAnnotationView{
-    override var annotation: MKAnnotation?{
+    override var annotation: MKAnnotation? {
         willSet{
             guard let artwork = newValue as? Place else{
                 return
@@ -23,7 +23,7 @@ class PlacesArtowrkView: MKMarkerAnnotationView{
             let detailLabel = UILabel()
             detailLabel.numberOfLines = 0
             detailLabel.font = detailLabel.font.withSize(12)
-            detailLabel.text = artwork.subtitle
+            detailLabel.text = artwork.locationName
             detailCalloutAccessoryView = detailLabel
 
             markerTintColor = artwork.markerTintColor

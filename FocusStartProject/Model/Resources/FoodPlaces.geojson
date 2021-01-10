@@ -308,25 +308,6 @@
     {
       "type": "Feature",
       "properties": {
-        "location": "946 8th Ave, New York, NY 10019",
-        "descriptionText": "Информация о McDonald's at 946 8th Ave",
-        "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
-        "discipline": "Фаст-фуд",
-        "title": "McDonald's",
-        "distance": 0,
-        "isSale":true
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.984137,
-          40.769243
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "location": "220 W 42nd St, New York, NY 10036",
         "descriptionText": "Информация о McDonald's at 220 W 42nd St",
         "imagefile": "https://sbsmegamall.ru/upload/resize_cache/iblock/9f0/330_250_1/9f02949a89097e49cd2221c3ad116328.jpg",
@@ -1334,8 +1315,8 @@
     {
       "type": "Feature",
       "properties": {
-        "location": "42 W 39th St #52, New York, NY 10018",
-        "descriptionText": "Информация о Dunkin’ Donuts at 42 W 39th St #52",
+        "location": "42 W 39th St 52, New York, NY 10018",
+        "descriptionText": "Информация о Dunkin’ Donuts at 42 W 39th St 52",
         "imagefile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThg6Q96_VupV2roVlmG_ZBsUN0UBge1qp_23gHhBwNjegmHsZO",
         "discipline": "Кофейня",
         "title": "Dunkin’ Donuts",

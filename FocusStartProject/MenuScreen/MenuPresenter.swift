@@ -12,15 +12,23 @@ protocol IMenuPresenter {
 }
 
 final class MenuPresenter {
+    
+    // MARK: - Properties
+    
     private var router: IMenuRouter
     private var interactor: IMenuInteractor
     weak private var  ui: IMenuView?
-
-    init(router: IMenuRouter, interactor: IMenuInteractor) {
+    
+    // MARK: - Init
+    
+    init(router: IMenuRouter,
+         interactor: IMenuInteractor) {
         self.router = router
         self.interactor = interactor
     }
 }
+
+// MARK: - IMenuPresenter
 
 extension MenuPresenter: IMenuPresenter {
     func viewDidLoad(ui: IMenuView) {
@@ -32,11 +40,13 @@ extension MenuPresenter: IMenuPresenter {
     }
 }
 
+// MARK: - IMenuPresenterOuter
+
 extension MenuPresenter: IMenuPresenterOuter {
     func passFoodArrayToView(foodArray: [Food]) {
         self.ui?.setupCollectionView(withFoodArray: foodArray)
     }
-
+    
     func goToOneFoodVC(withFood food: Food) {
         self.router.showFoodVC(withFood: food)
     }

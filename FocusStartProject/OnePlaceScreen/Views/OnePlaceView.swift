@@ -9,88 +9,75 @@ import UIKit
 import MapKit
 
 protocol IOnePlaceView: class {
-    var didTouchMenuButton: (() -> Void)? { get set }
-    var didTouchAddress: (() -> Void)? { get set }
-
+    var menuButtonTapped: (() -> Void)? { get set }
+    var adressButtonTapped: (() -> Void)? { get set }
+    var likeButtonTapped: (() -> Void)? { get set }
+    
     func setupView(place: Place, placeImage: UIImage)
+    func setupLikeButton(isLiked: Bool)
+    func showDoneView(_ isLiked: Bool)
 }
 
 final class OnePlaceView: UIView {
-
+    
     // MARK: - Constants
-
+    
     private enum Constants {
-        static let anchorConstant:CGFloat = 16
-        static let titleAnchorConstant:CGFloat = 32
-        static let constraintsMultiplier:CGFloat = 0.65
-        static let topImageWidth:CGFloat = UIScreen.main.bounds.width
+        // Устанавливаем высоту картинки и карты в зависимости от их ширины
+        static let constraintsMultiplier: CGFloat = 0.65
         static let placeLocationMapSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        static let buttonHeight: CGFloat = 50
-        static let buttonCornerRadius: CGFloat = 15
-        static let buttonShadowRadius: CGFloat = 5
-        static let buttonShadowOpacity: Float = 1
     }
-
-    // MARK: - Fonts
-
-    private enum Fonts {
-        static let titleLabelFont = UIFont.systemFont(ofSize: 26, weight: .semibold)
-        static let subtitlesFonts = UIFont.systemFont(ofSize: 22, weight: .semibold)
-        static let otherLabelsFont = UIFont.systemFont(ofSize: 20)
-    }
-
+    
     // MARK: - Views
-
-    private let scrollView: UIScrollView={
+    
+    private let activityIndicator: UIActivityIndicatorView = {
+        let myActivityIndicatorView = UIActivityIndicatorView()
+        myActivityIndicatorView.hidesWhenStopped = true
+        myActivityIndicatorView.startAnimating()
+        return myActivityIndicatorView
+    }()
+    
+    private let scrollView: UIScrollView = {
         let myScrollView = UIScrollView()
         return myScrollView
     }()
-
-    private let topImageView: UIImageView={
+    
+    private let topImageView: UIImageView = {
         let myImageView = UIImageView()
         myImageView.contentMode = .redraw
         return myImageView
     }()
-
-    private let titleLabel: UILabel={
+    
+    private let likeButton: UIButton = {
+        let myButton = UIButton()
+        myButton.tintColor = .red
+        myButton.addTarget(self, action: #selector(likeButtonTapepd(gesture:)), for: .touchUpInside)
+        return myButton
+    }()
+    
+    private let titleLabel: UILabel = {
         let myLabel = UILabel()
         myLabel.numberOfLines = 0
-        myLabel.font = Fonts.titleLabelFont
+        myLabel.font = AppFonts.largeTitleLabelFont
         return myLabel
     }()
-
-    private let descriptionStaticLabel: UILabel={
+    
+    private let descriptionLabel: UILabel = {
         let myLabel = UILabel()
         myLabel.numberOfLines = 0
-        myLabel.text = "Информация о заведении:"
-        myLabel.font = Fonts.subtitlesFonts
+        myLabel.font = AppFonts.titleLabelFont
         return myLabel
     }()
-
-    private let descriptionLabel: UILabel={
-        let myLabel = UILabel()
-        myLabel.numberOfLines = 0
-        myLabel.font = Fonts.otherLabelsFont
-        return myLabel
-    }()
-
-    private let menuButton: CustomButton={
+    
+    private let menuButton: CustomButton = {
         let myButton = CustomButton()
         myButton.setTitle("Перейти к меню", for: .normal)
         myButton.addTarget(self, action: #selector(menuButtonTapped(gesute:)), for: .touchUpInside)
+        myButton.accessibilityIdentifier = "menuButton"
         return myButton
     }()
-
-
-    private let placeLocationLabel: UILabel={
-        let myLabel = UILabel()
-        myLabel.numberOfLines = 0
-        myLabel.text = "Расположение заведения:"
-        myLabel.font = Fonts.subtitlesFonts
-        return myLabel
-    }()
-
-    private let placeLocationMapView: MKMapView={
+    
+    private let placeLocationMapView: MKMapView = {
         let mapView = MKMapView()
         mapView.mapType = MKMapType.standard
         mapView.isScrollEnabled = false
@@ -101,65 +88,77 @@ final class OnePlaceView: UIView {
                          forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         return mapView
     }()
-
-    private let routeToPlaceButton: UIButton={
+    
+    private let routeToPlaceButton: UIButton = {
         let myButton = UIButton()
         myButton.backgroundColor = .black
         myButton.setTitleColor(.white, for: .normal)
         myButton.setTitle("Построить маршрут", for: .normal)
-        myButton.layer.cornerRadius = Constants.buttonCornerRadius
-        myButton.layer.shadowOpacity = Constants.buttonShadowOpacity
-        myButton.layer.shadowRadius = Constants.buttonShadowRadius
+        myButton.layer.cornerRadius = AppConstants.Sizes.cornerRadius
+        myButton.layer.shadowOpacity = AppConstants.Sizes.shadowOpacity
+        myButton.layer.shadowRadius = AppConstants.Sizes.shadowRadius
         myButton.layer.shadowColor = UIColor.black.cgColor
         myButton.alpha = 0.65
         myButton.addTarget(self, action: #selector(routeToPlaceButtonTapped(gesute:)), for: .touchUpInside)
         return myButton
     }()
 
-
+    private lazy var doneView: CustomDoneView = {
+        let myDoneView = CustomDoneView()
+        return myDoneView
+    }()
+    
     // MARK: - Properties
-
-    var didTouchMenuButton: (() -> Void)?
-    var didTouchAddress: (() -> Void)?
-
+    
+    var menuButtonTapped: (() -> Void)?
+    var adressButtonTapped: (() -> Void)?
+    var likeButtonTapped: (() -> Void)?
+    
     // MARK: - Init
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .systemBackground
-        self.setupElements()
+        self.setupActivityIndicator()
     }
-
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    // MARK: - Обработка нажатий на кнопки
+    
     @objc private func routeToPlaceButtonTapped(gesute: UIGestureRecognizer) {
-        didTouchAddress?()
+        self.adressButtonTapped?()
     }
-
+    
     @objc private func menuButtonTapped(gesute: UIGestureRecognizer) {
-        didTouchMenuButton?()
+        self.menuButtonTapped?()
+    }
+    
+    @objc private func likeButtonTapepd(gesture: UIGestureRecognizer) {
+        self.likeButtonTapped?()
     }
 }
 
-// MARK: - Установка constraint-ов для элементов
+// MARK: - UISetup
 
 private extension OnePlaceView {
     func setupElements() {
         self.setupScrollView()
         self.setupTopImageView()
+        self.setupLikeButton()
         self.setupTitleLabel()
-        self.setupDesctiption()
-        self.setupMenuButton()
-        self.setupPlaceLocationElements()
+        self.setupLocationMapView()
         self.setupRouteToPlaceButton()
+        self.setupDescriptionLabel()
+        self.setupMenuButton()
     }
-
+    
     func setupScrollView() {
         self.addSubview(self.scrollView)
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             self.scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             self.scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
@@ -167,65 +166,95 @@ private extension OnePlaceView {
             self.scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
-
+    
     func setupTopImageView() {
         self.scrollView.addSubview(self.topImageView)
         self.topImageView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             self.topImageView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
             self.topImageView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
             self.topImageView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
-            self.topImageView.widthAnchor.constraint(equalToConstant: Constants.topImageWidth),
+            self.topImageView.widthAnchor.constraint(equalToConstant: AppConstants.screenWidth),
             self.topImageView.heightAnchor.constraint(equalTo: self.topImageView.widthAnchor,
                                                       multiplier: Constants.constraintsMultiplier)
         ])
     }
-
+    
+    func setupLikeButton() {
+        self.scrollView.addSubview(self.likeButton)
+        self.likeButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            self.likeButton.topAnchor.constraint(equalTo: self.topImageView.bottomAnchor,
+                                                 constant: AppConstants.Constraints.normalAnchorConstant),
+            self.likeButton.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
+                                                      constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.likeButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.likeButtonSize.height),
+            self.likeButton.widthAnchor.constraint(equalToConstant: AppConstants.Sizes.likeButtonSize.width)
+        ])
+    }
+    
     func setupTitleLabel() {
         self.scrollView.addSubview(self.titleLabel)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             self.titleLabel.topAnchor.constraint(equalTo: self.topImageView.bottomAnchor,
-                                                 constant: Constants.anchorConstant),
+                                                 constant: AppConstants.Constraints.normalAnchorConstant),
             self.titleLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                 constant: Constants.titleAnchorConstant),
-            self.titleLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                 constant: -Constants.anchorConstant),
+                                                     constant: AppConstants.Constraints.twiceNormalAnchorConstant),
+            self.titleLabel.trailingAnchor.constraint(equalTo: self.likeButton.leadingAnchor,
+                                                      constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
 
-    func setupDesctiption() {
-        self.setupDescriptionStaticLabel()
-        self.setupDesriptionLabel()
-    }
-
-    func setupDescriptionStaticLabel() {
-        self.scrollView.addSubview(self.descriptionStaticLabel)
-        self.descriptionStaticLabel.translatesAutoresizingMaskIntoConstraints = false
-
+    func setupLocationMapView() {
+        self.scrollView.addSubview(self.placeLocationMapView)
+        self.placeLocationMapView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            self.descriptionStaticLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor,
-                                                             constant: Constants.anchorConstant),
-            self.descriptionStaticLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                                 constant: Constants.anchorConstant),
-            self.descriptionStaticLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                                  constant: -Constants.anchorConstant),
+            self.placeLocationMapView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor,
+                                                           constant: AppConstants.Constraints.normalAnchorConstant),
+            self.placeLocationMapView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+            self.placeLocationMapView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+            self.placeLocationMapView.heightAnchor.constraint(equalTo: self.topImageView.widthAnchor,
+                                                              multiplier: Constants.constraintsMultiplier)
+        ])
+    }
+    
+    func setupRouteToPlaceButton() {
+        self.scrollView.addSubview(self.routeToPlaceButton)
+        self.routeToPlaceButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            self.routeToPlaceButton.bottomAnchor.constraint(
+                equalTo: self.placeLocationMapView.bottomAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.routeToPlaceButton.leadingAnchor.constraint(
+                equalTo: self.scrollView.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.routeToPlaceButton.trailingAnchor.constraint(
+                equalTo: self.scrollView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.routeToPlaceButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight)
         ])
     }
 
-    func setupDesriptionLabel() {
+    func setupDescriptionLabel() {
         self.scrollView.addSubview(self.descriptionLabel)
         self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            self.descriptionLabel.topAnchor.constraint(equalTo: self.descriptionStaticLabel.bottomAnchor,
-                                                       constant: Constants.anchorConstant),
-            self.descriptionLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                           constant: Constants.anchorConstant),
-            self.descriptionLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                            constant: -Constants.anchorConstant),
+            self.descriptionLabel.topAnchor.constraint(
+                equalTo: self.placeLocationMapView.bottomAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.descriptionLabel.leadingAnchor.constraint(
+                equalTo: self.scrollView.leadingAnchor,
+                constant: AppConstants.Constraints.normalAnchorConstant),
+            self.descriptionLabel.trailingAnchor.constraint(
+                equalTo: self.scrollView.trailingAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
 
@@ -235,86 +264,120 @@ private extension OnePlaceView {
 
         NSLayoutConstraint.activate([
             self.menuButton.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor,
-                                                       constant: Constants.anchorConstant),
+                                                 constant: AppConstants.Constraints.normalAnchorConstant),
             self.menuButton.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                     constant: Constants.anchorConstant),
+                                                     constant: AppConstants.Constraints.normalAnchorConstant),
             self.menuButton.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                      constant: -Constants.anchorConstant),
-            self.menuButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
-        ])
-    }
-
-    func setupPlaceLocationElements() {
-        self.setupPlaceLocationLabel()
-        self.setupLocationMapView()
-    }
-
-    func setupPlaceLocationLabel() {
-        self.scrollView.addSubview(self.placeLocationLabel)
-        self.placeLocationLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            self.placeLocationLabel.topAnchor.constraint(equalTo: self.menuButton.bottomAnchor,
-                                                       constant: Constants.anchorConstant),
-            self.placeLocationLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                           constant: Constants.anchorConstant),
-            self.placeLocationLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                            constant: -Constants.anchorConstant),
-        ])
-    }
-
-    func setupLocationMapView() {
-        self.scrollView.addSubview(self.placeLocationMapView)
-        self.placeLocationMapView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            self.placeLocationMapView.topAnchor.constraint(equalTo: self.placeLocationLabel.bottomAnchor,
-                                                       constant: Constants.anchorConstant),
-            self.placeLocationMapView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
-            self.placeLocationMapView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
-            self.placeLocationMapView.heightAnchor.constraint(equalTo: self.topImageView.widthAnchor,
-                                                      multiplier: Constants.constraintsMultiplier)
-        ])
-    }
-
-    func setupRouteToPlaceButton() {
-        self.scrollView.addSubview(self.routeToPlaceButton)
-        self.routeToPlaceButton.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            self.routeToPlaceButton.bottomAnchor.constraint(equalTo: self.placeLocationMapView.bottomAnchor,
-                                                       constant: -Constants.anchorConstant),
-            self.routeToPlaceButton.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor,
-                                                             constant: Constants.anchorConstant),
-            self.routeToPlaceButton.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor,
-                                                              constant: -Constants.anchorConstant),
-            self.routeToPlaceButton.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor,
-                                                          constant: -Constants.anchorConstant),
-            self.routeToPlaceButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
+                                                      constant: -AppConstants.Constraints.normalAnchorConstant),
+            self.menuButton.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.buttonsHeight),
+            self.menuButton.bottomAnchor.constraint(
+                equalTo: self.scrollView.bottomAnchor,
+                constant: -AppConstants.Constraints.normalAnchorConstant),
         ])
     }
 }
 
+// MARK: - Настройка activityIndicator-а, отображаемого при загрузке экрана
+
+private extension OnePlaceView {
+    func setupActivityIndicator() {
+        self.addSubview(self.activityIndicator)
+        self.activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            self.activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
+    }
+}
+
+// MARK: - IOnePlaceView
+
 extension OnePlaceView: IOnePlaceView {
-    func setupView(place: Place, placeImage: UIImage) {
+    func setupView(place: Place,
+                   placeImage: UIImage) {
+        self.activityIndicator.stopAnimating()
+        self.setupElements()
         guard let title = place.title,
               let description = place.descriptionText else {
             return
         }
         self.titleLabel.text = title
         self.topImageView.image = placeImage
-        self.descriptionLabel.text = description
-        setupMap(forPlace: place)
+        setupDescriptionLabelText(place, description)
+        self.setupMap(forPlace: place)
+    }
+    
+    func setupLikeButton(isLiked: Bool) {
+        if isLiked {
+            // Показываем doneView с текстом о том, что запись добавлена в избранные
+            self.likeButton.setImage(AppConstants.Images.likeFilled, for: .normal)
+        } else {
+            // Показываем doneView с текстом о том, что запись удалена из избранных
+            self.likeButton.setImage(AppConstants.Images.like, for: .normal)
+        }
+    }
+    
+    private func setupDescriptionLabelText(_ place: Place,
+                                           _ description: String) {
+        if let distance = place.distance,
+           distance > 0 {
+            // Округлим до 1 знака после запятой
+            let roundedDistance = Double(round(10*distance)/10)
+            self.descriptionLabel.text = "Информация о заведении:\n\(description)\n\nЗаведение находится в \(roundedDistance) м. от вас"
+        } else {
+            self.descriptionLabel.text = "Информация о заведении:\n\(description)"
+        }
+    }
 
+    func showDoneView(_ isLiked: Bool) {
+        if isLiked {
+            self.setupAddedDoneView()
+        } else {
+            self.setupRemovedDoneView()
+        }
     }
 }
 
+// MARK: - Настройка аннотации и региона на карте
 
 private extension OnePlaceView {
     func setupMap(forPlace place: Place) {
-        self.placeLocationMapView.setRegion(MKCoordinateRegion(center: place.coordinate,
-                                                               span: Constants.placeLocationMapSpan),
+        let region = MKCoordinateRegion(center: place.coordinate,
+                                        span: Constants.placeLocationMapSpan)
+        self.placeLocationMapView.setRegion(region,
                                             animated: false)
         self.placeLocationMapView.addAnnotation(place)
+    }
+}
+
+// MARK: - Настройка показывания doneView
+
+private extension OnePlaceView {
+    func setupAddedDoneView() {
+        self.addDoneViewOnScreen(withText: "Заведение добавлено в список избранных")
+    }
+
+    func setupRemovedDoneView() {
+        self.addDoneViewOnScreen(withText: "Заведение удалено из списка избранных")
+    }
+
+    func addDoneViewOnScreen(withText text: String) {
+
+        self.likeButton.isUserInteractionEnabled = false
+        self.doneView.setLabelText(text: text)
+        self.addSubview(self.doneView)
+        self.doneView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            self.doneView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.doneView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.doneView.widthAnchor.constraint(equalToConstant: AppConstants.Sizes.doneViewSize.width),
+            self.doneView.heightAnchor.constraint(equalToConstant: AppConstants.Sizes.doneViewSize.height)
+        ])
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.doneView.removeFromSuperview()
+            self.likeButton.isUserInteractionEnabled = true
+        }
     }
 }

@@ -9,58 +9,78 @@ import Foundation
 import UIKit
 
 class ImageCache{
-    
-    static func storeImage(urlString:String,
-                           image:UIImage,
-                           nameOfPicture:String){
-        
-        let path = NSTemporaryDirectory().appending(nameOfPicture)
-        let url = URL(fileURLWithPath: path)
-        
-        let data = image.jpegData(compressionQuality: 0.1)
-        try? data?.write(to: url)
-        
-        var dict = UserDefaults.standard.object(forKey: "ImageCache") as? [String:String]
-        if dict == nil{
-            dict = [String:String]()
+    static func storeImage(urlString: String,
+                           image: UIImage,
+                           nameOfPicture: String){
+        // Загружаем картинку в NSTemporaryDirectory,
+        // записываем dictionary с URL изображения в UserDefaults для возможности
+        // посмотреть сохранено ли уже это изображение в при последующей загрузки
+        // этой же картинки
+        DispatchQueue.global(qos: .userInitiated).async {
+            let path = NSTemporaryDirectory().appending(nameOfPicture)
+            let url = URL(fileURLWithPath: path)
+            
+            let data = image.jpegData(compressionQuality: 0.1)
+            try? data?.write(to: url)
+            
+            var dict = UserDefaults.standard.object(forKey: "ImageCache") as? [String:String]
+            if dict == nil {
+                dict = [String:String]()
+            }
+            guard var dictionary = dict else {
+                assertionFailure("ooops!")
+                return
+            }
+            dictionary[urlString] = path
+            UserDefaults.standard.set(dictionary, forKey: "ImageCache")
         }
-        dict![urlString] = path
-        UserDefaults.standard.set(dict, forKey: "ImageCache")
     }
     
-    static func loadImage(urlString:String,
-                          nameOfPicture:String,
+    static func loadImage(urlString: String,
+                          nameOfPicture: String,
                           completion: @escaping (String, UIImage?)->Void) {
-        
-        if let dict = UserDefaults.standard.object(forKey: "ImageCache") as? [String:String] {
-            if let path = dict[urlString] {
-                if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
-                    let image = UIImage(data: data)
-                    completion(urlString, image)
-                    return
+        DispatchQueue.global(qos: .userInitiated).async {
+            if let dict = UserDefaults.standard.object(forKey: "ImageCache") as? [String:String] {
+                if let path = dict[urlString] {
+                    if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
+                        DispatchQueue.main.async {
+                            let image = UIImage(data: data)
+                            completion(urlString, image)
+                        }
+                        return
+                    }
                 }
             }
-        }
-        guard let url = URL(string: urlString) else {
-            assertionFailure("oops, something went wrong")
-            return
-        }
-        
-        // TODO: - на другой поток!!!
-        // TODO: - Также можно в Interactor-ах на (places:[Place] поставить computedProperties и сделать
-        // didSet { self.presenter.отправка дату на вывод на UI}!!!
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard  error == nil else { return }
-            guard let data = data else { return }
-            DispatchQueue.main.async {
+            guard let url = URL(string: urlString) else {
+                DispatchQueue.main.async {
+                    completion(urlString, UIImage())
+                }
+                assertionFailure("oops, something went wrong")
+                return
+            }
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                guard  error == nil else {
+                    DispatchQueue.main.async {
+                        completion(urlString, UIImage())
+                    }
+                    return
+                }
+                guard let data = data else {
+                    DispatchQueue.main.async {
+                        completion(urlString, UIImage())
+                    }
+                    return
+                }
                 if let image = UIImage(data: data) {
                     storeImage(urlString: urlString,
                                image: image,
                                nameOfPicture: nameOfPicture)
-                    completion(urlString, image)
+                    DispatchQueue.main.async {
+                        completion(urlString, image)
+                    }
                 }
             }
+            task.resume()
         }
-        task.resume()
     }
 }

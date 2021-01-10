@@ -8,13 +8,16 @@
 import UIKit
 
 enum ProfileVCAssembly {
-    static func createProfileVC() -> UIViewController {
+    static func createVC() -> UIViewController {
         let profileRouter = ProfileRouter()
         let profileInteractor = ProfileInteractor()
-        let profilePresenter = ProfilePresenter(interactor: profileInteractor, router: profileRouter)
+        let profilePresenter = ProfilePresenter(interactor: profileInteractor,
+                                                router: profileRouter)
         let profileVC = ProfileViewController(presenter: profilePresenter)
+
         profileRouter.vc = profileVC
         profileInteractor.presenter = profilePresenter
+        
         return profileVC
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-final class FirebaseManager {
+final class FirebaseAuthManager {
 
     private var auth = Auth.auth()
 

@@ -12,17 +12,19 @@ protocol IMapLocationManagerDelegate: class {
 }
 
 final class MapViewLocationManagerDelegate: NSObject {
-
+    
     //MARK: - Properties
-
+    
     private var delegate: IMapLocationManagerDelegate
-
+    
     //MARK: - Init
-
+    
     init(withDelegate delegate: IMapLocationManagerDelegate) {
         self.delegate = delegate
     }
 }
+
+// MARK: - CLLocationManagerDelegate
 
 extension MapViewLocationManagerDelegate: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
