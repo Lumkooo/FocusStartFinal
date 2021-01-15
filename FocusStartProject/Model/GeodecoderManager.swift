@@ -8,7 +8,13 @@
 import Foundation
 import MapKit
 
-final class GeodecoderManager {
+protocol IGeodecoderManager {
+    static func decodeAddress(location: CLLocationCoordinate2D,
+                              completion: @escaping ((String) -> Void),
+                              errorCompletion: @escaping ((String) -> Void))
+}
+
+final class GeodecoderManager: IGeodecoderManager {
     /// Преобразование location в строковое представление адреса
     static func decodeAddress(location: CLLocationCoordinate2D,
                               completion: @escaping ((String) -> Void),

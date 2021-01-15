@@ -6,20 +6,31 @@
 //
 
 import Foundation
+
+private protocol IBasketManager {
+    var basketArray: [Food] { get }
+    var isEmpty: Bool { get }
+    var count: Int { get }
+
+    func getBasketArray() -> [Food]
+    func appendFoodToBasket(_ food: Food)
+    func removeAllFood()
+}
+
 /// Метод, обращаясь к которому через sharedInstance
 /// можно работать со списком заказов,
 /// добавленных в корзину
-final class BasketManager {
+final class BasketManager: IBasketManager {
 
     // MARK: - Properties
 
     static let sharedInstance = BasketManager()
-    private var basketArray: [Food] = []
+    fileprivate var basketArray: [Food] = []
 
     var isEmpty: Bool {
         return self.basketArray.isEmpty
     }
-
+    
     var count: Int {
         return self.basketArray.count
     }

@@ -18,9 +18,6 @@ protocol IProfileView: class {
     func setupViewForUnauthorizedUser()
 }
 
-// TODO: - Animated View вынести в отдельный класс AnimatedView
-// и после просто вызывать это View, все настройки вынести в отдельный класс
-
 final class ProfileView: UIView {
 
     // MARK: - Constants

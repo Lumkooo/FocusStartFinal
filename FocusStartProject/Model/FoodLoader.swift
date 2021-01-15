@@ -7,7 +7,13 @@
 
 import Foundation
 
-final class FoodLoader {
+protocol IFoodLoader {
+    static func loadFoodFor(place: Place,
+                            completion: @escaping ([Food]) -> Void,
+                            errorCompletion: @escaping ((String) -> Void))
+}
+
+final class FoodLoader: IFoodLoader {
     /// Загрузка меню для места, completion выводит список еды, errorCompletion выводит ошибку с описанием ошибки
     static func loadFoodFor(place: Place,
                             completion: @escaping ([Food]) -> Void,

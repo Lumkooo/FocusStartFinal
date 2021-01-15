@@ -8,7 +8,16 @@
 import Foundation
 import UIKit
 
-class ImageCache{
+protocol IImageCache {
+    static func storeImage(urlString: String,
+                           image: UIImage,
+                           nameOfPicture: String)
+    static func loadImage(urlString: String,
+                          nameOfPicture: String,
+                          completion: @escaping (String, UIImage?)->Void)
+}
+
+class ImageCache: IImageCache {
     static func storeImage(urlString: String,
                            image: UIImage,
                            nameOfPicture: String) {

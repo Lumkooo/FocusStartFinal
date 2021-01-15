@@ -7,7 +7,14 @@
 
 import Foundation
 
-final class TimeManager {
+private protocol ITimeManager {
+    func getCurrentTime(isForUser: Bool) -> String
+    func makeMoreRealistic(digit: Int) -> String
+    func monthIntToString(forMonth month: Int) -> String
+}
+
+
+final class TimeManager: ITimeManager {
     /// Возвращает текущее время
     /// - parameter isForUser: true возвращает время вида hour : minutes day month. false возвращает время вида hour : minutes : seconds:nanoseconds day month
     func getCurrentTime(isForUser: Bool) -> String {
@@ -34,7 +41,7 @@ final class TimeManager {
     ///
     /// Например, не как 14 часов 1 минута, а как
     /// 14 часов 01 минута. 14:01 выглядит привычнее, чем 14:1
-    private func makeMoreRealistic(digit: Int) -> String{
+    fileprivate func makeMoreRealistic(digit: Int) -> String{
         if digit < 10 {
             return "0\(digit)"
         } else {
@@ -43,7 +50,7 @@ final class TimeManager {
     }
 
     /// Преобразование числа месяца в строку месяца
-    private func monthIntToString(forMonth month: Int) -> String {
+    fileprivate func monthIntToString(forMonth month: Int) -> String {
         switch month {
         case 1:
             return "Января"
