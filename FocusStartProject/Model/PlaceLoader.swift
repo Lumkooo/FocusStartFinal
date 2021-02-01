@@ -7,9 +7,19 @@
 
 import MapKit
 
-final class PlaceLoader {
+private protocol IPlaceLoader {
+    var places: [Place] { get set }
 
-    private var places: [Place] = []
+    func loadInitialData(completion: (([Place]) -> Void),
+                         errorCompletion: ((String) -> Void))
+    func getDisciplines() -> [String]
+    func getPlacesForDiscpline(_ discpline: String) -> [Place]
+    func setPlacesByLocation(places: [Place])
+}
+
+final class PlaceLoader: IPlaceLoader {
+
+    fileprivate var places: [Place] = []
     static let sharedInstance = PlaceLoader()
     private let errorDescription = "Не удалось получить список заведений"
 

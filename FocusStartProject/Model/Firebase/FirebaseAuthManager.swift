@@ -8,7 +8,22 @@
 import Foundation
 import Firebase
 
-final class FirebaseAuthManager {
+protocol IFirebaseAuthManager {
+    var isSignedIn: Bool { get }
+    var userUID: String? { get }
+    var userEmail: String { get }
+
+    func createUser(loginEntitie: LoginEntitie,
+                    completion: @escaping (() -> Void),
+                    errorCompletion: @escaping ((Error) -> Void))
+    func signIn(loginEntitie: LoginEntitie,
+                completion: @escaping (() -> Void),
+                errorCompletion: @escaping ((Error) -> Void))
+    func logout(completion: (() -> Void),
+                errorCompletion: ((Error) -> Void))
+}
+
+final class FirebaseAuthManager: IFirebaseAuthManager {
 
     private var auth = Auth.auth()
 

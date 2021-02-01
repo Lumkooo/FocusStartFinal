@@ -7,7 +7,11 @@
 
 import MapKit
 
-final class AvailableMaps {
+protocol IAvailableMaps {
+    static func getAvailableMaps(withLocation location: CLLocationCoordinate2D) -> [(String, URL)]
+}
+
+final class AvailableMaps: IAvailableMaps {
     /// Возвращает массив кортежей (название, URL для открытия) доступных карт на телефоне
     static func getAvailableMaps(withLocation location: CLLocationCoordinate2D) -> [(String, URL)] {
         let latitude = location.latitude

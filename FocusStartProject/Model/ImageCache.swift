@@ -8,10 +8,19 @@
 import Foundation
 import UIKit
 
-class ImageCache{
+protocol IImageCache {
     static func storeImage(urlString: String,
                            image: UIImage,
-                           nameOfPicture: String){
+                           nameOfPicture: String)
+    static func loadImage(urlString: String,
+                          nameOfPicture: String,
+                          completion: @escaping (String, UIImage?)->Void)
+}
+
+class ImageCache: IImageCache {
+    static func storeImage(urlString: String,
+                           image: UIImage,
+                           nameOfPicture: String) {
         // Загружаем картинку в NSTemporaryDirectory,
         // записываем dictionary с URL изображения в UserDefaults для возможности
         // посмотреть сохранено ли уже это изображение в при последующей загрузки
@@ -53,30 +62,38 @@ class ImageCache{
             }
             guard let url = URL(string: urlString) else {
                 DispatchQueue.main.async {
-                    completion(urlString, UIImage())
+                    completion(urlString, AppConstants.Images.errorImage)
                 }
                 assertionFailure("oops, something went wrong")
                 return
             }
+
+
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 guard  error == nil else {
                     DispatchQueue.main.async {
-                        completion(urlString, UIImage())
+                        completion(urlString, AppConstants.Images.errorImage)
                     }
                     return
                 }
                 guard let data = data else {
                     DispatchQueue.main.async {
-                        completion(urlString, UIImage())
+                        completion(urlString, AppConstants.Images.errorImage)
                     }
                     return
                 }
+
                 if let image = UIImage(data: data) {
                     storeImage(urlString: urlString,
                                image: image,
                                nameOfPicture: nameOfPicture)
                     DispatchQueue.main.async {
                         completion(urlString, image)
+                    }
+                } else {
+                    // Не удалось получить картинку, возвращаем пустое изображение
+                    DispatchQueue.main.async {
+                        completion(urlString, AppConstants.Images.errorImage)
                     }
                 }
             }

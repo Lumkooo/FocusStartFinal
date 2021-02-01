@@ -7,7 +7,14 @@
 
 import UIKit
 
-final class PriceLabelSetuper {
+protocol IPriceLabelSetuper {
+    static func makePriceLabels(foodPrice: Double, newFoodPrice: Double,
+                                completion: (_ priceLabelColor: UIColor,
+                                             _ priceLabelText: String,
+                                             _ newPriceLabelText: NSMutableAttributedString) -> Void)
+}
+
+final class PriceLabelSetuper: IPriceLabelSetuper {
     /// Используется для преобразования двух цен в необходимое отображение.
     ///
     /// Если foodPrice == newFoodPrice, то priceLabelText - текст цены товара черного цвета

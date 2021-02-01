@@ -27,9 +27,12 @@ extension SearchingScreenTableViewDataSource: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: AppConstants.TableViewCellIdentifiers.searchingTableViewCellID,
             for: indexPath)
-        let place = self.places[indexPath.row]
-        if let title = place.title  {
-            cell.textLabel?.text = title
+        // Добавил проверку есть ли что либо по этому индексу
+        if self.places.count >= indexPath.row {
+            let place = self.places[indexPath.row]
+            if let title = place.title  {
+                cell.textLabel?.text = title
+            }
         }
         return cell
     }
