@@ -8,6 +8,47 @@
 import Foundation
 import Firebase
 
+protocol IFirebaseDatabaseManagerLikedPlaces {
+    /// Метод добавляет текущую запись в список понравившихся, сохраняет ее в Firebase Database
+    func appendToLikedPlaces(place: Place,
+                             completion: @escaping () -> Void,
+                             errorCompletion: @escaping () -> Void)
+    /// Метод удаляет текущую запись из списка понравившихся
+    func deleteLikedPlace(place: Place,
+                          completion: @escaping () -> Void,
+                          errorCompletion: @escaping () -> Void)
+    /// Метод для получения информации о том добавлен ли это заведение в избранные
+    func isPlaceLiked(place: Place,
+                      completion: @escaping (Bool) -> Void,
+                      errorCompletion: @escaping () -> Void)
+    func getLikedPlaces(completion: @escaping ([FirebaseLikedPlace]) -> Void,
+                        errorCompletion: @escaping () -> Void)
+}
+
+private protocol IFirebaseDatabaseManagerOrders {
+    /// Метод для загрузки данных в FirebaseDatabase.
+    func uploadOrders(foodArray: [Food],
+                      orderTime: String,
+                      deliveryMethod: String,
+                      completion: (() -> Void),
+                      errorCompletion: (() -> Void))
+    /// Метод для получения списка заказов из Firebase Database.
+    func getOrders(completion: @escaping ([HistoryOrderEntity]) -> Void,
+                   errorCompletion: @escaping () -> Void)
+    /// Метод в completion возвращает количество сделанных пользователем заказов
+    func getOrdersCount(completion: @escaping ((Int) -> Void))
+    /// Загружает запись в firebase database для того, чтобы заведения могли видеть заказ
+    func uploadOrderToRestaurant(foodArray: [Food],
+                                         orderTime: String,
+                                         deliveryMethod: String,
+                                         errorCompletion: (() -> Void))
+    /// Загружает запись в firebase database для последующего просмотра историй заказов в профиле
+    func uploadOrderToHistory(foodArray: [Food],
+                                      orderTime: String,
+                                      deliveryMethod: String,
+                                      errorCompletion: (() -> Void))
+}
+
 final class FirebaseDatabaseManager {
     
     // MARK: - Properties
@@ -28,7 +69,7 @@ final class FirebaseDatabaseManager {
 
 // MARK: - Методы для работы с избранными местами
 
-extension FirebaseDatabaseManager {
+extension FirebaseDatabaseManager: IFirebaseDatabaseManagerLikedPlaces {
     
     /// Метод добавляет текущую запись в список понравившихся, сохраняет ее в Firebase Database
     func appendToLikedPlaces(place: Place,
@@ -119,7 +160,7 @@ extension FirebaseDatabaseManager {
 
 // MARK: - Методы для работы с заказами
 
-extension FirebaseDatabaseManager {
+extension FirebaseDatabaseManager: IFirebaseDatabaseManagerOrders {
     /// Метод для загрузки данных в FirebaseDatabase.
     func uploadOrders(foodArray: [Food],
                       orderTime: String,
@@ -191,7 +232,7 @@ extension FirebaseDatabaseManager {
     }
     
     /// Загружает запись в firebase database для того, чтобы заведения могли видеть заказ
-    private func uploadOrderToRestaurant(foodArray: [Food],
+    fileprivate func uploadOrderToRestaurant(foodArray: [Food],
                                          orderTime: String,
                                          deliveryMethod: String,
                                          errorCompletion: (() -> Void)) {
@@ -218,7 +259,7 @@ extension FirebaseDatabaseManager {
     }
     
     /// Загружает запись в firebase database для последующего просмотра историй заказов в профиле
-    private func uploadOrderToHistory(foodArray: [Food],
+    fileprivate func uploadOrderToHistory(foodArray: [Food],
                                       orderTime: String,
                                       deliveryMethod: String,
                                       errorCompletion: (() -> Void)) {

@@ -8,7 +8,17 @@
 import Foundation
 import Firebase
 
+protocol IRatePlaceManager {
+    ///Метод добавления рейтинга заведения
+    func ratePlace(rate: Int,
+                   completion: (RatingEntity) -> Void)
+    /// Метод добавления рейтинга заведения
+    func getRating(completion: @escaping ((RatingEntity) -> Void))
+    func isRated(completion: @escaping (Bool) -> Void)
+}
+
 final class RatePlaceManager {
+
     // MARK: - Properties
 
     private var userUID: String {
@@ -41,7 +51,7 @@ final class RatePlaceManager {
 }
 
 
-extension RatePlaceManager {
+extension RatePlaceManager: IRatePlaceManager {
 
     // MARK: - Метод добавления рейтинга заведения
 
